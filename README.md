@@ -1,4 +1,4 @@
 server-sdk-php
 ==============
 
-Rong Cloud Server SDK in Java.
+Rong Cloud Server SDK in PHP.
