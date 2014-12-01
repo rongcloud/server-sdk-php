@@ -19,7 +19,7 @@ print_r($r);
 class ServerAPI{
     private $httpHeaderData = '';   //http header
     private $params = [];           //参数数组
-    private $action;                //请求放放
+    private $action;                //请求方法
     private $appKey;                //appKey
     private $appSecret;             //secret
     const   SERVERAPIURL = 'https://api.cn.rong.io';    //请求服务地址
