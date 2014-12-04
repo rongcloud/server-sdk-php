@@ -129,10 +129,16 @@ class ServerAPI{
         return array(
             '/user/getToken'=>array('userId','name','portraitUri'),
             '/message/publish'=>array('fromUserId','toUserId','objectName','content'),
+            '/message/system/publish'=>array('fromUserId','toUserId','objectName','content','pushContent','pushData'),
+            '/message/group/publish'=>array('fromUserId','toGroupId','objectName','content','pushContent','pushData'),
+            '/message/chatroom/publish'=>array('fromUserId','toChatroomId','objectName','content'),
+         //   '/message/broadcast'=>array('fromUserId','objectName','content'), 暂时未开放
+            '/message/history'=>array('date'),
             '/group/sync'=>array('userId',array('group')),
             '/group/join'=>array('userId','groupId','groupName'),
             '/group/quit'=>array('userId','groupId'),
             '/group/dismiss'=>array('userId','groupId'),
+            '/group/create'=>array('userId','groupId','groupName'),
             '/chatroom/create'=>array(array('chatroom')),
             '/chatroom/destroy'=>array('chatroomId'),
             '/chatroom/query'=>array('chatroomId'),
@@ -140,4 +146,3 @@ class ServerAPI{
     }
 
 }
-
