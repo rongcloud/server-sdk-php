@@ -128,7 +128,7 @@ class ServerAPI{
     private function getAllowMethods() {
         return array(
             '/user/getToken'=>array('userId','name','portraitUri'),
-            '/message/publish'=>array('fromUserId','toUserId','objectName','content'),
+            '/message/publish'=>array('fromUserId','toUserId','objectName','content','pushContent','pushData'),
             '/message/system/publish'=>array('fromUserId','toUserId','objectName','content','pushContent','pushData'),
             '/message/group/publish'=>array('fromUserId','toGroupId','objectName','content','pushContent','pushData'),
             '/message/chatroom/publish'=>array('fromUserId','toChatroomId','objectName','content'),
