@@ -416,10 +416,10 @@ class ServerAPI{
         $timeStamp = time();
         $sign = sha1($this->appSecret.$nonce.$timeStamp);
         return array(
-            'App-Key:'.$this->appKey,
-            'Nonce:'.$nonce,
-            'Timestamp:'.$timeStamp,
-            'Signature:'.$sign,
+            'RC-App-Key:'.$this->appKey,
+            'RC-Nonce:'.$nonce,
+            'RC-Timestamp:'.$timeStamp,
+            'RC-Signature:'.$sign,
         );
     }
 
@@ -452,7 +452,6 @@ class ServerAPI{
         return $ret;
     }
 }
-
 
 
 
