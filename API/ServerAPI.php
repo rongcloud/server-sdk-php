@@ -76,9 +76,11 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/publish',array('fromUserId'=>$fromUserId,
+            $ret = $this->curl('/message/publish',array(
+                'fromUserId'=>$fromUserId,
                 'toUserId'=>$toUserId,
                 'objectName'=>$objectName,
+                'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
             ));
@@ -100,19 +102,21 @@ class ServerAPI{
      * @param string $pushData      针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messageGroupPublish($fromUserId,$toUserId,$objectName,$content,$pushContent='',$pushData = '') {
+    public function messageGroupPublish($fromUserId,$toGroupId,$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
-            if(empty($toUserId))
-                throw new Exception('接收用户 Id 不能为空');
+            if(empty($toGroupId))
+                throw new Exception('接收群Id 不能为空');
             if(empty($objectName))
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/group/publish',array('fromUserId'=>$fromUserId,
-                'toUserId'=>$toUserId,
+            $ret = $this->curl('/message/group/publish',array(
+                'fromUserId'=>$fromUserId,
+                'toGroupId'=>$toGroupId,
                 'objectName'=>$objectName,
+                'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
             ));
@@ -172,9 +176,11 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/system/publish',array('fromUserId'=>$fromUserId,
+            $ret = $this->curl('/message/system/publish',array(
+                'fromUserId'=>$fromUserId,
                 'toUserId'=>$toUserId,
                 'objectName'=>$objectName,
+                'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
             ));
@@ -452,7 +458,5 @@ class ServerAPI{
         return $ret;
     }
 }
-
-
 
 
