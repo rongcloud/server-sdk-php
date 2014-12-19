@@ -66,7 +66,7 @@ class ServerAPI{
      * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messagePublish($fromUserId,$toUserId,$objectName,$content,$pushContent='',$pushData = '') {
+    public function messagePublish($fromUserId,$toUserId = [],$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -76,14 +76,20 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/publish',array(
+
+            $params = array(
                 'fromUserId'=>$fromUserId,
-                'toUserId'=>$toUserId,
                 'objectName'=>$objectName,
                 'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
-            ));
+            );
+
+            $paramsString = http_build_query($params);
+            foreach($toUserId as $val) {
+                $paramsString .= '&toUserId='.$val;
+            }
+            $ret = $this->curl('/message/publish',$paramsString);
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
@@ -102,7 +108,7 @@ class ServerAPI{
      * @param string $pushData      针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messageGroupPublish($fromUserId,$toGroupId,$objectName,$content,$pushContent='',$pushData = '') {
+    public function messageGroupPublish($fromUserId,$toGroupId = [],$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -112,14 +118,19 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/group/publish',array(
+
+            $params = array(
                 'fromUserId'=>$fromUserId,
-                'toGroupId'=>$toGroupId,
                 'objectName'=>$objectName,
                 'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
-            ));
+            );
+            $paramsString = http_build_query($params);
+            foreach($toGroupId as $val) {
+                $paramsString .= "&toGroupId=".$val;
+            }
+            $ret = $this->curl('/message/group/publish',$paramsString);
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
@@ -137,7 +148,7 @@ class ServerAPI{
      * @param $content                  发送消息内容，参考融云消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
      * @return json|xml
      */
-    public function messageChatroomPublish($fromUserId,$toChatroomId,$objectName,$content) {
+    public function messageChatroomPublish($fromUserId,$toChatroomId = [],$objectName,$content) {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -147,7 +158,12 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/chatroom/publish',array('fromUserId'=>$fromUserId,'toChatroomId'=>$toChatroomId,'objectName'=>$objectName,'content'=>$content,));
+            $params = array('fromUserId'=>$fromUserId,'objectName'=>$objectName,'content'=>$content,);
+            $paramsString = http_build_query($params);
+            foreach($toChatroomId as $val) {
+                $paramsString .= "&toChatroomId=".$val;
+            }
+            $ret = $this->curl('/message/chatroom/publish',$paramsString);
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
@@ -166,7 +182,7 @@ class ServerAPI{
      * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messageSystemPublish($fromUserId,$toUserId,$objectName,$content,$pushContent='',$pushData = '') {
+    public function messageSystemPublish($fromUserId,$toUserId = [],$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -176,14 +192,20 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
-            $ret = $this->curl('/message/system/publish',array(
+
+            $params = array(
                 'fromUserId'=>$fromUserId,
                 'toUserId'=>$toUserId,
                 'objectName'=>$objectName,
                 'content'=>$content,
                 'pushContent'=>$pushContent,
                 'pushData'=>$pushData
-            ));
+            );
+            $paramsString = http_build_query($params);
+            foreach($toUserId as $val) {
+                $paramsString .= "&toUserId=".$val;
+            }
+            $ret = $this->curl('/message/system/publish',$paramsString);
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
@@ -458,5 +480,7 @@ class ServerAPI{
         return $ret;
     }
 }
+
+
 
 
