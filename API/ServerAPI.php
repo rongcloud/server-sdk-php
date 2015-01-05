@@ -66,7 +66,7 @@ class ServerAPI{
      * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messagePublish($fromUserId,$toUserId = [],$objectName,$content,$pushContent='',$pushData = '') {
+    public function messagePublish($fromUserId,$toUserId = array(),$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -108,7 +108,7 @@ class ServerAPI{
      * @param string $pushData      针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messageGroupPublish($fromUserId,$toGroupId = [],$objectName,$content,$pushContent='',$pushData = '') {
+    public function messageGroupPublish($fromUserId,$toGroupId = array(),$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -148,7 +148,7 @@ class ServerAPI{
      * @param $content                  发送消息内容，参考融云消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
      * @return json|xml
      */
-    public function messageChatroomPublish($fromUserId,$toChatroomId = [],$objectName,$content) {
+    public function messageChatroomPublish($fromUserId,$toChatroomId = array(),$objectName,$content) {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -182,7 +182,7 @@ class ServerAPI{
      * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
      * @return json|xml
      */
-    public function messageSystemPublish($fromUserId,$toUserId = [],$objectName,$content,$pushContent='',$pushData = '') {
+    public function messageSystemPublish($fromUserId,$toUserId = array(),$objectName,$content,$pushContent='',$pushData = '') {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
