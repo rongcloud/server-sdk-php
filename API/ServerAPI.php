@@ -247,7 +247,7 @@ class ServerAPI{
         try{
             if(empty($date))
                 throw new Exception('时间 不能为空');
-            $ret = $this->curl('/message/broadcast',array('date'=>$date));
+            $ret = $this->curl('/message/history',array('date'=>$date));
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
@@ -256,6 +256,23 @@ class ServerAPI{
         }
     }
 
+    /**
+     * 删除 APP 内指定某天某小时内的所有会话消息记录
+     * @param $date string 指定北京时间某天某小时，格式为2014010101,表示：2014年1月1日凌晨1点。（必传）
+     * @return mixed
+     */
+    public function messageHistoryDelete($date) {
+        try{
+            if(empty($date))
+                throw new Exception('时间 不能为空');
+            $ret = $this->curl('/message/history/delete',array('date'=>$date));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
 
 
     /**
