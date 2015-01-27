@@ -452,6 +452,105 @@ class ServerAPI{
 
 
     /**
+     * 检查用户在线状态 方法
+     * @param $userId    用户 Id。（必传）
+     * @return mixed
+     */
+    public function userCheckOnline($userId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            $ret = $this->curl('/user/checkOnline',array('userId'=>$userId));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 封禁用户 方法
+     * @param $userId   用户 Id。（必传）
+     * @param $minute   封禁时长,单位为分钟，最大值为43200分钟。（必传）
+     * @return mixed
+     */
+    public function userBlock($userId,$minute) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($minute))
+                throw new Exception('封禁时长不能为空');
+            $ret = $this->curl('/user/block',array('userId'=>$userId,'minute'=>$minute));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 解除用户封禁 方法
+     * @param $userId   用户 Id。（必传）
+     * @return mixed
+     */
+    public function userUnBlock($userId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            $ret = $this->curl('/user/unblock',array('userId'=>$userId));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 获取被封禁用户 方法
+     * @return mixed
+     */
+    public function userBlockQuery() {
+        try{
+            $ret = $this->curl('/user/block/query','');
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * @param $userId   用户 Id，最大长度 32 字节。是用户在 App 中的唯一标识码，必须保证在同一个 App 内不重复，重复的用户 Id 将被当作是同一用户。（必传）
+     * @param string $name  用户名称，最大长度 128 字节。用来在 Push 推送时，或者客户端没有提供用户信息时，显示用户的名称。
+     * @param string $portraitUri   用户头像 URI，最大长度 1024 字节
+     * @return mixed
+     */
+    public function userRefresh($userId,$name='',$portraitUri='') {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($name))
+                throw new Exception('用户名称不能为空');
+            if(empty($portraitUri))
+                throw new Exception('用户头像 URI 不能为空');
+            $ret = $this->curl('/user/refresh',array('userId'=>$userId,'name'=>$name,'portraitUri'=>$portraitUri));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
      * 创建http header参数
      * @param array $data
      * @return bool
@@ -497,6 +596,7 @@ class ServerAPI{
         return $ret;
     }
 }
+
 
 
 
