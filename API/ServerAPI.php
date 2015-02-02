@@ -5,6 +5,7 @@
  * Class ServerAPI
  * @author  caolong
  * @date    2014-12-10  15:30
+ * @modify  2015-02-02  10:21
  *
 //使用
 $p = new ServerAPI('appKey','AppSecret');
@@ -551,6 +552,86 @@ class ServerAPI{
 
 
     /**
+     * 添加用户到黑名单
+     * @param $userId       用户 Id。（必传）
+     * @param $blackUserId  被加黑的用户Id。(必传)
+     * @return mixed
+     */
+    public function userBlacklistAdd($userId,$blackUserId = array()) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($blackUserId))
+                throw new Exception('被加黑的用户 Id 不能为空');
+
+            $params = array(
+                'userId'=>$userId,
+            );
+            $paramsString = http_build_query($params);
+            foreach($blackUserId as $val) {
+                $paramsString .= "&blackUserId=".$val;
+            }
+            $ret = $this->curl('/user/blacklist/add',$paramsString);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 获取某个用户的黑名单列表
+     * @param $userId   用户 Id。（必传）
+     * @return mixed
+     */
+    public function userBlacklistQuery($userId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            $ret = $this->curl('/user/blacklist/query',array('userId'=>$userId));
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 从黑名单中移除用户
+     * @param $userId               用户 Id。（必传）
+     * @param array $blackUserId    被移除的用户Id。(必传)
+     * @return mixed
+     */
+    public function userBlacklistRemove($userId,$blackUserId = array()) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($blackUserId))
+                throw new Exception('被移除的用户 Id 不能为空');
+
+            $params = array(
+                'userId'=>$userId,
+            );
+            $paramsString = http_build_query($params);
+            foreach($blackUserId as $val) {
+                $paramsString .= "&blackUserId=".$val;
+            }
+            $ret = $this->curl('/user/blacklist/remove',$paramsString);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+
+    }
+
+
+    /**
      * 创建http header参数
      * @param array $data
      * @return bool
@@ -596,7 +677,6 @@ class ServerAPI{
         return $ret;
     }
 }
-
 
 
 
