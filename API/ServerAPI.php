@@ -348,6 +348,7 @@ class ServerAPI{
     }
 
     /**
+     * 解散群组 方法  将该群解散，所有用户都无法再接收该群的消息。
      * @param $userId           操作解散群的用户 Id。（必传）
      * @param $groupId          要解散的群 Id。（必传）
      * @return mixed
@@ -435,6 +436,7 @@ class ServerAPI{
     }
 
     /**
+     * 查询聊天室信息 方法
      * @param $chatroomId   要查询的聊天室id（必传）
      * @return json|xml
      */
@@ -528,6 +530,7 @@ class ServerAPI{
 
 
     /**
+     *刷新用户信息 方法  说明：当您的用户昵称和头像变更时，您的 App Server 应该调用此接口刷新在融云侧保存的用户信息，以便融云发送推送消息的时候，能够正确显示用户信息
      * @param $userId   用户 Id，最大长度 32 字节。是用户在 App 中的唯一标识码，必须保证在同一个 App 内不重复，重复的用户 Id 将被当作是同一用户。（必传）
      * @param string $name  用户名称，最大长度 128 字节。用来在 Push 推送时，或者客户端没有提供用户信息时，显示用户的名称。
      * @param string $portraitUri   用户头像 URI，最大长度 1024 字节
