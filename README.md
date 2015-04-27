@@ -14,6 +14,10 @@ server-sdk-php
 新增 用户黑名单接口：userBlacklistAdd（添加）、userBlacklistQuery（查询）、userBlacklistRemove（删除）
 
 
+=============
+更新日期    201504-27
+修复 参数中有 "@" 开头，导致接口调用异常
+
 
 使用：
 include('ServerAPI.php');
