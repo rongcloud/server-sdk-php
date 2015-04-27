@@ -10,7 +10,7 @@ server-sdk-php
 
 
 ==============
-跟新日期    2015-02-02
+更新日期    2015-02-02
 新增 用户黑名单接口：userBlacklistAdd（添加）、userBlacklistQuery（查询）、userBlacklistRemove（删除）
 
 
