@@ -196,7 +196,6 @@ class ServerAPI{
 
             $params = array(
                 'fromUserId'=>$fromUserId,
-                'toUserId'=>$toUserId,
                 'objectName'=>$objectName,
                 'content'=>$content,
                 'pushContent'=>$pushContent,
