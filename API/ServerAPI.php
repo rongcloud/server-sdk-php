@@ -655,6 +655,129 @@ class ServerAPI{
 
 
     /**
+     * 添加禁言群成员
+     * @param $userId   用户 Id。（必传）
+     * @param $groupId 群组 Id。（必传）
+     * @param $minute 禁言时长，以分钟为单位，可以不传此参数，默认为永久禁言。
+     * @return mixed
+     */
+    public function groupUserGagAdd($userId,$groupId,$minute) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($groupId))
+                throw new Exception('群组 Id 不能为空');
+            if (empty($minute)) 
+                throw new Exception('禁言时长 不能为空');
+            $params['userId'] = $userId;
+            $params['groupId'] = $groupId;
+            $params['minute'] = $minute;
+            $ret = $this->curl('/group/user/gag/add',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 移除禁言群成员
+     * @param $userId   用户 Id。（必传）
+     * @param $groupId 群组 Id。（必传）
+     * @return mixed
+     */
+    public function groupUserGagRollback($userId,$groupId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($groupId))
+                throw new Exception('群组 Id 不能为空');
+            $params['userId'] = $userId;
+            $params['groupId'] = $groupId;
+            $ret = $this->curl('/group/user/gag/rollback',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    /**
+     * 查询被禁言群成员
+     * @param $groupId 群组 Id。（必传）
+     * @return mixed
+     */
+    public function groupUserGagList($groupId) {
+        try{
+            if(empty($groupId))
+                throw new Exception('群组 Id 不能为空');
+            $params['groupId'] = $groupId;
+            $ret = $this->curl('/group/user/gag/list',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 添加敏感词
+     * @param $word 敏感词，最长不超过 32 个字符。（必传）
+     * @return mixed
+     */
+    public function wordfilterAdd($word) {
+        try{
+            if(empty($word))
+                throw new Exception('敏感词不能为空');
+            $params['word'] = $word;
+            $ret = $this->curl('/wordfilter/add',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 移除敏感词
+     * @param $word 敏感词，最长不超过 32 个字符。（必传）
+     * @return mixed
+     */
+    public function wordfilterDelete($word) {
+        try{
+            if(empty($word))
+                throw new Exception('敏感词不能为空');
+            $params['word'] = $word;
+            $ret = $this->curl('/wordfilter/delete',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    } 
+    /**
+     * 查询敏感词列表
+     * @return mixed
+     */
+    public function wordfilterList() {
+        try{
+            $ret = $this->curl('/wordfilter/list',array());
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    
+    /**
      * 创建http header参数
      * @param array $data
      * @return bool
@@ -682,6 +805,9 @@ class ServerAPI{
     public  function curl($action,$params) {
         $action = self::SERVERAPIURL.$action.'.'.$this->format;
         $httpHeader = $this->createHttpHeader();
+        print_r($httpHeader);
+        print_r($params);
+        print_r($action);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -700,7 +826,4 @@ class ServerAPI{
         return $ret;
     }
 }
-
-
-
 
