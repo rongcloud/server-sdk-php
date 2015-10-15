@@ -805,9 +805,6 @@ class ServerAPI{
     public  function curl($action,$params) {
         $action = self::SERVERAPIURL.$action.'.'.$this->format;
         $httpHeader = $this->createHttpHeader();
-        print_r($httpHeader);
-        print_r($params);
-        print_r($action);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, 1);
