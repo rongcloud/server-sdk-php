@@ -174,6 +174,46 @@ class ServerAPI{
         }
     }
 
+
+    /**
+     * 发送讨论组消息
+     * @param $fromUserId               发送人用户 Id。（必传）
+     * @param $toDiscussionId             接收讨论组 Id。（必传）
+     * @param $objectName               消息类型，参考融云消息类型表.消息标志；可自定义消息类型。（必传）
+     * @param $content                  发送消息内容，参考融云消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
+     * @param string $pushContent   如果为自定义消息，定义显示的 Push 内容。(可选)
+     * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
+     * @return json|xml
+     */
+    public function messageDiscussionPublish($fromUserId,$toDiscussionId,$objectName,$content,$pushContent='',$pushData='') {
+        try{
+            if(empty($fromUserId))
+                throw new Exception('发送人用户 Id 不能为空');
+            if(empty($toDiscussionId))
+                throw new Exception('接收讨论组 Id 不能为空');
+            if(empty($objectName))
+                throw new Exception('消息类型 不能为空');
+            if(empty($content))
+                throw new Exception('发送消息内容 不能为空');
+
+            $params = array(
+                'fromUserId'=>$fromUserId,
+                'toDiscussionId'=>$toDiscussionId,
+                'objectName'=>$objectName,
+                'content'=>$content,
+                'pushContent'=>$pushContent,
+                'pushData'=>$pushData
+            );
+            $paramsString = http_build_query($params);
+            $ret = $this->curl('/message/discussion/publish',$paramsString);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
     /**
      * 一个用户向一个或多个用户发送系统消息
      * @param $fromUserId       发送人用户 Id。（必传）
@@ -823,4 +863,3 @@ class ServerAPI{
         return $ret;
     }
 }
-
