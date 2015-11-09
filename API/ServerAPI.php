@@ -16,7 +16,7 @@ print_r($r);
 class ServerAPI{
     private $appKey;                //appKey
     private $appSecret;             //secret
-    const   SERVERAPIURL = 'https://api.cn.rong.io';    //请求服务地址
+    const   SERVERAPIURL = 'https://api.cn.ronghub.com';    //请求服务地址
     private $format;                //数据格式 json/xml
 
 
@@ -441,6 +441,26 @@ class ServerAPI{
                 throw new Exception('要加入的群 Id 对应的名称 不能为空');
             $ret = $this->curl('/group/create',
                 array('userId' => $userId, 'groupId' => $groupId,'groupName' => $groupName)
+            );
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    /**
+     * 查询群成员 方法
+     * @param $groupId      群 Id。（必传）
+     * @return json|xml
+     */
+    public function groupUserQuery( $groupId ) {
+        try{
+            if(empty($groupId))
+                throw new Exception('要加入的群 Id 不能为空');
+            $ret = $this->curl('/group/user/query',
+                    array('groupId' => $groupId)
             );
             if(empty($ret))
                 throw new Exception('请求失败');
