@@ -1175,8 +1175,6 @@ class ServerAPI{
         if ($contentType=='json') {
             $httpHeader[] = 'Content-Type:Application/json';
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params) );
-        print_r( json_encode($params) );
-        print_r($httpHeader);
         }
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false); //处理http证书问题
