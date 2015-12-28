@@ -848,7 +848,258 @@ class ServerAPI{
         }
     }
 
+    /**
+     * 添加禁言聊天室成员 方法
+     * @param $userId 用户 Id。（必传）
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @param $minute 禁言时长，以分钟为单位，最大值为43200分钟。（必传）
+     * @return mixed
+     */
+    public function chatroomUserGagAdd($userId,$chatroomId,$minute) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            if(empty($minute) || intval($minute)>43200)
+                throw new Exception('禁言时长不能为空,且最大值为43200');
+            $params['userId'] = $userId;
+            $params['chatroomId'] = $chatroomId;
+            $params['minute'] = $minute;
+            $ret = $this->curl('/chatroom/user/gag/add',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
 
+    /**
+     * 移除禁言聊天室成员 方法
+     * @param $userId 用户 Id。（必传）
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @return mixed
+     */
+    public function chatroomUserGagRollback($userId,$chatroomId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            $params['userId'] = $userId;
+            $params['chatroomId'] = $chatroomId;
+            $ret = $this->curl('/chatroom/user/gag/rollback',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    /**
+     * 查询被禁言聊天室成员 方法
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @return mixed
+     */
+    public function chatroomUserGagList($chatroomId) {
+        try{
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            $params['chatroomId'] = $chatroomId;
+            $ret = $this->curl('/chatroom/user/gag/list',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 添加封禁聊天室成员 方法
+     * @param $userId 用户 Id。（必传）
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @param $minute 封禁时长，以分钟为单位，最大值为43200分钟。（必传）
+     * @return mixed
+     */
+    public function chatroomUserBlockAdd($userId,$chatroomId,$minute) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            if(empty($minute) || intval($minute)>43200)
+                throw new Exception('封禁时长不能为空,且最大值为43200');
+            $params['userId'] = $userId;
+            $params['chatroomId'] = $chatroomId;
+            $params['minute'] = $minute;
+            $ret = $this->curl('/chatroom/user/block/add',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 移除封禁聊天室成员 方法
+     * @param $userId 用户 Id。（必传）
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @return mixed
+     */
+    public function chatroomUserBlockRollback($userId,$chatroomId) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            $params['userId'] = $userId;
+            $params['chatroomId'] = $chatroomId;
+            $ret = $this->curl('/chatroom/user/block/rollback',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    /**
+     * 查询被封禁聊天室成员 方法
+     * @param $chatroomId 聊天室 Id。（必传）
+     * @return mixed
+     */
+    public function chatroomUserBlockList($chatroomId) {
+        try{
+            if(empty($chatroomId))
+                throw new Exception('聊天室 Id 不能为空');
+            $params['chatroomId'] = $chatroomId;
+            $ret = $this->curl('/chatroom/user/block/list',$params);
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    /**
+     * 推送服务 添加标签 方法
+     * @param string $userId 用户 Id。（必传）
+     * @param array $tags 用户标签，一个用户最多添加 20 个标签，每个 tags 最大不能超过 40 个字节，标签中不能包含特殊字符。（必传）
+     * @return mixed
+     */
+    public function pushUserTagSet($userId,$tags) {
+        try{
+            if(empty($userId))
+                throw new Exception('用户 Id 不能为空');
+            if(empty($tags))
+                throw new Exception('用户标签不能为空');
+            $params['userId'] = $userId;
+            $params['tags'] = $tags;
+            $ret = $this->curl('/user/tag/set',$params,'json');
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+    /**
+     * 推送服务 推送 方法
+     * @param $platform 目标操作系统，ios、android 最少传递一个。如果需要给两个系统推送消息时，则需要全部填写。（必传）
+     * @param $audience 推送条件，包括： tag 、 userid 、 is_to_all。（必传）
+     * @param $audience[ tag ] 用户标签，每次发送时最多发送 20 个标签，标签之间为与的关系，is_to_all 为 true 时可不传。（非必传）
+     * @param $audience[ userid ] 用户 Id，每次发送时最多发送 1000 个用户，如果 tag 和 userid 两个条件同时存在时，则以 userid 为准，如果 userid 有值时，则 platform 参数无效，is_to_all 为 true 时可不传。（非必传）
+     * @param $audience[ is_to_all ] 是否全部推送，false 表示按 tag 或 userid 条件推送，true 表示向所有用户推送，tag 和 userid 两个条件无效。（必传）
+     * @param $notification 按操作系统类型推送消息内容，如 platform 中设置了给 ios 和 android 系统推送消息，而在 notifications 中只设置了 ios 的推送内容，则 android 的推送内容为最初 alert 设置的内容。（非必传）
+     * @param $notification[ alert ] 	默认推送消息内容，如填写了 ios 或 android 下的 alert 时，则推送内容以对应平台系统的 alert 为准。（必传）
+     * @param $notification[ ios ] 设置 iOS 平台下的推送及附加信息。（非必传）
+     * @param $notification[ android ] 设置 Android 平台下的推送及附加信息。（非必传）
+     * @param $notification[ ios ][ alert ] ios平台下的推送消息内容，传入后默认的推送消息内容失效，不能为空。（非必传）
+     * @param $notification[ ios ][ extras ]  ios平台下的附加信息，如果开发者自己需要，可以自己在 App 端进行解析。（非必传）
+     * @param $notification[ android ][ alert ] android平台下的推送消息内容，传入后默认的推送消息内容失效，不能为空。（非必传）
+     * @param $notification[ android ][ extras ]  android平台下的附加信息，如果开发者自己需要，可以自己在 App 端进行解析。（非必传）
+     * @return mixed
+     */
+    public function push( $platform,$audience,$notification ) {
+        try{
+            if(empty($platform))
+                throw new Exception('目标操作系统，ios、android 最少传递一个');
+            if(empty($audience))
+                throw new Exception('推送条件不能为空');
+            if( !isset($audience['is_to_all']) )
+                throw new Exception('是否全部推送不能为空');
+            if(empty($notification))
+                throw new Exception('推送消息内容不能为空');
+            if(empty($notification['alert']))
+                throw new Exception('	默认推送消息内容不能为空');
+            $params['platform'] = $platform;
+            $params['audience'] = $audience;
+            $params['notification'] = $notification;
+            $ret = $this->curl('/push',$params,'json');
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    /**
+     * 推送服务 推送消息 方法
+     * @param $platform 目标操作系统，ios、android 最少传递一个。如果需要给两个系统推送消息时，则需要全部填写。（必传）
+     * @param $fromuserid  发送人用户 Id。（必传）
+     * @param $audience 推送条件，包括： tag 、 userid 、 is_to_all。（必传）
+     * @param $audience[ tag ] 用户标签，每次发送时最多发送 20 个标签，标签之间为与的关系，is_to_all 为 true 时可不传。（非必传）
+     * @param $audience[ userid ] 用户 Id，每次发送时最多发送 1000 个用户，如果 tag 和 userid 两个条件同时存在时，则以 userid 为准，如果 userid 有值时，则 platform 参数无效，is_to_all 为 true 时可不传。（非必传）
+     * @param $audience[ is_to_all ] 是否全部推送，false 表示按 tag 或 userid 条件推送，true 表示向所有用户推送，tag 和 userid 两个条件无效。（必传）
+     * @param $message[ content ]  发送消息内容，参考融云 Server API 消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
+     * @param $message[ objectName ]  消息类型，参考融云 Server API 消息类型表.消息标志；可自定义消息类型。（必传）
+     * @param $notification 按操作系统类型推送消息内容，如 platform 中设置了给 ios 和 android 系统推送消息，而在 notifications 中只设置了 ios 的推送内容，则 android 的推送内容为最初 alert 设置的内容。（非必传）
+     * @param $notification[ alert ] 	默认推送消息内容，如填写了 ios 或 android 下的 alert 时，则推送内容以对应平台系统的 alert 为准。（必传）
+     * @param $notification[ ios ] 设置 iOS 平台下的推送及附加信息。（非必传）
+     * @param $notification[ android ] 设置 Android 平台下的推送及附加信息。（非必传）
+     * @param $notification[ ios ][ alert ] ios平台下的推送消息内容，传入后默认的推送消息内容失效，不能为空。（非必传）
+     * @param $notification[ ios ][ extras ]  ios平台下的附加信息，如果开发者自己需要，可以自己在 App 端进行解析。（非必传）
+     * @param $notification[ android ][ alert ] android平台下的推送消息内容，传入后默认的推送消息内容失效，不能为空。（非必传）
+     * @param $notification[ android ][ extras ]  android平台下的附加信息，如果开发者自己需要，可以自己在 App 端进行解析。（非必传）
+     * @return mixed
+     */
+    public function pushMessage( $platform,$fromuserid,$audience,$message,$notification ) {
+        try{
+            if(empty($platform))
+                throw new Exception('目标操作系统，ios、android 最少传递一个');
+            if(empty($fromuserid))
+                throw new Exception('发送人用户 Id 不能为空');
+            if(empty($audience))
+                throw new Exception('推送条件不能为空');
+            if( !isset($audience['is_to_all']) )
+                throw new Exception('是否全部推送不能为空');
+            if(empty($message))
+                throw new Exception('消息内容不能为空');
+            if(empty($message['content']))
+                throw new Exception('发送消息内容不能为空');
+            if(empty($message['objectName']))
+                throw new Exception('消息类型不能为空');
+            if(empty($notification))
+                throw new Exception('推送消息内容不能为空');
+            if(empty($notification['alert']))
+                throw new Exception('	默认推送消息内容不能为空');
+            $params['platform'] = $platform;
+            $params['audience'] = $audience;
+            $params['notification'] = $notification;
+            $ret = $this->curl('/push',$params,'json');
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
     /**
      * 创建http header参数
      * @param array $data
@@ -911,13 +1162,22 @@ class ServerAPI{
      * @param $httpHeader
      * @return mixed
      */
-    public function curl($action, $params) {
+    public function curl($action, $params,$contentType='urlencoded') {
         $action = self::SERVERAPIURL.$action.'.'.$this->format;
         $httpHeader = $this->createHttpHeader();
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->build_query($params));
+        if ($contentType=='urlencoded') {
+            $httpHeader['Content-Type'] = 'application/x-www-form-urlencoded';
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $this->build_query($params));
+        }
+        if ($contentType=='json') {
+            $httpHeader[] = 'Content-Type:Application/json';
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params) );
+        print_r( json_encode($params) );
+        print_r($httpHeader);
+        }
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false); //处理http证书问题
         curl_setopt($ch, CURLOPT_HEADER, false);
