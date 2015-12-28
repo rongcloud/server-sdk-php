@@ -1169,7 +1169,7 @@ class ServerAPI{
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, 1);
         if ($contentType=='urlencoded') {
-            $httpHeader['Content-Type'] = 'application/x-www-form-urlencoded';
+            $httpHeader[] = 'Content-Type:application/x-www-form-urlencoded';
             curl_setopt($ch, CURLOPT_POSTFIELDS, $this->build_query($params));
         }
         if ($contentType=='json') {
