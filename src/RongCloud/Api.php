@@ -8,7 +8,7 @@
  * @modify  2015-02-02  10:21
  *
  */
-namespace RCloud;
+namespace RongCloud;
 
 class Api{
     private $appKey;             //appKey
