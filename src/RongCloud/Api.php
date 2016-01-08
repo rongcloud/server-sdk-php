@@ -9,6 +9,8 @@
  */
 namespace RongCloud;
 
+use \Exception;
+
 class Api{
     private $appKey;             //appKey
     private $appSecret;             //secret
