@@ -3,9 +3,8 @@
 /**
  * 融云server API 接口 新版 1.0
  * Class ServerAPI
- * @author  caolong
- * @date    2014-12-10  15:30
- * @modify  2015-02-02  10:21
+ * @author  rongcloud
+ * @date    2016-01-06  15:30
  *
  */
 namespace RongCloud;
