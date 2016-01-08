@@ -1,5 +1,5 @@
 {
-    "name": "RCloud/Api",
+    "name": "rongcloud/php-sdk",
     "description": "Rong Cloud Server SDK in PHP.",
     "keywords": ["rongcloud", "rong cloud", "rlcoud", "sdk"],
     "homepage": "http://rong.io",
@@ -16,9 +16,9 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "psr-4": {"RCloud\\": "src/RCloud"}
+        "psr-4": {"rongcloud\\": "src/RongCloud"}
     },
     "autoload-dev": {
-       "psr-4": {"RCloud\\": "tests/RCloud"}
+       "psr-4": {"rongcloud\\": "tests/RongCloud"}
     }
 }
