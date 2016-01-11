@@ -21,7 +21,7 @@ use RongCloud\Api as RCloud;
 ```
 
 ## 联系我们
-- 如果希望帮助，请提交工单（http://developer.rongcloud.cn/ticket）,或者 mailto:support.rongcloud.cn
+- 如果希望帮助，请提交[工单](http://developer.rongcloud.cn/ticket), 或者 mailto:support.rongcloud.cn
 - 如果发现了bug， 欢迎提交 [issue](https://github.com/rongcloud/server-sdk-php-composer)
 - 如果要提交代码，欢迎提交 pull request
 
