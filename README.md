@@ -6,7 +6,7 @@ Rong Cloud Server SDK in PHP for Composer.
 * 推荐通过 composer 安装，使用 composer.json 声明依赖，或者运行下面的命令：
 
 ```bash
-$ composer require qiniu/php-sdk
+$ composer require rongcloud/php-sdk
 ```
 
 * 直接下载安装，SDK 没有依赖其他第三方库，可直接下载引入使用。
