@@ -351,7 +351,7 @@ class ServerAPI{
      * 将用户加入指定群组，用户将可以收到该群的消息。
      * @param $userId           要加入群的用户 Id。（必传）
      * @param $groupId          要加入的群 Id。（必传）
-     * @param $groupName        要加入的群 Id 对应的名称。（可选）
+     * @param $groupName        要加入的群 Id 对应的名称。（必传）
      * @return json|xml
      */
     public function groupJoin($userId, $groupId, $groupName) {
