@@ -990,7 +990,7 @@ class ServerAPI{
      * @param array $tags 用户标签，一个用户最多添加 20 个标签，每个 tags 最大不能超过 40 个字节，标签中不能包含特殊字符。（必传）
      * @return mixed
      */
-    public function pushUserTagSet($userId,$tags) {
+    public function pushUserTagSet($userId,array $tags) {
         try{
             if(empty($userId))
                 throw new Exception('用户 Id 不能为空');
