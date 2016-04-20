@@ -1076,8 +1076,6 @@ class ServerAPI{
                 throw new Exception('发送人用户 Id 不能为空');
             if(empty($audience))
                 throw new Exception('推送条件不能为空');
-            if( !isset($audience['is_to_all']) )
-                throw new Exception('是否全部推送不能为空');
             if(empty($message))
                 throw new Exception('消息内容不能为空');
             if(empty($message['content']))
@@ -1088,8 +1086,12 @@ class ServerAPI{
                 throw new Exception('推送消息内容不能为空');
             if(empty($notification['alert']))
                 throw new Exception('	默认推送消息内容不能为空');
+            
+            $message['content'] = json_encode($message['content']);
             $params['platform'] = $platform;
+            $params['fromuserid'] = $fromuserid;
             $params['audience'] = $audience;
+            $params['message'] = $message;
             $params['notification'] = $notification;
             $ret = $this->curl('/push',$params,'json');
             if(empty($ret))
@@ -1176,6 +1178,7 @@ class ServerAPI{
             $httpHeader[] = 'Content-Type:Application/json';
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params) );
         }
+        
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false); //处理http证书问题
         curl_setopt($ch, CURLOPT_HEADER, false);
