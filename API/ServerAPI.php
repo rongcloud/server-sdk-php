@@ -431,7 +431,7 @@ class ServerAPI{
      * @param $groupName    要加入的群 Id 对应的名称。（可选）
      * @return json|xml
      */
-    public function groupCreate($userId, $groupId, $groupName) {
+    public function groupCreate(array $userId, $groupId, $groupName) {
         try{
             if(empty($userId))
                 throw new Exception('要加入群的用户 Id 不能为空');
@@ -440,6 +440,33 @@ class ServerAPI{
             if(empty($groupName))
                 throw new Exception('要加入的群 Id 对应的名称 不能为空');
             $ret = $this->curl('/group/create',
+                array('userId' => $userId, 'groupId' => $groupId,'groupName' => $groupName)
+            );
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+
+
+    /**
+     * 将用户加入指定群组，用户将可以收到该群的消息，同一用户最多可加入 500 个群，每个群最大至 3000 人。
+     * @param $userId       要加入群的用户 Id。（必传）
+     * @param $groupId      要加入的群 Id。（必传）
+     * @param $groupName    要加入的群 Id 对应的名称。（可选）
+     * @return json|xml
+     */
+    public function groupJoin(array $userId, $groupId, $groupName) {
+        try{
+            if(empty($userId))
+                throw new Exception('要加入群的用户 Id 不能为空');
+            if(empty($groupId))
+                throw new Exception('要加入的群 Id 不能为空');
+            if(empty($groupName))
+                throw new Exception('要加入的群 Id 对应的名称 不能为空');
+            $ret = $this->curl('/group/join',
                 array('userId' => $userId, 'groupId' => $groupId,'groupName' => $groupName)
             );
             if(empty($ret))
