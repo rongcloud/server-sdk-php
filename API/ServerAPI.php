@@ -77,6 +77,8 @@ class ServerAPI{
                 throw new Exception('消息类型 不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容 不能为空');
+            if (is_array($content))
+                $content = json_encode($content);
 
             $params = array(
                 'fromUserId'=>$fromUserId,
