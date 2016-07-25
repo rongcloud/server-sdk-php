@@ -33,6 +33,11 @@ server-sdk-php
 更新日期    2015-02-02
 新增 用户黑名单接口：userBlacklistAdd（添加）、userBlacklistQuery（查询）、userBlacklistRemove（删除）
 
+==============
+更新日期    2016-07-25
+新增 聊天室消息分发服务、发送单聊消息、发送单聊模板消息、发送系统模板消息、短信服务接口
+修改 查询聊天室成员
+
 
 使用：
 include('ServerAPI.php');
