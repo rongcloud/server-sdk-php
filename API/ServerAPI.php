@@ -16,7 +16,7 @@ print_r($r);
 class ServerAPI{
     private $appKey;                //appKey
     private $appSecret;             //secret
-    const   SERVERAPIURL = 'https://api.cn.ronghub.com';    //IM服务地址
+    const   SERVERAPIURL = 'http://api.cn.ronghub.com';    //IM服务地址
     const   SMSURL = 'http://api.sms.ronghub.com';          //短信服务地址
     private $format;                //数据格式 json/xml
 
