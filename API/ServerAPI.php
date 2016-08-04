@@ -539,6 +539,29 @@ class ServerAPI{
     }
     
     /**
+     * 刷新群组信息 方法
+     * @param $groupId      群组 Id。（必传）
+     * @param $groupName    群组名称。（必传）
+     * @return json|xml
+     */
+    public function groupRefresh($groupId, $groupName) {
+        try{
+            if(empty($groupId))
+                throw new Exception('群组 Id 不能为空');
+            if(empty($groupName))
+                throw new Exception('群组名称 不能为空');
+            $ret = $this->curl('/group/refresh',
+                    array('groupId' => $groupId,'groupName' => $groupName)
+            );
+            if(empty($ret))
+                throw new Exception('请求失败');
+            return $ret;
+        }catch (Exception $e) {
+            print_r($e->getMessage());
+        }
+    }
+    
+    /**
      * 查询群成员 方法
      * @param $groupId      群 Id。（必传）
      * @return json|xml
