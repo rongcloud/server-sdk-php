@@ -339,9 +339,12 @@ class Api{
      * @param $fromUserId       发送人用户 Id。（必传）
      * @param $objectName       消息类型，参考融云消息类型表.消息标志；可自定义消息类型。（必传）
      * @param $content          发送消息内容，参考融云消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
+     * @param $pushContent      定义显示的 Push 内容 (可选)
+     * @param $pushData         针对 iOS 平台为 Push 通知时附加到 payload 中，Android 客户端收到推送消息时对应字段名为 pushData。(可选)
+     * @param $os               针对操作系统发送 Push (可选)
      * @return json|xml
      */
-    public function messageBroadcast($fromUserId,$objectName,$content) {
+    public function messageBroadcast($fromUserId,$objectName,$content,$pushContent = NULL,$pushData = NULL,$os = NULL) {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -349,14 +352,20 @@ class Api{
                 throw new Exception('消息类型不能为空');
             if(empty($content))
                 throw new Exception('发送消息内容不能为空');
-            $ret = $this->curl(
-                '/message/broadcast',
-                array(
-                    'fromUserId' => $fromUserId,
-                    'objectName' => $objectName,
-                    'content' => $content
-                )
-            );
+            
+            $params['fromUserId'] = $fromUserId;
+            $params['objectName'] = $objectName;
+            $params['content'] = $content;
+            if (!empty($pushContent)) {
+                $params['pushContent'] = $pushContent;
+            }
+            if (!empty($pushData)) {
+                $params['pushData'] = $pushData;
+            }
+            if (!empty($os)) {
+                $params['os'] = $os;
+            }
+            $ret = $this->curl('/message/broadcast',$params);
             if(empty($ret))
                 throw new Exception('请求失败');
             return $ret;
