@@ -61,14 +61,18 @@ class ServerAPI{
     /**
      * 发送会话消息
      * @param $fromUserId   发送人用户 Id。（必传）
-     * @param $toUserId     接收用户 Id，提供多个本参数可以实现向多人发送消息。（必传）
+     * @param $toUserId     接收用户 Id，提供多个本参数可以实现向多人发送消息。注意：向多人发送消息时，本参数为数组（必传）
      * @param $objectName   消息类型，参考融云消息类型表.消息标志；可自定义消息类型。（必传）
      * @param $content      发送消息内容，参考融云消息类型表.示例说明；如果 objectName 为自定义消息类型，该参数可自定义格式。（必传）
-     * @param string $pushContent   如果为自定义消息，定义显示的 Push 内容。(可选)
-     * @param string $pushData  针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
+     * @param string $pushContent     如果为自定义消息，定义显示的 Push 内容。(可选)
+     * @param string $pushData        针对 iOS 平台，Push 通知附加的 payload 字段，字段名为 appData。(可选)
+     * @param string $count           针对 iOS 平台，Push 时用来控制未读消息显示数，只有在 toUserId 为一个用户 Id 的时候有效。(可选)
+     * @param int    $verifyBlacklist 是否过滤发送人黑名单列表，0 表示为不过滤、 1 表示为过滤，默认为 0 不过滤。(可选)
+     * @param int    $isPersisted     当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行存储，0 表示为不存储、 1 表示为存储，默认为 1 存储消息。(可选)
+     * @param int    $isCounted       当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行未读消息计数，0 表示为不计数、 1 表示为计数，默认为 1 计数，未读消息数增加 1。(可选)
      * @return json|xml
      */
-    public function messagePrivatePublish($fromUserId, $toUserId = array(), $objectName, $content, $pushContent='', $pushData = '') {
+    public function messagePrivatePublish($fromUserId,$toUserId, $objectName, $content, $pushContent='', $pushData = '',$count = NULL,$verifyBlacklist = 0,$isPersisted = 1,$isCounted = 1) {
         try{
             if(empty($fromUserId))
                 throw new Exception('发送人用户 Id 不能为空');
@@ -81,13 +85,20 @@ class ServerAPI{
 
             $params = array(
                 'fromUserId'=>$fromUserId,
+                'toUserId' => $toUserId,
                 'objectName'=>$objectName,
                 'content'=>$content,
-                'pushContent'=>$pushContent,
-                'pushData'=>$pushData,
-                'toUserId' => $toUserId
+                'verifyBlacklist'=>$verifyBlacklist,
+                'isPersisted'=>$isPersisted,
+                'isCounted'=>$isCounted
             );
-
+            if (!empty($pushContent)) 
+                $params['pushContent'] = $pushContent;
+            if (!empty($pushData)) 
+                $params['pushData'] = $pushData;
+            if (!empty($count)) 
+                $params['count'] = $count;
+            print_r($params);
             $ret = $this->curl('/message/private/publish', $params);
             if(empty($ret))
                 throw new Exception('请求失败');
