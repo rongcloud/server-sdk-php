@@ -98,7 +98,6 @@ class ServerAPI{
                 $params['pushData'] = $pushData;
             if (!empty($count)) 
                 $params['count'] = $count;
-            print_r($params);
             $ret = $this->curl('/message/private/publish', $params);
             if(empty($ret))
                 throw new Exception('请求失败');
