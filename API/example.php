@@ -2,7 +2,7 @@
 /**
  * 融云 Server API PHP 客户端
  * create by kitName
- * create datetime : 2016-09-05 
+ * create datetime : 2016-10-20 
  * 
  * v2.0.1
  */
@@ -138,15 +138,15 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	print_r($result);
 	echo "\n";
 	
-	// 移除敏感词方法（从敏感词列表中，移除某一敏感词。）
-	$result = $RongCloud->wordfilter()->delete('money');
-	echo "delete    ";
-	print_r($result);
-	echo "\n";
-	
 	// 查询敏感词列表方法
 	$result = $RongCloud->wordfilter()->getList();
 	echo "getList    ";
+	print_r($result);
+	echo "\n";
+	
+	// 移除敏感词方法（从敏感词列表中，移除某一敏感词。）
+	$result = $RongCloud->wordfilter()->delete('money');
+	echo "delete    ";
 	print_r($result);
 	echo "\n";
 	
@@ -289,6 +289,12 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	// 移除封禁聊天室成员方法
 	$result = $RongCloud->chatroom()->rollbackBlockUser('userId1', 'chatroomId1');
 	echo "rollbackBlockUser    ";
+	print_r($result);
+	echo "\n";
+	
+	// 添加聊天室消息优先级方法
+	$result = $RongCloud->chatroom()->addPriority(["RC:VcMsg","RC:ImgTextMsg","RC:ImgMsg"]);
+	echo "addPriority    ";
 	print_r($result);
 	echo "\n";
 	

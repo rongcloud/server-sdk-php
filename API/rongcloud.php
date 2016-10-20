@@ -1,4 +1,11 @@
 <?php
+/**
+ * 融云 Server API PHP 客户端
+ * create by kitName
+ * create datetime : 2016-09-05 
+ * 
+ * v2.0.1
+ */
 include 'SendRequest.php';
 include 'methods/User.php';
 include 'methods/Message.php';
