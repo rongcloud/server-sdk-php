@@ -2,7 +2,7 @@
 /**
  * 融云 Server API PHP 客户端
  * create by kitName
- * create datetime : 2016-09-05 
+ * create datetime : 2017-02-09 
  * 
  * v2.0.1
  */
@@ -71,7 +71,7 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 
 	echo ("\n***************** message **************\n");
 	// 发送单聊消息方法（一个用户向另外一个用户发送消息，单条消息最大 128k。每分钟最多发送 6000 条信息，每次发送用户上限为 1000 人，如：一次发送 1000 人时，示为 1000 条消息。）
-	$result = $RongCloud->message()->publishPrivate('userId1', ["userId2","userid3","userId4"], 'RC:VcMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\",\"duration\":20}", 'thisisapush', '{\"pushData\":\"hello\"}', '4', '0', '0', '0');
+	$result = $RongCloud->message()->publishPrivate('userId1', ["userId2","userid3","userId4"], 'RC:VcMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\",\"duration\":20}", 'thisisapush', '{\"pushData\":\"hello\"}', '4', '0', '0', '0', '0');
 	echo "publishPrivate    ";
 	print_r($result);
 	echo "\n";
@@ -95,13 +95,13 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	echo "\n";
 	
 	// 发送群组消息方法（以一个用户身份向群组发送消息，单条消息最大 128k.每秒钟最多发送 20 条消息，每次最多向 3 个群组发送，如：一次向 3 个群组发送消息，示为 3 条消息。）
-	$result = $RongCloud->message()->publishGroup('userId', ["groupId1","groupId2","groupId3"], 'RC:TxtMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\"}", 'thisisapush', '{\"pushData\":\"hello\"}', '1', '1');
+	$result = $RongCloud->message()->publishGroup('userId', ["groupId1","groupId2","groupId3"], 'RC:TxtMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\"}", 'thisisapush', '{\"pushData\":\"hello\"}', '1', '1', '0');
 	echo "publishGroup    ";
 	print_r($result);
 	echo "\n";
 	
 	// 发送讨论组消息方法（以一个用户身份向讨论组发送消息，单条消息最大 128k，每秒钟最多发送 20 条消息.）
-	$result = $RongCloud->message()->publishDiscussion('userId1', 'discussionId1', 'RC:TxtMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\"}", 'thisisapush', '{\"pushData\":\"hello\"}', '1', '1');
+	$result = $RongCloud->message()->publishDiscussion('userId1', 'discussionId1', 'RC:TxtMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\"}", 'thisisapush', '{\"pushData\":\"hello\"}', '1', '1', '0');
 	echo "publishDiscussion    ";
 	print_r($result);
 	echo "\n";
@@ -138,15 +138,15 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	print_r($result);
 	echo "\n";
 	
-	// 移除敏感词方法（从敏感词列表中，移除某一敏感词。）
-	$result = $RongCloud->wordfilter()->delete('money');
-	echo "delete    ";
-	print_r($result);
-	echo "\n";
-	
 	// 查询敏感词列表方法
 	$result = $RongCloud->wordfilter()->getList();
 	echo "getList    ";
+	print_r($result);
+	echo "\n";
+	
+	// 移除敏感词方法（从敏感词列表中，移除某一敏感词。）
+	$result = $RongCloud->wordfilter()->delete('money');
+	echo "delete    ";
 	print_r($result);
 	echo "\n";
 	
@@ -289,6 +289,12 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	// 移除封禁聊天室成员方法
 	$result = $RongCloud->chatroom()->rollbackBlockUser('userId1', 'chatroomId1');
 	echo "rollbackBlockUser    ";
+	print_r($result);
+	echo "\n";
+	
+	// 添加聊天室消息优先级方法
+	$result = $RongCloud->chatroom()->addPriority(["RC:VcMsg","RC:ImgTextMsg","RC:ImgMsg"]);
+	echo "addPriority    ";
 	print_r($result);
 	echo "\n";
 	

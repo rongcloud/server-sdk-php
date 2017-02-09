@@ -21,10 +21,11 @@ class Message{
 	 * @param  verifyBlacklist:是否过滤发送人黑名单列表，0 表示为不过滤、 1 表示为过滤，默认为 0 不过滤。（可选）
 	 * @param  isPersisted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行存储，0 表示为不存储、 1 表示为存储，默认为 1 存储消息。（可选）
 	 * @param  isCounted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行未读消息计数，0 表示为不计数、 1 表示为计数，默认为 1 计数，未读消息数增加 1。（可选）
+	 * @param  isIncludeSender:发送用户自已是否接收消息，0 表示为不接收，1 表示为接收，默认为 0 不接收。（可选）
 	 *
 	 * @return $json
 	 **/
-	public function publishPrivate($fromUserId, $toUserId,  $objectName, $content, $pushContent = '', $pushData = '', $count = '', $verifyBlacklist, $isPersisted, $isCounted) {
+	public function publishPrivate($fromUserId, $toUserId,  $objectName, $content, $pushContent = '', $pushData = '', $count = '', $verifyBlacklist, $isPersisted, $isCounted, $isIncludeSender) {
     	try{
 			if (empty($fromUserId))
 				throw new Exception('Paramer "fromUserId" is required');
@@ -49,7 +50,8 @@ class Message{
     		'count' => $count,
     		'verifyBlacklist' => $verifyBlacklist,
     		'isPersisted' => $isPersisted,
-    		'isCounted' => $isCounted
+    		'isCounted' => $isCounted,
+    		'isIncludeSender' => $isIncludeSender
     		);
     		
     		$ret = $this->SendRequest->curl('/message/private/publish.json',$params,'urlencoded','im','POST');
@@ -171,10 +173,11 @@ class Message{
 	 * @param  pushData:针对 iOS 平台为 Push 通知时附加到 payload 中，Android 客户端收到推送消息时对应字段名为 pushData。（可选）
 	 * @param  isPersisted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行存储，0 表示为不存储、 1 表示为存储，默认为 1 存储消息。（可选）
 	 * @param  isCounted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行未读消息计数，0 表示为不计数、 1 表示为计数，默认为 1 计数，未读消息数增加 1。（可选）
+	 * @param  isIncludeSender:发送用户自已是否接收消息，0 表示为不接收，1 表示为接收，默认为 0 不接收。（可选）
 	 *
 	 * @return $json
 	 **/
-	public function publishGroup($fromUserId, $toGroupId,  $objectName, $content, $pushContent = '', $pushData = '', $isPersisted, $isCounted) {
+	public function publishGroup($fromUserId, $toGroupId,  $objectName, $content, $pushContent = '', $pushData = '', $isPersisted, $isCounted, $isIncludeSender) {
     	try{
 			if (empty($fromUserId))
 				throw new Exception('Paramer "fromUserId" is required');
@@ -197,7 +200,8 @@ class Message{
     		'pushContent' => $pushContent,
     		'pushData' => $pushData,
     		'isPersisted' => $isPersisted,
-    		'isCounted' => $isCounted
+    		'isCounted' => $isCounted,
+    		'isIncludeSender' => $isIncludeSender
     		);
     		
     		$ret = $this->SendRequest->curl('/message/group/publish.json',$params,'urlencoded','im','POST');
@@ -220,10 +224,11 @@ class Message{
 	 * @param  pushData:针对 iOS 平台为 Push 通知时附加到 payload 中，Android 客户端收到推送消息时对应字段名为 pushData.（可选）
 	 * @param  isPersisted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行存储，0 表示为不存储、 1 表示为存储，默认为 1 存储消息.（可选）
 	 * @param  isCounted:当前版本有新的自定义消息，而老版本没有该自定义消息时，老版本客户端收到消息后是否进行未读消息计数，0 表示为不计数、 1 表示为计数，默认为 1 计数，未读消息数增加 1。（可选）
+	 * @param  isIncludeSender:发送用户自已是否接收消息，0 表示为不接收，1 表示为接收，默认为 0 不接收。（可选）
 	 *
 	 * @return $json
 	 **/
-	public function publishDiscussion($fromUserId, $toDiscussionId,  $objectName, $content, $pushContent = '', $pushData = '', $isPersisted, $isCounted) {
+	public function publishDiscussion($fromUserId, $toDiscussionId,  $objectName, $content, $pushContent = '', $pushData = '', $isPersisted, $isCounted, $isIncludeSender) {
     	try{
 			if (empty($fromUserId))
 				throw new Exception('Paramer "fromUserId" is required');
@@ -246,7 +251,8 @@ class Message{
     		'pushContent' => $pushContent,
     		'pushData' => $pushData,
     		'isPersisted' => $isPersisted,
-    		'isCounted' => $isCounted
+    		'isCounted' => $isCounted,
+    		'isIncludeSender' => $isIncludeSender
     		);
     		
     		$ret = $this->SendRequest->curl('/message/discussion/publish.json',$params,'urlencoded','im','POST');

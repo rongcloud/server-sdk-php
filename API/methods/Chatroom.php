@@ -381,6 +381,33 @@ class Chatroom{
    }
     
     /**
+	 * 添加聊天室消息优先级方法 
+	 * 
+	 * @param  objectName:低优先级的消息类型，每次最多提交 5 个，设置的消息类型最多不超过 20 个。（必传）
+	 *
+	 * @return $json
+	 **/
+	public function addPriority($objectName) {
+    	try{
+			if (empty($objectName))
+				throw new Exception('Paramer "objectName" is required');
+				
+	
+    		$params = array (
+    		'objectName' => $objectName
+    		);
+    		
+    		$ret = $this->SendRequest->curl('/chatroom/message/priority/add.json',$params,'urlencoded','im','POST');
+    		if(empty($ret))
+    			throw new Exception('bad request');
+    		return $ret;
+    		
+    	}catch (Exception $e) {
+    		print_r($e->getMessage());
+    	}
+   }
+    
+    /**
 	 * 销毁聊天室方法 
 	 * 
 	 * @param  chatroomId:要销毁的聊天室 Id。（必传）
