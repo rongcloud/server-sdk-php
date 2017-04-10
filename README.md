@@ -13,10 +13,13 @@ $ composer require rongcloud/php-sdk
 
 ## 使用方法
 ```php
-use RongCloud\Api as RCloud;
+include 'RongCloud.php';
+$appKey = 'appKey';
+$appSecret = 'appSecret';
+$jsonPath = "jsonsource/";
 ...
-    $rcloudApi = new RCloud('app_key', 'app_secret');
-    $token = $rcloudApi->getToken('user_id', 'user_name' , 'portraitUri');
+    $rongCloud = new \RongCloud\RongCloud($appKey,$appSecret);
+    $token = $rongCloud->user()->getToken('userId1', 'username', 'http://www.rongcloud.cn/images/logo.png');;
 ...
 ```
 
