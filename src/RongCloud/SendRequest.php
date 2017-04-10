@@ -1,4 +1,7 @@
 <?php
+namespace RongCloud;
+use \Exception;
+
 class SendRequest
 {
     private $appKey;
