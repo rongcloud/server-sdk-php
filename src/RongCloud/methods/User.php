@@ -277,6 +277,32 @@ class User{
     		print_r($e->getMessage());
     	}
    }
+	 /**
+     * 检测用户信息
+     *
+     * @param  userId:用户 Id。（必传）
+     *
+     * @return $json
+     **/
+
+   public function userinfo($userid){
+       try{
+           if (empty($userId))
+               throw new Exception('Paramer "userId" is required');
+
+           $params = array (
+               'userId' => $userId,
+           );
+
+           $ret = $this->SendRequest->curl('/user/info.json',$params,'urlencoded','im','POST');
+           if(empty($ret))
+               throw new Exception('bad request');
+           return $ret;
+
+       }catch (Exception $e) {
+           print_r($e->getMessage());
+       }
+   }
 
 }
 ?>
