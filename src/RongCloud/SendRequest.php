@@ -7,7 +7,7 @@ class SendRequest
     private $appKey;
     private $appSecret;
 
-    const   SERVERAPIURL = 'http://api.cn.ronghub.com';    //IM服务地址
+    const   SERVERAPIURL = 'https://api.cn.ronghub.com';    //IM服务地址
     const   SMSURL = 'http://api.sms.ronghub.com';          //短信服务地址
 
     /**
