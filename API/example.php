@@ -338,10 +338,11 @@ $RongCloud = new RongCloud($appKey,$appSecret);
 	print_r($result);
 	echo "\n";
 	
-	// 验证码验证方法
+	// 验证码验证方法 test
 	$result = $RongCloud->SMS()->verifyCode('2312312', '2312312');
 	echo "verifyCode    ";
 	print_r($result);
 	echo "\n";
+
 	
 ?>
