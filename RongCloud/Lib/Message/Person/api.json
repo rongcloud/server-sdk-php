@@ -1,0 +1,133 @@
+{
+  "send": {
+    "url": "message/private/publish",
+    "params": {
+      "message": {
+        "senderId": "2191",
+        "targetId": "2192",
+        "objectName": "RC:TxterrorMessage",
+        "content": {
+          "content":"hello"
+        }
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "成功返回"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} 参数为必传项"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "调用频率超限，每秒钟限制 100 次，调整频率上限请移步至专有云 http://www.rongcloud.cn/pricing#pay"
+        }
+      }
+    }
+  },
+  "sendTemplate": {
+    "url": "message/private/publish_template",
+    "params": {
+      "message": {
+        "senderId": "2191",
+        "objectName": "RC:TxterrorMessage",
+        "template":"{c}{d}{e}",
+        "content": {
+          "21":{"{c}":"1","{d}":"2","{e}":"3"},
+          "22":{"{c}":"4","{d}":"5","{e}":"6"}
+        }
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "成功返回"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} 参数为必传项"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "调用频率超限，每秒钟限制 100 次，调整频率上限请移步至专有云 http://www.rongcloud.cn/pricing#pay"
+        }
+      }
+    }
+  },
+  "recall": {
+    "docs": "http://rongcloud.cn/docs/server.html#message_recall",
+    "url": "message/recall",
+    "params": {
+      "message": {
+        "senderId": "fDR2cVpxxR5zSMUNh3yAwh",
+        "targetId": "MersNRhaKwJkRV9mJR5JXY",
+        "uId": "5FGT-7VA9-G4DD-4V5P",
+        "sentTime": "1507778882124"
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "成功返回"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} 参数为必传项"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "调用频率超限，每秒钟限制 100 次，调整频率上限请移步至专有云 http://www.rongcloud.cn/pricing#pay"
+        }
+      }
+    }
+  }
+}

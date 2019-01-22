@@ -1,0 +1,10 @@
+{
+	"message": {
+		"date": {
+			"require": {
+				"must": true,
+				"invalid": "1002"
+			}
+		}
+	}
+}
