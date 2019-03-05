@@ -9,7 +9,9 @@ namespace RongCloud\Lib\User;
 
 use RongCloud\Lib\User\Block\Block;
 use RongCloud\Lib\User\Blacklist\Blacklist;
+use RongCloud\Lib\User\MuteGroups\MuteGroups;
 use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
+use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
 use Rongcloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
@@ -118,6 +120,33 @@ class User
      */
     public function Blacklist(){
         return new Blacklist();
+    }
+
+    /**
+     * 创建用户在线状态对象
+     *
+     * @return Onlinestatus
+     */
+    public function Onlinestatus(){
+        return new Onlinestatus();
+    }
+
+    /**
+     * 全局群组禁言
+     *
+     * @return MuteGroups
+     */
+    public function MuteGroups(){
+        return new MuteGroups();
+    }
+
+    /**
+     * 全局聊天室禁言
+     *
+     * @return MuteChatrooms
+     */
+    public function MuteChatrooms(){
+        return new MuteChatrooms();
     }
 
 

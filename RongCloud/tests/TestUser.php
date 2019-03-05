@@ -155,3 +155,88 @@ function testUserBlacklist($RongSDK){
 
 testUserBlacklist($RongSDK);
 
+function testUserOnlinestatus($RongSDK){
+    $User = $RongSDK->getUser()->Onlinestatus();
+
+    $params = [
+        'id'=> 'ujadk90ha1d',//用户 id
+    ];
+    Utils::dump("用户在线状态获取成功",$User->check($params));
+
+    Utils::dump("用户在线状态参数错误", $User->check());
+
+}
+
+testUserOnlinestatus($RongSDK);
+
+
+function testUserMuteGroups($RongSDK){
+    $Group = $RongSDK->getUser()->MuteGroups();
+    $params = [
+        'members'=>[ //禁言人员列表
+            ['id'=> 'group9994']
+        ],
+        'minute'=>500  //	禁言时长
+    ];
+    Utils::dump("添加群组禁言成功",$Group->add($params));
+
+    Utils::dump("添加群组禁言参数错误",$Group->add());
+
+    $params = [
+        'members'=>[
+            ['id'=> 'group9994']
+        ],
+        'minute'=>0
+    ];
+    Utils::dump("添加群组禁言 minute 错误",$Group->add($params));
+
+    $params = [
+        'members'=>[ //禁言人员列表
+            ['id'=> 'group9994']
+        ]
+    ];
+    Utils::dump("解除群组禁言成功",$Group->remove($params));
+
+    Utils::dump("解除群组禁言参数错误",$Group->remove());
+    $params = [
+        'members'=>[]
+    ];
+    Utils::dump("解除群组禁言 members 错误",$Group->remove($params));
+
+    $params = [
+
+    ];
+    Utils::dump("查询群组禁言成员列表成功",$Group->getList($params));
+
+}
+
+testUserMuteGroups($RongSDK);
+
+function testUserMuteChatrooms($RongSDK){
+    $Chatroom = $RongSDK->getUser()->MuteChatrooms();
+    $params = [
+        'members'=> [
+            ['id'=>'seal9901']//人员 id
+        ],
+        'minute'=>30//禁言时长
+    ];
+    Utils::dump("添加聊天室全局禁言成功",$Chatroom->add($params));
+
+    Utils::dump("添加聊天室全局禁言参数错误",$Chatroom->add());
+
+    $params = [
+        'members'=> [
+            ['id'=>'seal9901']//人员 id
+        ],
+    ];
+    Utils::dump("解除聊天室全局禁言成功",$Chatroom->remove($params));
+
+    Utils::dump("解除聊天室全局禁言错误",$Chatroom->remove());
+
+    $params = [
+
+    ];
+    Utils::dump("获取聊天室全局禁言列表成功",$Chatroom->getList($params));
+
+}
+testUserMuteChatrooms($RongSDK);

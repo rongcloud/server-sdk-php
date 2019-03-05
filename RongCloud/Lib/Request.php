@@ -155,7 +155,7 @@ class Request
             9 => 'CURLE_REMOTE_ACCESS_DENIED',
             11 => 'CURLE_FTP_WEIRD_PASS_REPLY',
             13 => 'CURLE_FTP_WEIRD_PASV_REPLY',
-            14=>'CURLE_FTP_WEIRD_227_FORMAT',
+            14 =>'CURLE_FTP_WEIRD_227_FORMAT',
             15 => 'CURLE_FTP_CANT_GET_HOST',
             17 => 'CURLE_FTP_COULDNT_SET_TYPE',
             18 => 'CURLE_PARTIAL_FILE',

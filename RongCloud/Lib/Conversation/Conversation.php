@@ -107,5 +107,37 @@ class Conversation
         return $result;
     }
 
+    /**
+     * 免打扰会话状态获取
+     *
+     * @param $Conversation array 接收会话 Push 参数
+     * @param
+     * $Conversation = [
+    'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
+    'userId'=>'mka091amn',//会话所有者
+    'targetId'=>'adm1klnm'//会话 id
+    ];
+     * @return array
+     */
+    public function get(array $Conversation=[]){
+        $conf = $this->conf['mute'];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'conversation',
+            'data'=> $Conversation,
+            'verify'=> $this->verify['conversation']
+        ]);
+        if($error) return $error;
+        $Conversation['type'] = ConversationType::t()[$Conversation['type']];
+        $Conversation['isMuted'] = 0;
+        $Conversation = (new Utils())->rename($Conversation, [
+            'type'=> 'conversationType',
+            'userId'=> 'requestId'
+        ]);
+        $result = (new Request())->Request($conf['url'],$Conversation);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
 
 }
