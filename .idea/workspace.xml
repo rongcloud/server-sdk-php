@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e61fdebc-dedb-4304-8367-86a78380b4fe" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/RongCloud/Lib/Conversation/Conversation.php" afterPath="$PROJECT_DIR$/RongCloud/Lib/Conversation/Conversation.php" />
-      <change beforePath="$PROJECT_DIR$/RongCloud/Lib/Request.php" afterPath="$PROJECT_DIR$/RongCloud/Lib/Request.php" />
-      <change beforePath="$PROJECT_DIR$/RongCloud/Lib/User/User.php" afterPath="$PROJECT_DIR$/RongCloud/Lib/User/User.php" />
-      <change beforePath="$PROJECT_DIR$/RongCloud/tests/TestUser.php" afterPath="$PROJECT_DIR$/RongCloud/tests/TestUser.php" />
-    </list>
+    <list default="true" id="e61fdebc-dedb-4304-8367-86a78380b4fe" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,24 +205,6 @@
               <item name="server-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="RongCloud" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="server-sdk-php" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="RongCloud" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="example" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="server-sdk-php" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="RongCloud" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Lib" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="server-sdk-php" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="RongCloud" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -277,18 +254,18 @@
       <workItem from="1548314573420" duration="2933000" />
       <workItem from="1550818585084" duration="9077000" />
       <workItem from="1551433370053" duration="6072000" />
-      <workItem from="1551750795572" duration="3357000" />
+      <workItem from="1551750795572" duration="3913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21439000" />
+    <option name="totallyTimeSpent" value="21995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
