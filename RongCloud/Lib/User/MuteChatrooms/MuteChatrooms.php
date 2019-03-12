@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\User\MuteChatrooms;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class MuteChatrooms {
 

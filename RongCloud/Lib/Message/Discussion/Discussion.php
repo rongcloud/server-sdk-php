@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\Message\Discussion;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class Discussion {
     private $jsonPath = 'Lib/Message/Discussion/';

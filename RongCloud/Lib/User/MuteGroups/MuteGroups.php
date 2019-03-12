@@ -6,7 +6,7 @@ namespace RongCloud\Lib\User\MuteGroups;
 
 use RongCloud\Lib\Request;
 use RongCloud\Lib\User\User;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class MuteGroups {
 

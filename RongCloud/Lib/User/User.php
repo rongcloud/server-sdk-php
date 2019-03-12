@@ -12,7 +12,7 @@ use RongCloud\Lib\User\Blacklist\Blacklist;
 use RongCloud\Lib\User\MuteGroups\MuteGroups;
 use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
 use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
 class User

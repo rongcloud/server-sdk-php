@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\Chatroom\Gag;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class Gag {
 

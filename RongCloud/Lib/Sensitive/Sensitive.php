@@ -7,7 +7,7 @@
 namespace RongCloud\Lib\Sensitive;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 class Sensitive
 {
 

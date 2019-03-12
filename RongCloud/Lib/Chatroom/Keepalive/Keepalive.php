@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\Chatroom\Keepalive;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class Keepalive {
 

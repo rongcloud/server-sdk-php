@@ -4,14 +4,14 @@
  */
 namespace RongCloud;
 
-use RongCloud\lib\Chatroom\Chatroom;
-use RongCloud\lib\Conversation\Conversation;
-use RongCloud\lib\Group\Group;
-use RongCloud\lib\Message\Message;
-use RongCloud\lib\Sensitive\Sensitive;
-use RongCloud\lib\User\User;
+use RongCloud\Lib\Chatroom\Chatroom;
+use RongCloud\Lib\Conversation\Conversation;
+use RongCloud\Lib\Group\Group;
+use RongCloud\Lib\Message\Message;
+use RongCloud\Lib\Sensitive\Sensitive;
+use RongCloud\Lib\User\User;
 
-error_reporting(E_ALL);
+error_reporting(0);
 if (!defined('RONGCLOUOD_ROOT')) {
     define('RONGCLOUOD_ROOT', dirname(__FILE__) . '/');
     require('Autoloader.php');

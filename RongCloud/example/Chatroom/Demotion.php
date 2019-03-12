@@ -8,7 +8,7 @@ require "./../../RongCloud.php";
 define("APPKEY", '');
 define('APPSECRET','');
 use RongCloud\Rongcloud;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 /**
  * 添加应用内聊天室降级消息

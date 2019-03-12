@@ -6,7 +6,7 @@ namespace RongCloud\Lib\Message\Group;
 
 use RongCloud\Lib\ConversationType;
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class Group {
     private $jsonPath = 'Lib/Message/Group/';

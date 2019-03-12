@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\Chatroom\Block;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 
 class Block {
 

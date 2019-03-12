@@ -5,7 +5,7 @@
 namespace RongCloud\Lib\Chatroom;
 
 use RongCloud\Lib\Request;
-use Rongcloud\Lib\Utils;
+use RongCloud\Lib\Utils;
 use RongCloud\Lib\Chatroom\Ban\Ban;
 use RongCloud\Lib\Chatroom\Block\Block;
 use RongCloud\Lib\Chatroom\Demotion\Demotion;
