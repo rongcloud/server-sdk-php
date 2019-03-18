@@ -7,7 +7,7 @@
 require "./../../RongCloud.php";
 define("APPKEY", '');
 define('APPSECRET','');
-use RongCloud\Rongcloud;
+use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 /**
  * 设置用户某个会话屏蔽 Push

@@ -7,7 +7,7 @@
 require "./../../../RongCloud.php";
 define("APPKEY", '');
 define('APPSECRET','');
-use RongCloud\Rongcloud;
+use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
