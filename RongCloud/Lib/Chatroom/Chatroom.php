@@ -74,7 +74,7 @@ class Chatroom
                 'verify'=> $verify
             ]);
             if($error) return $error;
-            $data[$v['id']] = $v['name'];
+            $data["chatroom[{$v['id']}]"] = $v['name'];
         }
         $result = (new Request())->Request($conf['url'],$data);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
