@@ -11,12 +11,62 @@ class Request
     private $appKey="";
     private $appSecret="";
 //    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
-    private $serverUrl = 'http://api.cn.ronghub.com/';
+    private $serverUrl = ['http://api-cn.ronghub.com/','http://api2-cn.ronghub.com/'];
     private $smsUrl = 'http://api.sms.ronghub.com/';
     public function __construct(){
         if(RongCloud::$appkey) $this->appKey = RongCloud::$appkey;
         if(RongCloud::$appSecret) $this->appSecret = RongCloud::$appSecret;
         if(RongCloud::$apiUrl) $this->serverUrl = RongCloud::$apiUrl;
+        else{RongCloud::$apiUrl = $this->serverUrl;}
+        $this->serverUrl = $this->resetServerUrl();
+    }
+
+    /**
+     * server url 多域名切换
+     */
+    private function resetServerUrl($nextUrl=""){
+        if(is_array(RongCloud::$apiUrl)){
+            $urlList = RongCloud::$apiUrl;
+            sort($urlList);
+            RongCloud::$apiUrl = $urlList;
+        }
+        if(is_array(RongCloud::$apiUrl) && count(RongCloud::$apiUrl)==1) return RongCloud::$apiUrl[0];
+        if(is_string(RongCloud::$apiUrl)) return RongCloud::$apiUrl;
+        $seesionId = "RongCloudServerSDKUrl";
+        session_start();
+        $oldSessionId = session_id();
+        session_write_close();
+        //切换到 sdk Session
+        session_id($seesionId);
+        session_start();
+
+        if(!isset($_SESSION['curl'])){
+            $_SESSION['curl'] = RongCloud::$apiUrl[0];
+        }
+        if($nextUrl) $_SESSION['curl'] = $nextUrl;
+
+        $currentUrl = isset($_SESSION['curl'])?$_SESSION['curl']:RongCloud::$apiUrl[0];
+        session_write_close();
+        unset($_SESSION);
+        //切换到原始 SESSION
+        session_id($oldSessionId);
+        session_start();
+        setcookie("PHPSESSID",$oldSessionId);
+        return $currentUrl;
+    }
+
+    /**
+     * 多域名 设置为下一个域名
+     * @param string $url
+     */
+    private function getNextUrl($url=""){
+        $urlList = RongCloud::$apiUrl;
+        if(is_array($urlList) && in_array($url,$urlList)){
+            $currentKey = array_search($url, $urlList);
+            $nextUrl = isset($urlList[$currentKey+1])?$urlList[$currentKey+1]:$urlList[0];
+            $this->resetServerUrl($nextUrl);
+        }
+        return true;
     }
     /**
      * 创建http header参数
@@ -94,6 +144,10 @@ class Request
         $result = json_decode($ret,true);
         if(isset($result['code']) && $result['code'] == 1000){
 
+        }
+        $httpInfo = curl_getinfo($ch);
+        if($module == "im" && $httpInfo['http_code'] >=500 && $httpInfo['http_code'] <600){
+            $this->getNextUrl($this->serverUrl);
         }
 
         return $ret;
