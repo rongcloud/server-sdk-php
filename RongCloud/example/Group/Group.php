@@ -35,7 +35,7 @@ function create()
         'id'=> 'php group1',//群组 id
         'name'=> 'watergroup',//群组名称
         'members'=>[          //群成员 列表
-            ['id'=> 'uPj70HUrRSUk-ixtt7iIGc','Vu-oC0_LQ6kgPqltm_zYtI']
+            [['id'=> 'uPj70HUrRSUk-ixtt7iIGc'],['id'=>'Vu-oC0_LQ6kgPqltm_zYtI']]
         ]
     ];
     $result = $RongSDK->getGroup()->create($group);

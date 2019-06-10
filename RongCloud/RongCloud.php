@@ -10,6 +10,7 @@ use RongCloud\Lib\Group\Group;
 use RongCloud\Lib\Message\Message;
 use RongCloud\Lib\Sensitive\Sensitive;
 use RongCloud\Lib\User\User;
+use RongCloud\Lib\Push\Push;
 
 error_reporting(0);
 if (!defined('RONGCLOUOD_ROOT')) {
@@ -83,6 +84,13 @@ class RongCloud
     public $_sensitive;
 
     /**
+     * 推送模块对象
+     *
+     * @var Push
+     */
+    public $_push;
+
+    /**
      * RongCloud constructor.
      * @param string $appKey 实体 appKey 应用 key
      * @param string $appSecret 实体 appSecret 应用 秘钥
@@ -112,6 +120,9 @@ class RongCloud
 
         //创建 Sensitive
         $this->_sensitive= new Sensitive();
+
+        //创建 Push
+        $this->_push= new Push();
     }
 
     /**
@@ -166,5 +177,14 @@ class RongCloud
      */
     public function getSensitive(){
         return $this->_sensitive;
+    }
+
+    /**
+     * 获取推送对象
+     *
+     * @return Push
+     */
+    public function getPush(){
+        return $this->_push;
     }
 }

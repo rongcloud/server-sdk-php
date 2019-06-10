@@ -7,6 +7,7 @@
  */
 namespace RongCloud\Lib\User;
 
+use RongCloud\Lib\User\Tag\Tag;
 use RongCloud\Lib\User\Block\Block;
 use RongCloud\Lib\User\Blacklist\Blacklist;
 use RongCloud\Lib\User\MuteGroups\MuteGroups;
@@ -147,6 +148,15 @@ class User
      */
     public function MuteChatrooms(){
         return new MuteChatrooms();
+    }
+
+    /**
+     * 用户标签
+     *
+     * @return Tag
+     */
+    public function Tag(){
+        return new Tag();
     }
 
 
