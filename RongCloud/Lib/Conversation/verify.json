@@ -1,0 +1,37 @@
+{
+  "conversation": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "type": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "targetId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  }
+}
