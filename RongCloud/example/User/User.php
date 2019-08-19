@@ -15,7 +15,7 @@ use RongCloud\Lib\Utils;
  */
 function register()
 {
-    $RongSDK = new RongCloud(APPKEY,APPSECRET,'https://192.183.12.22:2393');
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'id'=> 'ujadk90had',
         'name'=> 'Maritn',//用户名称

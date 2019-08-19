@@ -4,7 +4,7 @@
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
-define('APPSECRET','');
+define("APPSECRET", '');
 
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
@@ -240,3 +240,32 @@ function testUserMuteChatrooms($RongSDK){
 
 }
 testUserMuteChatrooms($RongSDK);
+
+
+function testUserTag($RongSDK){
+    $Chatroom = $RongSDK->getUser()->Tag();
+    $params = [
+        'userId'=> 'ujadk90ha1',//用户id
+        'tags'=> ['标签1','标签2']//用户标签
+    ];
+    Utils::dump("添加用户标签成功",$Chatroom->set($params));
+
+    Utils::dump("添加用户标签参数错误",$Chatroom->set());
+
+    $params = [
+        'userIds'=> ['ujadk90ha1','ujadk90ha2'],//用户id
+        'tags'=> ['标签1','标签2']//用户标签
+    ];
+    Utils::dump("批量添加用户标签成功",$Chatroom->batchset($params));
+
+    Utils::dump("批量添加用户标签参数错误",$Chatroom->batchset());
+
+    $params = [
+        'userIds'=> ['ujadk90ha1','ujadk90ha2'],//用户id
+    ];
+    Utils::dump("获取用户标签成功",$Chatroom->get($params));
+
+    Utils::dump("获取用户标签参数错误",$Chatroom->get());
+
+}
+testUserTag($RongSDK);
