@@ -5,9 +5,12 @@ Server SDK 功能支持的版本清单
 | [用户信息](./RongCloud/Lib/User/User.php) | register | 注册， 获取 token| 3.0.1 |
 |  | update | 更新用户信息 | 3.0.1 |
 | [检查用户在线状态](./RongCloud/Lib/User/Onlinestatus/OnlineStatus.php) | onlinestatus.check | 检查用户在线状态| 3.0.1 |
-| [黑名单](./RongCloud/Lib/User/blacklist/Blacklist.php) | blacklist.add | 添加黑名单 | 3.0.1 |
+| [黑名单](./RongCloud/Lib/User/Blacklist/Blacklist.php) | blacklist.add | 添加黑名单 | 3.0.1 |
 |  | blacklist.getList | 获取黑名单列表| 3.0.1 |
 |  | blacklist.remove | 移除黑名单 | 3.0.1 |
+| [单聊消息白名单](./RongCloud/Lib/User/Whitelist/Whitelist.php) | whitelist.add | 添加白名单 | 3.0.2 |
+|  | whitelist.getList | 获取白名单列表| 3.0.2 |
+|  | whitelist.remove | 移除白名单 | 3.0.2 |
 | [用户封禁](./RongCloud/Lib/User/Block/Block.php) | block.add |添加用户封禁 | 3.0.1 |
 |  | block.getList| 获取用户封禁列表| 3.0.1 |
 |  | block.remove| 移除用户封禁| 3.0.1 |
@@ -28,6 +31,7 @@ Server SDK 功能支持的版本清单
 |  | person.recall | 消息单聊撤回 | 3.0.1 |
 | [聊天室消息](./RongCloud/Lib/Message/Chatroom/Chatroom.php)  | chatroom.send | 发送聊天室消息 | 3.0.1 |
 |  | chatroom.broadcast| 发送聊天室广播消息 | 3.0.1 |
+|  | chatroom.recall| 聊天室消息撤回 | 3.0.2 |
 | [群组消息](./RongCloud/Lib/Message/Group/Group.php)  | group.send | 发送群组消息 | 3.0.1 |
 |  | group.sendMention | 发送群组 @ 消息 | 3.0.1 |
 |  | group.recall | 撤回群组消息 | 3.0.1 |
@@ -36,8 +40,9 @@ Server SDK 功能支持的版本清单
 |  | system.broadcast | 发送广播消息，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.1 |
 | [消息历史记录](./RongCloud/Lib/Message/History/History.php) | message.history.get | 消息历史记录下载地址获取 | 3.0.1 |
 |  | message.history.remove | 消息历史记录删除方法 | 3.0.1 |
-| [广播推送](./RongCloud/Lib/Push/Push.php) | push.push | 发送推送，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |
+| [广播消息](./RongCloud/Lib/Push/Push.php) | push.push | 发送推送，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |
 |  | push.message | 发送广播消息，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |
+| [广播推送](./RongCloud/Lib/Message/Broadcast/Broadcast.php) | broadcast.recall | 撤回群组消息 | 3.0.1 |
 | [群组](./RongCloud/Lib/Group/Group.php) | create | 创建群组 | 3.0.1 |
 |  | sync | 同步群关系 | 3.0.1 |
 |  | update | 更新群信息 | 3.0.1 |

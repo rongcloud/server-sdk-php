@@ -10,6 +10,7 @@ use RongCloud\Lib\Message\Group\Group;
 use RongCloud\Lib\Message\History\History;
 use RongCloud\Lib\Message\Person\Person;
 use RongCloud\Lib\Message\System\System;
+use RongCloud\Lib\Message\Broadcast\Broadcast;
 
 class Message
 {
@@ -67,5 +68,14 @@ class Message
      */
     public function System(){
         return new System();
+    }
+
+    /**
+     * 创建广播消息对象
+     *
+     * @return Broadcast
+     */
+    public function Broadcast(){
+        return new Broadcast();
     }
 }

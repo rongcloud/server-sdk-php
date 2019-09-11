@@ -33,7 +33,7 @@ class Request
         if(is_array(RongCloud::$apiUrl) && count(RongCloud::$apiUrl)==1) return RongCloud::$apiUrl[0];
         if(is_string(RongCloud::$apiUrl)) return RongCloud::$apiUrl;
         $seesionId = "RongCloudServerSDKUrl";
-        session_start();
+        if (!session_id()) @session_start();
         $oldSessionId = session_id();
         session_write_close();
         //切换到 sdk Session
@@ -132,7 +132,7 @@ class Request
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false); //处理http证书问题
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.0");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.2");
 //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -140,12 +140,12 @@ class Request
             $ret =  curl_errno($ch);
             $ret = $this->getCurlError($ret);
         }
+        $httpInfo = curl_getinfo($ch);
         curl_close($ch);
         $result = json_decode($ret,true);
         if(isset($result['code']) && $result['code'] == 1000){
 
         }
-        $httpInfo = curl_getinfo($ch);
         if($module == "im" && $httpInfo['http_code'] >=500 && $httpInfo['http_code'] <600){
             $this->getNextUrl($this->serverUrl);
         }

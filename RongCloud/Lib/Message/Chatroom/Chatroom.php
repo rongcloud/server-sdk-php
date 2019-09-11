@@ -6,6 +6,7 @@ namespace RongCloud\Lib\Message\Chatroom;
 
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
+use RongCloud\Lib\ConversationType;
 
 class Chatroom {
     private $jsonPath = 'Lib/Message/Chatroom/';
@@ -84,6 +85,36 @@ class Chatroom {
         $Message = (new Utils())->rename($Message, [
             'senderId'=> 'fromUserId',
         ]);
+        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
+     * @param $Message array 聊天室消息撤回
+     * @param
+     * $Message = [
+        'senderId'=> 'ujadk90ha',//发送人 Id
+        'targetId'=> 'markoiwm',//聊天室 Id
+        "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息的唯一标识
+        'sentTime'=>'1519444243981'//消息的发送时间
+    ];
+     * @return array
+     */
+    public function recall(array $Message=[]){
+        $conf = $this->conf['recall'];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'message',
+            'data'=> $Message,
+            'verify'=> $this->verify['message']
+        ]);
+        if($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId'=> 'fromUserId',
+            'uId'=> 'messageUID'
+        ]);
+        $Message['conversationType'] = ConversationType::t()['CHATROOM'];
         $result = (new Request())->Request($conf['url'],$Message);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;

@@ -269,3 +269,44 @@ function testUserTag($RongSDK){
 
 }
 testUserTag($RongSDK);
+
+function testUserWhitelist($RongSDK){
+    $User = $RongSDK->getUser()->Whitelist();
+
+    $params = [
+        'id'=> 'ujadk90ha1d',//用户 id
+        'whitelist'=> ['ujadk90ha1d']//添加黑名单人员列表
+    ];
+    Utils::dump("用户白名单添加成功",$User->add($params));
+
+    Utils::dump("用户白名单 id 错误", $User->add());
+
+    $params = [
+        'id'=> 'ujadk90ha1d',
+    ];
+    Utils::dump("用户白名单 whitelist 错误",$User->add($params));
+
+
+    $params = [
+        'id'=> 'ujadk90ha1d',//用户 id
+        'whitelist'=> ['ujadk90ha1d']//添加黑名单人员列表
+    ];
+    Utils::dump("移除用户白名单成功",$User->add($params));
+
+    Utils::dump("移除用户白名单 id 错误", $User->add());
+
+    $params = [
+        'id'=> 'ujadk90ha1d',
+    ];
+    Utils::dump("移除用户白名单 whitelist 错误",$User->add($params));
+
+    $params = [
+        'id'=> 'ujadk90ha1d',
+    ];
+    Utils::dump("用户白名单获取成功",$User->getList($params));
+
+
+    Utils::dump("用户白名单获取 id 错误",$User->getList());
+}
+
+testUserWhitelist($RongSDK);

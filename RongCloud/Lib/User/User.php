@@ -10,6 +10,7 @@ namespace RongCloud\Lib\User;
 use RongCloud\Lib\User\Tag\Tag;
 use RongCloud\Lib\User\Block\Block;
 use RongCloud\Lib\User\Blacklist\Blacklist;
+use RongCloud\Lib\User\Whitelist\Whitelist;
 use RongCloud\Lib\User\MuteGroups\MuteGroups;
 use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
 use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
@@ -157,6 +158,15 @@ class User
      */
     public function Tag(){
         return new Tag();
+    }
+
+    /**
+     * 创建白名单对象
+     *
+     * @return Whitelist
+     */
+    public function Whitelist(){
+        return new Whitelist();
     }
 
 
