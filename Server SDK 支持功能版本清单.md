@@ -53,6 +53,12 @@ Server SDK 功能支持的版本清单
 | [用户指定群禁言](./RongCloud/Lib/group/Gag/Gag.php) | gag.add | 添加指定群组禁言用户，该用户在指定群组中不能发送消息 | 3.0.2 |
 |  | gag.remove | 移除指定群组禁言用户 | 3.0.2 |
 |  | gag.getList | 获取指定群组禁言用户列表 | 3.0.2 |
+| [群禁言白名单](./RongCloud/Lib/group/MuteWhiteList/MuteWhiteList.php) | gag.add | 群组禁言白名单添加 | 3.0.3 |
+|  | MuteWhiteList.remove | 移除群组禁言白名单 | 3.0.3 |
+|  | MuteWhiteList.getList | 获取群组禁言白名单列表 | 3.0.3 |
+| [用户指定群全部禁言](./RongCloud/Lib/group/muteAllmembers/muteAllmembers.php) | gag.add | 添加指定群组全部禁言| 3.0.3 |
+|  | muteAllmembers.remove | 移除指定群组全部禁言 | 3.0.3 |
+|  | muteAllmembers.getList | 获取指定群组全部禁言列表 | 3.0.3 |
 | [会话免打扰(Conversation)](./RongCloud/Lib/Conversation/Conversation.php) | mute | 添加免打扰会话 | 3.0.1 |
 |  | unMute | 移除免打扰会话 | 3.0.1 |
 |  | get | 免打扰会话状态获取 | 3.0.1 |
