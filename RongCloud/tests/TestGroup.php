@@ -132,3 +132,65 @@ function testGroupGag($RongSDK){
 testGroupGag($RongSDK);
 
 
+
+function testGroupMuteAllMembers($RongSDK){
+    $Group = $RongSDK->getGroup()->MuteAllMembers();
+    $params = [
+        'id'=> 'watergroup1',//群组 id
+    ];
+    Utils::dump("添加指定群组全部禁言成功",$Group->add($params));
+
+    Utils::dump("添加指定群组全部禁言参数错误",$Group->add());
+
+    $params = [
+        'id'=> 'watergroup1',//群组 id
+    ];
+    Utils::dump("解除指定群组全部禁言成功",$Group->remove($params));
+
+    Utils::dump("解除指定群组全部禁言参数错误",$Group->remove());
+
+    $params = [
+
+    ];
+    Utils::dump("查询指定群组全部禁言列表成功",$Group->getList($params));
+}
+
+testGroupMuteAllMembers($RongSDK);
+
+
+function testGroupMuteWhiteList($RongSDK){
+    $Group = $RongSDK->getGroup()->MuteWhiteList();
+    $params = [
+        'id'=> 'watergroup1',//群组 id
+        'members'=>[ //禁言白名单人员列表
+            ['id'=> 'group9994']
+        ],
+    ];
+    Utils::dump("添加群组禁言白名单成功",$Group->add($params));
+
+    Utils::dump("添加群组禁言白名单参数错误",$Group->add());
+
+    $params = [
+        'id'=> 'watergroup1',//群组 id
+        'members'=>[ //禁言白名单人员列表
+            ['id'=> 'group9994']
+        ]
+    ];
+    Utils::dump("解除禁言白名单成功",$Group->remove($params));
+
+    Utils::dump("解除禁言白名单参数错误",$Group->remove());
+    $params = [
+        'id'=> 'watergroup1',
+        'members'=>[]
+    ];
+    Utils::dump("解除禁言白名单 members 错误",$Group->remove($params));
+
+    $params = [
+        'id'=> 'watergroup1',//群组 id
+    ];
+    Utils::dump("查询禁言白名单成员列表成功",$Group->getList($params));
+
+    Utils::dump("查询禁言白名单成员列表参数错误",$Group->getList());
+}
+
+testGroupMuteWhiteList($RongSDK);

@@ -6,6 +6,8 @@
 namespace RongCloud\Lib\Group;
 
 use RongCloud\Lib\Group\Gag\Gag;
+use RongCloud\Lib\Group\MuteAllMembers\MuteAllMembers;
+use RongCloud\Lib\Group\MuteWhiteList\MuteWhiteList;
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
 class Group
@@ -276,6 +278,23 @@ class Group
      */
     public function Gag(){
         return new Gag();
+    }
+
+    /**
+     * 创建指定群组全员禁言
+     *
+     * @return MuteAllMembers
+     */
+    public function MuteAllMembers(){
+        return new MuteAllMembers();
+    }
+    /**
+     * 创建指定群组全员禁言
+     *
+     * @return MuteWhiteList
+     */
+    public function MuteWhiteList(){
+        return new MuteWhiteList();
     }
 
 }
