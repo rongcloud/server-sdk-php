@@ -140,9 +140,6 @@ class MuteWhiteList
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         if($result['code'] == 200){
             $result = (new Utils())->rename($result,['users'=>'members']);
-            foreach ($result['members']?:[] as $k=>&$v){
-                $v = (new Utils())->rename($v,['userId'=>'id']);
-            }
         }
         return $result;
     }

@@ -61,12 +61,8 @@ class MuteAllMembers
             'verify'=> $verify
         ]);
         if($error) return $error;
-        foreach ($Group['members'] as &$v){
-            $v = $v['id'];
-        }
         $Group = (new Utils())->rename($Group, [
             'id'=> 'groupId',
-            'members'=> 'userId'
         ]);
         $result = (new Request())->Request($conf['url'],$Group);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
@@ -97,12 +93,8 @@ class MuteAllMembers
             'verify'=> $verify
         ]);
         if($error) return $error;
-        foreach ($Group['members'] as &$v){
-            $v = $v['id'];
-        }
         $Group = (new Utils())->rename($Group, [
             'id'=> 'groupId',
-            'members'=> 'userId'
         ]);
         $result = (new Request())->Request($conf['url'],$Group);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
@@ -135,12 +127,6 @@ class MuteAllMembers
         ]);
         $result = (new Request())->Request($conf['url'],$Group);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
-        if($result['code'] == 200){
-            $result = (new Utils())->rename($result,['users'=>'members']);
-            foreach ($result['members']?:[] as $k=>&$v){
-                $v = (new Utils())->rename($v,['userId'=>'id']);
-            }
-        }
         return $result;
     }
 
