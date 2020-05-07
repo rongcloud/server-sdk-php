@@ -63,7 +63,10 @@ class Group
                 ]);
         if($error) return $error;
         $data = [];
-        $data['group'] = array_column($Group['groups'],'name', 'id');
+//        $data['group'] = array_column($Group['groups'],'name', 'id');
+        foreach ($Group['groups'] as $v){
+            $data["group[{$v['id']}]"] = $v['name'];
+        }
         $data['userId'] = $Group['id'];
         $result = (new Request())->Request($conf['url'],$data);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
