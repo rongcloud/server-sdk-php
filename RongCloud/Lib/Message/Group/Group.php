@@ -112,6 +112,38 @@ class Group {
     }
 
     /**
+        * @param $Message array 群组状态消息发送
+        * @param
+        * $Message = [
+            'senderId'=> 'ujadk90ha',//发送人 id
+            'targetId'=> 'markoiwm',//群组 id
+            "objectName"=>'RC:TxtMsg',//消息类型 文本
+            'content'=>['content'=>'你好，小明']//消息体
+        ];
+        * @return array
+    */
+    public function sendStatusMessage(array $Message=[]){
+        $conf = $this->conf['sendStatusMessage'];
+        if(isset($Message['content']) && is_array($Message['content'])){
+            $Message['content'] = json_encode($Message['content']);
+        }
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'message',
+            'data'=> $Message,
+            'verify'=> $this->verify['message']
+        ]);
+        if($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId'=> 'fromUserId',
+            'targetId'=> 'toGroupId'
+        ]);
+        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
      * @param $Message array 群组消息撤回
      * @param
      * $Message = [

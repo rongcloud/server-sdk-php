@@ -20,7 +20,7 @@ function send()
         'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
         'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//接收人 id
         "objectName"=>'RC:TxtMsg',//消息类型 文本
-        'content'=>json_encode(['content'=>'你好，主播'])//消息内容
+        'content'=>json_encode(['content'=>'你好，这是 1 条二人消息'])//消息内容
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->send($message);
     Utils::dump("二人消息发送",$Chartromm);
@@ -53,6 +53,22 @@ function sendTemplate()
 }
 sendTemplate();
 
+/**
+ * 二人状态消息发送
+ */
+function sendStatusMessage()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $message = [
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
+        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//接收人 id
+        "objectName"=>'RC:TxtMsg',//消息类型 文本
+        'content'=>json_encode(['content'=>'你好，这是 1 条二人状态消息'])//消息内容
+    ];
+    $Chartromm = $RongSDK->getMessage()->Person()->sendStatusMessage($message);
+    Utils::dump("二人状态消息发送",$Chartromm);
+}
+sendStatusMessage();
 /**
  * 二人消息撤回
  */

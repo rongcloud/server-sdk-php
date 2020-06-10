@@ -89,3 +89,6 @@ Server SDK 功能支持的版本清单
 | [聊天室用户白名单](./RongCloud/Lib/Chatroom/Whitelist/User.php) | whiteList.user.add | 添加白名单用户，白名单中用户发送的消息，在消息量激增导致服务器压力较大时不会被丢弃，确保消息到达 | 3.0.1 |
 |  | whiteList.user.remove | 移除白名单用户 | 3.0.1 |
 |  | whiteList.user.getList | 获取白名单用户列表 | 3.0.1 |
+| [聊天室属性](./RongCloud/Lib/Chatroom/Entry/Entry.php) | Entry.set | 为指定聊天室以 Key、Value 方式自定义设置属性信息，此服务需要在开发者后台开通 IM 商用版后，开通使用。 | 3.0.6 |
+|  | Entry.remove | 删除聊天室属性 | 3.0.6 |
+|  | Entry.query | 获取聊天室属性 | 3.0.6 |

@@ -52,6 +52,23 @@ function sendMention()
 sendMention();
 
 /**
+ * 群组状态消息发送
+ */
+function sendStatusMessage()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $message = [
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
+        'targetId'=> ['php group1'],//群组 id
+        "objectName"=>'RC:TxtMsg',//消息类型 文本
+        'content'=>json_encode(['content'=>'php 群状态消息 你好，小明'])//消息体
+    ];
+    $Result = $RongSDK->getMessage()->Group()->sendStatusMessage($message);
+    Utils::dump("群组状态消息发送",$Result);
+}
+sendStatusMessage();
+
+/**
  * 撤回已发送的群聊消息
  */
 function recall()

@@ -103,6 +103,10 @@ function testMessageGroup($RongSDK){
 
     Utils::dump("群组发送消息参数错误",$Message->send());
 
+    Utils::dump("群组发送状态消息成功",$Message->sendStatusMessage($params));
+
+    Utils::dump("群组发送状态消息参数错误",$Message->sendStatusMessage());
+
     $params = [
         'senderId'=> 'ujadk90ha',
         'targetId'=> '',
@@ -110,6 +114,7 @@ function testMessageGroup($RongSDK){
         'content'=>json_encode(['content'=>'你好，主播'])
     ];
     Utils::dump("群组发送消息 targetId 错误",$Message->send($params));
+    Utils::dump("群组发送状态消息 targetId 错误",$Message->sendStatusMessage($params));
 
     $params = [
         'senderId'=> 'ujadk90ha',
@@ -118,6 +123,7 @@ function testMessageGroup($RongSDK){
         'content'=>json_encode(['content'=>'你好，主播'])
     ];
     Utils::dump("群组发送消息 objectName 错误",$Message->send($params));
+    Utils::dump("群组发送状态消息 objectName 错误",$Message->sendStatusMessage($params));
 
     $params = [
         'senderId'=> 'ujadk90ha',
@@ -125,6 +131,7 @@ function testMessageGroup($RongSDK){
         "objectName"=>'RC:TxtMsg',
     ];
     Utils::dump("群组发送消息 content 错误",$Message->send($params));
+    Utils::dump("群组发送状态消息 content 错误",$Message->sendStatusMessage($params));
 
     $params = [
         'senderId'=> 'ujadk90ha',//发送人 id
@@ -178,7 +185,6 @@ function testMessageGroup($RongSDK){
 
 testMessageGroup($RongSDK);
 
-
 function testMessageHistory($RongSDK){
     $Message = $RongSDK->getMessage()->History();
     $params = [
@@ -204,11 +210,15 @@ function testMessagePerson($RongSDK){
         'senderId'=> 'ujadk90ha',//发送人 id
         'targetId'=> 'markoiwm',//接收人 id
         "objectName"=>'RC:TxtMsg',//消息类型 文本
-        'content'=>json_encode(['content'=>'你好，主播'])//消息内容
+        'content'=>json_encode(['content'=>'你好，这是 1 条消息'])//消息内容
     ];
     Utils::dump("二人消息发送成功",$Message->send($params));
 
     Utils::dump("二人消息发送参数错误",$Message->send());
+
+    Utils::dump("二人状态消息发送成功",$Message->sendStatusMessage($params));
+
+    Utils::dump("二人状态消息发送参数错误",$Message->sendStatusMessage());
 
     $params = [
         'senderId'=> 'kamdnq',//发送人 id
@@ -284,7 +294,6 @@ function testMessageSystem($RongSDK){
 }
 
 testMessageSystem($RongSDK);
-
 
 function testMessageBroadcast($RongSDK){
 

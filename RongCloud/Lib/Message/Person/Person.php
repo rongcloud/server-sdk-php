@@ -116,6 +116,34 @@ class Person {
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+    /**
+     * @param $Message array 二人状态消息发送
+     * @param
+     * $Message = [
+            'senderId'=> 'ujadk90ha',//发送人 id
+            'targetId'=> 'markoiwm',//接收人 id
+            "objectName"=>'RC:TxtMsg',//消息类型 文本
+            'content'=>['content'=>'你好，小明']//消息体
+       ];
+     * @return array
+     */
+    public function sendStatusMessage(array $Message=[]){
+        $conf = $this->conf['sendStatusMessage'];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'message',
+            'data'=> $Message,
+            'verify'=> $this->verify['message']
+        ]);
+        if($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId'=> 'fromUserId',
+            'targetId'=> 'toUserId'
+        ]);
+        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
 
     /**
      * @param $Message array 二人消息撤回

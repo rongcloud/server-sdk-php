@@ -14,6 +14,7 @@ use RongCloud\Lib\Chatroom\Gag\Gag;
 use RongCloud\Lib\Chatroom\Keepalive\Keepalive;
 use RongCloud\Lib\Chatroom\Whitelist\Whitelist;
 use RongCloud\Lib\Chatroom\Whitelist\Message;
+use RongCloud\Lib\Chatroom\Entry\Entry;
 
 class Chatroom
 {
@@ -252,4 +253,12 @@ class Chatroom
         return new Message();
     }
 
+    /**
+     * 创建聊天室白名单消息对象
+     *
+     * @return Entry
+     */
+    public function Entry(){
+        return new Entry();
+    }
 }
