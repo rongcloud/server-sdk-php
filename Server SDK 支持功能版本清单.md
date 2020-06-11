@@ -28,12 +28,14 @@ Server SDK 功能支持的版本清单
 |  | remove | 移除敏感词，支持批量移除功能，移除后默认 2 小时生效 | 3.0.1 |
 | [单聊消息](./RongCloud/Lib/Message/Person/Person.php) | person.send | 发送单聊消息 | 3.0.1 |
 |  | person.sendTemplate | 发送单聊模板消息 | 3.0.1 |
+|  | person.sendStatusMessage | 发送单聊状态消息 | 3.0.6 |
 |  | person.recall | 消息单聊撤回 | 3.0.1 |
 | [聊天室消息](./RongCloud/Lib/Message/Chatroom/Chatroom.php)  | chatroom.send | 发送聊天室消息 | 3.0.1 |
 |  | chatroom.broadcast| 发送聊天室广播消息 | 3.0.1 |
 |  | chatroom.recall| 聊天室消息撤回 | 3.0.2 |
 | [群组消息](./RongCloud/Lib/Message/Group/Group.php)  | group.send | 发送群组消息 | 3.0.1 |
 |  | group.sendMention | 发送群组 @ 消息 | 3.0.1 |
+|  | group.sendStatusMessage | 发送群组状态消息 | 3.0.6 |
 |  | group.recall | 撤回群组消息 | 3.0.1 |
 | [系统消息](./RongCloud/Lib/Message/System/System.php)  | system.send | 发送系统消息 | 3.0.1 |
 |  | system.sendTemplate | 发送系统模板消息 | 3.0.1 |
