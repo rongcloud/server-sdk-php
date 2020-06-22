@@ -74,6 +74,11 @@ function testUser($RongSDK){
         'portrait'=> Utils::createRand(513)
     ];
     Utils::dump("用户更新 portrait 错误",$User->update($params));
+
+    $params = [
+        'id'=> 'ujadk90had',
+    ];
+    Utils::dump("获取用户信息成功",$User->get($params));
 }
 
 testUser($RongSDK);

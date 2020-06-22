@@ -4,6 +4,7 @@ Server SDK 功能支持的版本清单
 | :-----| :-----  | :------ | :----- |
 | [用户信息](./RongCloud/Lib/User/User.php) | register | 注册， 获取 token| 3.0.1 |
 |  | update | 更新用户信息 | 3.0.1 |
+|  | get | 获取用户信息 | 3.0.7 |
 | [检查用户在线状态](./RongCloud/Lib/User/Onlinestatus/OnlineStatus.php) | onlinestatus.check | 检查用户在线状态| 3.0.1 |
 | [黑名单](./RongCloud/Lib/User/Blacklist/Blacklist.php) | blacklist.add | 添加黑名单 | 3.0.1 |
 |  | blacklist.getList | 获取黑名单列表| 3.0.1 |

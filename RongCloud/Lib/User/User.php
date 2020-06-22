@@ -5,6 +5,7 @@
  * Date=> 2018/7/23
  * Time=> 11=>41
  */
+
 namespace RongCloud\Lib\User;
 
 use RongCloud\Lib\User\Tag\Tag;
@@ -17,8 +18,7 @@ use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
-class User
-{
+class User {
     /**
      * 用户模块路径
      *
@@ -43,37 +43,40 @@ class User
     /**
      * User constructor.
      */
-    function __construct()
-    {
+    function __construct() {
         //初始化请求配置和校验文件路径
-        $this->conf = Utils::getJson($this->jsonPath.'api.json');
-        $this->verify = Utils::getJson($this->jsonPath.'verify.json');
+        $this->conf = Utils::getJson($this->jsonPath . 'api.json');
+        $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
     /**
      * @param $User array 用户注册
      * @param
      * $User = [
-            'id'=> 'ujadk90ha',//用户id
-            'name'=> 'Maritn',//用户名称
-            'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
-        ];
+     * 'id'=> 'ujadk90ha',//用户id
+     * 'name'=> 'Maritn',//用户名称
+     * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
+     * ];
      * @return array
      */
-    public function register(array $User=[]){
+    public function register(array $User = []) {
         $conf = $this->conf['register'];
-        $error = (new Utils())->check([
-                    'api'=> $conf,
-                    'model'=> 'user',
-                    'data'=> $User,
-                    'verify'=> $this->verify['user']
-                ]);
-        if($error) return $error;
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['user']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
         $User = (new Utils())->rename($User, [
-                'id'=> 'userId',
-                'portrait'=> 'portraitUri'
-            ]);
-        $result = (new Request())->Request($conf['url'],$User);
+            'id' => 'userId',
+            'portrait' => 'portraitUri'
+        ]);
+        $result = (new Request())->Request($conf['url'], $User);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
@@ -82,36 +85,76 @@ class User
      * @param $User array 用户信息更新
      * @param
      * $User = [
-            'id'=> 'ujadk90ha',//用户id
-            'name'=> 'Maritn',//用户名称
-            'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
-        ];
+     * 'id'=> 'ujadk90ha',//用户id
+     * 'name'=> 'Maritn',//用户名称
+     * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
+     * ];
      * @return array
      */
-    public function update(array $User=[]){
+    public function update(array $User = []) {
         $conf = $this->conf['update'];
-        $error = (new Utils())->check([
-            'api'=> $conf,
-            'model'=> 'user',
-            'data'=> $User,
-            'verify'=> $this->verify['user']
-        ]);
-        if($error) return $error;
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['user']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
         $User = (new Utils())->rename($User, [
-            'id'=> 'userId',
-            'portrait'=> 'portraitUri'
+            'id' => 'userId',
+            'portrait' => 'portraitUri'
         ]);
-        $result = (new Request())->Request($conf['url'],$User);
+        $result = (new Request())->Request($conf['url'], $User);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+
+    /**
+     * @param $User array 查询用户信息
+     * @param
+     * $User = [
+     * 'id'=> 'ujadk90ha',//用户id
+     * ];
+     * @return array
+     */
+    public function get(array $User = []) {
+        $conf = $this->conf['get'];
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['user']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
+        $User = (new Utils())->rename($User, [
+            'id' => 'userId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $User);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        if($result['code'] == 200) {
+            $result = (new Utils())->rename($result, [
+                'userName'=> 'name',
+                'userPortrait'=> 'portrait',
+            ]);
+        }
+        return $result;
+    }
+
 
     /**
      * 创建封禁对象
      *
      * @return Block
      */
-    public function Block(){
+    public function Block() {
         return new Block();
     }
 
@@ -120,7 +163,7 @@ class User
      *
      * @return Blacklist
      */
-    public function Blacklist(){
+    public function Blacklist() {
         return new Blacklist();
     }
 
@@ -129,7 +172,7 @@ class User
      *
      * @return Onlinestatus
      */
-    public function Onlinestatus(){
+    public function Onlinestatus() {
         return new Onlinestatus();
     }
 
@@ -138,7 +181,7 @@ class User
      *
      * @return MuteGroups
      */
-    public function MuteGroups(){
+    public function MuteGroups() {
         return new MuteGroups();
     }
 
@@ -147,7 +190,7 @@ class User
      *
      * @return MuteChatrooms
      */
-    public function MuteChatrooms(){
+    public function MuteChatrooms() {
         return new MuteChatrooms();
     }
 
@@ -156,7 +199,7 @@ class User
      *
      * @return Tag
      */
-    public function Tag(){
+    public function Tag() {
         return new Tag();
     }
 
@@ -165,10 +208,9 @@ class User
      *
      * @return Whitelist
      */
-    public function Whitelist(){
+    public function Whitelist() {
         return new Whitelist();
     }
-
 
 
 }
