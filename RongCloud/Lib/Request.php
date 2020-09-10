@@ -2,56 +2,72 @@
 /**
  * 请求发送
  */
+
 namespace RongCloud\Lib;
 
 use RongCloud\RongCloud;
 
-class Request
-{
-    private $appKey="";
-    private $appSecret="";
+class Request {
+    private $appKey = "";
+    private $appSecret = "";
 //    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
-    private $serverUrl = ['http://api-cn.ronghub.com/','http://api2-cn.ronghub.com/'];
+    private $serverUrl = ['http://api-cn.ronghub.com/', 'http://api2-cn.ronghub.com/'];
     private $smsUrl = 'http://api.sms.ronghub.com/';
-    public function __construct(){
-        if(RongCloud::$appkey) $this->appKey = RongCloud::$appkey;
-        if(RongCloud::$appSecret) $this->appSecret = RongCloud::$appSecret;
-        if(RongCloud::$apiUrl) $this->serverUrl = RongCloud::$apiUrl;
-        else{RongCloud::$apiUrl = $this->serverUrl;}
+
+    public function __construct() {
+        if (RongCloud::$appkey) {
+            $this->appKey = RongCloud::$appkey;
+        }
+        if (RongCloud::$appSecret) {
+            $this->appSecret = RongCloud::$appSecret;
+        }
+        if (RongCloud::$apiUrl) {
+            $this->serverUrl = RongCloud::$apiUrl;
+        } else {
+            RongCloud::$apiUrl = $this->serverUrl;
+        }
         $this->serverUrl = $this->resetServerUrl();
     }
 
     /**
      * server url 多域名切换
      */
-    private function resetServerUrl($nextUrl=""){
-        if(is_array(RongCloud::$apiUrl)){
+    private function resetServerUrl($nextUrl = "") {
+        if (is_array(RongCloud::$apiUrl)) {
             $urlList = RongCloud::$apiUrl;
             sort($urlList);
             RongCloud::$apiUrl = $urlList;
         }
-        if(is_array(RongCloud::$apiUrl) && count(RongCloud::$apiUrl)==1) return RongCloud::$apiUrl[0];
-        if(is_string(RongCloud::$apiUrl)) return RongCloud::$apiUrl;
+        if (is_array(RongCloud::$apiUrl) && count(RongCloud::$apiUrl) == 1) {
+            return RongCloud::$apiUrl[0];
+        }
+        if (is_string(RongCloud::$apiUrl)) {
+            return RongCloud::$apiUrl;
+        }
         $seesionId = "RongCloudServerSDKUrl";
-        if (!session_id()) @session_start();
+        if (!session_id()) {
+            @session_start();
+        }
         $oldSessionId = session_id();
         session_write_close();
         //切换到 sdk Session
         session_id($seesionId);
         session_start();
 
-        if(!isset($_SESSION['curl'])){
+        if (!isset($_SESSION['curl'])) {
             $_SESSION['curl'] = RongCloud::$apiUrl[0];
         }
-        if($nextUrl) $_SESSION['curl'] = $nextUrl;
+        if ($nextUrl) {
+            $_SESSION['curl'] = $nextUrl;
+        }
 
-        $currentUrl = isset($_SESSION['curl'])?$_SESSION['curl']:RongCloud::$apiUrl[0];
+        $currentUrl = isset($_SESSION['curl']) ? $_SESSION['curl'] : RongCloud::$apiUrl[0];
         session_write_close();
         unset($_SESSION);
         //切换到原始 SESSION
         session_id($oldSessionId);
         session_start();
-        setcookie("PHPSESSID",$oldSessionId);
+        setcookie("PHPSESSID", $oldSessionId);
         return $currentUrl;
     }
 
@@ -59,29 +75,30 @@ class Request
      * 多域名 设置为下一个域名
      * @param string $url
      */
-    private function getNextUrl($url=""){
+    private function getNextUrl($url = "") {
         $urlList = RongCloud::$apiUrl;
-        if(is_array($urlList) && in_array($url,$urlList)){
+        if (is_array($urlList) && in_array($url, $urlList)) {
             $currentKey = array_search($url, $urlList);
-            $nextUrl = isset($urlList[$currentKey+1])?$urlList[$currentKey+1]:$urlList[0];
+            $nextUrl    = isset($urlList[$currentKey + 1]) ? $urlList[$currentKey + 1] : $urlList[0];
             $this->resetServerUrl($nextUrl);
         }
         return true;
     }
+
     /**
      * 创建http header参数
      * @param array $data
      * @return bool
      */
     private function createHttpHeader() {
-        $nonce = mt_rand();
+        $nonce     = mt_rand();
         $timeStamp = time();
-        $sign = sha1($this->appSecret.$nonce.$timeStamp);
+        $sign      = sha1($this->appSecret . $nonce . $timeStamp);
         return [
-            'RC-App-Key:'.$this->appKey,
-            'RC-Nonce:'.$nonce,
-            'RC-Timestamp:'.$timeStamp,
-            'RC-Signature:'.$sign,
+            'RC-App-Key:' . $this->appKey,
+            'RC-Nonce:' . $nonce,
+            'RC-Timestamp:' . $timeStamp,
+            'RC-Signature:' . $sign,
         ];
     }
 
@@ -95,58 +112,60 @@ class Request
      * @param string $httpMethod 接口请求方式 默认 POST
      * @return int|mixed
      */
-    public function Request($action, $params,$contentType='urlencoded',$module = 'im',$httpMethod='POST') {
-        switch ($module){
+    public function Request($action, $params, $contentType = 'urlencoded', $module = 'im', $httpMethod = 'POST') {
+        switch ($module) {
             case 'im':
-                $action = $this->serverUrl.$action;
+                $action = $this->serverUrl . $action;
                 break;
             case 'sms':
-                $action = $this->smsUrl.$action;
+                $action = $this->smsUrl . $action;
                 break;
             default:
-                $action = $this->serverUrl.$action;
+                $action = $this->serverUrl . $action;
         }
 
         $httpHeader = $this->createHttpHeader();
-        $ch = curl_init();
-        if($contentType == "urlencoded" || $contentType == "json"){
-            $action .=".json";
-        }else{
-            $action .=".xml";
+        $ch         = curl_init();
+        if ($contentType == "urlencoded" || $contentType == "json") {
+            $action .= ".json";
+        } else {
+            $action .= ".xml";
         }
-        if ($httpMethod=='POST' && $contentType=='urlencoded') {
+        if ($httpMethod == 'POST' && $contentType == 'urlencoded') {
             $httpHeader[] = 'Content-Type:application/x-www-form-urlencoded';
             curl_setopt($ch, CURLOPT_POSTFIELDS, $this->build_query($params));
         }
-        if ($httpMethod=='POST' && $contentType=='json') {
+        if ($httpMethod == 'POST' && $contentType == 'json') {
             $httpHeader[] = 'Content-Type:application/json';
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params) );
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
         }
-        if ($httpMethod=='GET' && $contentType=='urlencoded') {
-            $action .= strpos($action, '?') === false?'?':'&';
+        if ($httpMethod == 'GET' && $contentType == 'urlencoded') {
+            $action .= strpos($action, '?') === false ? '?' : '&';
             $action .= $this->build_query($params);
         }
         curl_setopt($ch, CURLOPT_URL, $action);
-        curl_setopt($ch, CURLOPT_POST, $httpMethod=='POST');
+        curl_setopt($ch, CURLOPT_POST, $httpMethod == 'POST');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false); //处理http证书问题
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //处理http证书问题
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.6");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.8");
 //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
         if (false === $ret) {
-            $ret =  curl_errno($ch);
+            $ret = curl_errno($ch);
             $ret = $this->getCurlError($ret);
         }
         $httpInfo = curl_getinfo($ch);
         curl_close($ch);
-        $result = json_decode($ret,true);
-        if(isset($result['code']) && $result['code'] == 1000){
+        $result = json_decode($ret, true);
+        if (isset($result['code']) && $result['code'] == 1000) {
 
         }
-        if($module == "im" && $httpInfo['http_code'] >=500 && $httpInfo['http_code'] <600){
+        if ($module == "im" && $httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
             $this->getNextUrl($this->serverUrl);
         }
 
@@ -180,9 +199,9 @@ class Request
                     $prefixKey .= $key;
                 }
                 if (isset($val[0]) && is_array($val[0])) {
-                    $arr = array();
+                    $arr       = array();
                     $arr[$key] = $val[0];
-                    $str .= $argSeparator . http_build_query($arr);
+                    $str       .= $argSeparator . http_build_query($arr);
                 } else {
                     $str .= $argSeparator . $this->build_query($val, $numericPrefix, $argSeparator, $prefixKey);
                 }
@@ -196,20 +215,20 @@ class Request
      * curl 请求错误信息
      * @param int $error
      */
-    public function getCurlError($error=1){
-        $errorCodes=array(
-            1 => 'CURLE_UNSUPPORTED_PROTOCOL',
-            2 => 'CURLE_FAILED_INIT',
-            3 => 'CURLE_URL_MALFORMAT',
-            4 => 'CURLE_URL_MALFORMAT_USER',
-            5 => 'CURLE_COULDNT_RESOLVE_PROXY',
-            6 => 'CURLE_COULDNT_RESOLVE_HOST',
-            7 => 'CURLE_COULDNT_CONNECT',
-            8 => 'CURLE_FTP_WEIRD_SERVER_REPLY',
-            9 => 'CURLE_REMOTE_ACCESS_DENIED',
+    public function getCurlError($error = 1) {
+        $errorCodes = array(
+            1  => 'CURLE_UNSUPPORTED_PROTOCOL',
+            2  => 'CURLE_FAILED_INIT',
+            3  => 'CURLE_URL_MALFORMAT',
+            4  => 'CURLE_URL_MALFORMAT_USER',
+            5  => 'CURLE_COULDNT_RESOLVE_PROXY',
+            6  => 'CURLE_COULDNT_RESOLVE_HOST',
+            7  => 'CURLE_COULDNT_CONNECT',
+            8  => 'CURLE_FTP_WEIRD_SERVER_REPLY',
+            9  => 'CURLE_REMOTE_ACCESS_DENIED',
             11 => 'CURLE_FTP_WEIRD_PASS_REPLY',
             13 => 'CURLE_FTP_WEIRD_PASV_REPLY',
-            14 =>'CURLE_FTP_WEIRD_227_FORMAT',
+            14 => 'CURLE_FTP_WEIRD_227_FORMAT',
             15 => 'CURLE_FTP_CANT_GET_HOST',
             17 => 'CURLE_FTP_COULDNT_SET_TYPE',
             18 => 'CURLE_PARTIAL_FILE',
@@ -275,9 +294,9 @@ class Request
             86 => 'CURLE_RTSP_SESSION_ERROR',
             87 => 'CURLE_FTP_BAD_FILE_LIST',
             88 => 'CURLE_CHUNK_FAILED');
-        if(isset($errorCodes[$error])){
+        if (isset($errorCodes[$error])) {
             return $errorCodes[$error];
-        }else{
+        } else {
             return "CURLE_UNKNOW_ERROR";
         }
     }
