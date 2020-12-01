@@ -15,11 +15,13 @@ use RongCloud\Lib\Utils;
  * 用户注册
  */
 function register() {
+    //连接新加坡数据中心
+    //RongCloud::$apiUrl = ['http://api-sg01.ronghub.com/'];
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90had',
-        'name' => 'Maritn',//用户名称
-        'portrait' => 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
+        'id' => 'CHIQ1',
+        'name' => 'PHPSDK',//用户名称
+        'portrait' => 'http://PHPSDK-portrait' //用户头像
     ];
     $register = $RongSDK->getUser()->register($user);
     Utils::dump("用户注册", $register);

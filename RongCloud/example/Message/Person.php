@@ -15,6 +15,8 @@ use RongCloud\Lib\Utils;
  */
 function send()
 {
+    //连接新加坡数据中心
+    //RongCloud::$apiUrl = ['http://api-sg01.ronghub.com/'];
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
         'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
