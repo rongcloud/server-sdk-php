@@ -58,3 +58,17 @@ function get() {
 }
 
 get();
+
+/**
+ * 查询用户所在群组
+ */
+function getGroups() {
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $user = [
+        'id' => '55vW81Mni',//用户id
+    ];
+    $res = $RongSDK->getUser()->getGroups($user);
+    Utils::dump("查询用户所在群组", $res);
+}
+
+getGroups();

@@ -148,6 +148,34 @@ class User {
         return $result;
     }
 
+    /**
+     * @param $User array 查询用户所在群组
+     * @param
+     * $User = [
+     * 'id'=> 'ujadk90ha',//用户id
+     * ];
+     * @return array
+     */
+    public function getGroups(array $User = []) {
+        $conf = $this->conf['getGroups'];
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['user']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
+        $User = (new Utils())->rename($User, [
+            'id' => 'userId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $User);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
 
     /**
      * 创建封禁对象

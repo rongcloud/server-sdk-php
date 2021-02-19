@@ -79,6 +79,11 @@ function testUser($RongSDK){
         'id'=> 'ujadk90had',
     ];
     Utils::dump("获取用户信息成功",$User->get($params));
+
+    $params = [
+        'id'=> '55vW81Mni',
+    ];
+    Utils::dump("查询用户所在群组成功",$User->getGroups($params));
 }
 
 testUser($RongSDK);
