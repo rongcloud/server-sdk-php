@@ -33,13 +33,9 @@
       }
     },
     "portrait": {
-      "require": {
-        "must": true,
-        "invalid": "1002"
-      },
       "length": {
         "max": 512,
-        "min": 1,
+        "min": 0,
         "invalid": "1005"
       }
     },

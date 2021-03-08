@@ -21,7 +21,7 @@ function register() {
     $user = [
         'id' => 'CHIQ1',
         'name' => 'PHPSDK',//用户名称
-        'portrait' => 'http://PHPSDK-portrait' //用户头像
+        'portrait' => '' //用户头像
     ];
     $register = $RongSDK->getUser()->register($user);
     Utils::dump("用户注册", $register);
