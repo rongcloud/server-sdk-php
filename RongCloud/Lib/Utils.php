@@ -307,10 +307,13 @@ class Utils
      * @param array $failList 错误信息列表
      * @return array
      */
-    public function responseError($result = array(), $failList = array())
+    public function responseError($result = array(), $failList = array(), $bodyParameter = '')
     {
         if (!is_array($result)) {
             $result = json_decode($result, true);
+        }
+        if ($bodyParameter != '') {
+            $result['bodyParameter'] = $bodyParameter;
         }
         if (isset($result['code']) && $result['code'] != 200) {
             unset($result['url']);

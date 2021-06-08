@@ -151,7 +151,7 @@ class Request {
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.13");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.14");
 //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -170,6 +170,16 @@ class Request {
         }
 
         return $ret;
+    }
+
+    /**
+     * 获取 POST（x-www-form-urlencoded）/GET 请求的参数
+     * 
+     * @param $params 请求参数
+     * @return bool|string
+     */
+    public function getQueryFields($params){
+        return $this->build_query($params);
     }
 
     /**

@@ -181,5 +181,37 @@
         }
       }
     }
+  },
+  "expire":{
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "id": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    },
+    "time": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "number",
+        "invalid": "1501"
+      }
+    }
   }
 }

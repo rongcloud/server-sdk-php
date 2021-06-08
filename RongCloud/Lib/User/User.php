@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 用户模块
  * User=> hejinyu
@@ -15,10 +16,12 @@ use RongCloud\Lib\User\Whitelist\Whitelist;
 use RongCloud\Lib\User\MuteGroups\MuteGroups;
 use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
 use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
+use RongCloud\Lib\User\Chat\Ban;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
-class User {
+class User
+{
     /**
      * 用户模块路径
      *
@@ -43,7 +46,8 @@ class User {
     /**
      * User constructor.
      */
-    function __construct() {
+    function __construct()
+    {
         //初始化请求配置和校验文件路径
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
@@ -59,7 +63,8 @@ class User {
      * ];
      * @return array
      */
-    public function register(array $User = []) {
+    public function register(array $User = [])
+    {
         $conf = $this->conf['register'];
         $error = (new Utils())->check(
             [
@@ -77,7 +82,42 @@ class User {
             'portrait' => 'portraitUri'
         ]);
         $result = (new Request())->Request($conf['url'], $User);
-        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        $bodyParameter = (new Request())->getQueryFields($User);
+        $result = (new Utils())->responseError($result, $conf['response']['fail'], $bodyParameter);
+        return $result;
+    }
+
+    /**
+     * Token 失效
+     * 
+     * @param $User array 用户信息
+     * @param
+     * $User = [
+     * 'id'=> ['ujadk90ha1'],   //需要设置 Token 失效的用户 ID，支持设置多个最多不超过 20 个。
+     * 'time'=> 1623123911000  //过期时间戳精确到毫秒，该时间戳前用户获取的 Token 全部失效，使用时间戳之前的 Token 已经在连接中的用户不会立即失效，断开后无法进行连接。
+     * ];
+     * @return array
+     */
+    public function expire(array $User = [])
+    {
+        $conf = $this->conf['expire'];
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['expire']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
+        $User = (new Utils())->rename($User, [
+            'id' => 'userId'
+        ]);
+        $result = (new Request())->Request($conf['url'], $User);
+        $bodyParameter = (new Request())->getQueryFields($User);
+        $result = (new Utils())->responseError($result, $conf['response']['fail'], $bodyParameter);
         return $result;
     }
 
@@ -91,7 +131,8 @@ class User {
      * ];
      * @return array
      */
-    public function update(array $User = []) {
+    public function update(array $User = [])
+    {
         $conf = $this->conf['update'];
         $error = (new Utils())->check(
             [
@@ -121,7 +162,8 @@ class User {
      * ];
      * @return array
      */
-    public function get(array $User = []) {
+    public function get(array $User = [])
+    {
         $conf = $this->conf['get'];
         $error = (new Utils())->check(
             [
@@ -139,10 +181,10 @@ class User {
         ]);
         $result = (new Request())->Request($conf['url'], $User);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
-        if($result['code'] == 200) {
+        if ($result['code'] == 200) {
             $result = (new Utils())->rename($result, [
-                'userName'=> 'name',
-                'userPortrait'=> 'portrait',
+                'userName' => 'name',
+                'userPortrait' => 'portrait',
             ]);
         }
         return $result;
@@ -156,7 +198,8 @@ class User {
      * ];
      * @return array
      */
-    public function getGroups(array $User = []) {
+    public function getGroups(array $User = [])
+    {
         $conf = $this->conf['getGroups'];
         $error = (new Utils())->check(
             [
@@ -182,7 +225,8 @@ class User {
      *
      * @return Block
      */
-    public function Block() {
+    public function Block()
+    {
         return new Block();
     }
 
@@ -191,7 +235,8 @@ class User {
      *
      * @return Blacklist
      */
-    public function Blacklist() {
+    public function Blacklist()
+    {
         return new Blacklist();
     }
 
@@ -200,7 +245,8 @@ class User {
      *
      * @return Onlinestatus
      */
-    public function Onlinestatus() {
+    public function Onlinestatus()
+    {
         return new Onlinestatus();
     }
 
@@ -209,7 +255,8 @@ class User {
      *
      * @return MuteGroups
      */
-    public function MuteGroups() {
+    public function MuteGroups()
+    {
         return new MuteGroups();
     }
 
@@ -218,7 +265,8 @@ class User {
      *
      * @return MuteChatrooms
      */
-    public function MuteChatrooms() {
+    public function MuteChatrooms()
+    {
         return new MuteChatrooms();
     }
 
@@ -227,7 +275,8 @@ class User {
      *
      * @return Tag
      */
-    public function Tag() {
+    public function Tag()
+    {
         return new Tag();
     }
 
@@ -236,9 +285,18 @@ class User {
      *
      * @return Whitelist
      */
-    public function Whitelist() {
+    public function Whitelist()
+    {
         return new Whitelist();
     }
 
-
+    /**
+     * 用户单聊禁言
+     *
+     * @return Ban
+     */
+    public function Ban()
+    {
+        return new Ban();
+    }
 }

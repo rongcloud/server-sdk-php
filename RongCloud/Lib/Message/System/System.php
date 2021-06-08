@@ -1,13 +1,16 @@
 <?php
+
 /**
  * 系统消息
  */
+
 namespace RongCloud\Lib\Message\System;
 
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
 
-class System {
+class System
+{
 
     /**
      * @var string 系统消息路径
@@ -33,8 +36,8 @@ class System {
      */
     function __construct()
     {
-        $this->conf = Utils::getJson($this->jsonPath.'api.json');
-        $this->verify = Utils::getJson($this->jsonPath.'../verify.json');;
+        $this->conf = Utils::getJson($this->jsonPath . 'api.json');
+        $this->verify = Utils::getJson($this->jsonPath . '../verify.json');;
     }
 
     /**
@@ -48,23 +51,24 @@ class System {
         ];
      * @return array
      */
-    public function send(array $Message=[]){
+    public function send(array $Message = [])
+    {
         $conf = $this->conf['send'];
-        if(isset($Message['content'])){
+        if (isset($Message['content'])) {
             $Message['content'] = json_encode($Message['content']);
         }
         $error = (new Utils())->check([
-            'api'=> $conf,
-            'model'=> 'message',
-            'data'=> $Message,
-            'verify'=> $this->verify['message']
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $this->verify['message']
         ]);
-        if($error) return $error;
+        if ($error) return $error;
         $Message = (new Utils())->rename($Message, [
-            'senderId'=> 'fromUserId',
-            'targetId'=> 'toUserId'
+            'senderId' => 'fromUserId',
+            'targetId' => 'toUserId'
         ]);
-        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Request())->Request($conf['url'], $Message);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
@@ -73,36 +77,74 @@ class System {
      * @param $Message array 系统广播消息
      * @param
      * $Message = [
-                'senderId'=> '__system__',//发送人 id
-                "objectName"=>'RC:TxtMsg',//消息类型
-                'content'=>['content'=>'你好，小明']//消息内容
+            'senderId'=> '__system__',//发送人 id
+            "objectName"=>'RC:TxtMsg',//消息类型
+            'content'=>['content'=>'你好，小明']//消息内容
         ];
      * @return array
      */
-    public function broadcast(array $Message=[]){
+    public function broadcast(array $Message = [])
+    {
         $conf = $this->conf['broadcast'];
-        if(isset($Message['content'])){
+        if (isset($Message['content'])) {
             $Message['content'] = json_encode($Message['content']);
         }
         $verify = $this->verify['broadcast'];
-        if(isset($verify['targetId'])){
+        if (isset($verify['targetId'])) {
             unset($verify['targetId']);
         }
         $error = (new Utils())->check([
-            'api'=> $conf,
-            'model'=> 'message',
-            'data'=> $Message,
-            'verify'=> $verify
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $verify
         ]);
-        if($error) return $error;
+        if ($error) return $error;
         $Message = (new Utils())->rename($Message, [
-            'senderId'=> 'fromUserId',
+            'senderId' => 'fromUserId',
         ]);
-        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Request())->Request($conf['url'], $Message);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
 
+    /**
+     * 在线用户广播
+     * 
+     * @param $Message array 
+     * @param
+     * $Message = [
+            'senderId'=> '__system__',//发送人 id
+            "objectName"=>'RC:TxtMsg',//消息类型
+            'content'=>['content'=>'你好，小明']//消息内容
+        ];
+     * @return array
+     */
+    public function onlineBroadcast(array $Message = [])
+    {
+        $conf = $this->conf['onlineBroadcast'];
+        if (isset($Message['content'])) {
+            $Message['content'] = json_encode($Message['content']);
+        }
+        $verify = $this->verify['broadcast'];
+        if (isset($verify['targetId'])) {
+            unset($verify['targetId']);
+        }
+        $error = (new Utils())->check([
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $verify
+        ]);
+        if ($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId' => 'fromUserId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $Message);
+        $bodyParameter = (new Request())->getQueryFields($Message);
+        $result = (new Utils())->responseError($result, $conf['response']['fail'], $bodyParameter);
+        return $result;
+    }
     /**
      * @param $Message array 系统模板消息
      * @param
@@ -123,34 +165,34 @@ class System {
             ];
      * @return array
      */
-    public function sendTemplate(array $Message=[]){
+    public function sendTemplate(array $Message = [])
+    {
         $conf = $this->conf['sendTemplate'];
         $error = (new Utils())->check([
-            'api'=> $conf,
-            'model'=> 'message',
-            'data'=> $Message,
-            'verify'=> $this->verify['tplMsg']
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $this->verify['tplMsg']
         ]);
-        if($error) return $error;
+        if ($error) return $error;
         $Message = (new Utils())->rename($Message, [
-            'senderId'=> 'fromUserId',
+            'senderId' => 'fromUserId',
         ]);
-        $Message['content'] = isset($Message['content'])?json_decode($Message['content'],true):[];
+        $Message['content'] = isset($Message['content']) ? json_decode($Message['content'], true) : [];
         $newMessage = [
-            'fromUserId'=>$Message['fromUserId'],
-            'objectName'=>$Message['objectName'],
-            "content"=>$Message['template'],
+            'fromUserId' => $Message['fromUserId'],
+            'objectName' => $Message['objectName'],
+            "content" => $Message['template'],
         ];
-        foreach ($Message['content'] as $userId=>$v){
+        foreach ($Message['content'] as $userId => $v) {
             $newMessage['toUserId'][] = $userId;
             $newMessage['values'][] = $v['data'];
-            $newMessage['pushData'][] = isset($v['pushData'])?$v['pushData']:'';
+            $newMessage['pushData'][] = isset($v['pushData']) ? $v['pushData'] : '';
             $newMessage['pushContent'][] = $v['push'];
         }
 
-        $result = (new Request())->Request($conf['url'],$newMessage,'json');
+        $result = (new Request())->Request($conf['url'], $newMessage, 'json');
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
-
 }
