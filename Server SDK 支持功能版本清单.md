@@ -6,6 +6,7 @@ Server SDK 功能支持的版本清单
 |  | update | 更新用户信息 | 3.0.1 |
 |  | get | 获取用户信息 | 3.0.7 |
 |  | getGroups | 查询用户所在群组 | 3.0.12 |
+|  | expire | Token 失效 | 3.0.14 |
 | [检查用户在线状态](./RongCloud/Lib/User/Onlinestatus/OnlineStatus.php) | onlinestatus.check | 检查用户在线状态| 3.0.1 |
 | [黑名单](./RongCloud/Lib/User/Blacklist/Blacklist.php) | blacklist.add | 添加黑名单 | 3.0.1 |
 |  | blacklist.getList | 获取黑名单列表| 3.0.1 |
@@ -25,6 +26,8 @@ Server SDK 功能支持的版本清单
 | [用户全局聊天室禁言](./RongCloud/Lib/User/MuteChatrooms/MuteChatrooms.php) | muteChatrooms.add | 添加全局聊天室禁言用户，添加后用户在应用下的所有聊天室中都不能发送消息 | 3.0.2 |
 |  |muteChatrooms.remove |移除全局聊天室禁言用户| 3.0.2 |
 |  |muteChatrooms.getList |获取全局聊天室禁言用户列表| 3.0.2 |
+| [用户单聊禁言](./RongCloud/Lib/User/Chat/Ban.php) | ban.set | 设置用户禁言 | 3.0.14 |
+|  | ban.getList | 查询禁言用户列表| 3.0.14 |
 | [敏感词](./RongCloud/Lib/Sensitive/Sensitive.php) | add | 添加敏感词，添加后默认 2 小时生效| 3.0.1 |
 |  | getList | 获取敏感词列表 | 3.0.1 |
 |  | remove | 移除敏感词，支持批量移除功能，移除后默认 2 小时生效 | 3.0.1 |
@@ -42,11 +45,12 @@ Server SDK 功能支持的版本清单
 | [系统消息](./RongCloud/Lib/Message/System/System.php)  | system.send | 发送系统消息 | 3.0.1 |
 |  | system.sendTemplate | 发送系统模板消息 | 3.0.1 |
 |  | system.broadcast | 发送广播消息，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.1 |
+|  | system.onlineBroadcast | 在线用户广播。 | 3.0.14 |
 | [消息历史记录](./RongCloud/Lib/Message/History/History.php) | message.history.get | 消息历史记录下载地址获取 | 3.0.1 |
 |  | message.history.remove | 消息历史记录删除方法 | 3.0.1 |
 | [广播消息](./RongCloud/Lib/Push/Push.php) | push.push | 发送推送，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |
 |  | push.message | 发送广播消息，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |
-| [广播推送](./RongCloud/Lib/Message/Broadcast/Broadcast.php) | broadcast.recall | 撤回群组消息 | 3.0.1 |
+| [广播推送](./RongCloud/Lib/Message/Broadcast/Broadcast.php) | broadcast.recall | 广播消息撤回 | 3.0.1 |
 | [群组](./RongCloud/Lib/Group/Group.php) | create | 创建群组 | 3.0.1 |
 |  | sync | 同步群关系 | 3.0.1 |
 |  | update | 更新群信息 | 3.0.1 |
