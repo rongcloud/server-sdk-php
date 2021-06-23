@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 请求发送
  */
@@ -7,14 +8,16 @@ namespace RongCloud\Lib;
 
 use RongCloud\RongCloud;
 
-class Request {
+class Request
+{
     private $appKey = "";
     private $appSecret = "";
-//    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
+    //    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
     private $serverUrl = ['http://api-cn.ronghub.com/', 'http://api2-cn.ronghub.com/'];
     private $smsUrl = 'http://api.sms.ronghub.com/';
 
-    public function __construct() {
+    public function __construct()
+    {
         if (RongCloud::$appkey) {
             $this->appKey = RongCloud::$appkey;
         }
@@ -32,7 +35,8 @@ class Request {
     /**
      * server url 多域名切换
      */
-    private function resetServerUrl($nextUrl = "") {
+    private function resetServerUrl($nextUrl = "")
+    {
         if (is_array(RongCloud::$apiUrl)) {
             $urlList = RongCloud::$apiUrl;
             sort($urlList);
@@ -75,7 +79,8 @@ class Request {
      * 多域名 设置为下一个域名
      * @param string $url
      */
-    private function getNextUrl($url = "") {
+    private function getNextUrl($url = "")
+    {
         $urlList = RongCloud::$apiUrl;
         if (is_array($urlList) && in_array($url, $urlList)) {
             $currentKey = array_search($url, $urlList);
@@ -90,7 +95,8 @@ class Request {
      * @param array $data
      * @return bool
      */
-    private function createHttpHeader() {
+    private function createHttpHeader()
+    {
         $nonce     = mt_rand();
         $timeStamp = time();
         $sign      = sha1($this->appSecret . $nonce . $timeStamp);
@@ -112,7 +118,8 @@ class Request {
      * @param string $httpMethod 接口请求方式 默认 POST
      * @return int|mixed
      */
-    public function Request($action, $params, $contentType = 'urlencoded', $module = 'im', $httpMethod = 'POST') {
+    public function Request($action, $params, $contentType = 'urlencoded', $module = 'im', $httpMethod = 'POST')
+    {
         switch ($module) {
             case 'im':
                 $action = $this->serverUrl . $action;
@@ -152,7 +159,7 @@ class Request {
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.14");
-//        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
+        //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
         if (false === $ret) {
@@ -163,10 +170,13 @@ class Request {
         curl_close($ch);
         $result = json_decode($ret, true);
         if (isset($result['code']) && $result['code'] == 1000) {
-
         }
-        if ($module == "im" && $httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
-            $this->getNextUrl($this->serverUrl);
+        if ($module == "im") {
+            if ($httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
+                $this->getNextUrl($this->serverUrl);
+            } elseif (in_array([0, 7, 28], $httpInfo['http_code'])) {
+                $this->getNextUrl($this->serverUrl);
+            }
         }
 
         return $ret;
@@ -178,7 +188,8 @@ class Request {
      * @param $params 请求参数
      * @return bool|string
      */
-    public function getQueryFields($params){
+    public function getQueryFields($params)
+    {
         return $this->build_query($params);
     }
 
@@ -191,7 +202,8 @@ class Request {
      * @param string $prefixKey
      * @return bool|string
      */
-    private function build_query($formData, $numericPrefix = '', $argSeparator = '&', $prefixKey = '') {
+    private function build_query($formData, $numericPrefix = '', $argSeparator = '&', $prefixKey = '')
+    {
         $str = '';
         foreach ($formData as $key => $val) {
             if (!is_array($val)) {
@@ -225,7 +237,8 @@ class Request {
      * curl 请求错误信息
      * @param int $error
      */
-    public function getCurlError($error = 1) {
+    public function getCurlError($error = 1)
+    {
         $errorCodes = array(
             1  => 'CURLE_UNSUPPORTED_PROTOCOL',
             2  => 'CURLE_FAILED_INIT',
@@ -303,12 +316,12 @@ class Request {
             85 => 'CURLE_RTSP_CSEQ_ERROR',
             86 => 'CURLE_RTSP_SESSION_ERROR',
             87 => 'CURLE_FTP_BAD_FILE_LIST',
-            88 => 'CURLE_CHUNK_FAILED');
+            88 => 'CURLE_CHUNK_FAILED'
+        );
         if (isset($errorCodes[$error])) {
             return $errorCodes[$error];
         } else {
             return "CURLE_UNKNOW_ERROR";
         }
     }
-
 }
