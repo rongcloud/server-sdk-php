@@ -158,7 +158,7 @@ class Request
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.14");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.15");
         //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -174,7 +174,7 @@ class Request
         if ($module == "im") {
             if ($httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
                 $this->getNextUrl($this->serverUrl);
-            } elseif (in_array([0, 7, 28], $httpInfo['http_code'])) {
+            } elseif (in_array($httpInfo['http_code'], [0, 7, 28])) {
                 $this->getNextUrl($this->serverUrl);
             }
         }
