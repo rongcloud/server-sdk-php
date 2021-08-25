@@ -112,12 +112,16 @@ class Group
     /**
      * 加入群组
      *
-     * @param $Group array 加入群组 参数
-     * @param
+     * @param array $Group 加入群组 参数
      * $Group = [
             'id'=> 'watergroup',//群组 id
             'name'=>"watergroup",//群组名称
             'member'=>['id'=> 'group999'],//群成员信息
+        ];
+     * $Group = [
+            'id'=> 'watergroup',//群组 id
+            'name'=>"watergroup",//群组名称
+            'member'=>['id'=> ['group999', ...]],//群成员信息
         ];
      * @return array
      */
@@ -147,11 +151,14 @@ class Group
     /**
      * 退出群组
      *
-     * @param $Group array 退出群组 参数
-     * @param
+     * @param array $Group 退出群组 参数
      * $Group = [
             'id'=> 'watergroup',//群组 id
             'member'=>['id'=> 'group999'],//群成员信息
+        ];
+     * $Group = [
+            'id'=> 'watergroup',//群组 id
+            'member'=>['id'=> ['group999', ...]],//群成员信息
         ];
      * @return array
      */
