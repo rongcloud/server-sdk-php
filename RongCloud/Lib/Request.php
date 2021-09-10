@@ -15,6 +15,8 @@ class Request
     //    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
     private $serverUrl = ['http://api-cn.ronghub.com/', 'http://api2-cn.ronghub.com/'];
     private $smsUrl = 'http://api.sms.ronghub.com/';
+    private $connectTimeout = 20;
+    private $timeout = 30;
 
     public function __construct()
     {
@@ -23,6 +25,12 @@ class Request
         }
         if (RongCloud::$appSecret) {
             $this->appSecret = RongCloud::$appSecret;
+        }
+        if (RongCloud::$connectTimeout) {
+            $this->connectTimeout = RongCloud::$connectTimeout;
+        }
+        if (RongCloud::$timeout) {
+            $this->timeout = RongCloud::$timeout;
         }
         if (RongCloud::$apiUrl) {
             $this->serverUrl = RongCloud::$apiUrl;
@@ -156,9 +164,9 @@ class Request
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //处理http证书问题
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.15");
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.16");
         //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);

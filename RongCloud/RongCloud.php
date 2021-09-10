@@ -42,6 +42,21 @@ class RongCloud
     public static $apiUrl;
 
     /**
+     * CURLOPT_CONNECTTIMEOUT 
+     *
+     * @var int
+     */
+    public static $connectTimeout = 20;
+
+    /**
+     * CURLOPT_TIMEOUT
+     *
+     * @var int
+     */
+    public static $timeout = 30;
+
+
+    /**
      * 用户对象
      *
      * @var  User
