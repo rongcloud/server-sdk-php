@@ -1,6 +1,6 @@
 {
   "broadcast": {
-    "docs": "https://www.rongcloud.cn/docs/push_service.html#broadcast",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/broadcast#msg2",
     "url": "push",
     "params": {
       "broadcast": {
@@ -55,7 +55,7 @@
     }
   },
   "push": {
-    "docs": "https://www.rongcloud.cn/docs/push_service.html#push",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/broadcast#msg2",
     "url": "push",
     "params": {
       "broadcast": {

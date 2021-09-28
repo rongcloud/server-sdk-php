@@ -1,11 +1,14 @@
 {
-  "add": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blockadd",
-    "url": "user/block",
+  "set": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/message/expansion#set",
+    "url": "message/expansion/set",
     "params": {
-      "user": {
-        "id": "aFo990k",
-        "minute": 30
+      "expansion": {
+        "msgUID": "aFo990k",
+        "userId": "aFo990k",
+        "conversationType": "aFo990k",
+        "targetId": "aFo990k",
+        "extraKeyVal": "aFo990k"
       }
     },
     "response": {
@@ -14,10 +17,6 @@
         "msg": "成功返回"
       },
       "fail": {
-        "1502": {
-          "code": "1502",
-          "msg": "封禁时间不正确, 当前传入为 {{size}}, 正确范围 1 - 1 * 30 * 24 * 60 分钟"
-        },
         "1501": {
           "code": "1501",
           "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
@@ -29,20 +28,20 @@
         "1004": {
           "code": "1004",
           "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
         }
       }
     }
   },
   "remove": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blockremove",
-    "url": "user/unblock",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/message/expansion#delete",
+    "url": "message/expansion/delete",
     "params": {
-      "user": {
-        "id": "aFo990k"
+      "expansion": {
+        "msgUID": "aFo990k",
+        "userId": "aFo990k",
+        "conversationType": "aFo990k",
+        "targetId": "aFo990k",
+        "extraKey": "aFo990k"
       }
     },
     "response": {
@@ -62,18 +61,18 @@
         "1004": {
           "code": "1004",
           "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
         }
       }
     }
   },
   "getList": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blocklist",
-    "url": "user/block/query",
-    "params": {},
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/message/expansion#query",
+    "url": "message/expansion/query",
+    "params": {
+      "expansion": {
+        "msgUID": "aFo990k"
+      }
+    },
     "response": {
       "success": {
         "code": "200",
@@ -83,10 +82,6 @@
         "1004": {
           "code": "1004",
           "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
         }
       }
     }

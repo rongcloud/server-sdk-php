@@ -1,5 +1,6 @@
 {
   "send": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/private#publish",
     "url": "message/system/publish",
     "params": {
       "message": {
@@ -175,7 +176,7 @@
     }
   },
   "recall": {
-    "docs": "http://rongcloud.cn/docs/server.html#message_recall",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/message/msgrecall#recall",
     "url": "message/recall",
     "params": {
       "message": {

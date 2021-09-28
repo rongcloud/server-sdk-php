@@ -11,6 +11,7 @@ use RongCloud\Lib\Message\History\History;
 use RongCloud\Lib\Message\Person\Person;
 use RongCloud\Lib\Message\System\System;
 use RongCloud\Lib\Message\Broadcast\Broadcast;
+use RongCloud\Lib\Message\Expansion\Expansion;
 
 class Message
 {
@@ -77,5 +78,14 @@ class Message
      */
     public function Broadcast(){
         return new Broadcast();
+    }
+
+    /**
+     * 创建广播消息对象
+     *
+     * @return Expansion
+     */
+    public function Expansion(){
+        return new Expansion();
     }
 }

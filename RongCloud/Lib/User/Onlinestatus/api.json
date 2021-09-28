@@ -1,6 +1,6 @@
 {
   "get": {
-    "docs": "http://rongcloud.cn/docs/server.html#user_check_online",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/onlinestatus#check",
     "url": "user/checkOnline",
     "params": {
       "user": {

@@ -1,6 +1,6 @@
 {
   "add": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_ban_add",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#alladd",
     "url": "group/ban/add",
     "params": {
       "group": {
@@ -33,7 +33,7 @@
     }
   },
   "remove": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_ban_rollback",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#allremove",
     "url": "group/ban/rollback",
     "params": {
       "group": {
@@ -66,7 +66,7 @@
     }
   },
   "getList": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_ban_query",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#allget",
     "url": "group/ban/query",
     "params": {
       "group": {

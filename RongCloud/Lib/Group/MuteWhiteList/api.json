@@ -1,6 +1,6 @@
 {
   "add": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_whitelist_add",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#allbanadd",
     "url": "group/user/ban/whitelist/add",
     "params": {
       "group": {
@@ -38,7 +38,7 @@
     }
   },
   "remove": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_whitelist_rollback",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#allbanremove",
     "url": "group/user/ban/whitelist/rollback",
     "params": {
       "group": {
@@ -72,7 +72,7 @@
     }
   },
   "getList": {
-    "docs": "http://rongcloud.cn/docs/server.html#group_user_whitelist_query",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/groupblock#allbanget",
     "url": "group/user/ban/whitelist/query",
     "params": {
       "group": {

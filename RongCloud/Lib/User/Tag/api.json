@@ -1,6 +1,6 @@
 {
   "setTag": {
-    "docs": "https://www.rongcloud.cn/docs/push_service.html#user_tag_set",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/tag#tag_set",
     "url": "user/tag/set",
     "params": {
       "tag": {
@@ -41,7 +41,7 @@
     }
   },
   "batchSetTag": {
-    "docs": "https://www.rongcloud.cn/docs/push_service.html#user_tag_batch_set",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/tag#tag_batch_set",
     "url": "user/tag/batch/set",
     "params": {
       "batchTag": {
@@ -84,7 +84,7 @@
     }
   },
   "getTag": {
-    "docs": "https://www.rongcloud.cn/docs/push_service.html#user_tags_get",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/tag#tag_get",
     "url": "user/tags/get",
     "params": {
       "getTag": {

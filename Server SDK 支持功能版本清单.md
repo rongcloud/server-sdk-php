@@ -100,3 +100,6 @@ Server SDK 功能支持的版本清单
 | [聊天室属性](./RongCloud/Lib/Chatroom/Entry/Entry.php) | Entry.set | 为指定聊天室以 Key、Value 方式自定义设置属性信息，此服务需要在开发者后台开通 IM 商用版后，开通使用。 | 3.0.6 |
 |  | Entry.remove | 删除聊天室属性 | 3.0.6 |
 |  | Entry.query | 获取聊天室属性 | 3.0.6 |
+| [消息扩展](./RongCloud/Lib/Message/Expansion/Expansion.php) | Expansion.set | 发送消息时，如设置了 expansion 为 true，可对该条消息进行扩展信息设置，每次最多可以设置 100 个扩展属性信息，最多可设置 300 个。| 3.0.17 |
+|  | Expansion.delete | 删除消息扩展 | 3.0.17 |
+|  | Expansion.getList | 获取扩展信息 | 3.0.17 |

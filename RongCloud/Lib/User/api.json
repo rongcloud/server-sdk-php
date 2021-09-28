@@ -1,6 +1,6 @@
 {
   "register": {
-    "docs": "http://rongcloud.cn/docs/server.html#user_get_token",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/register#intro",
     "url": "user/getToken",
     "params": {
       "user": {
@@ -45,7 +45,7 @@
 
   },
   "expire":{
-    "docs": "https://docs.rongcloud.cn/v4/5X/views/im/server/user/expire.html",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/expire#intro",
     "url": "user/token/expire",
     "params": {
       "user": {
@@ -82,7 +82,7 @@
     }
   },
   "update": {
-    "docs": "http://rongcloud.cn/docs/server.html#user_refresh",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/modify#intro",
     "url": "user/refresh",
     "params": {
       "user": {
@@ -117,7 +117,7 @@
     }
   },
   "get": {
-    "docs": "https://docs.rongcloud.cn/v3/views/im/noui/guide/private/user/get/serverapi.html",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
     "url": "user/info",
     "params": {
       "user": {
@@ -150,7 +150,7 @@
     }
   },
   "getGroups": {
-    "docs": "https://docs.rongcloud.cn/v4/views/im/server/group/basic.html#query",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#query",
     "url": "user/group/query",
     "params": {
       "user": {

@@ -1,6 +1,6 @@
 {
   "set": {
-    "docs": "https://docs.rongcloud.cn/v4/5X/views/im/server/user/ban.html",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/ban#ban_set",
     "url": "user/chat/fb/set",
     "params": {
       "user": {
@@ -34,7 +34,7 @@
     }
   },
   "getList": {
-    "docs": "https://docs.rongcloud.cn/v4/5X/views/im/server/user/ban.html#ban-querylist",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/ban#ban_querylist",
     "url": "user/chat/fb/querylist",
     "params": {
       "param": {
