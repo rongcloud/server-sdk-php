@@ -166,7 +166,7 @@ class Request
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.17");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.18");
         //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -180,10 +180,14 @@ class Request
         if (isset($result['code']) && $result['code'] == 1000) {
         }
         if ($module == "im") {
-            if ($httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
+            if (is_null($result)) {
                 $this->getNextUrl($this->serverUrl);
-            } elseif (in_array($httpInfo['http_code'], [0, 7, 28])) {
-                $this->getNextUrl($this->serverUrl);
+            } else {
+                if ($httpInfo['http_code'] >= 500 && $httpInfo['http_code'] < 600) {
+                    $this->getNextUrl($this->serverUrl);
+                } elseif (in_array($httpInfo['http_code'], [0, 7, 28])) {
+                    $this->getNextUrl($this->serverUrl);
+                }
             }
         }
 
