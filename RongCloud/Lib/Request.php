@@ -103,7 +103,7 @@ class Request
      * @param array $data
      * @return bool
      */
-    private function createHttpHeader()
+    private function createHttpHeader($request_id)
     {
         $nonce     = mt_rand();
         $timeStamp = time();
@@ -113,6 +113,7 @@ class Request
             'RC-Nonce:' . $nonce,
             'RC-Timestamp:' . $timeStamp,
             'RC-Signature:' . $sign,
+            'x_request_id:' . $request_id
         ];
     }
 
@@ -138,8 +139,8 @@ class Request
             default:
                 $action = $this->serverUrl . $action;
         }
-
-        $httpHeader = $this->createHttpHeader();
+        $guid = $this->create_guid();
+        $httpHeader = $this->createHttpHeader($guid);
         $ch         = curl_init();
         if ($contentType == "urlencoded" || $contentType == "json") {
             $action .= ".json";
@@ -166,7 +167,7 @@ class Request
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.0.18");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.1.0");
         //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -190,8 +191,12 @@ class Request
                 }
             }
         }
-
-        return $ret;
+        if (is_null($result)) {
+            return $ret . ',x_request_id:' . $guid;
+        } else {
+            $result['x_request_id'] = $guid;
+            return json_encode($result, JSON_UNESCAPED_UNICODE);
+        }
     }
 
     /**
@@ -243,6 +248,17 @@ class Request
             }
         }
         return substr($str, strlen($argSeparator));
+    }
+
+    private function create_guid()
+    {
+        $charid = strtoupper(md5(uniqid(mt_rand(), true)));
+        $uuid = substr($charid, 0, 8)
+            . substr($charid, 8, 4)
+            . substr($charid, 12, 4)
+            . substr($charid, 16, 4)
+            . substr($charid, 20, 12);
+        return strtolower($uuid);
     }
 
     /**
