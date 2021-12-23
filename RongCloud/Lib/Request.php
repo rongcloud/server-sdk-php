@@ -113,7 +113,7 @@ class Request
             'RC-Nonce:' . $nonce,
             'RC-Timestamp:' . $timeStamp,
             'RC-Signature:' . $sign,
-            'x_request_id:' . $request_id
+            'X-Request-ID:' . $request_id
         ];
     }
 
@@ -192,9 +192,9 @@ class Request
             }
         }
         if (is_null($result)) {
-            return $ret . ',x_request_id:' . $guid;
+            return $ret . ',requestId:' . $guid;
         } else {
-            $result['x_request_id'] = $guid;
+            $result['requestId'] = $guid;
             return json_encode($result, JSON_UNESCAPED_UNICODE);
         }
     }
