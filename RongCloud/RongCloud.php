@@ -7,6 +7,7 @@ namespace RongCloud;
 use RongCloud\Lib\Chatroom\Chatroom;
 use RongCloud\Lib\Conversation\Conversation;
 use RongCloud\Lib\Group\Group;
+use RongCloud\Lib\Ultragroup\Ultragroup;
 use RongCloud\Lib\Message\Message;
 use RongCloud\Lib\Sensitive\Sensitive;
 use RongCloud\Lib\User\User;
@@ -78,6 +79,13 @@ class RongCloud
     public $_group;
 
     /**
+     * 超级群对象
+     *
+     * @var Ultragroup
+     */
+    public $_ultragroup;
+
+    /**
      * 会话对象
      *
      * @var Conversation
@@ -138,6 +146,9 @@ class RongCloud
 
         //创建 Push
         $this->_push= new Push();
+
+        //创建 Ultragroup
+        $this->_ultragroup = new Ultragroup();
     }
 
     /**
@@ -202,4 +213,15 @@ class RongCloud
     public function getPush(){
         return $this->_push;
     }
+
+    /**
+     * 获取超级群对象
+     *
+     * @return Ultragroup
+     */
+    public function getUltragroup(){
+        return $this->_ultragroup;
+    }
+
+
 }

@@ -1,0 +1,67 @@
+{
+  "group": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "id": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "name": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    }
+  },
+  "user":{
+    "id": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "groups":{
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    }
+  },
+  "member":{
+    "member": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  }
+}
