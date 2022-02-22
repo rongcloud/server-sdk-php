@@ -165,7 +165,7 @@
     "params": {
       "group": {
         "id": "10001",
-        "member": "10001"
+        "name": "10001"
       }
     },
     "response":{

@@ -151,7 +151,7 @@ class Ultragroup
      * @return array
      */
     public function dismiss(array $Group=[]){
-        $conf = $this->conf['dismiss'];
+        $conf = $this->conf['dis'];
         $verify = $this->verify['group'];
         $verify = ['id'=>$verify['id']];
         $error = (new Utils())->check([

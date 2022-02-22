@@ -21,6 +21,21 @@
         "invalid": "1005"
       }
     },
+    "members": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      },
+      "length": {
+        "max": 99999999999,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
     "name": {
       "require": {
         "must": true,

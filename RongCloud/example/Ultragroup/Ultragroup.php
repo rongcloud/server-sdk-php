@@ -16,6 +16,7 @@ use RongCloud\Lib\Utils;
 function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
+
     $group = [
         'id'=> 'phpgroup1',//超级群 id
         'name'=> 'watergroup',//超级群名称
@@ -36,7 +37,7 @@ function joins()
         'id'=> 'phpgroup1',//超级群 id
         'member'=>['id'=> 'group999'],//群成员信息
     ];
-    $result = $RongSDK->getGroup()->joins($group);
+    $result = $RongSDK->getUltragroup()->joins($group);
     Utils::dump("加入超级群",$result);
 }
 joins();
@@ -52,7 +53,7 @@ function quit()
         'id'=> 'phpgroup1',//超级群 id
         'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']//退出人员信息
     ];
-    $result = $RongSDK->getGroup()->quit($group);
+    $result = $RongSDK->getUltragroup()->quit($group);
     Utils::dump("退出超级群",$result);
 }
 quit();
@@ -67,7 +68,7 @@ function dismiss()
         'id'=> 'phpgroup1',//超级群 id
         'member'=>['id'=> 'group999']//管理员信息
     ];
-    $result = $RongSDK->getGroup()->dismiss($group);
+    $result = $RongSDK->getUltragroup()->dismiss($group);
     Utils::dump("解散超级群",$result);
 }
 dismiss();
@@ -82,7 +83,7 @@ function update()
         'id'=> 'phpgroup1',//超级群 id
         'name'=>"watergroup"//群名称
     ];
-    $result = $RongSDK->getGroup()->update($group);
+    $result = $RongSDK->getUltragroup()->update($group);
     Utils::dump("修改群信息",$result);
 }
 update();
