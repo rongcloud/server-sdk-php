@@ -2,14 +2,14 @@
 /**
  * 超级群消息
  */
-namespace RongCloud\Lib\Message\Ultraroup;
+namespace RongCloud\Lib\Message\Ultragroup;
 
 use RongCloud\Lib\ConversationType;
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
 
-class Ultraroup {
-    private $jsonPath = 'Lib/Message/Ultraroup/';
+class Ultragroup {
+    private $jsonPath = 'Lib/Message/Ultragroup/';
 
     /**
      * 请求配置文件
@@ -61,7 +61,8 @@ class Ultraroup {
             'senderId'=> 'fromUserId',
             'targetId'=> 'toGroupIds'
         ]);
-        $result = (new Request())->Request($conf['url'],$Message);
+        var_dump($Message);
+        $result = (new Request())->Request($conf['url'],$Message, 'json');
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
@@ -103,10 +104,10 @@ class Ultraroup {
         $Message['content'] = json_encode($Message['content']);
         $Message = (new Utils())->rename($Message, [
             'senderId'=> 'fromUserId',
-            'targetId'=> 'toGroupId'
+            'targetId'=> 'toGroupIds'
         ]);
         $Message['isMentioned'] = 1;
-        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Request())->Request($conf['url'],$Message, 'json');
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }

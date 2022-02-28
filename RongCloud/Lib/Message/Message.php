@@ -7,6 +7,7 @@ namespace RongCloud\Lib\Message;
 use RongCloud\Lib\Message\Chatroom\Chatroom;
 use RongCloud\Lib\Message\Discussion\Discussion;
 use RongCloud\Lib\Message\Group\Group;
+use RongCloud\Lib\Message\Ultragroup\Ultragroup;
 use RongCloud\Lib\Message\History\History;
 use RongCloud\Lib\Message\Person\Person;
 use RongCloud\Lib\Message\System\System;
@@ -87,5 +88,14 @@ class Message
      */
     public function Expansion(){
         return new Expansion();
+    }
+
+    /**
+     * 创建超级群消息对象
+     *
+     * @return Expansion
+     */
+    public function Ultragroup(){
+        return new Ultragroup();
     }
 }

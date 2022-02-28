@@ -66,7 +66,6 @@ function dismiss()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',//超级群 id
-        'member'=>['id'=> 'group999']//管理员信息
     ];
     $result = $RongSDK->getUltragroup()->dismiss($group);
     Utils::dump("解散超级群",$result);

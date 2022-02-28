@@ -164,7 +164,6 @@ class Ultragroup
         $Group['member'] = isset($Group['member']['id'])?$Group['member']['id']:"";
         $Group = (new Utils())->rename($Group, [
             'id'=> 'groupId',
-            'member'=> 'userId',
         ]);
         $result = (new Request())->Request($conf['url'],$Group);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
