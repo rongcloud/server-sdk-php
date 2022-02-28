@@ -64,7 +64,6 @@ function testGroup($RongSDK){
 
     $params = [
         'id'=> 'watergroup',//超级群 id
-        'member'=>['id'=> 'group999']//退出人员信息
     ];
     Utils::dump("解散超级群成功",$Group->dismiss($params));
 

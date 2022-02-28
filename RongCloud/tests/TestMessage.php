@@ -5,7 +5,7 @@
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
-define('APPSECRET', '');
+define('APPSECRET','');
 
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
@@ -371,6 +371,38 @@ function textExpansionGetList($RongSDK)
     Utils::dump("获取扩展信息", $Result);
 }
 textExpansionGetList($RongSDK);
+
+function textUltragroup($RongSDK)
+{
+    $Ultragroup = $RongSDK->getMessage()->Ultragroup();
+    $params = [
+        'senderId' => 'ujadk90ha', //发送人 id
+        'targetId' => ['kkj9o01'], //超级群id
+        "objectName" => 'RC:TxtMsg', //消息类型 文本
+        'content' => json_encode(['content' => '你好，主播']) //消息内容
+    ];
+    Utils::dump("超级群发送消息成功", $Ultragroup->send($params));
+
+    Utils::dump("超级群发送消息参数错误", $Ultragroup->send());
+
+    $params = [
+        'senderId'=> 'ujadk90ha',//发送人 id
+        'targetId'=> ['STRe0shISpQlSOBvek1FfU'],//超级群 id
+        "objectName"=>'RC:TxtMsg',//消息类型 文本
+        'content'=>json_encode([//消息内容
+            'content'=>'PHP 群 @ 消息 你好，小明',
+            'mentionedInfo'=>[
+                'type'=>'1',//@ 功能类型，1 表示 @ 所有人、2 表示 @ 指定用户
+                'userIds'=>['uPj70HUrRSUk-ixtt7iIGc'],//被 @ 人列表 type 为 2 时必填，type 为 1 时可以为空
+                'pushContent'=>'php push 问候消息'//自定义 @ 消息 push 内容
+            ]
+        ])
+    ];
+    Utils::dump("超级群发送 @ 消息成功", $Ultragroup->sendMention($params));
+
+    Utils::dump("超级群发送 @ 消息参数错误", $Ultragroup->sendMention());
+}
+textUltragroup($RongSDK);
 
 
 
