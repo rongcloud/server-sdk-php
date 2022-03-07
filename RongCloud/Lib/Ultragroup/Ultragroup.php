@@ -8,6 +8,7 @@ namespace RongCloud\Lib\Ultragroup;
 use RongCloud\Lib\Ultragroup\Gag\Gag;
 use RongCloud\Lib\Ultragroup\MuteAllMembers\MuteAllMembers;
 use RongCloud\Lib\Ultragroup\MuteWhiteList\MuteWhiteList;
+use RongCloud\Lib\Ultragroup\Expansion\Expansion;
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
 class Ultragroup
@@ -226,6 +227,15 @@ class Ultragroup
      */
     public function MuteWhiteList(){
         return new MuteWhiteList();
+    }
+
+    /**
+     * 超级群扩展
+     *
+     * @return Expansion
+     */
+    public function Expansion(){
+        return new Expansion();
     }
 
 }

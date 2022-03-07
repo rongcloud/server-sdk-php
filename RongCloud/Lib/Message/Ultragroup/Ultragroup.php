@@ -111,4 +111,34 @@ class Ultragroup {
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+
+    /**
+     * @param $Message array 超级群消息撤回
+     * @param
+     * $Message = [
+    'senderId'=> 'ujadk90ha',//发送人 Id
+    'targetId'=> 'markoiwm',//超级群 Id
+    "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息的唯一标识
+    'sentTime'=>'1519444243981'//消息的发送时间
+    ];
+     * @return array
+     */
+    public function recall(array $Message=[]){
+        $conf = $this->conf['recall'];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'message',
+            'data'=> $Message,
+            'verify'=> $this->verify['message']
+        ]);
+        if($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId'=> 'fromUserId',
+            'uId'=> 'messageUID'
+        ]);
+        $Message['conversationType'] = ConversationType::t()['ULTRAGROUP'];
+        $result = (new Request())->Request($conf['url'],$Message);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
 }

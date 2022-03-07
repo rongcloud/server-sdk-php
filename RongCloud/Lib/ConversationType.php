@@ -14,7 +14,8 @@ class ConversationType{
             'CUSTOMER_SERVICE'=> 5,
             'SYSTEM'=> 6,
             'APP_PUBLIC'=> 7,
-            'PUBLIC'=> 8
+            'PUBLIC'=> 8,
+            'ULTRAGROUP'=> 10
         ];
     }
 }

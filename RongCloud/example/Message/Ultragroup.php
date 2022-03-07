@@ -50,4 +50,19 @@ function sendMention()
     Utils::dump("发送 @ 消息",$Result);
 }
 sendMention();
-
+/**
+ * 超级群消息撤回
+ */
+function recall()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $message = [
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
+        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//群id
+        "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息唯一标识
+        'sentTime'=>'1519444243981'//发送时间
+    ];
+    $Chartromm = $RongSDK->getMessage()->Ultragroup()->recall($message);
+    Utils::dump("超级群消息撤回",$Chartromm);
+}
+recall();
