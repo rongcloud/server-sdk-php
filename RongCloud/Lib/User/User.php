@@ -17,6 +17,7 @@ use RongCloud\Lib\User\MuteGroups\MuteGroups;
 use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
 use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
 use RongCloud\Lib\User\Chat\Ban;
+use RongCloud\Lib\User\Remark\Remark;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
@@ -298,5 +299,15 @@ class User
     public function Ban()
     {
         return new Ban();
+    }
+
+    /**
+     * 用户推送备注
+     *
+     * @return Remark
+     */
+    public function Remark()
+    {
+        return new Remark();
     }
 }

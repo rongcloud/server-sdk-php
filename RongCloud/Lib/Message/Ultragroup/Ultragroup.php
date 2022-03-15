@@ -61,7 +61,6 @@ class Ultragroup {
             'senderId'=> 'fromUserId',
             'targetId'=> 'toGroupIds'
         ]);
-        var_dump($Message);
         $result = (new Request())->Request($conf['url'],$Message, 'json');
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;

@@ -8,6 +8,7 @@ namespace RongCloud\Lib\Group;
 use RongCloud\Lib\Group\Gag\Gag;
 use RongCloud\Lib\Group\MuteAllMembers\MuteAllMembers;
 use RongCloud\Lib\Group\MuteWhiteList\MuteWhiteList;
+use RongCloud\Lib\Group\Remark\Remark;
 use RongCloud\Lib\Request;
 use RongCloud\Lib\Utils;
 class Group
@@ -298,6 +299,15 @@ class Group
      */
     public function MuteWhiteList(){
         return new MuteWhiteList();
+    }
+
+    /**
+     * 群组人员备注
+     *
+     * @return Remark
+     */
+    public function Remark(){
+        return new Remark();
     }
 
 }

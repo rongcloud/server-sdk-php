@@ -356,3 +356,38 @@ function testChatBan($RongSDK)
     ];
     Utils::dump("查询单聊禁言用户列表", $ban->getList($param));
 }
+
+testChatBan($RongSDK);
+
+function testUserRemark($RongSDK)
+{
+    $remark = $RongSDK->getUser()->Remark();
+    $params = [
+        'userId' => 'kkj9o01',
+        'remarks'=>["user1"=>"remark1","user2"=>"remark2"]
+    ];
+    Utils::dump("设置用户备注", $remark->set($params));
+    $params = [
+    ];
+    Utils::dump("设置用户备注 userId 错误", $remark->set($params));
+
+    $params = [
+        'userId' => 'kkj9o01',
+        'remarks'=>["user3","user4"]
+    ];
+    Utils::dump("删除用户备注", $remark->del($params));
+    $params = [
+    ];
+    Utils::dump("删除用户备注 userId 错误", $remark->del($params));
+    $params = [
+        'userId' => 'kkj9o01',
+        'size'=>50,
+        'page'=>1
+    ];
+    Utils::dump("获取用户备注列表", $remark->get($params));
+    $params = [
+    ];
+    Utils::dump("获取用户备注列表 userId 错误", $remark->get($params));
+}
+
+testUserRemark($RongSDK);

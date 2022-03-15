@@ -194,3 +194,29 @@ function testGroupMuteWhiteList($RongSDK){
 }
 
 testGroupMuteWhiteList($RongSDK);
+
+function testGroupRemark($RongSDK){
+    $Group = $RongSDK->getGroup()->Remark();
+    $params = [
+        'userId'=> 'ujadk90ha1',//人员id
+        'groupId'=>'groupId', //群组id
+        'remarks'=> '人员备注'//群组备注
+    ];
+    Utils::dump("添加群组人员备注成功",$Group->set($params));
+
+    Utils::dump("添加群组人员备注参数错误",$Group->set());
+
+    $params = [
+        'userId'=> 'ujadk90ha1',//人员id
+        'groupId'=>'groupId', //群组id
+    ];
+    Utils::dump("移除群组人员备注成功",$Group->del($params));
+
+    Utils::dump("移除群组人员备注参数错误",$Group->del());
+
+    Utils::dump("获取群组人员备注成功",$Group->get($params));
+
+    Utils::dump("获取群组人员备注参数错误",$Group->get());
+}
+
+testGroupRemark($RongSDK);
