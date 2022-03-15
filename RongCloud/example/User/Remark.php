@@ -18,7 +18,7 @@ function set()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'userId'=> 'ujadk90ha1',//用户id
-        'remarks'=> json_encode(['userId1'=>'备注557','userId2'=>'备注4'])//用户备注
+        'remarks'=> json_encode([['id'=>'user1','remark'=>'备注4'],['id'=>'user2','remark'=>'备注4']])//用户备注
     ];
     $Remark = $RongSDK->getUser()->Remark()->set($user);
     Utils::dump("添加备注",$Remark);

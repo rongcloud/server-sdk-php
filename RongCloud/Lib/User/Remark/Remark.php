@@ -47,7 +47,10 @@ class Remark {
      * @param
      * $User = [
             'userId'=> 'ujadk90ha1',//用户id
-            'remark'=> ["user1"=>'备注1',"user2"=>'备注2']//用户备注
+            'remark'=> [
+                        ["id"=>'userid',"remark"=>'备注2'],
+                        ["id"=>'userid2',"remark"=>'备注2']
+                    ]//用户备注
         ];
      * @return array
      */
