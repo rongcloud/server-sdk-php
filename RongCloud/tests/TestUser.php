@@ -364,7 +364,7 @@ function testUserRemark($RongSDK)
     $remark = $RongSDK->getUser()->Remark();
     $params = [
         'userId' => 'kkj9o01',
-        'remarks'=>["user1"=>"remark1","user2"=>"remark2"]
+        'remarks'=>json_encode([["user1"=>"remark1","user2"=>"remark2"]])
     ];
     Utils::dump("设置用户备注", $remark->set($params));
     $params = [
