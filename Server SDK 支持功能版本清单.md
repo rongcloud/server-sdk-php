@@ -103,3 +103,15 @@ Server SDK 功能支持的版本清单
 | [消息扩展](./RongCloud/Lib/Message/Expansion/Expansion.php) | Expansion.set | 发送消息时，如设置了 expansion 为 true，可对该条消息进行扩展信息设置，每次最多可以设置 100 个扩展属性信息，最多可设置 300 个。| 3.0.17 |
 |  | Expansion.delete | 删除消息扩展 | 3.0.17 |
 |  | Expansion.getList | 获取扩展信息 | 3.0.17 |
+| [用户推送备注](./RongCloud/Lib/User/Remark/Remark.php) | Remark.set | 用户推送备注设置 | 3.1.2 |
+|  | Entry.del | 用户推送备注删除 | 3.1.2 |
+|  | Entry.get | 用户推送备注获取 | 3.1.2 |
+| [群组推送备注](./RongCloud/Lib/Group/Remark/Remark.php) | Remark.set | 群组推送备注设置 | 3.1.2 |
+|  | Entry.del | 群组推送备注删除 | 3.1.2 |
+|  | Entry.get | 群组推送备注获取 | 3.1.2 |
+| [消息扩展](./RongCloud/Lib/Message/Expansion/Expansion.php) | Expansion.set | 发送消息时，如设置了 expansion 为 true，可对该条消息进行扩展信息设置，每次最多可以设置 100 个扩展属性信息，最多可设置 300 个。| 3.0.17 |
+|  | Expansion.delete | 删除消息扩展 | 3.0.17 |
+|  | Expansion.getList | 获取扩展信息 | 3.0.17 |
+| [超级群消息扩展](./RongCloud/Lib/Ultragroup/Expansion/Expansion.php) | Expansion.set | 发送超级群消息时，如设置了 expansion 为 true，可对该条消息进行扩展信息设置，每次最多可以设置 100 个扩展属性信息，最多可设置 300 个。| 3.1.2 |
+|  | Expansion.delete | 删除消息扩展 | 3.1.2 |
+|  | Expansion.getList | 获取扩展信息 | 3.1.2 |
