@@ -200,7 +200,7 @@ function testGroupRemark($RongSDK){
     $params = [
         'userId'=> 'ujadk90ha1',//人员id
         'groupId'=>'groupId', //群组id
-        'remarks'=> '人员备注'//群组备注
+        'remark'=> '人员备注'//群组备注
     ];
     Utils::dump("添加群组人员备注成功",$Group->set($params));
 
