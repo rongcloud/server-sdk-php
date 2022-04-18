@@ -45,6 +45,51 @@
       }
     }
   },
+  "pushUser": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/private#push",
+    "url": "push/user",
+    "params": {
+      "message": {
+        "userIds": ["user1","user2"],
+        "notification": {
+          "title":"标题",
+          "pushContent":"this is a push"
+        }
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "成功返回"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} 参数为必传项"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "调用频率超限"
+        }
+      }
+    }
+  },
   "broadcast": {
     "url": "message/broadcast",
     "params": {

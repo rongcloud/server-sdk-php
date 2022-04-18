@@ -87,3 +87,18 @@ function update()
 }
 update();
 
+/**
+ * 群成员是否存在
+ */
+function isExisit()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $group = [
+        'id'=> 'phpgroup1',//超级群 id
+        'member'=>"userId1"//成员id
+    ];
+    $result = $RongSDK->getUltragroup()->isExisit($group);
+    Utils::dump("群成员是否存在 ",$result);
+}
+isExisit();
+

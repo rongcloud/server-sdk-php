@@ -46,6 +46,7 @@ Server SDK 功能支持的版本清单
 |  | system.sendTemplate | 发送系统模板消息 | 3.0.1 |
 |  | system.broadcast | 发送广播消息，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.1 |
 |  | system.onlineBroadcast | 在线用户广播。 | 3.0.14 |
+|  | system.pushUser | 不落地通知。 | 3.1.3 |
 | [消息历史记录](./RongCloud/Lib/Message/History/History.php) | message.history.get | 消息历史记录下载地址获取 | 3.0.1 |
 |  | message.history.remove | 消息历史记录删除方法 | 3.0.1 |
 | [广播消息](./RongCloud/Lib/Push/Push.php) | push.push | 发送推送，推送和广播消息合计，单个应用每小时只能发送 2 次，每天最多发送 3 次。 | 3.0.4 |

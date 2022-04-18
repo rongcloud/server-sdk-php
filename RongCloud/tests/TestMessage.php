@@ -297,6 +297,16 @@ function testMessageSystem($RongSDK)
     Utils::dump("系统广播消息成功", $Message->broadcast($params));
 
     Utils::dump("系统广播消息参数错误", $Message->broadcast());
+
+    $params = [
+        'userIds' => ["user1","user2"], //接收人 id
+        'notification' => [
+            "pushContent">"推送内容",
+            "title">"推送标题"
+            ]
+    ];
+    Utils::dump("不落地通知成功", $Message->pushUser($params));
+    Utils::dump("不落地通知参数错误", $Message->pushUser());
 }
 
 testMessageSystem($RongSDK);

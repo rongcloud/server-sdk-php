@@ -70,6 +70,11 @@ function testGroup($RongSDK){
     Utils::dump("解散超级群 id 错误",$Group->dismiss());
 
 
+    Utils::dump("超级群成员是否存在成功",$Group->isExisit($params));
+
+    Utils::dump("超级群成员是否存在 id 错误",$Group->dismiss());
+
+
 
 }
 

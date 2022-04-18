@@ -202,6 +202,37 @@ class Ultragroup
         return $result;
     }
 
+    /**
+     * 超级群成员是否存在
+     *
+     * @param $Group array 修改群信息 参数
+     * @param
+     * $Group = [
+            'id'=> 'watergroup',//超级群 id
+            'member'=>"userId" //成员id
+            ];
+     * @return array
+     */
+    public function isExisit(array $Group=[]){
+        $conf = $this->conf['isExisit'];
+        $verify = $this->verify['group'];
+        $verify = ['id'=>$verify['id'],'member'=>$verify['member']];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'group',
+            'data'=> $Group,
+            'verify'=> $verify
+        ]);
+        if($error) return $error;
+        $Group = (new Utils())->rename($Group, [
+            'id'=> 'groupId',
+            'member'=> 'userId',
+        ]);
+        $result = (new Request())->Request($conf['url'],$Group);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
 
     /**
      * 创建超级群禁言对象

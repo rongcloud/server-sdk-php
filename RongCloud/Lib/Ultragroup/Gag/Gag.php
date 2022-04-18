@@ -46,11 +46,10 @@ class Gag
      * @param
      * $Group = [
                 'id'=> 'ujadk90ha',//超级群 id
+                'busChannel'=> 'busid',//频道 id  可以为空
                 'members'=>[ //禁言人员列表
                      ['id'=> 'ujadk90ha']
                 ]
-                ,
-                'minute'=>50  //	禁言时长
          ];
      * @return array
      */

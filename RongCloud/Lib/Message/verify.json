@@ -203,5 +203,46 @@
         "invalid": "1002"
       }
     }
+  },
+  "pushUser":{
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userIds": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 1000,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "notification": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "title": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "pushContent": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
   }
 }

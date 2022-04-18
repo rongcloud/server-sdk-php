@@ -46,6 +46,7 @@ class MuteAllMembers
      * @param
      * $Group = [
                 'id'=> 'ujadk90ha',//超级群 id
+                'busChannel'=> 'busid',//频道 id  可以为空
                 'status'=> true,//超级群 禁言状态   true 禁言  0 取消
          ];
      * @return array
@@ -76,6 +77,7 @@ class MuteAllMembers
      * @param
      * $Group = [
             'id'=> 'ujadk90ha',//超级群 id
+            'busChannel'=> 'busid',//频道 id  可以为空
          ];
      * @return array
      */

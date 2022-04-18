@@ -74,6 +74,57 @@ class System
     }
 
     /**
+     * @param $Message array 不落地通知
+     * @param
+     * $Message = [
+                'userIds'=> ["user1","user2"],//接收人id
+                'notification'=> [
+                    "title"=>"标题",
+                    "pushContent"=>"this is a push",
+                        "ios"=>
+                            [
+                                "thread-id"=>"223",
+                                "apns-collapse-id"=>"111",
+                                "extras"=> ["id"=>"1","name"=>"2"]
+                            ],
+                        "android"=> [
+                            "hw"=>[
+                                "channelId"=>"NotificationKanong",
+                                "importance"=> "NORMAL",
+                                "image"=>"https://example.com/image.png"
+                            ],
+                            "mi"=>[
+                                "channelId"=>"rongcloud_kanong",
+                                "large_icon_uri"=>"https=>//example.com/image.png"
+                            ],
+                            "oppo"=>[
+                                "channelId"=>"rc_notification_id"
+                            ],
+                            "vivo"=>[
+                                "classification"=>"0"
+                            ],
+                            "extras"=> ["id"=> "1","name"=> "2"]
+                        ]
+                ]
+            ];
+     * @return array
+     */
+    public function pushUser(array $Message = [])
+    {
+        $conf = $this->conf['pushUser'];
+        $error = (new Utils())->check([
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $this->verify['pushUser']
+        ]);
+        if ($error) return $error;
+        $result = (new Request())->Request($conf['url'], $Message, "json");
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
      * @param $Message array 系统广播消息
      * @param
      * $Message = [

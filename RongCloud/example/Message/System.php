@@ -86,3 +86,46 @@ function sendTemplate()
     Utils::dump("系统模板消息", $Chartromm);
 }
 sendTemplate();
+
+/**
+ * 不落地通知
+ */
+function pushUser()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $message = [
+        'userIds' => ["user1","user2"], //接收人 id
+        'notification' => [
+            "pushContent">"推送内容",
+            "title">"推送标题",
+            "ios"=>
+                [
+                    "thread-id"=>"223",
+                    "apns-collapse-id"=>"111",
+                    "extras"=> ["id"=>"1","name"=>"2"]
+                ],
+            "android"=> [
+                "hw"=>[
+                    "channelId"=>"NotificationKanong",
+                    "importance"=> "NORMAL",
+                    "image"=>"https://example.com/image.png"
+                ],
+                "mi"=>[
+                    "channelId"=>"rongcloud_kanong",
+                    "large_icon_uri"=>"https=>//example.com/image.png"
+                ],
+                "oppo"=>[
+                    "channelId"=>"rc_notification_id"
+                ],
+                "vivo"=>[
+                    "classification"=>"0"
+                ],
+                "extras"=> ["id"=> "1","name"=> "2"]
+            ]
+
+        ]
+    ];
+    $Chartromm = $RongSDK->getMessage()->System()->pushUser($message);
+    Utils::dump("不落地通知", $Chartromm);
+}
+pushUser();
