@@ -96,8 +96,8 @@ function pushUser()
     $message = [
         'userIds' => ["user1","user2"], //接收人 id
         'notification' => [
-            "pushContent">"推送内容",
-            "title">"推送标题",
+            "pushContent"=>"推送内容",
+            "title"=>"推送标题",
             "ios"=>
                 [
                     "thread-id"=>"223",
@@ -122,7 +122,6 @@ function pushUser()
                 ],
                 "extras"=> ["id"=> "1","name"=> "2"]
             ]
-
         ]
     ];
     $Chartromm = $RongSDK->getMessage()->System()->pushUser($message);

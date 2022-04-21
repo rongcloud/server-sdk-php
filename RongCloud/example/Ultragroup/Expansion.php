@@ -12,7 +12,7 @@ define('APPSECRET','');
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
-$RongSDK = new RongCloud(APPKEY,APPSECRET,"https://api-ucqa.rongcloud.net");
+$RongSDK = new RongCloud(APPKEY,APPSECRET);
 /**
  * 消息发送
  */

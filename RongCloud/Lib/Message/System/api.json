@@ -47,7 +47,7 @@
   },
   "pushUser": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/system/private#push",
-    "url": "push/user",
+    "url": "/push/user",
     "params": {
       "message": {
         "userIds": ["user1","user2"],

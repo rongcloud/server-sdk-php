@@ -127,7 +127,7 @@
   },
   "isExisit": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#quitGroup",
-    "url": "ultragroup/member/exist",
+    "url": "/ultragroup/member/exist",
     "params": {
       "group": {
         "id": "10001",
