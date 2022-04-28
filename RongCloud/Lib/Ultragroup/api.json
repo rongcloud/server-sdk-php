@@ -125,7 +125,7 @@
       }
     }
   },
-  "isExisit": {
+  "isExist": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#quitGroup",
     "url": "/ultragroup/member/exist",
     "params": {

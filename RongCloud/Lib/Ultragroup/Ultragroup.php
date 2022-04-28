@@ -213,8 +213,8 @@ class Ultragroup
             ];
      * @return array
      */
-    public function isExisit(array $Group=[]){
-        $conf = $this->conf['isExisit'];
+    public function isExist(array $Group=[]){
+        $conf = $this->conf['isExist'];
         $verify = $this->verify['group'];
         $verify = ['id'=>$verify['id'],'member'=>$verify['member']];
         $error = (new Utils())->check([

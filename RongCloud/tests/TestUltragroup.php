@@ -73,9 +73,9 @@ function testGroup($RongSDK){
         'member'=>"userId1"//成员id
     ];
 
-    Utils::dump("超级群成员是否存在成功",$Group->isExisit($params));
+    Utils::dump("超级群成员是否存在成功",$Group->isExist($params));
 
-    Utils::dump("超级群成员是否存在 id 错误",$Group->isExisit());
+    Utils::dump("超级群成员是否存在 id 错误",$Group->isExist());
 
 
 
