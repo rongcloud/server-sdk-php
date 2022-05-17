@@ -199,7 +199,7 @@ class User
      * ];
      * @return array
      */
-    public function cancelSet(array $User = [])
+    public function abandon(array $User = [])
     {
         $conf = $this->conf['cancel_set'];
         $error = (new Utils())->check(
@@ -226,7 +226,7 @@ class User
      * @param
      * @return array
      */
-    public function cancelQuery(array $params = ["page"=>1,"size"=>50])
+    public function abandonQuery(array $params = ["page"=>1,"size"=>50])
     {
         $conf = $this->conf['cancel_query'];
 
@@ -248,7 +248,7 @@ class User
      * ];
      * @return array
      */
-    public function active(array $User = [])
+    public function activate(array $User = [])
     {
         $conf = $this->conf['active'];
         $error = (new Utils())->check(

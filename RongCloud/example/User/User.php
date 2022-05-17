@@ -66,33 +66,33 @@ get();
 /**
  * 用户注销
  */
-function cancelSet()
+function abandon()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
         'id' => 'ujadk90ha', //用户id
     ];
-    $res = $RongSDK->getUser()->cancelSet($user);
+    $res = $RongSDK->getUser()->abandon($user);
     Utils::dump("用户注销", $res);
 }
 
-cancelSet();
+abandon();
 
 /**
  * 注销用户列表
  */
-function cancelQuery()
+function abandonQuery()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
         'page' => 1, //页码
         'size' => 10, //分页条数
     ];
-    $res = $RongSDK->getUser()->cancelQuery($params);
+    $res = $RongSDK->getUser()->abandonQuery($params);
     Utils::dump("注销用户列表", $res);
 }
 
-cancelQuery();
+abandonQuery();
 
 /**
  * 注销激活
@@ -103,7 +103,7 @@ function active()
     $user = [
         'id' => 'ujadk90ha', //用户id
     ];
-    $res = $RongSDK->getUser()->active($user);
+    $res = $RongSDK->getUser()->activate($user);
     Utils::dump("注销用户激活", $res);
 }
 

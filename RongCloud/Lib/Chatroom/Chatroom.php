@@ -15,6 +15,8 @@ use RongCloud\Lib\Chatroom\Keepalive\Keepalive;
 use RongCloud\Lib\Chatroom\Whitelist\Whitelist;
 use RongCloud\Lib\Chatroom\Whitelist\Message;
 use RongCloud\Lib\Chatroom\Entry\Entry;
+use RongCloud\Lib\Chatroom\MuteAllMembers\MuteAllMembers;
+use RongCloud\Lib\Chatroom\MuteWhiteList\MuteWhiteList;
 
 class Chatroom
 {
@@ -184,7 +186,7 @@ class Chatroom
     /**
      * 创建聊天室全局禁言对象
      *
-     * @return Ban
+     * @return MuteWhiteList
      */
     public function Ban(){
         return new Ban();
@@ -260,5 +262,23 @@ class Chatroom
      */
     public function Entry(){
         return new Entry();
+    }
+
+    /**
+     * 聊天室全体禁言
+     *
+     * @return MuteAllMembers
+     */
+    public function MuteAllMembers(){
+        return new MuteAllMembers();
+    }
+
+    /**
+     * 聊天室全体禁言白名单
+     *
+     * @return MuteWhiteList
+     */
+    public function MuteWhiteList(){
+        return new MuteWhiteList();
     }
 }

@@ -151,7 +151,7 @@
   },
   "cancel_set": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
-    "url": "user/cancel/set",
+    "url": "user/abandon",
     "params": {
       "user": {
         "id": "aFo990k"
@@ -184,7 +184,7 @@
   },
   "cancel_query": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
-    "url": "user/cancel/query",
+    "url": "user/abandon/query",
     "params": {
 
     },
@@ -215,7 +215,7 @@
   },
   "active": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
-    "url": "user/active",
+    "url": "user/activate",
     "params": {
       "user": {
         "id": "aFo990k"

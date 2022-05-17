@@ -202,6 +202,56 @@ function testChatroomGag($RongSDK) {
 
 testChatroomGag($RongSDK);
 
+function testChatroomMuteAllMembers($RongSDK) {
+    $Chatroom = $RongSDK->getChatroom()->MuteAllMembers();
+    $params = [
+        'id' => 'chatroom001',//聊天室 id
+    ];
+    Utils::dump("添加聊天室全体禁言成功", $Chatroom->add($params));
+
+    Utils::dump("添加聊天室全体禁言参数错误", $Chatroom->add());
+
+    $params = [
+        'id' => 'ujadk90ha',//聊天室 id
+    ];
+    Utils::dump("解除聊天室全体禁言成功", $Chatroom->remove($params));
+
+    Utils::dump("解除聊天室全体禁言参数错误", $Chatroom->remove());
+
+    Utils::dump("检查聊天室全体禁言成功", $Chatroom->check($params));
+
+    Utils::dump("检查聊天室全体禁言成功参数错误", $Chatroom->check());
+
+    Utils::dump("获取添加聊天室全体禁言列表成功", $Chatroom->getList(1,50));
+}
+
+testChatroomMuteAllMembers($RongSDK);
+
+function testChatroomMuteWhiteList($RongSDK) {
+    $Chatroom = $RongSDK->getChatroom()->MuteWhiteList();
+    $params = [
+        'id' => 'chatroom001',//聊天室 id
+        "members"=>[
+            ["id"=>"test1"]
+        ]
+    ];
+    Utils::dump("添加聊天室全体禁言白名单成功", $Chatroom->add($params));
+
+    Utils::dump("添加聊天室全体禁言白名单参数错误", $Chatroom->add());
+
+    Utils::dump("移除聊天室全体禁言白名单成功", $Chatroom->remove($params));
+
+    Utils::dump("移除聊天室全体禁言白名单参数错误", $Chatroom->remove());
+
+
+    $params = [
+        'id' => 'chatroom001',//聊天室 id
+    ];
+    Utils::dump("获取添加聊天室全体禁言白名单列表成功", $Chatroom->getList($params));
+}
+
+testChatroomMuteWhiteList($RongSDK);
+
 function testChatroomKeepalive($RongSDK) {
     $Chatroom = $RongSDK->getChatroom()->Keepalive();
     $params = [
