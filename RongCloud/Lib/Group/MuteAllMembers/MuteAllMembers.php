@@ -53,7 +53,6 @@ class MuteAllMembers
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
         $verify = ['id'=>$verify['id'], 'members'=>$verify['members']];
-        $verify = array_merge($verify , ['minute'=>$verify['minute']]);
         $error = (new Utils())->check([
             'api'=> $conf,
             'model'=> 'group',
