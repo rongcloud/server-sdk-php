@@ -25,7 +25,8 @@ function set()
         'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
         'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
         'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',] //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',], //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置
+        'isSyncSender'      => 0                        //终端用户在线状态下，发送者是否接收该设置状态，0 表示为不接收，1 表示为接收，默认为 0 不接收
     ];
     $res = $RongSDK->getMessage()->Expansion()->set($message);
     Utils::dump("设置消息扩展", $res);
@@ -43,7 +44,8 @@ function delete()
         'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
         'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
         'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKey'          => ['type1', 'type2']       //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
+        'extraKey'          => ['type1', 'type2'],       //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
+        'isSyncSender'      => 0                        //终端用户在线状态下，发送者是否接收该设置状态，0 表示为不接收，1 表示为接收，默认为 0 不接收
     ];
     $res = $RongSDK->getMessage()->Expansion()->delete($message);
     Utils::dump("删除消息扩展", $res);
