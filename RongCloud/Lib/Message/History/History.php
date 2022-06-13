@@ -76,4 +76,30 @@ class History {
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+
+    /**
+         * @param $Message array 消息清除
+         * @param
+         * $Message = [
+            'conversationType'=> '1',//会话类型，支持单聊、群聊、系统会话。单聊会话是 1、群组会话是 3、系统通知是 6
+            'fromUserId'=>"fromUserId",//用户 ID，删除该用户指定会话 msgTimestamp 前的历史消息
+            'targetId'=>"userId",//需要清除的目标会话 ID
+            'msgTimestamp'=>"16888383883222",//清除该时间戳之前的所有历史消息，精确到毫秒，为空时清除该会话的所有历史消息。
+
+        ];
+         * @return array
+         */
+        public function clean(array $User=[]){
+            $conf = $this->conf['clean'];
+            $error = (new Utils())->check([
+                'api'=> $conf,
+                'model'=> 'message',
+                'data'=> $User,
+                'verify'=> $this->verify['clean']
+            ]);
+            if($error) return $error;
+            $result = (new Request())->Request($conf['url'],$User);
+            $result = (new Utils())->responseError($result, $conf['response']['fail']);
+            return $result;
+        }
 }

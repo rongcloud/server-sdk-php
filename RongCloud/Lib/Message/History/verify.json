@@ -6,5 +6,31 @@
 				"invalid": "1002"
 			}
 		}
+	},
+	"clean": {
+		"conversationType": {
+			"require": {
+				"must": true,
+				"invalid": "1002"
+			}
+		},
+		"fromUserId": {
+			"require": {
+				"must": true,
+				"invalid": "1002"
+			}
+		},
+		"targetId": {
+			"require": {
+				"must": true,
+				"invalid": "1002"
+			}
+		},
+		"msgTimestamp": {
+			"require": {
+				"must": true,
+				"invalid": "1002"
+			}
+		}
 	}
 }
