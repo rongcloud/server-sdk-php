@@ -127,9 +127,6 @@ class RongCloud
         }
         if($apiUrl) self::$apiUrl = $apiUrl;
 
-        self::$appkey = "c9kqb3rdkbb8j";
-        self::$appSecret="uTNrkYskbNC";
-        self::$apiUrl="https://api-ucqa.rongcloud.net/";
         //创建 User
         $this->_user = new User();
 
