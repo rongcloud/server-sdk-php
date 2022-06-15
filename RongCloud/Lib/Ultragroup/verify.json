@@ -21,6 +21,17 @@
         "invalid": "1005"
       }
     },
+    "busChannel": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 20,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
     "members": {
       "require": {
         "must": true,

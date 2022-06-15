@@ -176,3 +176,25 @@ function testGroupMuteWhiteList($RongSDK){
 }
 
 testGroupMuteWhiteList($RongSDK);
+
+function testGroupBusChannel($RongSDK){
+    $Group = $RongSDK->getUltragroup()->BusChannel();
+    $params = [
+        'id'=> 'phpgroup1',//超级群 id
+        'busChannel'=> 'busChannel',//超级群频道
+    ];
+    Utils::dump("添加超级群频道成功",$Group->add($params));
+
+    Utils::dump("添加超级群频道成功参数错误",$Group->add());
+
+    Utils::dump("查询超级群频道列表成功",$Group->getList("phpgroup1"));
+
+    Utils::dump("删除超级群频道成功",$Group->remove($params));
+
+    Utils::dump("删除超级群频道错误",$Group->remove());
+
+    Utils::dump("查询超级群频道列表参数错误",$Group->getList());
+}
+
+testGroupBusChannel($RongSDK);
+
