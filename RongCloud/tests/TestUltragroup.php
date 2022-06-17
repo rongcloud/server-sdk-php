@@ -182,6 +182,7 @@ function testGroupBusChannel($RongSDK){
     $params = [
         'id'=> 'phpgroup1',//超级群 id
         'busChannel'=> 'busChannel',//超级群频道
+        'type'=>0
     ];
     Utils::dump("添加超级群频道成功",$Group->add($params));
 
@@ -194,7 +195,57 @@ function testGroupBusChannel($RongSDK){
     Utils::dump("删除超级群频道错误",$Group->remove());
 
     Utils::dump("查询超级群频道列表参数错误",$Group->getList());
+
+    Utils::dump("超级群频道类型切换成功",$Group->change($params));
+
+    Utils::dump("超级群频道类型切换参数错误",$Group->change());
+
+    $group = [
+        'id'=> 'phpgroup1',//超级群 id
+        'busChannel'=>'',
+        'members'=>[ //添加超级群私有频道成员
+            ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
+        ]
+    ];
+
+    Utils::dump("超级群私有频道成员添加",$Group->addPrivateUsers($group));
+
+    Utils::dump("超级群私有频道成员添加参数错误",$Group->addPrivateUsers());
+
+    Utils::dump("超级群私有频道成员移除",$Group->removePrivateUsers($group));
+
+    Utils::dump("超级群私有频道成员移除参数错误",$Group->removePrivateUsers());
+
+    $group = [
+        'id'=> 'phpgroup1',//超级群 id
+        'busChannel'=>'',
+    ];
+
+    Utils::dump("超级群私有频道成员获取成功",$Group->getPrivateUserList($group));
+
+    Utils::dump("超级群私有频道成员获取参数错误",$Group->getPrivateUserList());
+
 }
 
 testGroupBusChannel($RongSDK);
+
+function testGroupNotdisturb($RongSDK){
+    $Group = $RongSDK->getUltragroup()->Notdisturb();
+    $params = [
+        'id'=> 'phpgroup1',//超级群 id
+        'busChannel'=> 'busChannel',//超级群频道
+        'unpushLevel'=>1
+    ];
+    Utils::dump("设置超级群免打扰",$Group->set($params));
+
+    Utils::dump("设置超级群免打扰参数错误",$Group->set());
+
+    $params = [
+        'id'=> 'phpgroup1',//超级群 id
+        'busChannel'=> 'busChannel',//超级群频道
+    ];
+    Utils::dump("查询超级群免打扰",$Group->get($params));
+}
+
+testGroupNotdisturb($RongSDK);
 
