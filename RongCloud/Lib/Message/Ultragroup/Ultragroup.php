@@ -39,7 +39,7 @@ class Ultragroup {
      * @param
      * $Message = [
                 'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> 'markoiwm',//超级群 id
+                'targetId'=> ['markoiwm'],//超级群 id 最多同时发送三个
                 "objectName"=>'RC:TxtMsg',//消息类型 文本
                 'content'=>['content'=>'你好，小明']//消息体
         ];
@@ -71,7 +71,7 @@ class Ultragroup {
      * @param
      * $Message = [
                 'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> 'markoiwm',//超级群 id
+                'targetId'=> ["markoiwm"],//超级群 id
                 "objectName"=>'RC:TxtMsg',//消息类型 文本
                 'content'=>[//消息内容
                 'content'=>'你好，小明',
