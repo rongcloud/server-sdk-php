@@ -248,9 +248,6 @@ class BusChannel
         ]);
         $result = (new Request())->Request($conf['url'],$Group);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
-        if($result['code'] == 200){
-            $result = (new Utils())->rename($result,['users'=>'members']);
-        }
         return $result;
     }
 
