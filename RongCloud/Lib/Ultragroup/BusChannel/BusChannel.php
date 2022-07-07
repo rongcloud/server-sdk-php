@@ -127,7 +127,7 @@ class BusChannel
      * @return array
      */
     public function change(array $Group=[]){
-        $conf = $this->conf['add'];
+        $conf = $this->conf['change'];
         $verify = $this->verify['group'];
         $verify = ['id'=>$verify['id'], 'busChannel'=>$verify['busChannel']];
         $error = (new Utils())->check([

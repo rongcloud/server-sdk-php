@@ -17,7 +17,7 @@ function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup2',//超级群 id
+        'id'=> 'phpgroup1',//超级群 id
         'busChannel'=> 'busChannel',//超级群频道
         'type'=>1
     ];
@@ -30,7 +30,7 @@ function change()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup2',//超级群 id
+        'id'=> 'phpgroup1',//超级群 id
         'busChannel'=> 'busChannel',//超级群频道
         'type'=>1
     ];
