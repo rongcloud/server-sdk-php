@@ -56,6 +56,9 @@ class Request
         if (is_string(RongCloud::$apiUrl)) {
             return RongCloud::$apiUrl;
         }
+        if(RONGCLOUOD_DOMAIN_CHANGE != true){
+            return RongCloud::$apiUrl[0];
+        }
         $seesionId = "RongCloudServerSDKUrl";
         if (!session_id()) {
             @session_start();
