@@ -422,3 +422,36 @@ function testUserAbandon($RongSDK)
 }
 
 testUserAbandon($RongSDK);
+
+
+function testBlockPushPeriod($RongSDK)
+{
+    $User = $RongSDK->getUser()->BlockPushPeriod();
+
+    $params = [
+        'id' => 'ujadk90had', //封禁用户id 唯一标识，最大长度 30 个字符
+        'startTime' => "23:59:59",//免打扰开始时间
+        'period'=>'600',//免打扰时长 分钟
+        'level'=>1,//免打扰级别 1仅针对单聊及 @ 消息进行通知，包括 @指定用户和 @所有人的消息。  5不接收通知，即使为 @ 消息也不推送通知
+    ];
+    Utils::dump("添加免打扰时段", $User->add($params));
+
+    Utils::dump("添加免打扰时段 id 错误", $User->add());
+
+    $params = [
+        'id' => 'ujadk90ha1d',
+    ];
+    Utils::dump("添加免打扰时段 startTime 错误", $User->add($params));
+
+
+    $params = [
+        'id' => 'ujadk90had',
+    ];
+    Utils::dump("移除免打扰时段成功", $User->remove($params));
+
+    Utils::dump("移除免打扰时段 id 错误", $User->remove());
+
+    Utils::dump("免打扰时段获取成功", $User->getList($params));
+}
+
+testBlockPushPeriod($RongSDK);

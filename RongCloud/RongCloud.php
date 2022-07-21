@@ -131,7 +131,9 @@ class RongCloud
             self::$appSecret = $appSecret;
         }
         if($apiUrl) self::$apiUrl = $apiUrl;
-
+        self::$appkey = "e0x9wycfx7flq";
+        self::$appSecret="UfmrYyG1lpE";
+        self::$apiUrl="http://10.40.0.108:2055/";
         //创建 User
         $this->_user = new User();
 

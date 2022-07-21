@@ -18,6 +18,7 @@ use RongCloud\Lib\User\Onlinestatus\Onlinestatus;
 use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
 use RongCloud\Lib\User\Chat\Ban;
 use RongCloud\Lib\User\Remark\Remark;
+use RongCloud\Lib\User\BlockPushPeriod\BlockPushPeriod;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
@@ -388,5 +389,15 @@ class User
     public function Remark()
     {
         return new Remark();
+    }
+
+    /**
+     * 用户免打扰时间段
+     *
+     * @return Remark
+     */
+    public function BlockPushPeriod()
+    {
+        return new BlockPushPeriod();
     }
 }
