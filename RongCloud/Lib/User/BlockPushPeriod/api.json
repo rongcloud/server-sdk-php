@@ -1,7 +1,7 @@
 {
   "add": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blockadd",
-    "url": "user/blockPushPeriod/add",
+    "url": "user/blockPushPeriod/set",
     "params": {
       "user": {
         "id": "aFo990k",
@@ -41,7 +41,7 @@
   },
   "remove": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blockremove",
-    "url": "user/blockPushPeriod/del",
+    "url": "user/blockPushPeriod/delete",
     "params": {
       "user": {
         "id": "aFo990k"
