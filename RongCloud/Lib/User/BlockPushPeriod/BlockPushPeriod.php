@@ -65,6 +65,9 @@ class BlockPushPeriod {
         $User = (new Utils())->rename($User, [
             'id'=> 'userId',
         ]);
+        if(!isset($User['level'])){
+            $User['level'] = 1;
+        }
         $result = (new Request())->Request($conf['url'],$User);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
