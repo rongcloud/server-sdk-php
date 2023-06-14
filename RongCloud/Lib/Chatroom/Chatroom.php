@@ -113,7 +113,34 @@ class Chatroom
     }
 
     /**
-     * 获取聊天室信息
+     * 查询聊天室基础信息
+     *
+     * @DateTime 2023-06-14
+     * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
+     * 
+     * @return array
+     */
+    public function query(array $Chatroom=[]){
+        $conf = $this->conf['query'];
+        $verify = $this->verify['chatroom'] ;
+        $verify = ['id'=>$verify['id']];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'chatroom',
+            'data'=> $Chatroom,
+            'verify'=> $verify
+        ]);
+        if($error) return $error;
+        $Chatroom = (new Utils())->rename($Chatroom, [
+            'id'=> 'chatroomId',
+        ]);
+        $result = (new Request())->Request($conf['url'],$Chatroom);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
+     * 获取聊天室成员
      *
      * @param array $Chatroom
      * $Chatroom = [

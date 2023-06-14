@@ -73,7 +73,8 @@ Server SDK 功能支持的版本清单
 |  | get | 免打扰会话状态获取 | 3.0.1 |
 | [聊天室](./RongCloud/Lib/Chatroom/Chatroom.php) | create | 创建聊天室 | 3.0.1 |
 |  | destroy | 销毁聊天室 | 3.0.1 |
-|  | get | 查询聊天室信息 | 3.0.1 |
+|  | query | 查询聊天室信息 | 3.2.0 |
+|  | get | 获取聊天室成员 | 3.0.1 |
 |  | isExist | 检查用户是否在聊天室 | 3.0.1 |
 | [聊天室封禁](./RongCloud/Lib/Chatroom/Block/Block.php) | block.add | 添加聊天室封禁用户，被封禁后用户无法加入该聊天室，如用户正在聊天室中将被踢出聊天室 | 3.0.1 |
 |  | block.getList | 获取聊天室封禁用户列表 | 3.0.1 |

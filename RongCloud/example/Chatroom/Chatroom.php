@@ -27,9 +27,24 @@ function create()
 create();
 
 
+/**
+ * 查询聊天室基础信息
+ */
+function query()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $chatroom = [
+                'id'=> ['aaa','bbb','ccc'],//聊天室 id
+                ];
+    $result = $RongSDK->getChatroom()->query($chatroom);
+    Utils::dump("查询聊天室基础信息",$result);
+}
+query();
+
+
 
 /**
- * 获取聊天室信息
+ * 获取聊天室成员
  */
 function get()
 {
@@ -40,7 +55,7 @@ function get()
                 'order'=>1
                 ];
     $result = $RongSDK->getChatroom()->get($chatroom);
-    Utils::dump("获取聊天室信息",$result);
+    Utils::dump("获取聊天室成员",$result);
 }
 get();
 
