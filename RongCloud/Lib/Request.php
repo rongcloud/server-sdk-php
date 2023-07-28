@@ -12,8 +12,15 @@ class Request
 {
     private $appKey = "";
     private $appSecret = "";
-    //    private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
-    private $serverUrl = ['http://api-cn.ronghub.com/', 'http://api2-cn.ronghub.com/'];
+    /**
+     * Server API 接口地址
+     * 新加坡域名: api.sg-light-api.com , api-b.sg-light-api.com
+     *
+     * @var array
+     */
+    private $serverUrl = ['http://api.rong-api.com/', 'http://api-b.rong-api.com/'];
+    // private $serverUrl = ['http://api.sg-light-api.com/', 'http://api-b.sg-light-api.com/'];
+    // private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
     private $smsUrl = 'http://api.sms.ronghub.com/';
     private $connectTimeout = 20;
     private $timeout = 30;
@@ -170,7 +177,7 @@ class Request
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.2.0");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.2.1");
         //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);

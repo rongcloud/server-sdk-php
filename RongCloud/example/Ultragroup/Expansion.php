@@ -19,7 +19,7 @@ $RongSDK = new RongCloud(APPKEY,APPSECRET);
 function set()
 {
     //连接新加坡数据中心
-    //RongCloud::$apiUrl = ['http://api-sg01.ronghub.com/'];
+    //RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
         'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
