@@ -40,7 +40,7 @@ class Entry {
     }
 
     /**
-     * 删除聊天室属性
+     * 设置聊天室属性（KV）
      *
      * @param $Chatroom
      * $Chatroom = [
@@ -53,6 +53,41 @@ class Entry {
      */
     public function set(array $Chatroom = []) {
         $conf = $this->conf['set'];
+        $verify = $this->verify['chatroom'];
+        $verify = ['id' => $verify['id']];
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'chatroom',
+                'data' => $Chatroom,
+                'verify' => $verify
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
+        $Chatroom = (new Utils())->rename($Chatroom, [
+            'id' => 'chatroomId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $Chatroom);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
+     * 批量设置聊天室属性（KV）
+     *
+     * @param $Chatroom
+     * $Chatroom = [
+     * 'id'=>       'ujadk90ha',      //聊天室 id
+     * 'autoDelete'=> 0,              //用户（entryOwnerId）退出聊天室后，是否删除此 Key 值
+     * 'entryOwnerId'=> 'test',       //聊天室自定义属性的所属用户 ID
+     * 'entryInfo'=> '{"key1":"value1","key2":"value2"}',//聊天室属性对应的值
+     * ];
+     * @return mixed|null
+     */
+    public function batchSet(array $Chatroom = []) {
+        $conf = $this->conf['batchset'];
         $verify = $this->verify['chatroom'];
         $verify = ['id' => $verify['id']];
         $error = (new Utils())->check(

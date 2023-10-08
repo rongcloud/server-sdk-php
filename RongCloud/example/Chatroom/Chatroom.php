@@ -26,6 +26,23 @@ function create()
 }
 create();
 
+/**
+ * 创建聊天室V2
+ */
+function createV2()
+{
+
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $chatroom = [
+        'id'=> 'phpchatroom4',  //聊天室 id
+        'destroyType'=> 0,      //指定聊天室的销毁类型 0：默认值，表示不活跃时销毁,1：固定时间销毁
+        'isBan' => true,        //是否禁言聊天室全体成员，默认 false
+        'whiteUserIds' => ['user1','user2'] //禁言白名单用户列表，支持批量设置，最多不超过 20 个
+    ];
+    $result = $RongSDK->getChatroom()->createV2($chatroom);
+    Utils::dump("创建聊天室V2",$result);
+}
+createV2();
 
 /**
  * 查询聊天室基础信息
@@ -41,7 +58,17 @@ function query()
 }
 query();
 
-
+/**
+ * 查询聊天室基础信息V2
+ */
+function queryV2()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $chatroom = ['id'=> 'aaa'];//聊天室 id
+    $result = $RongSDK->getChatroom()->queryV2($chatroom);
+    Utils::dump("查询聊天室基础信息V2",$result);
+}
+queryV2();
 
 /**
  * 获取聊天室成员
@@ -60,6 +87,18 @@ function get()
 get();
 
 /**
+ * 设置聊天室销毁类型
+ */
+function setDestroyType()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $chatroom = ['id'=> 'phpchatroom','destroyType'=> 0,'destroyTime'=> 60];//聊天室 id
+    $result = $RongSDK->getChatroom()->setDestroyType($chatroom);
+    Utils::dump("设置聊天室销毁类型",$result);
+}
+setDestroyType();
+
+/**
  * 销毁聊天室
  */
 function destory()
@@ -71,6 +110,7 @@ function destory()
     Utils::dump("销毁聊天室",$result);
 }
 destory();
+
 /**
  * 检查用户是否在聊天室
  */

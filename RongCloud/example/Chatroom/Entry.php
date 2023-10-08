@@ -12,7 +12,7 @@ define('APPSECRET', '');
 
 
 /**
- * 添加保活聊天室
+ * 设置聊天室属性（KV）
  */
 function set() {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
@@ -28,10 +28,34 @@ function set() {
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->set($params);
-    Utils::dump("设置聊天室属性", $Entry);
+    Utils::dump("设置聊天室属性（KV）", $Entry);
 }
 
 set();
+
+
+/**
+ * 批量设置聊天室属性（KV）
+ */
+function batchSet() {
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+
+    // 创建聊天室
+    $RongSDK->getChatroom()->createV2(['id' => 'chatroom001']);
+
+    $params = [
+        'id' => 'chatroom001',//聊天室 id
+        'autoDelete'=> 0,              //用户（entryOwnerId）退出聊天室后，是否删除此 Key 值
+        'entryOwnerId'=> 'test',       //聊天室自定义属性的所属用户 ID
+        'entryInfo'=> '{"key1":"value1","key2":"value2"}',//聊天室属性对应的值
+    ];
+
+    $Entry = $RongSDK->getChatroom()->Entry()->batchSet($params);
+    Utils::dump("批量设置聊天室属性（KV）", $Entry);
+}
+
+batchSet();
+
 
 /**
  * 获取聊天室属性

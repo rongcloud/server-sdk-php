@@ -54,6 +54,7 @@ class Chatroom
     /**
      * 聊天室创建
      *
+     * @deprecated 已弃用，请使用 createV2 的方法进行创建
      * @param array $Chatroom
      * $Chatroom = [
             'id'=> 'chatroom9992',//聊天室 id
@@ -80,6 +81,70 @@ class Chatroom
             $data["chatroom[{$v['id']}]"] = $v['name'];
         }
         $result = (new Request())->Request($conf['url'],$data);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
+     * 聊天室创建
+     *
+     * @param array $Chatroom
+     * $Chatroom = [
+            'id'=> 'chatroom9992',//聊天室 id
+            'destroyType' => 0, //指定聊天室的销毁类型 0：默认值，表示不活跃时销毁,1：固定时间销毁
+            'destroyTime' => 60, //设置聊天室销毁时间
+            'isBan' => false, //是否禁言聊天室全体成员，默认 false
+            'whiteUserIds' => ['user1','user2'], //禁言白名单用户列表，支持批量设置，最多不超过 20 个
+            'entryOwnerId' => '', //聊天室自定义属性的所属用户 ID。
+            'entryInfo' => '', //聊天室自定义属性 KV 对，JSON 结构。
+         ];
+     * @return mixed|null
+     */
+    public function createV2(array $Chatroom=[]){
+        $conf = $this->conf['createV2'];
+        $verify = $this->verify['chatroom'];
+        $verify = ['id'=>$verify['id']];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'chatroom',
+            'data'=> $Chatroom,
+            'verify'=> $verify
+        ]);
+        if($error) return $error;
+        $Chatroom = (new Utils())->rename($Chatroom, [
+            'id'=> 'chatroomId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $Chatroom);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
+     * 设置聊天室销毁类型
+     *
+     * @param array $Chatroom
+     * $Chatroom = [
+            'id'=> 'chatroom9992',  //聊天室 id
+            'destroyType'=> 0,      //指定聊天室的销毁方式。
+            'destroyTime'=> 60      //设置聊天室销毁时间。
+        ];
+     * @return mixed|null
+     */
+    public function setDestroyType(array $Chatroom=[]){
+        $conf = $this->conf['setDestroyType'];
+        $verify = $this->verify['chatroom'] ;
+        $verify = ['id'=>$verify['id']];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'chatroom',
+            'data'=> $Chatroom,
+            'verify'=> $verify
+        ]);
+        if($error) return $error;
+        $Chatroom = (new Utils())->rename($Chatroom, [
+            'id'=> 'chatroomId',
+        ]);
+        $result = (new Request())->Request($conf['url'],$Chatroom);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
@@ -116,6 +181,7 @@ class Chatroom
      * 查询聊天室基础信息
      *
      * @DateTime 2023-06-14
+     * @deprecated 已弃用，请使用 queryV2 的方法进行创建
      * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
      * 
      * @return array
@@ -139,6 +205,32 @@ class Chatroom
         return $result;
     }
 
+    /**
+     * 查询聊天室基础信息V2
+     *
+     * @DateTime 2023-10-08
+     * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
+     * 
+     * @return array
+     */
+    public function queryV2(array $Chatroom=[]){
+        $conf = $this->conf['queryV2'];
+        $verify = $this->verify['chatroom'] ;
+        $verify = ['id'=>$verify['id']];
+        $error = (new Utils())->check([
+            'api'=> $conf,
+            'model'=> 'chatroom',
+            'data'=> $Chatroom,
+            'verify'=> $verify
+        ]);
+        if($error) return $error;
+        $Chatroom = (new Utils())->rename($Chatroom, [
+            'id'=> 'chatroomId',
+        ]);
+        $result = (new Request())->Request($conf['url'],$Chatroom);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
     /**
      * 获取聊天室成员
      *
