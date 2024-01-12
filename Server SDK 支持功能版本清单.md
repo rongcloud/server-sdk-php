@@ -7,7 +7,7 @@ Server SDK 功能支持的版本清单
 |  | get | 获取用户信息 | 3.0.7 |
 |  | getGroups | 查询用户所在群组 | 3.0.12 |
 |  | expire | Token 失效 | 3.0.14 |
-|  | expire | Token 失效 | 3.2.3 |
+|  | reactivate | 重新激活用户 ID | 3.2.3 |
 | [检查用户在线状态](./RongCloud/Lib/User/Onlinestatus/OnlineStatus.php) | onlinestatus.check | 检查用户在线状态| 3.0.1 |
 | [黑名单](./RongCloud/Lib/User/Blacklist/Blacklist.php) | blacklist.add | 添加黑名单 | 3.0.1 |
 |  | blacklist.getList | 获取黑名单列表| 3.0.1 |

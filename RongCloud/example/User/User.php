@@ -79,6 +79,21 @@ function abandon()
 abandon();
 
 /**
+ * 重新激活用户 ID
+ */
+function reactivate()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $user = [
+        'id' => ['55vW81Mni','kkj9o02'],
+        'time' => 1623123911000
+    ];
+    $res = $RongSDK->getUser()->reactivate($user);
+    Utils::dump("Token 失效", $res);
+}
+reactivate();
+
+/**
  * 注销用户列表
  */
 function abandonQuery()
