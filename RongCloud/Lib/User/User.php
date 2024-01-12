@@ -272,6 +272,37 @@ class User
     }
 
     /**
+     * 重新激活用户 ID
+     * @param $User array 用户id
+     * @param
+     * $User = [
+     * 'id'=> 'ujadk90ha',//用户id
+     * ];
+     * @return array
+     */
+    public function reactivate(array $User = [])
+    {
+        $conf = $this->conf['reactivate'];
+        $error = (new Utils())->check(
+            [
+                'api' => $conf,
+                'model' => 'user',
+                'data' => $User,
+                'verify' => $this->verify['user']
+            ]
+        );
+        if ($error) {
+            return $error;
+        }
+        $User = (new Utils())->rename($User, [
+            'id' => 'userId',
+        ]);
+        $result = (new Request())->Request($conf['url'], $User);
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
      * @param $User array 查询用户所在群组
      * @param
      * $User = [
