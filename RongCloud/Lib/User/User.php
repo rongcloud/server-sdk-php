@@ -223,7 +223,7 @@ class User
     }
 
     /**
-     * @param $User array 用户注销
+     * @param $User array 查询已注销用户
      * @param
      * @return array
      */

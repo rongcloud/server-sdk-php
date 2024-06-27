@@ -213,5 +213,32 @@
         "invalid": "1501"
       }
     }
+  },
+  "deactivate":{
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "id": {
+      "require": {
+        "must": true,
+        "invalid": "20005"
+      },
+      "size": {
+        "max": 100,
+        "min": 1,
+        "invalid": "1005"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "20001"
+      }
+    }
   }
 }
