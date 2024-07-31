@@ -46,5 +46,32 @@
         "invalid": "1002"
       }
     }
+  },
+  "batchAdd": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "words": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      },
+      "length": {
+        "max": 50,
+        "min": 1,
+        "invalid": "1005"
+      }
+    }
   }
 }

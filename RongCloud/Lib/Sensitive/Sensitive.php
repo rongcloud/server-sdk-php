@@ -79,6 +79,34 @@ class Sensitive
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+    /**
+     * 敏感词批量添加
+     *
+     * @param $Sensitive array 敏感词添加参数
+     * @param
+     * $Sensitive = [
+     *    [
+     *      'word'=>'abc',//敏感词
+     *      'replaceWord'=>'***'//敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+     *    ]
+     * ];
+     * @return array
+     */
+    public function batchAdd(array $Sensitive = []) {
+        $conf = $this->conf['batchAdd'];
+        $verify = $this->verify['batchAdd'];
+        $error = (new Utils())->check([
+            'api' => $conf,
+            'model' => 'sensitive',
+            'data' => $Sensitive,
+            'verify' => $verify
+        ]);
+        if ($error) return $error;
+
+        $result = (new Request())->Request($conf['url'], $Sensitive, 'json');
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
 
     /**
      * 敏感词删除

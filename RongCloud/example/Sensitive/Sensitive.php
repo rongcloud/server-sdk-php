@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 敏感词实例
  */
@@ -6,7 +7,8 @@
 
 require "./../../RongCloud.php";
 define("APPKEY", '');
-define('APPSECRET','');
+define('APPSECRET', '');
+
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
@@ -15,16 +17,35 @@ use RongCloud\Lib\Utils;
  */
 function add()
 {
-    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'replace'=> '***',//敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
-        'keyword'=>"abc",//敏感词
-        'type'=>0// 0: 敏感词替换 1: 敏感词屏蔽
+        'replace' => '***', //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+        'keyword' => "abc", //敏感词
+        'type' => 0 // 0: 敏感词替换 1: 敏感词屏蔽
     ];
     $result = $RongSDK->getSensitive()->add($sensitive);
-    Utils::dump("添加敏感词",$result);
+    Utils::dump("添加敏感词", $result);
 }
 add();
+
+function batchAdd()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $sensitive = [
+        'words' => [
+            [
+                'word' => "abc1", //屏蔽
+            ],
+            [
+                'word' => "abc2", //敏感词
+                'replaceWord' => '***' //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+            ]
+        ]
+    ];
+    $result = $RongSDK->getSensitive()->batchAdd($sensitive);
+    Utils::dump("批量添加敏感词", $result);
+}
+batchAdd();
 
 /**
  * 删除敏感词
@@ -32,12 +53,12 @@ add();
 function remove()
 {
 
-    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'keywords'=>["cccccdddd"]//删除敏感词
+        'keywords' => ["cccccdddd"] //删除敏感词
     ];
     $result = $RongSDK->getSensitive()->remove($sensitive);
-    Utils::dump("删除敏感词",$result);
+    Utils::dump("删除敏感词", $result);
 }
 remove();
 
@@ -47,11 +68,11 @@ remove();
 function getList()
 {
 
-    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'type'=> '',//敏感词类型，0: 敏感词替换， 1: 敏感词屏蔽， 为空获取全部
+        'type' => '', //敏感词类型，0: 敏感词替换， 1: 敏感词屏蔽， 为空获取全部
     ];
     $result = $RongSDK->getSensitive()->getList($sensitive);
-    Utils::dump("获取敏感词列表",$result);
+    Utils::dump("获取敏感词列表", $result);
 }
 getList();

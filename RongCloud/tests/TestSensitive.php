@@ -22,6 +22,20 @@ function testSensitive($RongSDK){
 
     Utils::dump("添加敏感词 keyword 错误",$Sensitive->add());
 
+
+    $params = [
+        'words' => [
+            [
+                'word' => "abc1", //屏蔽
+            ],
+            [
+                'word' => "abc2", //敏感词
+                'replaceWord' => '***' //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+            ]
+        ]
+    ];
+    Utils::dump("批量添加敏感词成功",$Sensitive->batchAdd($params));
+
     $params = [
         'keywords'=>["bbb"]
     ];
@@ -38,7 +52,6 @@ function testSensitive($RongSDK){
     Utils::dump("获取敏感词成功",$Sensitive->getList($params));
 
 }
-
 testSensitive($RongSDK);
 
 
