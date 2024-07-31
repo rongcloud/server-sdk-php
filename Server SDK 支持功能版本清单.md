@@ -30,6 +30,7 @@ Server SDK 功能支持的版本清单
 | [用户单聊禁言](./RongCloud/Lib/User/Chat/Ban.php) | ban.set | 设置用户禁言 | 3.0.14 |
 |  | ban.getList | 查询禁言用户列表| 3.0.14 |
 | [敏感词](./RongCloud/Lib/Sensitive/Sensitive.php) | add | 添加敏感词，添加后默认 2 小时生效| 3.0.1 |
+|  | batchAdd | 批量添加敏感词 |3.2.6 |
 |  | getList | 获取敏感词列表 | 3.0.1 |
 |  | remove | 移除敏感词，支持批量移除功能，移除后默认 2 小时生效 | 3.0.1 |
 | [单聊消息](./RongCloud/Lib/Message/Person/Person.php) | person.send | 发送单聊消息 | 3.0.1 |
