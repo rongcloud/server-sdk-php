@@ -66,11 +66,6 @@
       "typeof": {
         "type": "array",
         "invalid": "1501"
-      },
-      "length": {
-        "max": 50,
-        "min": 1,
-        "invalid": "1005"
       }
     }
   }
