@@ -1,0 +1,96 @@
+{
+  "set": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "userProfile": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    }
+  },
+  "batchQuery": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "20005"
+      },
+      "size": {
+        "max": 100,
+        "min": 1,
+        "invalid": "1005"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "20001"
+      }
+    }
+  },
+  "clean": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "20005"
+      },
+      "size": {
+        "max": 20,
+        "min": 1,
+        "invalid": "1005"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "20001"
+      }
+    }
+  },
+  "query": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    }
+  }
+}

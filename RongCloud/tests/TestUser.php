@@ -12,6 +12,12 @@ use RongCloud\Lib\Utils;
 
 $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
+/**
+ * testUser
+ *
+ * @param RongCloud $RongSDK
+ * @return void
+ */
 function testUser($RongSDK)
 {
     $portrait = "http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982";
@@ -455,3 +461,60 @@ function testBlockPushPeriod($RongSDK)
 }
 
 testBlockPushPeriod($RongSDK);
+
+/**
+ * testProfile
+ *
+ * @param RongCloud $RongSDK
+ * @return void
+ */
+function testProfile($RongSDK)
+{
+    $User = $RongSDK->getUser()->Profile();
+
+    $params = [
+        'userId' => 'ujadk90ha1', //用户id
+        'userProfile' => [
+            'name' => 'testName',
+            'email' => 'tester@rongcloud.cn'
+        ],  //用户基本信息
+        'userExtProfile' => [
+            'ext_Profile1' => 'testpro1'
+        ]  //用户扩展信息
+    ];
+    Utils::dump("用户资料设置", $User->set($params));
+
+    $params = [
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], //用户id
+    ];
+    Utils::dump("用户托管信息清除", $User->clean($params));
+
+    $params = [
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], //用户id
+    ];
+    Utils::dump("批量查询用户资料", $User->batchQuery($params));
+
+    $params = [
+        'page' => 1,
+        'size' => 20,
+        'order' => 0
+    ];
+    Utils::dump("分页获取应用全部用户列表", $User->query($params));
+
+}
+testProfile($RongSDK);
+
+/**
+ * 分页获取应用全部用户列表
+ */
+function query()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $params = [
+        'page' => 1,
+        'size' => 20,
+        'order' => 0
+    ];
+    $res =  $RongSDK->getUser()->Profile()->query($params);
+    Utils::dump("分页获取应用全部用户列表", $res);
+}

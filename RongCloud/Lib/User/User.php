@@ -19,6 +19,7 @@ use RongCloud\Lib\User\MuteChatrooms\MuteChatrooms;
 use RongCloud\Lib\User\Chat\Ban;
 use RongCloud\Lib\User\Remark\Remark;
 use RongCloud\Lib\User\BlockPushPeriod\BlockPushPeriod;
+use RongCloud\Lib\User\Profile\Profile;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
@@ -431,4 +432,15 @@ class User
     {
         return new BlockPushPeriod();
     }
+
+    /**
+     * 用户信息托管
+     *
+     * @return Profile
+     */
+    public function Profile()
+    {
+        return new Profile();
+    }
+    
 }
