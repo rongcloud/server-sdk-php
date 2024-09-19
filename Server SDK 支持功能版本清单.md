@@ -18,9 +18,13 @@ Server SDK 功能支持的版本清单
 | [用户封禁](./RongCloud/Lib/User/Block/Block.php) | block.add |添加用户封禁 | 3.0.1 |
 |  | block.getList| 获取用户封禁列表| 3.0.1 |
 |  | block.remove| 移除用户封禁| 3.0.1 |
-| [用户标签](./RongCloud/Lib/User/Tag/Tag.php) | tag.set | 添加用户标签 |  |
+| [用户标签](./RongCloud/Lib/User/Tag/Tag.php) | tag.set | 添加用户标签 | 3.0.4 |
 |  | tag.batchset | 批量添加用户标签 | 3.0.4 |
 |  | tag.get | 获取用户标签 | 3.0.4 |
+| [用户托管](./RongCloud/Lib/User/Profile/Profile.php) | profile.set | 用户资料设置 | 3.2.7 |
+|  | profile.clean | 用户托管信息清除 | 3.2.7 |
+|  | profile.batchQuery | 批量查询用户资料 | 3.2.7 |
+|  | profile.query | 分页获取应用全部用户列表 | 3.2.7 |
 | [用户全局群禁言](./RongCloud/Lib/User/MuteGroups/MuteGroups.php) | muteGroups.add | 添加全局群组禁言用户，添加后用户在应用下的所有群组中都不能发送消息 | 3.0.2 |
 |  | muteGroups.remove | 移除全局群组禁言用户 | 3.0.2 |
 |  | muteGroups.getList | 获取全局群组禁言用户列表 | 3.0.2 |
