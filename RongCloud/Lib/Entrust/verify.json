@@ -1,0 +1,352 @@
+{
+  "create": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "name": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "owner": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "update": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "name": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    }
+  },
+  "joinedQuery": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "profileQuery": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupIds": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      },
+      "size": {
+        "max": 50,
+        "min": 1,
+        "invalid": "1502"
+      }
+    }
+  },
+  "kickAll": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "transferOwner": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "newOwner": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "memberSet":{
+    "_self": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        },
+        "typeof": {
+          "type": "object",
+          "invalid": "1501"
+        }
+      },
+      "groupId": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        }
+      },
+      "userId": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        }
+      },
+      "nickname": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        },
+        "length": {
+          "max": 64,
+          "min": 1,
+          "invalid": "1005"
+        }
+      }
+  },
+  "remarkNameSet":{
+    "_self": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        },
+        "typeof": {
+          "type": "object",
+          "invalid": "1501"
+        }
+      },
+      "groupId": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        }
+      },
+      "userId": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        }
+      },
+      "remarkName": {
+        "require": {
+          "must": true,
+          "invalid": "1002"
+        },
+        "length": {
+          "max": 64,
+          "min": 1,
+          "invalid": "1005"
+        }
+      }
+  },
+  "memberFollow": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "followUserIds": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      },
+      "size": {
+        "max": 100,
+        "min": 1,
+        "invalid": "1502"
+      }
+    }
+  },
+  "groupId": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "groupId_userId": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
+  },
+  "groupId_userIds": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "groupId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "userIds": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    }
+  }
+}

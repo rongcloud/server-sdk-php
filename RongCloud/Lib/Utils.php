@@ -162,6 +162,9 @@ class Utils
         $model = $params['model'];
         $api = $params['api'];
         $errors = $api['response']['fail'];
+        if (isset($params['fail']) && !empty($params['fail'])) {
+            $errors = $params['fail'];
+        }
         $dataModel = $api['params'][$model];
         $data = isset($params['data']) ? $params['data'] : [];
         $verify = $params['verify'];
@@ -279,7 +282,7 @@ class Utils
     public static function dump()
     {
         $param = func_get_args();
-        echo '<style>.php-print{background:#eee;padding:10px;border-radius:4px;border:1px solid #ccc;line-height:1.5;white-space:pre-wrap;font-family:Menlo,Monaco,Consolas,"Courier New",monospace;font-size:13px;}</style>', '<pre class="php-print">';
+        echo '<style>.php-print{background:#eee;padding:10px;border-radius:4px;border:1px solid #ccc;line-height:1.5;white-space:pre-wrap;font-family:Menlo,Monaco,Consolas,"Courier New",monospace;font-size:13px;}</style>' . PHP_EOL, '<pre class="php-print">';
 
         if (end($param) === .1) {
             array_splice($param, -1, 1);
@@ -297,7 +300,7 @@ class Utils
                 echo $k > 0 ? '<hr>' : '', print_r($v, true);
             }
         }
-        echo '</pre>';
+        echo '</pre>' . PHP_EOL;
     }
 
     /**

@@ -1,0 +1,90 @@
+{
+  "group": {
+    "params": {
+      "create": {
+        "groupId": "群组ID，最大长度 64 个字符。支持大小写英文字母与数字的组合。",
+        "name": "群名称，最长不超过 64 个字符，群名称可以重复创建。",
+        "owner": "群主。创建者 ID ，默认为群主 ID ，该用户自动加入到群组中。"
+      },
+      "update": {
+        "groupId": "群组ID，最大长度 64 个字符。支持大小写英文字母与数字的组合。",
+        "name": "群名称，最长不超过 64 个字符，群名称可以重复创建。"
+      },
+      "joinedQuery": {
+        "userId": "用户 ID"
+      },
+      "profileQuery": {
+        "groupIds": "群组 ID，最多一次50个。"
+      },
+      "transferOwner": {
+        "groupId": "群 ID",
+        "newOwner": "新群主的ID"
+      },
+      "groupId": {
+        "groupId": "群 ID"
+      },
+      "groupId_userId": {
+        "groupId": "群 ID",
+        "userId": "群组成员 ID"
+      },
+      "groupId_userIds": {
+        "groupId": "群 ID",
+        "userIds": "用户 ID，一次最多100个"
+      }
+    }
+  },
+  "member": {
+    "params": {
+      "kickAll": {
+        "userId": "用户 ID"
+      },
+      "set":{
+        "groupId": "群组 ID",
+        "userId": "群组成员 ID",
+        "nickname": "群成员昵称，长度不超过 64 个字符"
+      },
+      "follow": {
+        "groupId": "群 ID",
+        "userId": "群成员 ID",
+        "followUserIds": "特别关注用户 ID，次最多关注 100 个用户"
+      }
+    }
+  },
+  "remarkName": {
+    "params": {
+      "set":{
+        "groupId": "群组 ID",
+        "userId": "群组成员 ID",
+        "remarkName": "群成员昵称，长度不超过 64 个字符"
+      }
+    }
+  },
+  "response": {
+    "success": {
+      "code": "200",
+      "msg": "成功返回"
+    },
+    "fail": {
+      "1502": {
+        "code": "1502",
+        "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+      },
+      "1002": {
+        "code": "1002",
+        "msg": "{{name}} 参数为必传项"
+      },
+      "1501": {
+        "code": "1501",
+        "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}} "
+      },
+      "1004": {
+        "code": "1004",
+        "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+      },
+      "1008": {
+        "code": "1008",
+        "msg": "超限"
+      }
+    }
+  }
+}

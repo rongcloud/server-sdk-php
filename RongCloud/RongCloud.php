@@ -12,6 +12,7 @@ use RongCloud\Lib\Message\Message;
 use RongCloud\Lib\Sensitive\Sensitive;
 use RongCloud\Lib\User\User;
 use RongCloud\Lib\Push\Push;
+use RongCloud\Lib\Entrust\Entrust;
 
 error_reporting(0);
 if (!defined('RONGCLOUOD_ROOT')) {
@@ -118,6 +119,15 @@ class RongCloud
      */
     public $_push;
 
+
+    /**
+     * 信息托管模块对象
+     *
+     * @var Entrust
+     */
+    public $_entrust;
+    
+
     /**
      * RongCloud constructor.
      * @param string $appKey 实体 appKey 应用 key
@@ -154,6 +164,9 @@ class RongCloud
 
         //创建 Ultragroup
         $this->_ultragroup = new Ultragroup();
+
+        //创建 Entrust
+        $this->_entrust = new Entrust();
     }
 
     /**
@@ -228,5 +241,13 @@ class RongCloud
         return $this->_ultragroup;
     }
 
+    /**
+     * 获取信息托管对象
+     *
+     * @return Entrust
+     */
+    public function getEntrust(){
+        return $this->_entrust;
+    }
 
 }

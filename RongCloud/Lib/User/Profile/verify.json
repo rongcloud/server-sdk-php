@@ -15,16 +15,6 @@
         "must": true,
         "invalid": "1002"
       }
-    },
-    "userProfile": {
-      "require": {
-        "must": true,
-        "invalid": "1002"
-      },
-      "typeof": {
-        "type": "array",
-        "invalid": "1501"
-      }
     }
   },
   "batchQuery": {
