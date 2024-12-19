@@ -49,7 +49,7 @@ function testGroupUpdate($RongSDK)
         'groupId' => 'CHIQ_GROUP_2',
         'name' => 'RC_NAME_2',
         'groupProfile' => ['introduction' => 'i', 'announcement' => 'a', 'portraitUrl' => ''],
-        'permissions' => ['joinPerm' => '0', 'removePerm' => '0', 'memInvitePerm' => '0', 'invitePerm' => '0', 'profilePerm' => '0', 'memProfilePerm' => '0'],
+        'permissions' => ['joinPerm' => 0, 'removePerm' => 0, 'memInvitePerm' => 0, 'invitePerm' => 0, 'profilePerm' => 0, 'memProfilePerm' => 0],
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->update($param);
@@ -145,7 +145,7 @@ function testGroupImport($RongSDK)
         'name' => 'RC_NAME_1',
         'owner' => 'RC_OWNER_1',
         'groupProfile' => ['introduction' => 'i', 'announcement' => 'a', 'portraitUrl' => ''],
-        'permissions' => ['joinPerm' => '0', 'removePerm' => '0', 'memInvitePerm' => '0', 'invitePerm' => '0', 'profilePerm' => '0', 'memProfilePerm' => '0'],
+        'permissions' => ['joinPerm' => 0, 'removePerm' => 0, 'memInvitePerm' => 0, 'invitePerm' => 0, 'profilePerm' => 0, 'memProfilePerm' => 0],
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->import($param);

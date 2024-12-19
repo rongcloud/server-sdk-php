@@ -50,7 +50,7 @@ class Group
      *   'owner' => 'admin',
      *   'userIds' => ['123','456'],
      *   'groupProfile' => ['introduction'=>'','announcement'=>'','portraitUrl'=>''],
-     *   'permissions' => ['joinPerm'=>'0','removePerm'=>'0','memInvitePerm'=>'0','invitePerm'=>'0','profilePerm'=>'0','memProfilePerm'=>'0'],
+     *   'permissions' => ['joinPerm'=>0,'removePerm'=>0,'memInvitePerm'=>0,'invitePerm'=>0,'profilePerm'=>0,'memProfilePerm'=>0],
      *   'groupExtProfile' => ['key'=>'value']
      * ]
      * @return array
@@ -89,7 +89,7 @@ class Group
      *   'groupId' => '111',
      *   'name' => 'name123',
      *   'groupProfile' => ['introduction'=>'','announcement'=>'','portraitUrl'=>''],
-     *   'permissions' => ['joinPerm'=>'0','removePerm'=>'0','memInvitePerm'=>'0','invitePerm'=>'0','profilePerm'=>'0','memProfilePerm'=>'0'],
+     *   'permissions' => ['joinPerm'=>0,'removePerm'=>0,'memInvitePerm'=>0,'invitePerm'=>0,'profilePerm'=>0,'memProfilePerm'=>0],
      *   'groupExtProfile' => ['key'=>'value']
      * ]
      * @return array
@@ -243,7 +243,7 @@ class Group
      *   'name' => '222',
      *   'owner' => '222',
      *   'groupProfile' => ['introduction'=>'','announcement'=>'','portraitUrl'=>''],
-     *   'permissions' => ['joinPerm'=>'0','removePerm'=>'0','memInvitePerm'=>'0','invitePerm'=>'0','profilePerm'=>'0','memProfilePerm'=>'0'],
+     *   'permissions' => ['joinPerm'=>0,'removePerm'=>0,'memInvitePerm'=>0,'invitePerm'=>0,'profilePerm'=>0,'memProfilePerm'=>0],
      *   'groupExtProfile' => ['key'=>'value']
      * ]
      * @return array
