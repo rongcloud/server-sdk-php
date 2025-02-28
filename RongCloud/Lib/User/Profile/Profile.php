@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 用户托管
+ * User hosting
  */
 
 namespace RongCloud\Lib\User\Profile;
@@ -13,47 +13,49 @@ class Profile
 {
 
     /**
-     * 用户托管
-     *
-     * @var string
-     */
+ * User Entrustment
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/Profile/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ * //
+ */
+    private $verify = '';
 
     /**
-     * Profile constructor.
-     */
+ * Profile constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
     /**
-     * 用户资料设置
-     * 
-     * @param array
-     * $params = [
-            'userId' => 'ujadk90ha1', //用户id
-            'userProfile' => [],      //用户基本信息(默认最多20个)
-            'userExtProfile' => []    //用户扩展信息(key的长度不超过 32 个字符，key的前缀必须加ext_， value的长度，value不超过 256 个字符，默认最多20个)
-        ];
-     * @return array
-     */
+ * User profile settings
+ *
+ * @param array
+ * $params = [
+ * 'userId' => 'ujadk90ha1', // User ID
+ * 'userProfile' => [],      // Basic user information (default maximum of 20 items)
+ * 'userExtProfile' => []    // Extended user information (key length does not exceed 32 characters, key must be prefixed with ext_, value length does not exceed 256 characters, default maximum of 20 items)
+ * ];
+ * @return array
+ */
     public function set(array $params = [])
     {
         $conf = $this->conf['set'];
@@ -80,14 +82,14 @@ class Profile
     }
 
     /**
-     * 用户托管信息清除
-     *
-     * @param array
-     * $params = [
-            'userId'=> ['ujadk90ha1','ujadk90ha1'],//用户id 列表，一次最多20个用户
-        ];
-     * @return array
-     */
+ * User custody information clearance
+ *
+ * @param array
+ * $params = [
+ * 'userId'=> ['ujadk90ha1','ujadk90ha1'], // User ID list, up to 20 users at a time
+ * ];
+ * @return array
+ */
     public function clean(array $params = [])
     {
         $conf = $this->conf['clean'];
@@ -104,14 +106,14 @@ class Profile
     }
 
     /**
-     * 批量查询用户资料
-     *
-     * @param array
-     * $params = [
-            'userId'=> ['ujadk90ha1','ujadk90ha1'],//用户id 列表，最多一次100个
-        ];
-     * @return array
-     */
+ * Batch query user data
+ *
+ * @param array
+ * $params = [
+ * 'userId'=> ['ujadk90ha1','ujadk90ha1'],//User ID list, maximum 100 per batch
+ * ];
+ * @return array
+ */
     public function batchQuery(array $params = [])
     {
         $conf = $this->conf['batchQuery'];
@@ -128,16 +130,16 @@ class Profile
     }
 
     /**
-     * 分页获取应用全部用户列表
-     *
-     * @param array
-     * $params = [
-            'page'  => 1,   //默认1
-            'size'  => 20,  //默认20，最大100
-            'order' => 0,   //根据注册时间的排序机制，默认正序，0为正序，1为倒序
-        ];
-     * @return array
-     */
+ * // Get paginated list of all application users
+ *
+ * @param array
+ * $params = [
+ * 'page'  => 1,   // Default is 1
+ * 'size'  => 20,  // Default is 20, maximum is 100
+ * 'order' => 0,   // Sorting mechanism based on registration time, default is ascending, 0 for ascending, 1 for descending
+ * ];
+ * @return array
+ */
     public function query(array $params = [])
     {
         $conf = $this->conf['query'];

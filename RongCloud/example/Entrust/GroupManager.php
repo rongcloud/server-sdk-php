@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-管理模块测试
+ * Group Information Management - Management Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置群管理员(添加群管理员)
+ * // Set group administrator (Add group administrator)
  */
 function add()
 {
@@ -26,7 +26,7 @@ function add()
 add();
 
 /**
- * 移除群管理员
+ * Remove group administrator
  */
 function remove()
 {

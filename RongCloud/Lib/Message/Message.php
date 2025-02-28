@@ -1,6 +1,6 @@
 <?php
 /**
- * 消息模块
+ * Message Module
  */
 namespace RongCloud\Lib\Message;
 
@@ -18,83 +18,83 @@ class Message
 {
 
     /**
-     * 创建聊天室对象
-     *
-     * @return Chatroom
-     */
+ * // Create a chatroom object
+ *
+ * @return Chatroom
+ */
     public function Chatroom(){
         return new Chatroom();
     }
 
     /**
-     * 创建聊天室对象
-     *
-     * @return Discussion
-     */
+ * // Create a chat room object
+ *
+ * @return Discussion
+ */
     public function Discussion(){
         return new Discussion();
     }
 
     /**
-     * 创建聊天室对象
-     *
-     * @return Group
-     */
+ * Create a chat room object
+ *
+ * @return Group
+ */
     public function Group(){
         return new Group();
     }
 
     /**
-     * 创建聊天室对象
-     *
-     * @return History
-     */
+ * Create a chat room object
+ *
+ * @return History
+ */
     public function History(){
         return new History();
     }
 
 
     /**
-     * 创建聊天室对象
-     *
-     * @return Person
-     */
+ * // Create a chat room object
+ *
+ * @return Person
+ */
     public function Person(){
         return new Person();
     }
 
     /**
-     * 创建聊天室对象
-     *
-     * @return System
-     */
+ * // Create a chat room object
+ *
+ * @return System
+ */
     public function System(){
         return new System();
     }
 
     /**
-     * 创建广播消息对象
-     *
-     * @return Broadcast
-     */
+ * Create a broadcast message object
+ *
+ * @return Broadcast
+ */
     public function Broadcast(){
         return new Broadcast();
     }
 
     /**
-     * 创建广播消息对象
-     *
-     * @return Expansion
-     */
+ * // Create a broadcast message object
+ *
+ * @return Expansion
+ */
     public function Expansion(){
         return new Expansion();
     }
 
     /**
-     * 创建超级群消息对象
-     *
-     * @return Expansion
-     */
+ * // Create a supergroup message object
+ *
+ * @return Expansion
+ */
     public function Ultragroup(){
         return new Ultragroup();
     }

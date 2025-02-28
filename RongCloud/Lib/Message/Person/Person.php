@@ -1,6 +1,6 @@
 <?php
 /**
- * 二人消息
+ * // Two-person message
  */
 namespace RongCloud\Lib\Message\Person;
 
@@ -11,27 +11,27 @@ use RongCloud\Lib\Utils;
 class Person {
 
     /**
-     * @var string 二人消息路径
-     */
+ * @var string Path for two-person messaging
+ */
     private $jsonPath = 'Lib/Message/Person/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Configuration file for verification
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Person constructor.
-     */
+ * // Person constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -39,16 +39,16 @@ class Person {
     }
 
     /**
-     * @param $Message array 二人消息发送
-     * @param
-     * $Message = [
-            'senderId'=> 'ujadk90ha',//发送人 id
-            'targetId'=> 'markoiwm',//接收人 id
-            "objectName"=>'RC:TxtMsg',//消息类型 文本
-            'content'=>['content'=>'你好，小明']//消息体
-        ];
-     * @return array
-     */
+ * @param array $Message Two-person message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * 'targetId'=> 'markoiwm',//Recipient ID
+ * "objectName"=>'RC:TxtMsg',//Message type: Text
+ * 'content'=>['content'=>'Hello, Xiaoming']//Message Body
+ * ];
+ * @return array
+ */
     public function send(array $Message=[]){
         $conf = $this->conf['send'];
         $error = (new Utils())->check([
@@ -68,25 +68,25 @@ class Person {
     }
 
     /**
-     * @param $Message array 向多个用户发送不同内容消息
-     * @param
-     * $Message = [
-            'senderId'=> 'kamdnq',//发送人 id
-            'objectName'=>'RC:TxtMsg',//消息类型 文本
-            'template'=>['content'=>'{name}, 语文成绩 {score} 分'],//模板内容
-            'content'=>[
-                'sea9901'=>[//接收人 id
-                    'data'=>['{name}'=>'小明','{score}'=>'90'],//模板数据
-                    'push'=>'{name} 你的成绩出来了',//推送内容
-                ],
-                'sea9902'=>[//接收人 id
-                    'data'=>['{name}'=>'小红','{score}'=>'95'],//模板数据
-                    'push'=>'{name} 你的成绩出来了',//推送内容
-                ]
-            ]
-     ];
-     * @return array
-     */
+ * @param array $Message Send different content messages to multiple users
+ * @param
+ * $Message = [
+ * 'senderId'=> 'kamdnq', // Sender ID
+ * 'objectName'=>'RC:TxtMsg', // Message type: text
+ * 'template'=>['content'=>'{name}, language score {score} points'], // Template content
+ * 'content'=>[
+ * 'sea9901'=>[ // Recipient ID
+ * 'data'=>['{name}'=>'Xiao Ming','{score}'=>'90'], // Template data
+ * 'push'=>'{name}, your score is out', // Push notification content
+ * ],
+ * 'sea9902'=>[ // Recipient ID
+ * 'data'=>['{name}'=>'Xiao Hong','{score}'=>'95'], // Template data
+ * 'push'=>'{name}, your score is out', // Push notification content
+ * ]
+ * ]
+ * ];
+ * @return array
+ */
     public function sendTemplate(array $Message=[]){
         $conf = $this->conf['sendTemplate'];
         $error = (new Utils())->check([
@@ -117,16 +117,16 @@ class Person {
         return $result;
     }
     /**
-     * @param $Message array 二人状态消息发送
-     * @param
-     * $Message = [
-            'senderId'=> 'ujadk90ha',//发送人 id
-            'targetId'=> 'markoiwm',//接收人 id
-            "objectName"=>'RC:TxtMsg',//消息类型 文本
-            'content'=>['content'=>'你好，小明']//消息体
-       ];
-     * @return array
-     */
+ * @param array $Message Two-person status message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha', // Sender ID
+ * 'targetId'=> 'markoiwm', // Receiver ID
+ * "objectName"=>'RC:TxtMsg', // Message type: Text
+ * 'content'=>['content'=>'Hello, Xiao Ming'] // Message Body
+ * ];
+ * @return array
+ */
     public function sendStatusMessage(array $Message=[]){
         $conf = $this->conf['sendStatusMessage'];
         $error = (new Utils())->check([
@@ -146,16 +146,16 @@ class Person {
     }
 
     /**
-     * @param $Message array 二人消息撤回
-     * @param
-     * $Message = [
-            'senderId'=> 'ujadk90ha',//发送人 id
-            'targetId'=> 'markoiwm',//接收人 id
-            "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息唯一标识
-            'sentTime'=>'1519444243981'//发送时间
-        ];
-     * @return array
-     */
+ * @param array $Message Two-person message recall
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha', // Sender ID
+ * 'targetId'=> 'markoiwm', // Receiver ID
+ * "uId"=>'5GSB-RPM1-KP8H-9JHF', // Message unique identifier
+ * 'sentTime'=>'1519444243981' // Sending time
+ * ];
+ * @return array
+ */
     public function recall(array $Message=[]){
         $conf = $this->conf['recall'];
         $error = (new Utils())->check([

@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组禁言白名单白名单实例
+ * // Group ban whitelist whitelist instance
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加群组禁言白名单
+ * // Add group blocklist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'members'=>[ //禁言白名单人员列表
+        'id'=> 'php group1',// // Group ID
+        'members'=>[ // // Forbidden personnel whitelist
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
@@ -28,29 +28,29 @@ function add()
 }
 add();
 /**
- * 查询禁言白名单成员列表
+ * // Query the forbidden whitelist member list
  */
 function getList()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
+        'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteWhiteList()->getList($group);
     Utils::dump("查询禁言白名单成员列表",$result);
 }
 getList();
 /**
- * 解除禁言白名单
+ * // Remove the ban from the whitelist
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'members'=>[ ////解除禁言白名单人员列表
+        'id'=> 'php group1',// // Group ID
+        'members'=>[ // //Unblock the whitelist personnel list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];

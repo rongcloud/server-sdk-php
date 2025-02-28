@@ -1,6 +1,6 @@
 <?php
 /**
- * 指定超级群全员禁言实例
+ * // Specify a supergroup member ban instance
  */
 
 
@@ -11,13 +11,13 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置超级群禁言
+ * // Set supergroup ban
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// // Super group ID
         "status"=>1
     ];
     $result = $RongSDK->getUltragroup()->MuteAllMembers()->set($group);
@@ -25,14 +25,14 @@ function set()
 }
 set();
 /**
- * 查询超级群禁言状态
+ * // Query the status of super group bans
  */
 function get()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// // Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->MuteAllMembers()->get($group);
     Utils::dump("查询超级群禁言状态",$result);

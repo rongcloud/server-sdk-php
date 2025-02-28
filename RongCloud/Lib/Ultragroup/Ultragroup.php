@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群模块
+ * // Super cluster module
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup;
@@ -16,29 +16,29 @@ use RongCloud\Lib\Utils;
 class Ultragroup
 {
     /**
-     * 超级群模块路径
-     *
-     * @var string
-     */
+ * Super cluster module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Ultragroup/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -46,16 +46,16 @@ class Ultragroup
     }
 
     /**
-     * 创建超级群
-     *
-     * @param $Group array 创建超级群 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup1',//超级群 id
-            'name'=> 'watergroup',//超级群名称
-        ];
-     * @return array
-     */
+ * Create a super group
+ *
+ * @param array $Group Parameters for creating a super group
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup1', // Super group ID
+ * 'name'=> 'watergroup', // Super group name
+ * ];
+ * @return array
+ */
     public function create(array $Group=[]){
         $conf = $this->conf['create'];
         $error = (new Utils())->check([
@@ -77,17 +77,17 @@ class Ultragroup
     }
 
     /**
-     * 加入超级群
-     *
-     * @param $Group array 加入超级群 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//超级群 id
-            'name'=>"watergroup",//超级群名称
-            'member'=>['id'=> 'group999'],//群成员信息
-        ];
-     * @return array
-     */
+ *  Join a super group
+ *
+ * @param array $Group Parameters for joining a super group
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup', // Super group ID
+ * 'name'=>"watergroup", // Super group name
+ * 'member'=>['id'=> 'group999'], // Group member information
+ * ];
+ * @return array
+ */
     public function joins(array $Group=[]){
         $conf = $this->conf['join'];
         $verify = $this->verify['group'];
@@ -110,16 +110,16 @@ class Ultragroup
     }
 
     /**
-     * 退出超级群
-     *
-     * @param $Group array 退出超级群 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//超级群 id
-            'member'=>['id'=> 'group999'],//群成员信息
-        ];
-     * @return array
-     */
+ * Exit super group
+ *
+ * @param array $Group Exit super group parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup', // Super group id
+ * 'member'=>['id'=> 'group999'], // Group member information
+ * ];
+ * @return array
+ */
     public function quit(array $Group=[]){
         $conf = $this->conf['quit'];
         $verify = $this->verify['group'];
@@ -143,16 +143,16 @@ class Ultragroup
     }
 
     /**
-     * 解散超级群
-     *
-     * @param $Group array 解散超级群 参数
-     * @param
-     * $Group = [
-        'id'=> 'watergroup',//超级群 id
-        'member'=>['id'=> 'group999'],//管理员信息
-        ];
-     * @return array
-     */
+ * Disband supergroup
+ *
+ * @param array $Group Disband supergroup parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//supergroup id
+ * 'member'=>['id'=> 'group999'],//admin information
+ * ];
+ * @return array
+ */
     public function dismiss(array $Group=[]){
         $conf = $this->conf['dis'];
         $verify = $this->verify['group'];
@@ -174,16 +174,16 @@ class Ultragroup
     }
 
     /**
-     * 修改群信息
-     *
-     * @param $Group array 修改群信息 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//超级群 id
-            'name'=>"watergroup"//群名称
-        ];
-     * @return array
-     */
+ * Modify group information
+ *
+ * @param array $Group Modify group information parameters
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//Super group id
+ * 'name'=>"watergroup"//group name
+ * ];
+ * @return array
+ */
     public function update(array $Group=[]){
         $conf = $this->conf['refresh'];
         $verify = $this->verify['group'];
@@ -205,16 +205,16 @@ class Ultragroup
     }
 
     /**
-     * 超级群成员是否存在
-     *
-     * @param $Group array 修改群信息 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//超级群 id
-            'member'=>"userId" //成员id
-            ];
-     * @return array
-     */
+ * Does the super member exist
+ *
+ * @param array $Group Modify group information parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//Super group id
+ * 'member'=>"userId" //Member id
+ * ];
+ * @return array
+ */
     public function isExist(array $Group=[]){
         $conf = $this->conf['isExist'];
         $verify = $this->verify['group'];
@@ -237,54 +237,54 @@ class Ultragroup
 
 
     /**
-     * 创建超级群禁言对象
-     *
-     * @return Gag
-     */
+ * // Create a super group gag object
+ *
+ * @return Gag
+ */
     public function Gag(){
         return new Gag();
     }
 
     /**
-     * 创建指定超级群全员禁言
-     *
-     * @return MuteAllMembers
-     */
+ * Create a specified supergroup member mute command
+ *
+ * @return MuteAllMembers
+ */
     public function MuteAllMembers(){
         return new MuteAllMembers();
     }
     /**
-     * 创建指定超级群全员禁言
-     *
-     * @return MuteWhiteList
-     */
+ * // Create a mute for all members of the specified supergroup
+ *
+ * @return MuteWhiteList
+ */
     public function MuteWhiteList(){
         return new MuteWhiteList();
     }
 
     /**
-     * 超级群扩展
-     *
-     * @return Expansion
-     */
+ * // Super Group Expansion
+ *
+ * @return Expansion
+ */
     public function Expansion(){
         return new Expansion();
     }
 
     /**
-     * 超级群扩展
-     *
-     * @return BusChannel
-     */
+ * // Super Cluster Expansion
+ *
+ * @return BusChannel
+ */
     public function BusChannel(){
         return new BusChannel();
     }
 
     /**
-     * 超级群扩免打扰
-     *
-     * @return Notdisturb
-     */
+ * // Super group expansion does not disturb
+ *
+ * @return Notdisturb
+ */
     public function Notdisturb(){
         return new Notdisturb();
     }

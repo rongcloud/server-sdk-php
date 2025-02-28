@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户关系 封禁用户
+ * // Banned user relationship
  */
 namespace RongCloud\Lib\User\Block;
 
@@ -11,47 +11,47 @@ use RongCloud\Lib\Utils;
 class Block {
 
     /**
-     * 用户模块封禁用户路径
-     *
-     * @var string
-     */
+ * // User module path to block user
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/Block/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * // User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }
 
     /**
-     * 添加封禁用户
-     *
-     * @param $User array 封禁用户参数
-     * @param
-     * $User = [
-            'id'=> 'ujadk90ha1',//封禁用户id 唯一标识，最大长度 30 个字符
-            'minute'=> 20 //封禁时长 1 - 1 * 30 * 24 * 60 分钟
-        ];
-     * @return array
-     */
+ * // Add banned user
+ *
+ * @param array $User Banned user parameters
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha1',// Banned user ID, unique identifier, maximum length 30 characters
+ * 'minute'=> 20 // Ban duration 1 - 1 * 30 * 24 * 60 minutes
+ * ];
+ * @return array
+ */
     public function add(array $User=[]){
         $conf = $this->conf['add'];
         $error = (new Utils())->check([
@@ -70,15 +70,15 @@ class Block {
     }
 
     /**
-     *解除用户封禁
-     *
-     * @param $User array 解禁参数
-     * @param
-     *  $user = [
-            'id'=> 'ujadk90ha',//解禁用户id 唯一标识，最大长度 30 个字符
-        ];
-     * @return array
-     */
+ * Unblock user
+ *
+ * @param array $User Unblock parameters
+ * @param
+ * $user = [
+ * 'id'=> 'ujadk90ha',//Unblock user ID, unique identifier, maximum length 30 characters
+ * ];
+ * @return array
+ */
     public function remove(array $User=[]){
         $conf = $this->conf['remove'];
         $error = (new Utils())->check([
@@ -97,18 +97,18 @@ class Block {
     }
 
     /**
-     *获取封禁用户列表
-     *
-     * @param $User array 封禁用户列表参数
-     * @param
-     * $user = [
-            ];
-     * @return  array
-     */
+ * // Get the list of banned users
+ *
+ * @param array $User Banned user list parameter
+ * @param
+ * $user = [
+ * ];
+ * @return  array
+ */
     public function getList(array $User=[]){
         $conf = $this->conf['getList'];
         $result = (new Request())->Request($conf['url'],$User);
-//        foreach ($result[''])
+// foreach ($result[''])
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室全体禁言
+ * // Global chat room ban
  */
 namespace RongCloud\Lib\Chatroom\MuteWhiteList;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class MuteWhiteList {
 
     /**
-     * 聊天室全体禁言路径
-     *
-     * @var string
-     */
+ * // Chatroom global mute path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/MuteWhiteList/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * MuteWhiteList constructor.
-     */
+ * // MuteWhiteList constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,17 +40,17 @@ class MuteWhiteList {
     }
 
     /**
-     * 添加聊天室全体禁言白名单
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'members'=> [
-                ['id'=>'seal9901']//人员 id
-            ],
-            'id'=>"chatroomId"//聊天室id
-        ];
-     * @return mixed|null
-     */
+ * Add a chatroom-wide mute whitelist
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'members'=> [
+ * ['id'=>'seal9901']// member id
+ * ],
+ * 'id'=>"chatroomId"// chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['chatroom'] ;
@@ -75,17 +75,17 @@ class MuteWhiteList {
     }
 
     /**
-     * 移除聊天室全体禁言人员
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'members'=> [
-                ['id'=>'seal9901']//成员 id
-            ],
-           'id'=>"chatroomId"//聊天室id
-        ];
-     * @return mixed|null
-     */
+ * Remove all banned members from the chatroom
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'members'=> [
+ * ['id'=>'seal9901']//member id
+ * ],
+ * 'id'=>"chatroomId"//chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'] ;
@@ -110,14 +110,14 @@ class MuteWhiteList {
     }
 
     /**
-     * 获取聊天室全体禁言白名单列表
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=>"chatroomId"//聊天室id
-        ];
-     * @return mixed|null
-     */
+ * Get the chatroom's global ban whitelist
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=>"chatroomId"//Chatroom ID
+ * ];
+ * @return mixed|null
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['chatroom'] ;

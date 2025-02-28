@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室白名单
+ * Chatroom allowlist
  */
 namespace RongCloud\Lib\Chatroom\Whitelist;
 
@@ -10,19 +10,19 @@ use RongCloud\Lib\Chatroom\Whitelist\Message;
 class Whitelist {
 
     /**
-     * 获取连天使白名单消息对象
-     *
-     * @return Message
-     */
+ * // Get the whitelist message object for LianTian
+ *
+ * @return Message
+ */
     public function Message(){
         return new Message();
     }
 
     /**
-     * 获取连天使白名单用户对象
-     *
-     * @return User
-     */
+ * // Get the User object for the whitelist user in LianTian
+ *
+ * @return User
+ */
     public function User(){
         return new User();
     }

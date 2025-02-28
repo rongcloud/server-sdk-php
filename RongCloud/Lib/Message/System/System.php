@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 系统消息
+ * system message
  */
 
 namespace RongCloud\Lib\Message\System;
@@ -13,27 +13,28 @@ class System
 {
 
     /**
-     * @var string 系统消息路径
-     */
+ * @var string System message path
+ */
     private $jsonPath = 'Lib/Message/System/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * System constructor.
-     */
+ * // System constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
@@ -41,16 +42,16 @@ class System
     }
 
     /**
-     * @param $Message array 系统消息发送
-     * @param
-     * $Message = [
-            'senderId'=> '__system__',//发送人 id
-            'targetId'=> 'markoiwm',//接收放 id
-            "objectName"=>'RC:TxtMsg',//消息类型 文本
-            'content'=>['content'=>'你好，小明']//消息体
-        ];
-     * @return array
-     */
+ * @param array $Message System message delivery
+ * @param
+ * $Message = [
+ * 'senderId'=> '__system__',//Sender ID
+ * 'targetId'=> 'markoiwm',//Receiver ID
+ * "objectName"=>'RC:TxtMsg',//Message type Text
+ * 'content'=>['content'=>'Hello, Xiao Ming']//Message Body
+ * ];
+ * @return array
+ */
     public function send(array $Message = [])
     {
         $conf = $this->conf['send'];
@@ -74,41 +75,41 @@ class System
     }
 
     /**
-     * @param $Message array 不落地通知
-     * @param
-     * $Message = [
-                'userIds'=> ["user1","user2"],//接收人id
-                'notification'=> [
-                    "title"=>"标题",
-                    "pushContent"=>"this is a push",
-                        "ios"=>
-                            [
-                                "thread-id"=>"223",
-                                "apns-collapse-id"=>"111",
-                                "extras"=> ["id"=>"1","name"=>"2"]
-                            ],
-                        "android"=> [
-                            "hw"=>[
-                                "channelId"=>"NotificationKanong",
-                                "importance"=> "NORMAL",
-                                "image"=>"https://example.com/image.png"
-                            ],
-                            "mi"=>[
-                                "channelId"=>"rongcloud_kanong",
-                                "large_icon_uri"=>"https=>//example.com/image.png"
-                            ],
-                            "oppo"=>[
-                                "channelId"=>"rc_notification_id"
-                            ],
-                            "vivo"=>[
-                                "classification"=>"0"
-                            ],
-                            "extras"=> ["id"=> "1","name"=> "2"]
-                        ]
-                ]
-            ];
-     * @return array
-     */
+ * @param array $Message Push-only Notification
+ * @param
+ * $Message = [
+ * 'userIds'=> ["user1","user2"],//Receiver ID
+ * 'notification'=> [
+ * "title"=>"Title",
+ * "pushContent"=>"this is a push",
+ * "ios"=>
+ * [
+ * "thread-id"=>"223",
+ * "apns-collapse-id"=>"111",
+ * "extras"=> ["id"=>"1","name"=>"2"]
+ * ],
+ * "android"=> [
+ * "hw"=>[
+ * "channelId"=>"NotificationKanong",
+ * "importance"=> "NORMAL",
+ * "image"=>"https://example.com/image.png"
+ * ],
+ * "mi"=>[
+ * "channelId"=>"rongcloud_kanong",
+ * "large_icon_uri"=>"https=>//example.com/image.png"
+ * ],
+ * "oppo"=>[
+ * "channelId"=>"rc_notification_id"
+ * ],
+ * "vivo"=>[
+ * "classification"=>"0"
+ * ],
+ * "extras"=> ["id"=> "1","name"=> "2"]
+ * ]
+ * ]
+ * ];
+ * @return array
+ */
     public function pushUser(array $Message = [])
     {
         $conf = $this->conf['pushUser'];
@@ -125,15 +126,15 @@ class System
     }
 
     /**
-     * @param $Message array 系统广播消息
-     * @param
-     * $Message = [
-            'senderId'=> '__system__',//发送人 id
-            "objectName"=>'RC:TxtMsg',//消息类型
-            'content'=>['content'=>'你好，小明']//消息内容
-        ];
-     * @return array
-     */
+ * @param array $Message System broadcast message
+ * @param
+ * $Message = [
+ * 'senderId'=> '__system__',//Sender ID
+ * "objectName"=>'RC:TxtMsg',//Message type
+ * 'content'=>['content'=>'Hello, Xiao Ming']//Message content
+ * ];
+ * @return array
+ */
     public function broadcast(array $Message = [])
     {
         $conf = $this->conf['broadcast'];
@@ -160,17 +161,17 @@ class System
     }
 
     /**
-     * 在线用户广播
-     * 
-     * @param $Message array 
-     * @param
-     * $Message = [
-            'senderId'=> '__system__',//发送人 id
-            "objectName"=>'RC:TxtMsg',//消息类型
-            'content'=>['content'=>'你好，小明']//消息内容
-        ];
-     * @return array
-     */
+ * Broadcast to online users
+ *
+ * @param array $Message
+ * @param
+ * $Message = [
+ * 'senderId'=> '__system__',//Sender ID
+ * "objectName"=>'RC:TxtMsg',//Message type
+ * 'content'=>['content'=>'Hello, Xiaoming']//Message content
+ * ];
+ * @return array
+ */
     public function onlineBroadcast(array $Message = [])
     {
         $conf = $this->conf['onlineBroadcast'];
@@ -197,25 +198,25 @@ class System
         return $result;
     }
     /**
-     * @param $Message array 系统模板消息
-     * @param
-     * $Message = [
-                'senderId'=> '__system__',//发送人 id
-                'objectName'=>'RC:TxtMsg',//消息类型 文本
-                'template'=>['content'=>'{name}, 语文成绩 {score} 分'],//模板内容
-                'content'=>[
-                    'sea9901'=>[//接收人 id
-                        'data'=>['{name}'=>'小明','{score}'=>'90'],//模板数据
-                        'push'=>'{name} 你的成绩出来了',//推送内容
-                    ],
-                    'sea9902'=>[//接收人 id
-                        'data'=>['{name}'=>'小红','{score}'=>'95'],//模板数据
-                        'push'=>'{name} 你的成绩出来了',//推送内容
-                    ]
-                ]
-            ];
-     * @return array
-     */
+ * @param array $Message System template message
+ * @param
+ * $Message = [
+ * 'senderId'=> '__system__', // Sender ID
+ * 'objectName'=>'RC:TxtMsg', // Message type: Text
+ * 'template'=>['content'=>'{name}, language score {score} points'], // Template content
+ * 'content'=>[
+ * 'sea9901'=>[ // Recipient ID
+ * 'data'=>['{name}'=>'Xiao Ming','{score}'=>'90'], // Template data
+ * 'push'=>'{name} your score is out', // Push notification content
+ * ],
+ * 'sea9902'=>[ // Recipient ID
+ * 'data'=>['{name}'=>'Xiao Hong','{score}'=>'95'], // Template data
+ * 'push'=>'{name} your score is out', // Push notification content
+ * ]
+ * ]
+ * ];
+ * @return array
+ */
     public function sendTemplate(array $Message = [])
     {
         $conf = $this->conf['sendTemplate'];

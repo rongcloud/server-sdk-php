@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室保活
+ * // Chatroom Keepalive
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加保活聊天室
+ * // Add a chat room for live conversations
  */
 function add()
 {
@@ -25,7 +25,7 @@ function add()
 add();
 
 /**
- * 删除保活聊天室
+ * // Delete chat room with keep-alive
  */
 function remove()
 {
@@ -39,7 +39,7 @@ function remove()
 remove();
 
 /**
- * 获取保活聊天室
+ * // Get the chat room for preservation
  */
 function getList()
 {

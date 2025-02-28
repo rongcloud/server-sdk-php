@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管模块测试用例
+ * // Group information hosting module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -13,7 +13,7 @@ use RongCloud\Lib\Utils;
 $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
 /**
- * 创建群组
+ * Create a group
  */
 function testGroupCreate($RongSDK)
 {
@@ -37,7 +37,7 @@ function testGroupCreate($RongSDK)
 testGroupCreate($RongSDK);
 
 /**
- * 设置群组资料
+ * // Set group resources
  */
 function testGroupUpdate($RongSDK)
 {
@@ -58,7 +58,7 @@ function testGroupUpdate($RongSDK)
 testGroupUpdate($RongSDK);
 
 /**
- * 退出群组
+ * Exit the group
  */
 function testGroupQuit($RongSDK)
 {
@@ -79,7 +79,7 @@ function testGroupQuit($RongSDK)
 testGroupQuit($RongSDK);
 
 /**
- * 解散群组
+ * // Dissolve group
  */
 function testGroupDismiss($RongSDK)
 {
@@ -92,7 +92,7 @@ function testGroupDismiss($RongSDK)
 testGroupDismiss($RongSDK);
 
 /**
- * 加入群组
+ * Join the group
  */
 function testGroupJoin($RongSDK)
 {
@@ -110,7 +110,7 @@ function testGroupJoin($RongSDK)
 testGroupJoin($RongSDK);
 
 /**
- * 转让群组
+ * Transfer group
  */
 function testGroupTransferOwner($RongSDK)
 {
@@ -132,7 +132,7 @@ function testGroupTransferOwner($RongSDK)
 testGroupTransferOwner($RongSDK);
 
 /**
- * 群组托管导入
+ * // Group hosting import
  */
 function testGroupImport($RongSDK)
 {
@@ -154,7 +154,7 @@ function testGroupImport($RongSDK)
 testGroupImport($RongSDK);
 
 /**
- * 分页查询应用下群组信息
+ * // Pagination query application group information
  */
 function testGroupQuery($RongSDK)
 {
@@ -169,7 +169,7 @@ function testGroupQuery($RongSDK)
 testGroupQuery($RongSDK);
 
 /**
- * 分页查询用户加入的群组
+ * // Query users added to a group by page
  */
 function testGroupJoinedQuery($RongSDK)
 {
@@ -190,7 +190,7 @@ function testGroupJoinedQuery($RongSDK)
 testGroupJoinedQuery($RongSDK);
 
 /**
- * 批量查询群组资料
+ * // Batch query group data
  */
 function testGroupProfileQuery($RongSDK)
 {
@@ -207,7 +207,7 @@ function testGroupProfileQuery($RongSDK)
 testGroupProfileQuery($RongSDK);
 
 /**
- * 设置群管理员(添加群管理员)
+ * // Set group administrator (Add group administrator)
  */
 function testGroupManagerAdd($RongSDK)
 {
@@ -225,7 +225,7 @@ function testGroupManagerAdd($RongSDK)
 testGroupManagerAdd($RongSDK);
 
 /**
- * 移除群管理员
+ * Remove group administrator
  */
 function testGroupManagerRemove($RongSDK)
 {
@@ -243,7 +243,7 @@ function testGroupManagerRemove($RongSDK)
 testGroupManagerRemove($RongSDK);
 
 /**
- * 设置群成员资料
+ * // Set member information
  */
 function testGroupMemberSet($RongSDK)
 {
@@ -263,7 +263,7 @@ function testGroupMemberSet($RongSDK)
 testGroupMemberSet($RongSDK);
 
 /**
- * 踢出群组
+ * // Exit group
  */
 function testGroupMemberKick($RongSDK)
 {
@@ -284,7 +284,7 @@ function testGroupMemberKick($RongSDK)
 testGroupMemberKick($RongSDK);
 
 /**
- * 指定用户踢出所有群组
+ * // Specify the user to kick out all groups
  */
 function testGroupMemberKickAll($RongSDK)
 {
@@ -301,7 +301,7 @@ function testGroupMemberKickAll($RongSDK)
 testGroupMemberKickAll($RongSDK);
 
 /**
- * 设置用户指定群特别关注用户
+ * // Set user-specified group special attention user
  */
 function testGroupMemberFollow($RongSDK)
 {
@@ -320,7 +320,7 @@ function testGroupMemberFollow($RongSDK)
 testGroupMemberFollow($RongSDK);
 
 /**
- * 删除用户指定群组中的特别关注用户
+ * // Remove a specific user from the specified group's special attention list
  */
 function testGroupMemberUnFollow($RongSDK)
 {
@@ -339,7 +339,7 @@ function testGroupMemberUnFollow($RongSDK)
 testGroupMemberUnFollow($RongSDK);
 
 /**
- * 查询用户指定群组特别关注成员列表
+ * // Query the list of members in the user-specified group with special attention
  */
 function testGroupMemberGetFollowed($RongSDK)
 {
@@ -357,7 +357,7 @@ function testGroupMemberGetFollowed($RongSDK)
 testGroupMemberGetFollowed($RongSDK);
 
 /**
- * 分页获取群成员信息
+ * // Retrieve member information by pagination
  */
 function testGroupMemberQuery($RongSDK)
 {
@@ -378,7 +378,7 @@ function testGroupMemberQuery($RongSDK)
 testGroupMemberQuery($RongSDK);
 
 /**
- * 获取指定群成员信息
+ * // Get specified member information
  */
 function testGroupMemberSpecificQuery($RongSDK)
 {
@@ -396,7 +396,7 @@ function testGroupMemberSpecificQuery($RongSDK)
 testGroupMemberSpecificQuery($RongSDK);
 
 /**
- * 设置用户指定群组名称备注名
+ * // Set the user-specified group name as the backup name
  */
 function testGroupRemarkNameSet($RongSDK)
 {
@@ -415,7 +415,7 @@ function testGroupRemarkNameSet($RongSDK)
 testGroupRemarkNameSet($RongSDK);
 
 /**
- * 设置用户指定群组名称备注名
+ * // Set the user-specified group name annotation
  */
 function testGroupRemarkNameDelete($RongSDK)
 {
@@ -433,7 +433,7 @@ function testGroupRemarkNameDelete($RongSDK)
 testGroupRemarkNameDelete($RongSDK);
 
 /**
- * 查询用户指定群组名称备注名
+ * // Query the specified group name annotation
  */
 function testGroupRemarkNameQuery($RongSDK)
 {

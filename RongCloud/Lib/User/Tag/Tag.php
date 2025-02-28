@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户关系 封禁用户
+ * // Banned user relationship
  */
 namespace RongCloud\Lib\User\Tag;
 
@@ -10,47 +10,47 @@ use RongCloud\Lib\Utils;
 class Tag {
 
     /**
-     * 用户模块 用户标签
-     *
-     * @var string
-     */
+ * User module User label
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/Tag/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }
 
     /**
-     * 添加用户标签
-     *
-     * @param $User array
-     * @param
-     * $User = [
-            'userId'=> 'ujadk90ha1',//用户id
-            'tags'=> ['标签1','标签2']//用户标签
-        ];
-     * @return array
-     */
+ * Add user tags
+ *
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userId'=> 'ujadk90ha1',//User ID
+ * 'tags'=> ['Tag1','Tag2']//User tags
+ * ];
+ * @return array
+ */
     public function set(array $User=[]){
         $conf = $this->conf['setTag'];
         $error = (new Utils())->check([
@@ -66,16 +66,16 @@ class Tag {
     }
 
     /**
-     * 批量添加用户标签
-     *
-     * @param $User array
-     * @param
-     * $User = [
-            'userIds'=> ['ujadk90ha1','ujadk90ha1'],//用户id 列表
-            'tags'=> ['标签1','标签2']//用户标签
-        ];
-     * @return array
-     */
+ * Batch add user tags
+ *
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userIds'=> ['ujadk90ha1','ujadk90ha1'],//User ID list
+ * 'tags'=> ['Tag1','Tag2']//User tags
+ * ];
+ * @return array
+ */
     public function batchset(array $User=[]){
         $conf = $this->conf['batchSetTag'];
         $error = (new Utils())->check([
@@ -91,15 +91,15 @@ class Tag {
     }
 
     /**
-     *获取用户标签
-     * @param $User array
-     * @param
-     * $User = [
-            'userIds'=> ['ujadk90ha1','ujadk90ha1'],//用户id 列表
-        ];
-     * @return array
-     * @return  array
-     */
+ * Get user tags
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userIds'=> ['ujadk90ha1','ujadk90ha1'],//User ID list
+ * ];
+ * @return array
+ * @return  array
+ */
     public function get(array $User=[]){
         $conf = $this->conf['getTag'];
         $error = (new Utils())->check([

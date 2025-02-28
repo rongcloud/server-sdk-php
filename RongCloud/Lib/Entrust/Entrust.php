@@ -2,7 +2,7 @@
 
 
 /**
- * 信息托管模块
+ * Information Hosting Module
  */
 namespace RongCloud\Lib\Entrust;
 
@@ -16,72 +16,72 @@ use RongCloud\Lib\Request;
 class Entrust
 {
     /**
-     * 信息托管模块路径
-     *
-     * @var string
-     */
+ * Information Hosting Module Path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Entrust/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * // User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
 
     /**
-     * 群组信息模块
-     *
-     * @return Group
-     */
+ * // Group information module
+ *
+ * @return Group
+ */
     public function Group()
     {
         return new Group();
     }
 
     /**
-     * 群组信息托管-管理模块
-     *
-     * @return Manager
-     */
+ * // Group information management module
+ *
+ * @return Manager
+ */
     public function GroupManager()
     {
         return new Manager();
     }
 
     /**
-     * 群组信息托管-备注名模块
-     *
-     * @return RemarkName
-     */
+ * Group information management - remark name module
+ *
+ * @return RemarkName
+ */
     public function GroupRemarkName()
     {
         return new RemarkName();
     }
     
     /**
-     * 群组信息托管-成员模块
-     *
-     * @return Member
-     */
+ * Group information trustee - member module
+ *
+ * @return Member
+ */
     public function GroupMember()
     {
         return new Member();

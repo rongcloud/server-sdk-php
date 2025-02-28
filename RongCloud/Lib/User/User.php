@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 用户模块
+ * User Module
  * User=> hejinyu
  * Date=> 2018/7/23
  * Time=> 11=>41
@@ -26,46 +26,46 @@ use RongCloud\Lib\Request;
 class User
 {
     /**
-     * 用户模块路径
-     *
-     * @var string
-     */
+ * User module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verification configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
     /**
-     * @param $User array 用户注册
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * 'name'=> 'Maritn',//用户名称
-     * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
-     * ];
-     * @return array
-     */
+ *  @param array $User User registration
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha', // User ID
+ * 'name'=> 'Maritn', // User name
+ * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' // User avatar
+ * ];
+ * @return array
+ */
     public function register(array $User = [])
     {
         $conf = $this->conf['register'];
@@ -91,16 +91,16 @@ class User
     }
 
     /**
-     * Token 失效
-     * 
-     * @param $User array 用户信息
-     * @param
-     * $User = [
-     * 'id'=> ['ujadk90ha1'],   //需要设置 Token 失效的用户 ID，支持设置多个最多不超过 20 个。
-     * 'time'=> 1623123911000  //过期时间戳精确到毫秒，该时间戳前用户获取的 Token 全部失效，使用时间戳之前的 Token 已经在连接中的用户不会立即失效，断开后无法进行连接。
-     * ];
-     * @return array
-     */
+ * // Token invalidation
+ *
+ * @param array $User User information
+ * @param
+ * $User = [
+ * 'id'=> ['ujadk90ha1'],   // User IDs that need to have their tokens invalidated, supports setting up to 20 IDs.
+ * 'time'=> 1623123911000  // Expiration timestamp accurate to milliseconds, all tokens obtained by the user before this timestamp will be invalidated. Tokens in use by connected users before this timestamp will not be immediately invalidated, but will be unable to reconnect after disconnection.
+ * ];
+ * @return array
+ */
     public function expire(array $User = [])
     {
         $conf = $this->conf['expire'];
@@ -125,15 +125,15 @@ class User
     }
 
     /**
-     * @param $User array 用户信息更新
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * 'name'=> 'Maritn',//用户名称
-     * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //用户头像
-     * ];
-     * @return array
-     */
+ * @param array $User User information update
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha', // User ID
+ * 'name'=> 'Maritn', // User name
+ * 'portrait'=> 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' // User avatar
+ * ];
+ * @return array
+ */
     public function update(array $User = [])
     {
         $conf = $this->conf['update'];
@@ -158,13 +158,13 @@ class User
     }
 
     /**
-     * @param $User array 查询用户信息
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * ];
-     * @return array
-     */
+ * @param array $User Query user information
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha',//User ID
+ * ];
+ * @return array
+ */
     public function get(array $User = [])
     {
         $conf = $this->conf['get'];
@@ -194,13 +194,13 @@ class User
     }
 
     /**
-     * @param $User array 用户注销
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * ];
-     * @return array
-     */
+ * @param array $User User deregistration
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha',//User ID
+ * ];
+ * @return array
+ */
     public function abandon(array $User = [])
     {
         $conf = $this->conf['cancel_set'];
@@ -224,10 +224,10 @@ class User
     }
 
     /**
-     * @param $User array 查询已注销用户
-     * @param
-     * @return array
-     */
+ * @param array $User Query for deactivated users
+ * @param
+ * @return array
+ */
     public function abandonQuery(array $params = ["page"=>1,"size"=>50])
     {
         $conf = $this->conf['cancel_query'];
@@ -243,13 +243,13 @@ class User
     }
 
     /**
-     * @param $User array 注销用户激活
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * ];
-     * @return array
-     */
+ * @param array $User Deactivate user activation
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha',//User ID
+ * ];
+ * @return array
+ */
     public function activate(array $User = [])
     {
         $conf = $this->conf['active'];
@@ -273,14 +273,14 @@ class User
     }
 
     /**
-     * 重新激活用户 ID
-     * @param $User array 用户id
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * ];
-     * @return array
-     */
+ * // Reactivate user ID
+ * @param array $User User ID
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha', // User ID
+ * ];
+ * @return array
+ */
     public function reactivate(array $User = [])
     {
         $conf = $this->conf['reactivate'];
@@ -304,13 +304,13 @@ class User
     }
 
     /**
-     * @param $User array 查询用户所在群组
-     * @param
-     * $User = [
-     * 'id'=> 'ujadk90ha',//用户id
-     * ];
-     * @return array
-     */
+ * @param array $User Query the group where the user is located
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha',//User ID
+ * ];
+ * @return array
+ */
     public function getGroups(array $User = [])
     {
         $conf = $this->conf['getGroups'];
@@ -334,110 +334,110 @@ class User
     }
 
     /**
-     * 创建封禁对象
-     *
-     * @return Block
-     */
+ * // Create a block object
+ *
+ * @return Block
+ */
     public function Block()
     {
         return new Block();
     }
 
     /**
-     * 创建黑名单对象
-     *
-     * @return Blacklist
-     */
+ * // Create a blacklist object
+ *
+ * @return Blacklist
+ */
     public function Blacklist()
     {
         return new Blacklist();
     }
 
     /**
-     * 创建用户在线状态对象
-     *
-     * @return Onlinestatus
-     */
+ * // Create an online status object for the user
+ *
+ * @return Onlinestatus
+ */
     public function Onlinestatus()
     {
         return new Onlinestatus();
     }
 
     /**
-     * 全局群组禁言
-     *
-     * @return MuteGroups
-     */
+ * // Global group muting
+ *
+ * @return MuteGroups
+ */
     public function MuteGroups()
     {
         return new MuteGroups();
     }
 
     /**
-     * 全局聊天室禁言
-     *
-     * @return MuteChatrooms
-     */
+ * // Global chatroom mute
+ *
+ * @return MuteChatrooms
+ */
     public function MuteChatrooms()
     {
         return new MuteChatrooms();
     }
 
     /**
-     * 用户标签
-     *
-     * @return Tag
-     */
+ * User tag
+ *
+ * @return Tag
+ */
     public function Tag()
     {
         return new Tag();
     }
 
     /**
-     * 创建白名单对象
-     *
-     * @return Whitelist
-     */
+ * // Create a whitelist object
+ *
+ * @return Whitelist
+ */
     public function Whitelist()
     {
         return new Whitelist();
     }
 
     /**
-     * 用户单聊禁言
-     *
-     * @return Ban
-     */
+ * // User mute ban
+ *
+ * @return Ban
+ */
     public function Ban()
     {
         return new Ban();
     }
 
     /**
-     * 用户推送备注
-     *
-     * @return Remark
-     */
+ * User push remark
+ *
+ * @return Remark
+ */
     public function Remark()
     {
         return new Remark();
     }
 
     /**
-     * 用户免打扰时间段
-     *
-     * @return Remark
-     */
+ * // User quiet time period
+ *
+ * @return Remark
+ */
     public function BlockPushPeriod()
     {
         return new BlockPushPeriod();
     }
 
     /**
-     * 用户信息托管
-     *
-     * @return Profile
-     */
+ * User Profile Hosting
+ *
+ * @return Profile
+ */
     public function Profile()
     {
         return new Profile();

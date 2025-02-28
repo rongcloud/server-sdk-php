@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 敏感词实例
+ * Sensitive word example
  */
 
 
@@ -13,15 +13,15 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加敏感词
+ * // Add sensitive words
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'replace' => '***', //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
-        'keyword' => "abc", //敏感词
-        'type' => 0 // 0: 敏感词替换 1: 敏感词屏蔽
+        'replace' => '***', // // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word filtering can be empty
+        'keyword' => "abc", // // Sensitive word
+        'type' => 0 // 0: Sensitive word substitution 1: Sensitive word filtering
     ];
     $result = $RongSDK->getSensitive()->add($sensitive);
     Utils::dump("添加敏感词", $result);
@@ -34,11 +34,11 @@ function batchAdd()
     $sensitive = [
         'words' => [
             [
-                'word' => "abc1", //屏蔽
+                'word' => "abc1", // // Screen
             ],
             [
-                'word' => "abc2", //敏感词
-                'replaceWord' => '***' //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+                'word' => "abc2", // // Sensitive words
+                'replaceWord' => '***' // // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word screening can be empty
             ]
         ]
     ];
@@ -48,14 +48,14 @@ function batchAdd()
 batchAdd();
 
 /**
- * 删除敏感词
+ * // Remove sensitive words
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'keywords' => ["cccccdddd"] //删除敏感词
+        'keywords' => ["cccccdddd"] // // Delete sensitive words
     ];
     $result = $RongSDK->getSensitive()->remove($sensitive);
     Utils::dump("删除敏感词", $result);
@@ -63,14 +63,14 @@ function remove()
 remove();
 
 /**
- * 获取敏感词列表
+ * // Get the list of sensitive words
  */
 function getList()
 {
 
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'type' => '', //敏感词类型，0: 敏感词替换， 1: 敏感词屏蔽， 为空获取全部
+        'type' => '', // Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word shielding, empty to retrieve all
     ];
     $result = $RongSDK->getSensitive()->getList($sensitive);
     Utils::dump("获取敏感词列表", $result);

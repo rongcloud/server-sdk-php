@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 用户单聊禁言
+ * User mute list
  */
 
 namespace RongCloud\Lib\User\Chat;
@@ -14,48 +14,49 @@ class Ban
 {
 
     /**
-     * 用户模块用户单聊禁言路径
-     *
-     * @var string
-     */
+ * // User module user single chat forbidden path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/Chat/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ * // Configuration file path
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * // User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
     /**
-     * 设置用户单聊禁言
-     *
-     * @param $User array 设置用户单聊禁言参数
-     * @param
-     * $User = [
-            'id'    => ['ujadk90ha1'],  //被禁言用户 Id，支持批量设置，最多不超过 1000 个。
-            'state' => 1,               //禁言状态，0 解除禁言、1 添加禁言
-            'type'  => 'PERSON'         //会话类型，目前支持单聊会话 PERSON
-        ];
-     * @return array
-     */
+ * Set user single chat ban
+ *
+ * @param array $User Set user single chat ban parameters
+ * @param
+ * $User = [
+ * 'id'    => ['ujadk90ha1'],  //Banned user Id, supports batch setting, maximum not exceeding 1000.
+ * 'state' => 1,               //Ban status, 0 unban, 1 add ban
+ * 'type'  => 'PERSON'         //Conversation type, currently supports single chat PERSON
+ * ];
+ * @return array
+ */
     public function set(array $User = [])
     {
         $conf = $this->conf['set'];
@@ -76,17 +77,17 @@ class Ban
     }
 
     /**
-     *查询禁言用户列表
-     *
-     * @param $param array 查询禁言用户列表参数
-     * @param
-     * $param = [
-            'num'    => 100,        //获取行数，默认为 100，最大支持 200 个。
-            'offset' => 0,          //查询开始位置，默认为 0。
-            'type'   => 'PERSON'    //会话类型，目前支持单聊会话 PERSON
-        ];
-     * @return  array
-     */
+ * // Query the list of banned users
+ *
+ * @param array $param Parameters for querying the list of banned users
+ * @param
+ * $param = [
+ * 'num'    => 100,        // Number of rows to fetch, default is 100, maximum supported is 200.
+ * 'offset' => 0,          // Starting position for the query, default is 0.
+ * 'type'   => 'PERSON'    // Conversation type, currently supports single chat PERSON
+ * ];
+ * @return  array
+ */
     public function getList(array $param = [])
     {
         $conf = $this->conf['getList'];

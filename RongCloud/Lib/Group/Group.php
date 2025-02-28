@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组模块
+ * // Group module
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group;
@@ -14,29 +14,29 @@ use RongCloud\Lib\Utils;
 class Group
 {
     /**
-     * 群组模块路径
-     *
-     * @var string
-     */
+ * Group module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Group/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -44,16 +44,16 @@ class Group
     }
 
     /**
-     * 同步群组信息
-     *
-     * @param $Group array 同步群组信息 参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//用户id
-            'groups'=>[['id'=> 'group9998', 'name'=> 'RongCloud']]//用户群组信息
-        ];
-     * @return array
-     */
+ * Synchronize group information
+ *
+ * @param array $Group Synchronized group information parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//User ID
+ * 'groups'=>[['id'=> 'group9998', 'name'=> 'RongCloud']]//User group information
+ * ];
+ * @return array
+ */
     public function sync(array $Group=[]){
         $conf = $this->conf['sync'];
         $error = (new Utils())->check([
@@ -64,7 +64,7 @@ class Group
                 ]);
         if($error) return $error;
         $data = [];
-//        $data['group'] = array_column($Group['groups'],'name', 'id');
+// $data['group'] = array_column($Group['groups'], 'name', 'id');
         foreach ($Group['groups'] as $v){
             $data["group[{$v['id']}]"] = $v['name'];
         }
@@ -75,19 +75,19 @@ class Group
     }
 
     /**
-     * 创建群组
-     *
-     * @param $Group array 创建群组 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup1',//群组 id
-            'name'=> 'watergroup',//群组名称
-            'members'=>[          //群成员 列表
-                ['id'=> 'group9991111113']
-            ]
-        ];
-     * @return array
-     */
+ * Create Group
+ *
+ * @param array $Group Parameters for creating a group
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup1', // Group ID
+ * 'name'=> 'watergroup', // Group name
+ * 'members'=>[          // List of group members
+ * ['id'=> 'group9991111113']
+ * ]
+ * ];
+ * @return array
+ */
     public function create(array $Group=[]){
         $conf = $this->conf['create'];
         $error = (new Utils())->check([
@@ -111,17 +111,17 @@ class Group
     }
 
     /**
-     * 加入群组
-     *
-     * @param $Group array 加入群组 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//群组 id
-            'name'=>"watergroup",//群组名称
-            'member'=>['id'=> 'group999'],//群成员信息
-        ];
-     * @return array
-     */
+ * Join a group
+ *
+ * @param array $Group Parameters for joining a group
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup', // Group ID
+ * 'name'=>"watergroup", // Group name
+ * 'member'=>['id'=> 'group999'], // Group member information
+ * ];
+ * @return array
+ */
     public function joins(array $Group=[]){
         $conf = $this->conf['join'];
         $verify = $this->verify['group'];
@@ -146,16 +146,16 @@ class Group
     }
 
     /**
-     * 退出群组
-     *
-     * @param $Group array 退出群组 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//群组 id
-            'member'=>['id'=> 'group999'],//群成员信息
-        ];
-     * @return array
-     */
+ * Exit group
+ *
+ * @param array $Group Exit group parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup', // Group id
+ * 'member'=>['id'=> 'group999'], // Group member information
+ * ];
+ * @return array
+ */
     public function quit(array $Group=[]){
         $conf = $this->conf['quit'];
         $verify = $this->verify['group'];
@@ -179,16 +179,16 @@ class Group
     }
 
     /**
-     * 解散群组
-     *
-     * @param $Group array 解散群组 参数
-     * @param
-     * $Group = [
-        'id'=> 'watergroup',//群组 id
-        'member'=>['id'=> 'group999'],//管理员信息
-        ];
-     * @return array
-     */
+ * Disband group
+ *
+ * @param array $Group Disband group parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//Group ID
+ * 'member'=>['id'=> 'group999'],//Administrator information
+ * ];
+ * @return array
+ */
     public function dismiss(array $Group=[]){
         $conf = $this->conf['dismiss'];
         $verify = $this->verify['group'];
@@ -211,16 +211,16 @@ class Group
     }
 
     /**
-     * 修改群信息
-     *
-     * @param $Group array 修改群信息 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//群组 id
-            'name'=>"watergroup"//群名称
-        ];
-     * @return array
-     */
+ * Modify group information
+ *
+ * @param array $Group Modify group information parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//group id
+ * 'name'=>"watergroup"//group name
+ * ];
+ * @return array
+ */
     public function update(array $Group=[]){
         $conf = $this->conf['update'];
         $verify = $this->verify['group'];
@@ -242,15 +242,15 @@ class Group
     }
 
     /**
-     * 获取群信息
-     *
-     * @param $Group array 获取群信息 参数
-     * @param
-     * $Group = [
-            'id'=> 'watergroup',//群组 id
-        ];
-     * @return array
-     */
+ * Get group information
+ *
+ * @param array $Group Get group information parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'watergroup',//group id
+ * ];
+ * @return array
+ */
     public function get(array $Group=[]){
         $conf = $this->conf['get'];
         $verify = $this->verify['group'];
@@ -276,36 +276,36 @@ class Group
     }
 
     /**
-     * 创建群组禁言对象
-     *
-     * @return Gag
-     */
+ * Create a group gag object
+ *
+ * @return Gag
+ */
     public function Gag(){
         return new Gag();
     }
 
     /**
-     * 创建指定群组全员禁言
-     *
-     * @return MuteAllMembers
-     */
+ * Create a full member mute for the specified group
+ *
+ * @return MuteAllMembers
+ */
     public function MuteAllMembers(){
         return new MuteAllMembers();
     }
     /**
-     * 创建指定群组全员禁言
-     *
-     * @return MuteWhiteList
-     */
+ * Create a mute whitelist for all members of the specified group
+ *
+ * @return MuteWhiteList
+ */
     public function MuteWhiteList(){
         return new MuteWhiteList();
     }
 
     /**
-     * 群组人员备注
-     *
-     * @return Remark
-     */
+ * // Group member remark
+ *
+ * @return Remark
+ */
     public function Remark(){
         return new Remark();
     }

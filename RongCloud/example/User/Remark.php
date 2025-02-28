@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 用户备注
+ * // User module user remarks
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加用户备注
+ * // Add user remarks
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'userId'=> 'ujadk90ha1',//用户id
-        'remarks'=> json_encode([['id'=>'user1','remark'=>'备注4'],['id'=>'user2','remark'=>'备注4']])//用户备注
+        'userId'=> 'ujadk90ha1',// // User ID
+        'remarks'=> json_encode([['id'=>'user1','remark'=>'备注4'],['id'=>'user2','remark'=>'备注4']])// // User Annotation
     ];
     $Remark = $RongSDK->getUser()->Remark()->set($user);
     Utils::dump("添加备注",$Remark);
@@ -26,14 +26,14 @@ function set()
 set();
 
 /**
- * 删除用户备注
+ * // Delete user remarks
  */
 function del()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'userId'=> 'ujadk90ha1',//用户id
-        'targetId'=> "userId1"//用户备注
+        'userId'=> 'ujadk90ha1',// // User ID
+        'targetId'=> "userId1"// // User backup
     ];
     $Remark = $RongSDK->getUser()->Remark()->del($user);
     Utils::dump("删除备注",$Remark);
@@ -41,13 +41,13 @@ function del()
 del();
 
 /**
- * 获取用户备注
+ * // Get user remark
  */
 function get()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'userId'=> 'ujadk90ha1',//用户id
+        'userId'=> 'ujadk90ha1',// User ID
         'size'=>100,
         'page'=>1
     ];

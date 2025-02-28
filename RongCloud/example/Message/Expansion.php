@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 消息模块 二人消息实例
+ * Message module two-person message instance
  */
 
 
@@ -13,20 +13,20 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 二人消息发送
+ * // Two-person message sending
  */
 function set()
 {
-    //连接新加坡数据中心
-    //RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
+    // // Connect to the Singapore Data Center
+    // RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
-        'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',], //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置
-        'isSyncSender'      => 0                        //终端用户在线状态下，发送者是否接收该设置状态，0 表示为不接收，1 表示为接收，默认为 0 不接收
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // // Message unique identifier, the server can obtain it through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // // Need to set the extended message delivery user Id.
+        'targetId'          => 'tjw3zbMrU',             // // Target ID, depending on the conversationType, could be a user ID or a group ID.
+        'conversationType'  => '1',                     // // Conversation type, one-on-one chat is 1, group chat is 3, only supports single chat and group chat types.
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',], // // Custom message extension content, JSON structure, set in Key, Value format
+        'isSyncSender'      => 0                        // // Whether the sender accepts the terminal user's online status, 0 indicates not accepting, 1 indicates accepting, default is 0 not accepting
     ];
     $res = $RongSDK->getMessage()->Expansion()->set($message);
     Utils::dump("设置消息扩展", $res);
@@ -34,18 +34,18 @@ function set()
 set();
 
 /**
- * 向多个用户发送不同内容消息
+ * Send different content messages to multiple users
  */
 function delete()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
-        'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKey'          => ['type1', 'type2'],       //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
-        'isSyncSender'      => 0                        //终端用户在线状态下，发送者是否接收该设置状态，0 表示为不接收，1 表示为接收，默认为 0 不接收
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // // The unique message identifier, which can be obtained by the server through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // // Set the extended message sending user Id.
+        'targetId'          => 'tjw3zbMrU',             // // Target ID, depending on the conversationType, could be a user ID or a group ID.
+        'conversationType'  => '1',                     // // Conversation type, one-on-one conversation is 1, group conversation is 3, only supports single chat and group conversation types.
+        'extraKey'          => ['type1', 'type2'],       // // The key value of the extension information to be deleted, with a maximum of 100 extension information items that can be deleted at once
+        'isSyncSender'      => 0                        // // Terminal user online status, whether the sender accepts this setting status, 0 indicates not accepted, 1 indicates accepted, default is 0 not accepted
     ];
     $res = $RongSDK->getMessage()->Expansion()->delete($message);
     Utils::dump("删除消息扩展", $res);
@@ -53,14 +53,14 @@ function delete()
 delete();
 
 /**
- * 二人状态消息发送
+ * // Two-person status message sending
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID' => 'BS45-NPH4-HV87-10LM',  //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'pageNo' => 1                     //页数，默认返回 300 个扩展信息。
+        'msgUID' => 'BS45-NPH4-HV87-10LM',  // // The unique message identifier, which can be obtained by the server through the full message routing function.
+        'pageNo' => 1                     // // Page count, default returns 300 expanded information.
     ];
     $res = $RongSDK->getMessage()->Expansion()->getList($message);
     Utils::dump("获取扩展信息", $res);

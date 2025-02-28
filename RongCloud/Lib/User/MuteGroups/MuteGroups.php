@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 全局群成员禁言服务
+ * // User module global group member ban service
  */
 namespace RongCloud\Lib\User\MuteGroups;
 
@@ -11,49 +11,50 @@ use RongCloud\Lib\Utils;
 class MuteGroups {
 
     /**
-     * 用户模块 全局群成员禁言服务
-     *
-     * @var string
-     */
+ * // User module global group member mute service
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/MuteGroups/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for verification
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'verify.json');
     }
 
     /**
-     * 添加群组禁言
-     *
-     * @param $Group array 添加群组禁言 参数
-     * @param
-     * $Group = [
-                'members'=>[ //禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ],
-                'minute'=>50  //	禁言时长
-        ];
-     * @return array
-     */
+ * Add group ban
+ *
+ * @param array $Group Parameters for adding group ban
+ * @param
+ * $Group = [
+ * 'members'=>[ // List of banned members
+ * ['id'=> 'ujadk90ha']
+ * ],
+ * 'minute'=>50  // Duration of ban in minutes
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -78,17 +79,17 @@ class MuteGroups {
     }
 
     /**
-     * 解除禁言
-     *
-     * @param $Group array 解除禁言 参数
-     * @param
-     * $Group = [
-                'members'=>[ //解除禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ]
-            ];
-     * @return array
-     */
+ * Unban
+ *
+ * @param array $Group Unban parameter
+ * @param
+ * $Group = [
+ * 'members'=>[ //Unban member list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -112,14 +113,14 @@ class MuteGroups {
     }
 
     /**
-     * 查询禁言成员列表
-     *
-     * @param $Group array 查询禁言成员列表
-     * @param
-     * $Group = [
-        ];
-     * @return array
-     */
+ * Query the list of banned members
+ *
+ * @param array $Group Query the list of banned members
+ * @param
+ * $Group = [
+ * ];
+ * @return array
+ */
     public function getList(array $Group=[]){
         $conf = $this->conf['getList'];
         $result = (new Request())->Request($conf['url'],$Group);

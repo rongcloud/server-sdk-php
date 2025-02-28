@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息模块测试
+ * // Group information module test
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -12,7 +12,7 @@ use RongCloud\Lib\Utils;
 
 
 /**
- * 创建群组
+ * // Create a group
  */
 function create()
 {
@@ -29,7 +29,7 @@ function create()
 create();
 
 /**
- * 设置群组资料
+ * // Set group resources
  */
 function update()
 {
@@ -47,7 +47,7 @@ function update()
 update();
 
 /**
- * 退出群组
+ * // Exit group
  */
 function quit()
 {
@@ -65,7 +65,7 @@ function quit()
 quit();
 
 /**
- * 解散群组
+ * // Disband group
  */
 function dismiss()
 {
@@ -79,7 +79,7 @@ function dismiss()
 dismiss();
 
 /**
- * 加入群组
+ * Join the group
  */
 function groupJoin()
 {
@@ -94,7 +94,7 @@ function groupJoin()
 groupJoin();
 
 /**
- * 转让群组
+ * // Transfer group
  */
 function transferOwner()
 {
@@ -113,7 +113,7 @@ function transferOwner()
 transferOwner();
 
 /**
- * 群组托管导入
+ * // Group hosting import
  */
 function import()
 {
@@ -132,7 +132,7 @@ function import()
 import();
 
 /**
- * 分页查询应用下群组信息
+ * // Query application group information under pagination
  */
 function query()
 {
@@ -148,7 +148,7 @@ function query()
 query();
 
 /**
- * 分页查询用户加入的群组
+ * // Pagination query for users added to the group
  */
 function joinedQuery()
 {
@@ -166,7 +166,7 @@ function joinedQuery()
 joinedQuery();
 
 /**
- * 批量查询群组资料
+ * // Batch query group data
  */
 function profileQuery()
 {

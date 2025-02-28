@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 用户禁言实例
+ * User module User ban instance
  */
 
 
@@ -11,28 +11,28 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 封禁用户
+ * banned user
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha1',//封禁用户id 唯一标识，最大长度 30 个字符
-        'minute'=> 20 //封禁时长 1 - 1 * 30 * 24 * 60 分钟
+        'id'=> 'ujadk90ha1',// // User ID unique identifier, maximum length 30 characters
+        'minute'=> 20 // // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
     ];
     $Block = $RongSDK->getUser()->Block()->add($user);
-    Utils::dump("封禁用户",$Block);
+    Utils::dump("banned user",$Block);
 }
 add();
 
 /**
- * 解除用户封禁
+ * // Unblock user
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha1',//解禁用户id 唯一标识，最大长度 30 个字符
+        'id'=> 'ujadk90ha1',// // Unlock user ID unique identifier, maximum length 30 characters
     ];
     $Block =  $RongSDK->getUser()->Block()->remove($user);
     Utils::dump("解除用户封禁",$Block);
@@ -40,7 +40,7 @@ function remove()
 remove();
 
 /**
- * 封禁用户列表
+ * // Banned user list
  */
 function getList()
 {

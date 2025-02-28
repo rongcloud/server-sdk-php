@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室消息
+ * // Chat room message
  */
 namespace RongCloud\Lib\Message\Chatroom;
 
@@ -12,22 +12,22 @@ class Chatroom {
     private $jsonPath = 'Lib/Message/Chatroom/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Chatroom constructor.
-     */
+ * // Chatroom constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -35,16 +35,16 @@ class Chatroom {
     }
 
     /**
-     * @param $Message array 聊天室消息发送
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> 'kkj9o01',//聊天室 id
-                "objectName"=>'RC:TxtMsg',//消息类型 文本
-                'content'=>['content'=>'你好，主播']//消息内容
-        ];
-     * @return array
-     */
+ * @param array $Message Chat room message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',// Sender ID
+ * 'targetId'=> 'kkj9o01',// Chat room ID
+ * "objectName"=>'RC:TxtMsg',// Message type - text
+ * 'content'=>['content'=>'Hello, host']// Message content
+ * ];
+ * @return array
+ */
     public function send(array $Message=[]){
         $conf = $this->conf['send'];
         $error = (new Utils())->check([
@@ -64,15 +64,15 @@ class Chatroom {
     }
 
     /**
-     * @param $Message array 聊天室广播消息
-     * @param
-     * $Message = [
-                    'senderId'=> 'ujadk90ha',//发送人 id
-                    "objectName"=>'RC:TxtMsg',//消息类型 文本
-                    'content'=>['content'=>'你好，主播']//消息内容
-        ];
-     * @return array
-     */
+ * @param array $Message Chatroom broadcast message
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * "objectName"=>'RC:TxtMsg',//Message type: text
+ * 'content'=>['content'=>'Hello, host']//Message content
+ * ];
+ * @return array
+ */
     public function broadcast(array $Message=[]){
         $conf = $this->conf['broadcast'];
         $error = (new Utils())->check([
@@ -91,16 +91,16 @@ class Chatroom {
     }
 
     /**
-     * @param $Message array 聊天室消息撤回
-     * @param
-     * $Message = [
-        'senderId'=> 'ujadk90ha',//发送人 Id
-        'targetId'=> 'markoiwm',//聊天室 Id
-        "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息的唯一标识
-        'sentTime'=>'1519444243981'//消息的发送时间
-    ];
-     * @return array
-     */
+ * @param array $Message Chat room message recall
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender Id
+ * 'targetId'=> 'markoiwm',//Chat room Id
+ * "uId"=>'5GSB-RPM1-KP8H-9JHF',//Unique identifier of the message
+ * 'sentTime'=>'1519444243981'//Message sending time
+ * ];
+ * @return array
+ */
     public function recall(array $Message=[]){
         $conf = $this->conf['recall'];
         $error = (new Utils())->check([

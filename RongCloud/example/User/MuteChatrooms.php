@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室成员禁言
+ * // Chatroom member banned words
  */
 
 
@@ -11,16 +11,16 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加聊天室成员禁言
+ * // Add chat room member mute
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
         'members'=> [
-            ['id'=>'seal9901']//禁言人员 id
+            ['id'=>'seal9901']// // Forbidden personnel id
         ],
-        'minute'=>30//禁言时长
+        'minute'=>30// // Forbidden speech duration
     ];
     $MuteChatrooms = $RongSDK->getUser()->MuteChatrooms()->add($chatroom);
     Utils::dump("添加聊天室成员禁言",$MuteChatrooms);
@@ -28,14 +28,15 @@ function add()
 add();
 
 /**
- * 解除聊天室成员禁言
+ * // Unmute chat room member
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
         'members'=> [
-            ['id'=>'seal9901']//人员 id
+            ['id'=>'seal9901']// // Personnel ID
+@param personnel ID
         ],
     ];
     $MuteChatrooms = $RongSDK->getUser()->MuteChatrooms()->remove($chatroom);
@@ -44,7 +45,7 @@ function remove()
 remove();
 
 /**
- * 获取聊天室成员禁言列表
+ * // Get the list of muted members in the chat room
  */
 function getList()
 {

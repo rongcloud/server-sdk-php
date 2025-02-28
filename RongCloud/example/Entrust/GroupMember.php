@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-成员模块测试
+ * Group Information Hosting - Member Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置群成员资料
+ * // Set group member information
  */
 function set()
 {
@@ -28,7 +28,7 @@ function set()
 set();
 
 /**
- * 踢出群组
+ * Kick out of the group
  */
 function kick()
 {
@@ -46,7 +46,7 @@ function kick()
 kick();
 
 /**
- * 指定用户踢出所有群组
+ * // Specify the user to kick out all groups
  */
 function kickAll()
 {
@@ -60,7 +60,7 @@ function kickAll()
 kickAll();
 
 /**
- * 设置用户指定群特别关注用户
+ * // Set user-specified group special attention users
  */
 function follow()
 {
@@ -76,7 +76,7 @@ function follow()
 follow();
 
 /**
- * 删除用户指定群组中的特别关注用户
+ * // Remove the specified user from the group's special attention list
  */
 function unFollow()
 {
@@ -92,7 +92,7 @@ function unFollow()
 unFollow();
 
 /**
- * 查询用户指定群组特别关注成员列表
+ * // Query the list of members in the specified group that the user particularly focuses on
  */
 function getFollowed()
 {
@@ -107,7 +107,7 @@ function getFollowed()
 getFollowed();
 
 /**
- * 分页获取群成员信息
+ * // Get group member information by pagination
  */
 function query()
 {
@@ -125,7 +125,7 @@ function query()
 query();
 
 /**
- * 获取指定群成员信息
+ * // Get specified member information
  */
 function specificQuery()
 {

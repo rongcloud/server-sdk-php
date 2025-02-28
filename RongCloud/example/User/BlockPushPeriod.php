@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 免打扰时段
+ * // User module no disturbance period
  */
 
 
@@ -11,16 +11,17 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加免打扰时段
+ * // Add a Do Not Disturb period
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
-        'startTime' => "23:59:59",//免打扰开始时间
-        'period'=>'600',//免打扰时长 分钟
-        'level'=>1,//免打扰级别 1仅针对单聊及 @ 消息进行通知，包括 @指定用户和 @所有人的消息。  5不接收通知，即使为 @ 消息也不推送通知
+        'id'=> 'ujadk90ha',// User ID
+        'startTime' => "23:59:59",// // Do not disturb start time
+        'period'=>'600',// // Do not disturb duration in minutes
+        'level'=>1,// // Do Not Disturb Level 1 only targets single chats and @ messages for notifications, including @ specific users and @ all messages.  
+// No notifications are received, even for @ messages.
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->add($user);
     Utils::dump("添加免打扰时段",$Blacklist);
@@ -28,13 +29,13 @@ function add()
 add();
 
 /**
- * 移除免打扰时段
+ * // Remove the do-not-disturb period
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
+        'id'=> 'ujadk90ha',// // User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->remove($user);
     Utils::dump("移除免打扰时段",$Blacklist);
@@ -42,13 +43,13 @@ function remove()
 
 
 /**
- * 获取免打扰时段
+ * // Get the do-not-disturb period
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
+        'id'=> 'ujadk90ha',// User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->getList($user);
     Utils::dump("获取免打扰时段",$Blacklist);

@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室消息分发
+ * // Chat room message distribution
  */
 
 
@@ -12,13 +12,14 @@ use RongCloud\Lib\Utils;
 
 
 /**
- * 停止聊天室消息分发
+ * // Stop chat room message distribution
  */
 function stop()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'id'=> "Txtmsg03"//聊天室 id
+        'id'=> "Txtmsg03"// // Chatroom ID
+/* Chatroom ID */
     ];
     $Demotion = $RongSDK->getChatroom()->Distribute()->stop($chatroom);
     Utils::dump("停止聊天室消息分发",$Demotion);
@@ -26,13 +27,13 @@ function stop()
 stop();
 
 /**
- * 恢复聊天室消息分发
+ * Restore chat room message distribution
  */
 function resume()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'id'=> "Txtmsg03"//聊天室 id
+        'id'=> "Txtmsg03"// // Chatroom ID
     ];
     $Demotion = $RongSDK->getChatroom()->Distribute()->resume($chatroom);
     Utils::dump("恢复聊天室消息分发",$Demotion);

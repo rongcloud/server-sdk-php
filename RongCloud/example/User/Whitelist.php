@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 白名单实例
+ * // User module whitelist instance
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加白名单
+ * // Add to whitelist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
-        'whitelist'=> ['kkj9o01'] //需要添加白名单的人员列表
+        'id'=> 'ujadk90ha',// User ID
+        'whitelist'=> ['kkj9o01'] // // The list of personnel requiring whitelist addition
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->add($user);
     Utils::dump("添加白名单",$Whitelist);
@@ -26,14 +26,14 @@ function add()
 add();
 
 /**
- * 移除白名单
+ * // Remove whitelist
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
-        'whitelist'=> ['kkj9o02'] //需要移除白名单的人员列表
+        'id'=> 'ujadk90ha',// User ID
+        'whitelist'=> ['kkj9o02'] // // List of personnel to be removed from the whitelist
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->remove($user);
     Utils::dump("移除白名单",$Whitelist);
@@ -41,15 +41,15 @@ function remove()
 remove();
 
 /**
- * 用户白名单列表
+ * // User whitelist
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha',//用户 id
-        'size'=> 1000,//分页获取白名单用户时每页行数，不传时默认为 1000 条，最大不超过 1000 条
-        'pageToken'=> ''//分页信息，上一次请求返回 next ，不传时不做分页处理，默认获取前 1000 个用户列表，按加入白名单时间倒序排序。
+        'id'=> 'ujadk90ha',// // User ID
+        'size'=> 1000,// // The number of rows per page when fetching the whitelist users, defaults to 1000 if not passed, with a maximum of no more than 1000
+        'pageToken'=> ''// // Pagination information, the next request returns 'next', no pagination processing is done when not transmitting, defaults to fetching the first 1000 user lists, sorted in reverse order by whitelist addition time.
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->getList($user);
     Utils::dump("用户白名单列表",$Whitelist);

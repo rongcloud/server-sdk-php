@@ -1,6 +1,6 @@
 <?php
 /**
- * 指定超级群全部成员禁言
+ * // Specify a supergroup ban for all members
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\MuteAllMembers;
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class MuteAllMembers
 {
     /**
-     * 超级群模块路径
-     *
-     * @var string
-     */
+ * Super cluster module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Ultragroup/MuteAllMembers/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,17 +40,17 @@ class MuteAllMembers
     }
 
     /**
-     * 设置超级群禁言
-     *
-     * @param $Group array 添加超级群禁言 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'status'=> true,//超级群 禁言状态   true 禁言  0 取消
-         ];
-     * @return array
-     */
+ * Set super group ban
+ *
+ * @param array $Group Add super group ban parameters
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha', // Super group id
+ * 'busChannel'=> 'busid', // Channel id can be empty
+ * 'status'=> true, // Ultra group ban status true for ban 0 for cancel
+ * ];
+ * @return array
+ */
     public function set(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -71,16 +71,16 @@ class MuteAllMembers
     }
 
     /**
-     * 查询超级群禁言状态
-     *
-     * @param $Group array 超级群 参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//超级群 id
-            'busChannel'=> 'busid',//频道 id  可以为空
-         ];
-     * @return array
-     */
+ * Query the mute status of a super group
+ *
+ * @param array $Group ultra group parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//super group id
+ * 'busChannel'=> 'busid',//channel id can be empty
+ * ];
+ * @return array
+ */
     public function get(array $Group=[]){
         $conf = $this->conf['get'];
         $verify = $this->verify['group'];

@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组消息
+ * Group message
  */
 namespace RongCloud\Lib\Message\Group;
 
@@ -12,22 +12,22 @@ class Group {
     private $jsonPath = 'Lib/Message/Group/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Group constructor.
-     */
+ * Group constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -35,16 +35,16 @@ class Group {
     }
 
     /**
-     * @param $Message array 群组消息发送
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> 'markoiwm',//群组 id
-                "objectName"=>'RC:TxtMsg',//消息类型 文本
-                'content'=>['content'=>'你好，小明']//消息体
-        ];
-     * @return array
-     */
+ * @param array $Message Group message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * 'targetId'=> 'markoiwm',//Group ID
+ * "objectName"=>'RC:TxtMsg',//Message type: Text
+ * 'content'=>['content'=>'Hello, Xiao Ming']//Message Body
+ * ];
+ * @return array
+ */
     public function send(array $Message=[]){
         $conf = $this->conf['send'];
         if(isset($Message['content']) && is_array($Message['content'])){
@@ -67,22 +67,22 @@ class Group {
     }
 
     /**
-     * @param $Message array 群组消息 @
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> 'markoiwm',//群组 id
-                "objectName"=>'RC:TxtMsg',//消息类型 文本
-                'content'=>[//消息内容
-                'content'=>'你好，小明',
-                'mentionedInfo'=>[
-                    'type'=>'1',//@ 功能类型，1 表示 @ 所有人、2 表示 @ 指定用户
-                    'userIds'=>['kladd', 'almmn1'],//被 @ 人列表 type 为 2 时必填，type 为 1 时可以为空
-                    'pushContent'=>'问候消息'//自定义 @ 消息 push 内容
-                ]
-            ];
-     * @return array
-     */
+ * @param array $Message Group message @
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * 'targetId'=> 'markoiwm',//Group ID
+ * "objectName"=>'RC:TxtMsg',//Message type Text
+ * 'content'=>[//Message content
+ * 'content'=>'Hello, Xiaoming',
+ * 'mentionedInfo'=>[
+ * 'type'=>'1',//@ function type, 1 indicates @ all, 2 indicates @ specified users
+ * 'userIds'=>['kladd', 'almmn1'],//List of @ users, required when type is 2, can be empty when type is 1
+ * 'pushContent'=>'Greeting message'//Custom @ message push content
+ * ]
+ * ];
+ * @return array
+ */
     public function sendMention(array $Message=[]){
         $conf = $this->conf['send'];
         $error = (new Utils())->check([
@@ -112,16 +112,16 @@ class Group {
     }
 
     /**
-        * @param $Message array 群组状态消息发送
-        * @param
-        * $Message = [
-            'senderId'=> 'ujadk90ha',//发送人 id
-            'targetId'=> 'markoiwm',//群组 id
-            "objectName"=>'RC:TxtMsg',//消息类型 文本
-            'content'=>['content'=>'你好，小明']//消息体
-        ];
-        * @return array
-    */
+ * @param array $Message Group status message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * 'targetId'=> 'markoiwm',//Group ID
+ * "objectName"=>'RC:TxtMsg',//Message type Text
+ * 'content'=>['content'=>'Hello, Xiaoming']//Message Body
+ * ];
+ * @return array
+ */
     public function sendStatusMessage(array $Message=[]){
         $conf = $this->conf['sendStatusMessage'];
         if(isset($Message['content']) && is_array($Message['content'])){
@@ -144,16 +144,16 @@ class Group {
     }
 
     /**
-     * @param $Message array 群组消息撤回
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 Id
-                'targetId'=> 'markoiwm',//群组 Id
-                "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息的唯一标识
-                'sentTime'=>'1519444243981'//消息的发送时间
-            ];
-     * @return array
-     */
+ * @param array $Message Group message recall
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',// Sender ID
+ * 'targetId'=> 'markoiwm',// Group ID
+ * "uId"=>'5GSB-RPM1-KP8H-9JHF',// Unique message identifier
+ * 'sentTime'=>'1519444243981'// Message sending time
+ * ];
+ * @return array
+ */
     public function recall(array $Message=[]){
         $conf = $this->conf['recall'];
         $error = (new Utils())->check([

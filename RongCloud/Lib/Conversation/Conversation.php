@@ -1,6 +1,6 @@
 <?php
 /**
- * 会话模块
+ * Conversation Module
  * conversation=> hejinyu
  * Date=> 2018/7/23
  * Time=> 11=>41
@@ -13,29 +13,29 @@ use RongCloud\Lib\Utils;
 class Conversation
 {
     /**
-     * 会话模块路径
-     *
-     * @var string
-     */
+ * // Session module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Conversation/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * // Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -43,17 +43,17 @@ class Conversation
     }
 
     /**
-     * 屏蔽会话 Push
-     *
-     * @param $Conversation array 屏蔽会话 Push 参数
-     * @param
-     * $Conversation = [
-            'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
-            'userId'=>'mka091amn',//会话所有者
-            'targetId'=>'adm1klnm'//会话 id
-        ];
-     * @return array
-     */
+ *  Screen Session Push
+ *
+ * @param array $Conversation Screen session push parameters
+ * @param
+ * $Conversation = [
+ * 'type'=> 'PRIVATE',//Session type: PRIVATE, GROUP, DISCUSSION, SYSTEM
+ * 'userId'=>'mka091amn',//Session owner
+ * 'targetId'=>'adm1klnm'//Session ID
+ * ];
+ * @return array
+ */
     public function mute(array $Conversation=[]){
         $conf = $this->conf['mute'];
         $error = (new Utils())->check([
@@ -75,17 +75,17 @@ class Conversation
     }
 
     /**
-     * 接收会话 Push
-     *
-     * @param $Conversation array 接收会话 Push 参数
-     * @param
-     * $Conversation = [
-            'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
-            'userId'=>'mka091amn',//会话所有者
-            'targetId'=>'adm1klnm'//会话 id
-        ];
-     * @return array
-     */
+ * Receive Conversation Push
+ *
+ * @param array $Conversation Parameters for receiving Conversation Push
+ * @param
+ * $Conversation = [
+ * 'type'=> 'PRIVATE',//Conversation type PRIVATE, GROUP, DISCUSSION, SYSTEM
+ * 'userId'=>'mka091amn',//Conversation owner
+ * 'targetId'=>'adm1klnm'//Conversation id
+ * ];
+ * @return array
+ */
     public function unmute(array $Conversation=[]){
         $conf = $this->conf['mute'];
         $error = (new Utils())->check([
@@ -107,17 +107,17 @@ class Conversation
     }
 
     /**
-     * 免打扰会话状态获取
-     *
-     * @param $Conversation array 接收会话 Push 参数
-     * @param
-     * $Conversation = [
-    'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
-    'userId'=>'mka091amn',//会话所有者
-    'targetId'=>'adm1klnm'//会话 id
-    ];
-     * @return array
-     */
+ * // Get the conversation state without interruption
+ *
+ * @param array $Conversation Receive conversation Push parameters
+ * @param
+ * $Conversation = [
+ * 'type'=> 'PRIVATE',// Conversation type PRIVATE, GROUP, DISCUSSION, SYSTEM
+ * 'userId'=>'mka091amn',// Conversation owner
+ * 'targetId'=>'adm1klnm'// Conversation id
+ * ];
+ * @return array
+ */
     public function get(array $Conversation=[]){
         $conf = $this->conf['mute'];
         $error = (new Utils())->check([

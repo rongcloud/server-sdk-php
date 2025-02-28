@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-成员模块
+ * Group Information Management - Member Module
  */
 namespace RongCloud\Lib\Entrust\Group\Member;
 
@@ -11,29 +11,30 @@ use RongCloud\Lib\Utils;
 class Member
 {
     /**
-     * 信息托管模块路径
-     *
-     * @var string
-     */
+ * // Information hosting module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Entrust/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for verification
+ *
+ * @var string
+ *
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * // Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -41,16 +42,16 @@ class Member
     }
 
     /**
-     * 设置群成员资料
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222',
-     *   'nickname' => 'rongcloud',
-     *   'extra' => 'xxxxxx'
-     * ]
-     * @return array
-     */
+ * Set group member information
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222',
+ * 'nickname' => 'rongcloud',
+ * 'extra' => 'xxxxxx'
+ * ]
+ * @return array
+ */
     public function set(array $param = [])
     {
         $error = (new Utils())->check([
@@ -69,17 +70,17 @@ class Member
     }
 
     /**
-     * 踢出群组
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userIds' => ['123','456'],
-     *   'isDelBan' => 1,
-     *   'isDelWhite' => 1,
-     *   'isDelFollowed' => 1
-     * ]
-     * @return array
-     */
+ * Remove from group
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userIds' => ['123','456'],
+ * 'isDelBan' => 1,
+ * 'isDelWhite' => 1,
+ * 'isDelFollowed' => 1
+ * ]
+ * @return array
+ */
     public function kick(array $param = [])
     {
         $modelName = 'groupId_userIds';
@@ -99,13 +100,13 @@ class Member
     }
     
     /**
-     * 指定用户踢出所有群组
-     *
-     * @param array $param = [
-     *   'userId' => '111'
-     * ]
-     * @return array
-     */
+ * // Specify the user to exit all groups
+ *
+ * @param array $param = [
+ * 'userId' => '111'
+ * ]
+ * @return array
+ */
     public function kickAll(array $param = [])
     {
         $modelName = 'kickAll';
@@ -125,15 +126,15 @@ class Member
     }
 
     /**
-     * 设置用户指定群特别关注用户
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222',
-     *   'followUserIds' => ['111','222']
-     * ]
-     * @return array
-     */
+ * Set user-specified group to follow particular users
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222',
+ * 'followUserIds' => ['111','222']
+ * ]
+ * @return array
+ */
     public function follow(array $param = [])
     {
         $error = (new Utils())->check([
@@ -152,15 +153,15 @@ class Member
     }
 
     /**
-     * 删除用户指定群组中的特别关注用户
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222',
-     *   'followUserIds' => ['111','222']
-     * ]
-     * @return array
-     */
+ * Delete the specified special follow users in the user-defined group
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222',
+ * 'followUserIds' => ['111','222']
+ * ]
+ * @return array
+ */
     public function unFollow(array $param = [])
     {
         $error = (new Utils())->check([
@@ -179,14 +180,14 @@ class Member
     }
 
     /**
-     * 查询用户指定群组特别关注成员列表
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222'
-     * ]
-     * @return array
-     */
+ * Query the list of members with special attention in the user-specified group
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222'
+ * ]
+ * @return array
+ */
     public function getFollowed(array $param = [])
     {
         $modelName = 'groupId_userId';
@@ -206,17 +207,17 @@ class Member
     }
 
     /**
-     * 分页获取群成员信息
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'type' => 0,
-     *   'pageToken' => '',
-     *   'size' => 50,
-     *   'order' => 1
-     * ]
-     * @return array
-     */
+ * // Get paginated member information
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'type' => 0,
+ * 'pageToken' => '',
+ * 'size' => 50,
+ * 'order' => 1
+ * ]
+ * @return array
+ */
     public function query(array $param = [])
     {
         $modelName = 'groupId';
@@ -236,14 +237,14 @@ class Member
     }
 
     /**
-     * 获取指定群成员信息
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userIds' => ['123','456']
-     * ]
-     * @return array
-     */
+ * Retrieve specified group member information
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userIds' => ['123','456']
+ * ]
+ * @return array
+ */
     public function specificQuery(array $param = [])
     {
         $modelName = 'groupId_userIds';

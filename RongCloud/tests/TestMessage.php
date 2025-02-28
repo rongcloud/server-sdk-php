@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 消息模块测试用例
+ * // Message module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -16,10 +16,10 @@ function testMessageChatroom($RongSDK)
 {
     $Message = $RongSDK->getMessage()->Chatroom();
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => 'kkj9o01', //聊天室 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode(['content' => '你好，主播']) //消息内容
+        'senderId' => 'ujadk90ha', // Sender ID
+        'targetId' => 'kkj9o01', // // Chat room ID
+        "objectName" => 'RC:TxtMsg', // // Message type Text
+        'content' => json_encode(['content' => '你好，主播']) // Message content
     ];
     Utils::dump("聊天室发送消息成功", $Message->send($params));
 
@@ -50,9 +50,10 @@ function testMessageChatroom($RongSDK)
     Utils::dump("聊天室发送消息 content 错误", $Message->send($params));
 
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode(['content' => '你好，主播']) //消息内容
+        'senderId' => 'ujadk90ha', // // Sender ID
+@param senderId
+        "objectName" => 'RC:TxtMsg', // Message type: Text
+        'content' => json_encode(['content' => '你好，主播']) // // Message content
     ];
     Utils::dump("聊天室广播消息成功", $Message->broadcast($params));
 
@@ -74,10 +75,10 @@ function testMessageChatroom($RongSDK)
     Utils::dump("聊天室广播消息 content 错误", $Message->broadcast($params));
 
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 Id
-        'targetId' => 'markoiwm', //聊天室 Id
-        "uId" => '5GSB-RPM1-KP8H-9JHF', //消息的唯一标识
-        'sentTime' => '1519444243981' //消息的发送时间
+        'senderId' => 'ujadk90ha', // // Sender ID
+        'targetId' => 'markoiwm', // // Chat room Id
+        "uId" => '5GSB-RPM1-KP8H-9JHF', // // The unique identifier of the message
+        'sentTime' => '1519444243981' // Message sending time
     ];
     Utils::dump("撤回已发送的聊天室消息成功", $Message->recall($params));
 
@@ -97,10 +98,10 @@ function testMessageGroup($RongSDK)
 {
     $Message = $RongSDK->getMessage()->Group();
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => 'kkj9o01', //聊天室 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode(['content' => '你好，主播']) //消息内容
+        'senderId' => 'ujadk90ha', // sender id
+        'targetId' => 'kkj9o01', // // Chat room ID
+        "objectName" => 'RC:TxtMsg', // Message type Text
+        'content' => json_encode(['content' => '你好，主播']) // // Message content
     ];
     Utils::dump("群组发送消息成功", $Message->send($params));
 
@@ -137,15 +138,15 @@ function testMessageGroup($RongSDK)
     Utils::dump("群组发送状态消息 content 错误", $Message->sendStatusMessage($params));
 
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => 'markoiwm', //群组 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode([ //消息内容
+        'senderId' => 'ujadk90ha', // // Sender ID
+        'targetId' => 'markoiwm', // Group ID
+        "objectName" => 'RC:TxtMsg', // // Message type Text
+        'content' => json_encode([ // Message content
             'content' => '你好，小明',
             'mentionedInfo' => [
-                'type' => '1', //@ 功能类型，1 表示 @ 所有人、2 表示 @ 指定用户
-                'userIds' => ['kladd', 'almmn1'], //被 @ 人列表 type 为 2 时必填，type 为 1 时可以为空
-                'pushContent' => '问候消息' //自定义 @ 消息 push 内容
+                'type' => '1', // @function type, 1 represents @all. 2 represents @specified user
+                'userIds' => ['kladd', 'almmn1'], // // The @ list must be filled when the type is 2, and can be empty when the type is 1
+                'pushContent' => '问候消息' // Custom @ Message push content
             ]
         ])
     ];
@@ -169,10 +170,10 @@ function testMessageGroup($RongSDK)
     Utils::dump("发送 @ 消息 content 错误", $Message->sendMention($params));
 
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 Id
-        'targetId' => 'markoiwm', //群组 Id
-        "uId" => '5GSB-RPM1-KP8H-9JHF', //消息的唯一标识
-        'sentTime' => '1519444243981' //消息的发送时间
+        'senderId' => 'ujadk90ha', // Sender ID
+        'targetId' => 'markoiwm', // // Group ID
+        "uId" => '5GSB-RPM1-KP8H-9JHF', // The unique identifier of the message
+        'sentTime' => '1519444243981' // // Message sending time
     ];
     Utils::dump("撤回已发送的群聊消息成功", $Message->recall($params));
 
@@ -192,24 +193,24 @@ function testMessageHistory($RongSDK)
 {
     $Message = $RongSDK->getMessage()->History();
     $params = [
-        'date' => '2018030613', //日期
+        'date' => '2018030613', // // Date
     ];
     Utils::dump("历史消息获取成功", $Message->get($params));
 
     Utils::dump("历史消息获取参数错误", $Message->get());
 
     $params = [
-        'date' => '2018030613', //日期
+        'date' => '2018030613', // // Date
     ];
     Utils::dump("历史消息文件删除成功", $Message->remove($params));
 
     Utils::dump("历史消息文件删除参数错误", $Message->remove());
 
      $params = [
-            'conversationType'=> '1',//会话类型，支持单聊、群聊、系统会话。单聊会话是 1、群组会话是 3、系统通知是 6
-            'fromUserId'=>"fromUserId",//用户 ID，删除该用户指定会话 msgTimestamp 前的历史消息
-            'targetId'=>"userId",//需要清除的目标会话 ID
-            'msgTimestamp'=>"1588838388320",//清除该时间戳之前的所有历史消息，精确到毫秒，为空时清除该会话的所有历史消息。
+            'conversationType'=> '1',// // Conversation types, supporting single chat, group chat, and system notifications. Single chat is 1, group chat is 3, and system notification is 6.
+            'fromUserId'=>"fromUserId",// // User ID, delete historical messages before the specified session msgTimestamp
+            'targetId'=>"userId",// // Target session ID to be cleared
+            'msgTimestamp'=>"1588838388320",// // Clear all historical messages before this timestamp, accurate to the millisecond, to empty all historical messages of this session.
         ];
     Utils::dump("消息清除成功", $Message->clean($params));
 
@@ -222,10 +223,10 @@ function testMessagePerson($RongSDK)
 {
     $Message = $RongSDK->getMessage()->Person();
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => 'markoiwm', //接收人 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode(['content' => '你好，这是 1 条消息']) //消息内容
+        'senderId' => 'ujadk90ha', // Sender ID
+        'targetId' => 'markoiwm', // // Recipient ID
+        "objectName" => 'RC:TxtMsg', // Message type: Text
+        'content' => json_encode(['content' => '你好，这是 1 条消息']) // Message content
     ];
     Utils::dump("二人消息发送成功", $Message->send($params));
 
@@ -236,17 +237,17 @@ function testMessagePerson($RongSDK)
     Utils::dump("二人状态消息发送参数错误", $Message->sendStatusMessage());
 
     $params = [
-        'senderId' => 'kamdnq', //发送人 id
-        'objectName' => 'RC:TxtMsg', //消息类型 文本
-        'template' => json_encode(['content' => '{name}, 语文成绩 {score} 分']), //模板内容
+        'senderId' => 'kamdnq', // Sender ID
+        'objectName' => 'RC:TxtMsg', // Message type Text
+        'template' => json_encode(['content' => '{name}, 语文成绩 {score} 分']), // Template content
         'content' => json_encode([
-            'sea9901' => [ //接收人 id
-                'data' => ['{name}' => '小明', '{score}' => '90'], //模板数据
-                'push' => '{name} 你的成绩出来了', //推送内容
+            'sea9901' => [ // Recipient ID
+                'data' => ['{name}' => '小明', '{score}' => '90'], // Template data
+                'push' => '{name} 你的成绩出来了', // Push content
             ],
-            'sea9902' => [ //接收人 id
-                'data' => ['{name}' => '小红', '{score}' => '95'], //模板数据
-                'push' => '{name} 你的成绩出来了', //推送内容
+            'sea9902' => [ // // Recipient ID
+                'data' => ['{name}' => '小红', '{score}' => '95'], // Template data
+                'push' => '{name} 你的成绩出来了', // push notification content
             ]
         ])
     ];
@@ -255,10 +256,10 @@ function testMessagePerson($RongSDK)
     Utils::dump("向多个用户发送不同内容消息参数错误", $Message->sendTemplate());
 
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => 'markoiwm', //接收人 id
-        "uId" => '5GSB-RPM1-KP8H-9JHF', //消息唯一标识 消息的唯一标识，各端 SDK 发送消息成功后会返回 uId
-        'sentTime' => '1519444243981' //发送时间 消息的发送时间，各端 SDK 发送消息成功后会返回 sentTime
+        'senderId' => 'ujadk90ha', // // Sender ID
+        'targetId' => 'markoiwm', // // Recipient ID
+        "uId" => '5GSB-RPM1-KP8H-9JHF', // // Message unique identifier The unique identifier of the message, each end SDK will return uId after successfully sending the message
+        'sentTime' => '1519444243981' // // Send time The time when the message is sent, each SDK will return sentTime after successfully sending the message
     ];
     Utils::dump("二人消息撤回成功", $Message->recall($params));
 
@@ -271,27 +272,28 @@ function testMessageSystem($RongSDK)
 {
     $Message = $RongSDK->getMessage()->System();
     $params = [
-        'senderId' => '__system__', //发送人 id
-        'targetId' => 'markoiwm', //接收放 id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => ['content' => '你好，小明'] //消息体
+        'senderId' => '__system__', // // Sender ID
+/* Sender ID */
+        'targetId' => 'markoiwm', // // Receive release id
+        "objectName" => 'RC:TxtMsg', // Message type: Text
+        'content' => ['content' => '你好，小明'] // Message Body
     ];
     Utils::dump("系统消息发送成功", $Message->send($params));
 
     Utils::dump("系统消息发送参数错误", $Message->send());
 
     $params = [
-        'senderId' => '__system__', //发送人 id
-        'objectName' => 'RC:TxtMsg', //消息类型 文本
-        'template' => json_encode(['content' => '{name}, 语文成绩 {score} 分']), //模板内容
+        'senderId' => '__system__', // Sender ID
+        'objectName' => 'RC:TxtMsg', // Message type Text
+        'template' => json_encode(['content' => '{name}, 语文成绩 {score} 分']), // Template content
         'content' => json_encode([
-            'sea9901' => [ //接收人 id
-                'data' => ['{name}' => '小明', '{score}' => '90'], //模板数据
-                'push' => '{name} 你的成绩出来了', //推送内容
+            'sea9901' => [ // // Recipient ID
+                'data' => ['{name}' => '小明', '{score}' => '90'], // Template Data
+                'push' => '{name} 你的成绩出来了', // Push content
             ],
-            'sea9902' => [ //接收人 id
-                'data' => ['{name}' => '小红', '{score}' => '95'], //模板数据
-                'push' => '{name} 你的成绩出来了', //推送内容
+            'sea9902' => [ // recipient id
+                'data' => ['{name}' => '小红', '{score}' => '95'], // Template data
+                'push' => '{name} 你的成绩出来了', // push notification content
             ]
         ])
     ];
@@ -300,19 +302,19 @@ function testMessageSystem($RongSDK)
     Utils::dump("系统模板消息参数错误", $Message->sendTemplate());
 
     $params = [
-        'senderId' => '__system__', //发送人 id
-        "objectName" => 'RC:TxtMsg', //消息类型
-        'content' => ['content' => '你好，小明'] //消息内容
+        'senderId' => '__system__', // // Sender ID
+        "objectName" => 'RC:TxtMsg', // Message type
+        'content' => ['content' => '你好，小明'] // Message content
     ];
     Utils::dump("系统广播消息成功", $Message->broadcast($params));
 
     Utils::dump("系统广播消息参数错误", $Message->broadcast());
 
     $params = [
-        'userIds' => ["user1","user2"], //接收人 id
+        'userIds' => ["user1","user2"], // Recipient ID
         'notification' => [
-            "pushContent">"推送内容",
-            "title">"推送标题"
+            "pushContent">"push notification content",
+            "title">"push notification title"
             ]
     ];
     Utils::dump("不落地通知成功", $Message->pushUser($params));
@@ -326,19 +328,19 @@ function testMessageBroadcast($RongSDK)
 
     $Message = $RongSDK->getMessage()->Broadcast();
     $message = [
-        'senderId' => 'test', //发送人 id
-        "objectName" => 'RC:RcCmd', //消息类型
+        'senderId' => 'test', // // Sender ID
+        "objectName" => 'RC:RcCmd', // // Message type
         'content' => json_encode([
-            'uId' => 'xxxxx', //消息唯一标识，通过 /push 发送广播消息后获取，返回名称为 id。
-            'isAdmin' => '0', //是否为管理员，默认为 0；设为 1 时 IMKit SDK 收到此条消息后，小灰条默认显示为“管理员 撤加了一条消息”
-            'isDelete' => '0' //是否删除消息，默认为 0 撤回该条消息同时，用户端将该条消息删除并替换为一条小灰条撤回提示消息；为 1 时，该条消息删除后，不替换为小灰条提示消息。
+            'uId' => 'xxxxx', // // The unique identifier of the message, obtained after broadcasting the message via /push, the returned name is id.
+            'isAdmin' => '0', // // Whether it is an administrator, default is 0; when set to 1, the IMKit SDK will display the gray bar as "Administrator has withdrawn a message" after receiving this message.
+            'isDelete' => '0' // // Whether to delete the message, default is 0 to revoke the message while the client deletes and replaces it with a small gray bar revocation prompt message; when it is 1, after deleting the message, it will not be replaced with a small gray bar prompt message.
         ])
     ];
     $Result = $Message->recall($message);
     Utils::dump("广播消息撤回成功", $Result);
 
     $message = [
-        "objectName" => 'RC:RcCmd', //消息类型
+        "objectName" => 'RC:RcCmd', // Message type
         'content' => json_encode([
             'uId' => 'xxxxx',
             'isAdmin' => '0',
@@ -354,11 +356,11 @@ function textExpansionSet($RongSDK)
 {
     $Expansion = $RongSDK->getMessage()->Expansion();
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
-        'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',] //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // // Message unique identifier ID, which can be obtained by the server through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // // Set the extended message delivery user Id.
+        'targetId'          => 'tjw3zbMrU',             // // Target ID, depending on the conversationType, could be a user ID or a group ID.
+        'conversationType'  => '1',                     // // Conversation type, private chat is 1, group chat is 3, only supports private and group chat types.
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',] // // Custom message extension content, JSON structure, set in Key, Value format
     ];
     $Result = $Expansion->set($message);
     Utils::dump("设置消息扩展", $Result);
@@ -369,11 +371,11 @@ function textExpansionDelete($RongSDK)
 {
     $Expansion = $RongSDK->getMessage()->Expansion();
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'targetId'          => 'tjw3zbMrU',             //目标 Id，根据不同的 conversationType，可能是用户 Id 或群组 Id。
-        'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-        'extraKey'          => ['type1', 'type2']       //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // // The unique message identifier, which the server can obtain through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // // The user ID for sending extended messages needs to be set.
+        'targetId'          => 'tjw3zbMrU',             // // Target ID, which could be a user ID or group ID depending on the conversationType.
+        'conversationType'  => '1',                     // // Conversation type, one-on-one chat is 1, group chat is 3, only supports single chat and group chat types.
+        'extraKey'          => ['type1', 'type2']       // // The Key value of the extension information to be deleted, with a maximum of 100 extension information items that can be deleted at once
     ];
     $Result = $Expansion->delete($message);
     Utils::dump("删除消息扩展", $Result);
@@ -384,8 +386,8 @@ function textExpansionGetList($RongSDK)
 {
     $Expansion = $RongSDK->getMessage()->Expansion();
     $message = [
-        'msgUID' => 'BS45-NPH4-HV87-10LM',  //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'pageNo' => 1                     //页数，默认返回 300 个扩展信息。
+        'msgUID' => 'BS45-NPH4-HV87-10LM',  // // The unique identifier of the message, which can be obtained by the server through the full message routing function.
+        'pageNo' => 1                     // // Number of pages, default returns 300 extended information.
     ];
     $Result = $Expansion->getList($message);
     Utils::dump("获取扩展信息", $Result);
@@ -396,25 +398,26 @@ function textUltragroup($RongSDK)
 {
     $Ultragroup = $RongSDK->getMessage()->Ultragroup();
     $params = [
-        'senderId' => 'ujadk90ha', //发送人 id
-        'targetId' => ['kkj9o01'], //超级群id
-        "objectName" => 'RC:TxtMsg', //消息类型 文本
-        'content' => json_encode(['content' => '你好，主播']) //消息内容
+        'senderId' => 'ujadk90ha', // // Sender ID
+@param senderId
+        'targetId' => ['kkj9o01'], // // Super group ID
+        "objectName" => 'RC:TxtMsg', // Message type Text
+        'content' => json_encode(['content' => '你好，主播']) // // Message content
     ];
     Utils::dump("超级群发送消息成功", $Ultragroup->send($params));
 
     Utils::dump("超级群发送消息参数错误", $Ultragroup->send());
 
     $params = [
-        'senderId'=> 'ujadk90ha',//发送人 id
-        'targetId'=> ['STRe0shISpQlSOBvek1FfU'],//超级群 id
-        "objectName"=>'RC:TxtMsg',//消息类型 文本
-        'content'=>json_encode([//消息内容
+        'senderId'=> 'ujadk90ha',// // Sender ID
+        'targetId'=> ['STRe0shISpQlSOBvek1FfU'],// // Supergroup ID
+        "objectName"=>'RC:TxtMsg',// Message type Text
+        'content'=>json_encode([// Message content
             'content'=>'PHP 群 @ 消息 你好，小明',
             'mentionedInfo'=>[
-                'type'=>'1',//@ 功能类型，1 表示 @ 所有人、2 表示 @ 指定用户
-                'userIds'=>['uPj70HUrRSUk-ixtt7iIGc'],//被 @ 人列表 type 为 2 时必填，type 为 1 时可以为空
-                'pushContent'=>'php push 问候消息'//自定义 @ 消息 push 内容
+                'type'=>'1',// @ Function type, 1 indicates @ everyone. 2 indicates @ specified user.
+                'userIds'=>['uPj70HUrRSUk-ixtt7iIGc'],// // The @ list must be filled when type is 2, and can be empty when type is 1
+                'pushContent'=>'php push 问候消息'// Customize @ message push content
             ]
         ])
     ];

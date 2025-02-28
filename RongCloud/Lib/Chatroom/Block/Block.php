@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室封禁
+ * // Chat room ban
  */
 namespace RongCloud\Lib\Chatroom\Block;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class Block {
 
     /**
-     * 聊天室封禁路径
-     *
-     * @var string
-     */
+ * Chat room ban path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Block/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Block constructor.
-     */
+ * // Block constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,18 +40,18 @@ class Block {
     }
 
     /**
-     * 添加封禁
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-            'members'=> [
-                ['id'=>'seal9901']//封禁成员 id
-            ],
-            'minute'=>30//封禁时长
-     ];
-     * @return mixed|null
-     */
+ *  Add ban
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha', // Chatroom ID
+ * 'members'=> [
+ * ['id'=>'seal9901'] // Banned member ID
+ * ],
+ * 'minute'=>30 // Ban duration in minutes
+ * ];
+ * @return mixed|null
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['chatroom'] ;
@@ -76,17 +76,17 @@ class Block {
     }
 
     /**
-     * 解除封禁
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-            'members'=> [
-                ['id'=>'seal9901']//解除封禁成员 id
-            ],
-        ];
-     * @return mixed|null
-     */
+ * Unblock
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//Chatroom ID
+ * 'members'=> [
+ * ['id'=>'seal9901']//Unblocked member ID
+ * ],
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'] ;
@@ -111,14 +111,14 @@ class Block {
     }
 
     /**
-     * 查询被封禁成员列表
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 id
-     ];
-     * @return mixed|null
-     */
+ * Query the list of banned members
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992',//chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['chatroom'] ;

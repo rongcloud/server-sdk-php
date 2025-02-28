@@ -1,6 +1,6 @@
 <?php
 /**
- 超级群免打扰
+ * Supergroup mute notifications
  */
 
 
@@ -11,38 +11,42 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置超级群免打扰
+ * // Set super group do not disturb
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// Super group ID
         'busChannel'=>"",
         "unpushLevel"=>1
-        //免打扰级别
-        //-1：全部消息通知
-        //0：未设置（用户未设置时为此状态，为全部消息都通知，在此状态下，如设置了超级群默认状态以超级群的默认设置为准）
-        //1：仅针对 @ 消息进行通知，包括 @指定用户 和 @所有人
-        //2：仅针对 @ 指定用户消息进行通知，且仅通知被 @ 的指定的用户进行通知。
-        //如：@张三 则张三可以收到推送，@所有人 时不会收到推送。
-        //
-        //4：仅针对 @群全员进行通知，只接收 @所有人 的推送信息
-        //5：不接收通知，即使为 @ 消息也不推送通知。
+        // // Do Not Disturb Level
+        // -1: All message notifications
+        // 0: Not set (When the user has not set this state, it is the default state for all notifications. In this state, if a super group default state is set, the super group's default settings will be used as the standard)
+        // 1: Only notify for @ messages, including @specific users and @everyone
+        // // Only notify the specified user with @, and only notify the user specified by @.
+        // //@Zhang San will receive the push notification, @all will not receive the push notification.
+        // // This is a sample comment
+/* 
+ * This is a multi-line comment
+ * @param {string} input - The input string to process
+ */
+        // // Only notify @all members, and only receive push messages from @everyone
+        // 5: No notifications will be received, even if it is an @ message.
     ];
     $result = $RongSDK->getUltragroup()->Notdisturb()->set($group);
     Utils::dump("设置超级群免打扰",$result);
 }
 set();
 /**
- * 查询超级群免打扰
+ * // Query super group mute
  */
 function get()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// // Super group ID
         'busChannel'=>"",
     ];
     $result = $RongSDK->getUltragroup()->Notdisturb()->get($group);

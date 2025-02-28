@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室消息降级
+ * // Chat room message downgrade
  */
 namespace RongCloud\Lib\Chatroom\Demotion;
 
@@ -10,29 +10,30 @@ use RongCloud\Lib\Utils;
 class Demotion {
 
     /**
-     * 聊天室成消息降级路径
-     *
-     * @var string
-     */
+ * // Chat room message degradation path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Demotion/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Demotion constructor.
-     */
+ * Demotion constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,14 +41,14 @@ class Demotion {
     }
 
     /**
-     * 添加应用内聊天室降级消息
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-                'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// 消息类型列表
-        ];
-     * @return mixed|null
-     */
+ * Add application in-chat room downgrade message
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// Message type list
+ * ];
+ * @return mixed|null
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['demotion'] ;
@@ -67,14 +68,14 @@ class Demotion {
     }
 
     /**
-     * 移除应用内聊天室降级消息
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// 消息类型列表
-        ];
-     * @return mixed|null
-     */
+ * Remove in-app chatroom downgrade messages
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// Message type list
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['demotion'] ;
@@ -94,14 +95,14 @@ class Demotion {
     }
 
     /**
-     * 获取应用内聊天室降级消息
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-
-        ];
-     * @return mixed|null
-     */
+ * // Get the downgrade message of the in-app chatroom
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ *
+ * ];
+ * @return mixed|null
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $result = (new Request())->Request($conf['url'],$Chatroom);

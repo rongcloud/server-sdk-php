@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室
+ * // Chatroom
  */
 namespace RongCloud\Lib\Chatroom;
 
@@ -21,29 +21,29 @@ use RongCloud\Lib\Chatroom\MuteWhiteList\MuteWhiteList;
 class Chatroom
 {
     /**
-     * 聊天室模块路径
-     *
-     * @var string
-     */
+ * // Chat room module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Chatroom constructor.
-     */
+ * // Chatroom constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -52,16 +52,16 @@ class Chatroom
 
 
     /**
-     * 聊天室创建
-     *
-     * @deprecated 已弃用，请使用 createV2 的方法进行创建
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 id
-            'name'=> 'RongCloud',//聊天室名称
-         ];
-     * @return mixed|null
-     */
+ * Chatroom Creation
+ *
+ * @deprecated Deprecated, please use the createV2 method for creation
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992',//Chatroom ID
+ * 'name'=> 'RongCloud',//Chatroom name
+ * ];
+ * @return mixed|null
+ */
     public function create(array $Chatroom=[]){
         if(!isset($Chatroom[0])){
             $Chatroom = [$Chatroom];
@@ -86,20 +86,20 @@ class Chatroom
     }
 
     /**
-     * 聊天室创建
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 id
-            'destroyType' => 0, //指定聊天室的销毁类型 0：默认值，表示不活跃时销毁,1：固定时间销毁
-            'destroyTime' => 60, //设置聊天室销毁时间
-            'isBan' => false, //是否禁言聊天室全体成员，默认 false
-            'whiteUserIds' => ['user1','user2'], //禁言白名单用户列表，支持批量设置，最多不超过 20 个
-            'entryOwnerId' => '', //聊天室自定义属性的所属用户 ID。
-            'entryInfo' => '', //聊天室自定义属性 KV 对，JSON 结构。
-         ];
-     * @return mixed|null
-     */
+ * Chatroom Creation
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992', // Chatroom ID
+ * 'destroyType' => 0, // Specifies the destruction type of the chatroom 0: Default value, indicates destruction when inactive, 1: Fixed time destruction
+ * 'destroyTime' => 60, // Sets the destruction time of the chatroom
+ * 'isBan' => false, // Whether to ban all members of the chatroom, default false
+ * 'whiteUserIds' => ['user1','user2'], // Whitelist user list for banning, supports batch setting, maximum not exceeding 20
+ * 'entryOwnerId' => '', // The owner user ID of the chatroom's custom properties.
+ * 'entryInfo' => '', // Custom properties KV pair of the chatroom, JSON structure.
+ * ];
+ * @return mixed|null
+ */
     public function createV2(array $Chatroom=[]){
         $conf = $this->conf['createV2'];
         $verify = $this->verify['chatroom'];
@@ -120,16 +120,16 @@ class Chatroom
     }
 
     /**
-     * 设置聊天室销毁类型
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',  //聊天室 id
-            'destroyType'=> 0,      //指定聊天室的销毁方式。
-            'destroyTime'=> 60      //设置聊天室销毁时间。
-        ];
-     * @return mixed|null
-     */
+ * Set chatroom destruction type
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992',  //Chatroom id
+ * 'destroyType'=> 0,      //Specifies the destruction method of the chatroom.
+ * 'destroyTime'=> 60      //Set the destruction time of the chatroom.
+ * ];
+ * @return mixed|null
+ */
     public function setDestroyType(array $Chatroom=[]){
         $conf = $this->conf['setDestroyType'];
         $verify = $this->verify['chatroom'] ;
@@ -150,14 +150,14 @@ class Chatroom
     }
 
     /**
-     * 销毁聊天室
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 id
-        ];
-     * @return mixed|null
-     */
+ * Destroy chatroom
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992',//chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function destory(array $Chatroom=[]){
         $conf = $this->conf['destory'];
         $verify = $this->verify['chatroom'] ;
@@ -178,14 +178,14 @@ class Chatroom
     }
 
     /**
-     * 查询聊天室基础信息
-     *
-     * @DateTime 2023-06-14
-     * @deprecated 已弃用，请使用 queryV2 的方法进行创建
-     * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
-     * 
-     * @return array
-     */
+ * // Query chatroom basic information
+ *
+ * @DateTime 2023-06-14
+ * @deprecated Deprecated, please use the queryV2 method for creation
+ * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
+ *
+ * @return array
+ */
     public function query(array $Chatroom=[]){
         $conf = $this->conf['query'];
         $verify = $this->verify['chatroom'] ;
@@ -206,13 +206,13 @@ class Chatroom
     }
 
     /**
-     * 查询聊天室基础信息V2
-     *
-     * @DateTime 2023-10-08
-     * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
-     * 
-     * @return array
-     */
+ * // Query chatroom basic information V2
+ *
+ * @DateTime 2023-10-08
+ * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
+ *
+ * @return array
+ */
     public function queryV2(array $Chatroom=[]){
         $conf = $this->conf['queryV2'];
         $verify = $this->verify['chatroom'] ;
@@ -232,16 +232,16 @@ class Chatroom
         return $result;
     }
     /**
-     * 获取聊天室成员
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 Id
-            'count'=>10,//聊天室成员信息数，最多返回 500 个成员
-            'order'=>2//查询聊天室成员顺序， 1: 加入时间正序 2: 加入时间倒序
-        ];
-     * @return mixed|null
-     */
+ * Get chatroom members
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992',// Chatroom ID
+ * 'count'=>10,// Number of chatroom members, maximum return 500 members
+ * 'order'=>2// Query order of chatroom members, 1: Join time ascending 2: Join time descending
+ * ];
+ * @return mixed|null
+ */
     public function get(array $Chatroom=[]){
         $conf = $this->conf['get'];
         $verify = $this->verify['chatroom'] ;
@@ -262,17 +262,17 @@ class Chatroom
     }
 
     /**
-     * 检查用户是否在聊天室
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'chatroom9992',//聊天室 id
-            'members'=>[
-                ['id'=>"sea9902"]//人员id
-            ]
-        ];
-     * @return mixed|null
-     */
+ * Check if the user is in the chatroom
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'chatroom9992', // Chatroom ID
+ * 'members'=>[
+ * ['id'=>"sea9902"] // Member ID
+ * ]
+ * ];
+ * @return mixed|null
+ */
     public function isExist(array $Chatroom=[]){
         $conf = $this->conf['isExist'];
         $verify = $this->verify['chatroom'] ;
@@ -303,100 +303,100 @@ class Chatroom
     }
 
     /**
-     * 创建聊天室全局禁言对象
-     *
-     * @return MuteWhiteList
-     */
+ * // Create a global mute object for the chat room
+ *
+ * @return MuteWhiteList
+ */
     public function Ban(){
         return new Ban();
     }
 
     /**
-     * 创建聊天室封禁对象
-     *
-     * @return Block
-     */
+ * Create a chat room block object
+ *
+ * @return Block
+ */
     public function Block(){
         return new Block();
     }
 
     /**
-     * 创建聊天室消息降级对象
-     *
-     * @return Demotion
-     */
+ * // Create a chat room message demotion object
+ *
+ * @return Demotion
+ */
     public function Demotion(){
         return new Demotion();
     }
 
     /**
-     * 创建聊天室消息分发对象
-     *
-     * @return Distribute
-     */
+ * // Create a chat room message distribution object
+ *
+ * @return Distribute
+ */
     public function Distribute(){
         return new Distribute();
     }
 
     /**
-     * 创建聊天室成员禁言对象
-     *
-     * @return Gag
-     */
+ * // Create a chat room member gag object
+ *
+ * @return Gag
+ */
     public function Gag(){
         return new Gag();
     }
 
     /**
-     * 创建聊天室包活对象
-     *
-     * @return Keepalive
-     */
+ * // Create a chat room keepalive object
+ *
+ * @return Keepalive
+ */
     public function Keepalive(){
         return new Keepalive();
     }
 
     /**
-     * 创建聊天室用户白名单对象
-     *
-     * @return Whitelist
-     */
+ * // Create a chat room user whitelist object
+ *
+ * @return Whitelist
+ */
     public function Whitelist(){
         return new Whitelist();
     }
 
     /**
-     * 创建聊天室白名单消息对象
-     *
-     * @return Message
-     */
+ * // Create a chat room whitelist message object
+ *
+ * @return Message
+ */
     public function Message(){
         return new Message();
     }
 
     /**
-     * 创建聊天室白名单消息对象
-     *
-     * @return Entry
-     */
+ * // Create a whitelist message object for the chat room
+ *
+ * @return Entry
+ */
     public function Entry(){
         return new Entry();
     }
 
     /**
-     * 聊天室全体禁言
-     *
-     * @return MuteAllMembers
-     */
+ * // Mute all members in the chat room
+ *
+ * @return MuteAllMembers
+ */
     public function MuteAllMembers(){
         return new MuteAllMembers();
     }
 
     /**
-     * 聊天室全体禁言白名单
-     *
-     * @return MuteWhiteList
-     */
+ * // Chat room global mute whitelist
+ *
+ * @return MuteWhiteList
+ */
     public function MuteWhiteList(){
         return new MuteWhiteList();
     }

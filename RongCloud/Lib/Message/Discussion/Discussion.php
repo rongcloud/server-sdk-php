@@ -1,6 +1,6 @@
 <?php
 /**
- * 讨论组消息
+ * Discussion group message
  */
 namespace RongCloud\Lib\Message\Discussion;
 
@@ -11,22 +11,22 @@ class Discussion {
     private $jsonPath = 'Lib/Message/Discussion/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Discussion constructor.
-     */
+ * Discussion constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -34,16 +34,16 @@ class Discussion {
     }
 
     /**
-     * @param $Message array 讨论组消息发送
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 id
-                'targetId'=> ['kkj9o01'],//讨论组，多个 id
-                "objectName"=>'RC:TxtMsg',//消息类型 文本
-                'content'=>json_encode(['content'=>'你好，主播'])//消息体
-            ];
-     * @return array
-     */
+ * @param array $Message Discussion group message sending
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * 'targetId'=> ['kkj9o01'],//Discussion group, multiple IDs
+ * "objectName"=>'RC:TxtMsg',//Message type Text
+ * 'content'=>json_encode(['content'=>'Hello, host'])//Message Body
+ * ];
+ * @return array
+ */
     public function send($Message){
         $conf = $this->conf['send'];
         $error = (new Utils())->check([
@@ -63,15 +63,15 @@ class Discussion {
     }
 
     /**
-     * @param $Message array 讨论组广播消息
-     * @param
-     * $Message = [
-                'senderId'=> 'ujadk90ha',//发送人 id
-                "objectName"=>'RC:TxtMsg',//消息类型 文本
-                'content'=>json_encode(['content'=>'你好，主播']) //消息体
-        ];
-     * @return array
-     */
+ * @param array $Message Discussion group broadcast message
+ * @param
+ * $Message = [
+ * 'senderId'=> 'ujadk90ha',//Sender ID
+ * "objectName"=>'RC:TxtMsg',//Message type: text
+ * 'content'=>json_encode(['content'=>'Hello, host']) //Message Body
+ * ];
+ * @return array
+ */
     public function broadcast($Message){
         $conf = $this->conf['broadcast'];
         $error = (new Utils())->check([

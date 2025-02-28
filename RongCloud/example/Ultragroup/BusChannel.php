@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群频道实例
+ * // Super group channel instance
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 超级群频道创建
+ * // Super group channel creation
  */
 function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
-        'busChannel'=> 'busChannel',//超级群频道
+        'id'=> 'phpgroup1',// // Super group ID
+        'busChannel'=> 'busChannel',// Super Group Channel
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->add($group);
@@ -30,8 +30,8 @@ function change()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
-        'busChannel'=> 'busChannel',//超级群频道
+        'id'=> 'phpgroup1',// Super Group ID
+        'busChannel'=> 'busChannel',// Super Group Channel
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->change($group);
@@ -39,7 +39,7 @@ function change()
 }
 change();
 /**
- * 超级群频道获取
+ * Super group channel acquisition
  */
 function getList()
 {
@@ -50,15 +50,15 @@ function getList()
 }
 getList();
 /**
- * 超级群频道删除
+ * // Super group channel deletion
  */
 function remove()
 {
 
      $RongSDK = new RongCloud(APPKEY,APPSECRET);
         $group = [
-            'id'=> 'phpgroup1',//超级群 id
-            'busChannel'=> 'busChannel',//超级群频道
+            'id'=> 'phpgroup1',// // Supergroup ID
+            'busChannel'=> 'busChannel',// Super Group Channel
         ];
         $result = $RongSDK->getUltragroup()->BusChannel()->remove($group);
     Utils::dump("超级群频道删除",$result);
@@ -68,17 +68,16 @@ remove();
 
 getList();
 
-/*
-**
-* 添加超级群私有频道成员
-*/
+/* /**
+* Add supergroup private channel member
+*/ */
 function addPrivateUsers()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// Super group ID
         'busChannel'=>'',
-        'members'=>[ //添加超级群私有频道成员
+        'members'=>[ // // Add super group private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];
@@ -87,14 +86,14 @@ function addPrivateUsers()
 }
 addPrivateUsers();
 /**
- * 查询超级群私有频道成员列表
+ * // Query the list of members in the super private channel
  */
 function getPrivateUserList()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup2',//超级群 id
+        'id'=> 'phpgroup2',// Super Group ID
         'busChannel'=>'',
         'page'=>1,
         'pageSize'=>100
@@ -104,16 +103,16 @@ function getPrivateUserList()
 }
 getPrivateUserList();
 /**
- * 移除超级群私有频道成员
+ * Remove members from the super private channel
  */
 function removePrivateUsers()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// Supergroup ID
         'busChannel'=>'',
-        'members'=>[ //移除超级群私有频道成员
+        'members'=>[ // Remove supergroup private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-备注名模块
+ * // Group Information Hosting - Backup Naming Module
  */
 namespace RongCloud\Lib\Entrust\Group\RemarkName;
 
@@ -11,29 +11,29 @@ use RongCloud\Lib\Utils;
 class RemarkName
 {
     /**
-     * 信息托管模块路径
-     *
-     * @var string
-     */
+ * Information hosting module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Entrust/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -41,15 +41,15 @@ class RemarkName
     }
 
     /**
-     * 设置用户指定群组名称备注名
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222',
-     *   'remarkName' => 'rongcloud'
-     * ]
-     * @return array
-     */
+ * // Set the user-specified group name remark
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222',
+ * 'remarkName' => 'rongcloud'
+ * ]
+ * @return array
+ */
     public function set(array $param = [])
     {
         $error = (new Utils())->check([
@@ -68,14 +68,14 @@ class RemarkName
     }
 
     /**
-     * 删除用户指定群组名称备注名
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222'
-     * ]
-     * @return array
-     */
+ * Delete the specified group name annotation for the user
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222'
+ * ]
+ * @return array
+ */
     public function delete(array $param = [])
     {
         $modelName = 'groupId_userId';
@@ -95,14 +95,14 @@ class RemarkName
     }
 
     /**
-     * 查询用户指定群组名称备注名
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userId' => '222'
-     * ]
-     * @return array
-     */
+ * // Query the specified group name for user remarks
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userId' => '222'
+ * ]
+ * @return array
+ */
     public function query(array $param = [])
     {
         $modelName = 'groupId_userId';

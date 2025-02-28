@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 工具类
+ * Tool Class
  */
 
 namespace RongCloud\Lib;
@@ -9,10 +9,10 @@ namespace RongCloud\Lib;
 class Utils
 {
     /**
-     * 数字长度是否匹配
-     * @param $params
-     * @return bool
-     */
+ * // Whether the digital length matches
+ * @param $params
+ * @return bool
+ */
     public function isLength($params)
     {
         $val = $params['val'];
@@ -27,11 +27,11 @@ class Utils
     }
 
     /**
-     * 重命名
-     * @param $obj
-     * @param array $array
-     * @return mixed
-     */
+ * Rename
+ * @param $obj
+ * @param array $array
+ * @return mixed
+ */
     public function rename($obj, $array = [])
     {
         foreach ($array as $key => $v) {
@@ -44,11 +44,11 @@ class Utils
     }
 
     /**
-     * 模板替换
-     * @param $temp
-     * @param $data
-     * @return mixed
-     */
+ * // Template replacement
+ * @param $temp
+ * @param $data
+ * @return mixed
+ */
     public function tplEngine($temp, $data)
     {
         foreach ($data as $k => $v) {
@@ -59,10 +59,10 @@ class Utils
     }
 
     /**
-     * 获取错误信息
-     * @param $params
-     * @return array|mixed
-     */
+ * // Get error information
+ * @param $params
+ * @return array|mixed
+ */
     public function getError($params)
     {
         $code = $params['code'];
@@ -85,10 +85,10 @@ class Utils
     }
 
     /**
-     * 参数长度验证
-     * @param $params
-     * @return array|mixed|null
-     */
+ * // Parameter length validation
+ * @param $params
+ * @return array|mixed|null
+ */
     public function checkLength($params)
     {
         $proto = $params['proto'];
@@ -119,10 +119,10 @@ class Utils
     }
 
     /**
-     * 参数类型验证
-     * @param $params
-     * @return array|int|mixed
-     */
+ * // Parameter type validation
+ * @param $params
+ * @return array|int|mixed
+ */
     public function checkTypeof($params)
     {
         $error = 0;
@@ -152,10 +152,10 @@ class Utils
     }
 
     /**
-     * 参数验证
-     * @param $params
-     * @return null
-     */
+ * // Parameter validation
+ * @param $params
+ * @return null
+ */
     public  function check($params)
     {
         $error = null;
@@ -190,7 +190,7 @@ class Utils
                         'response' => $errors
                     ]);
                     if ($error) {
-                        // var_dump($errors,$fun,$verify,$data,$proto);
+                        // var_dump($errors, $fun, $verify, $data, $proto);
                         $isBreak = true;
                         break;
                     }
@@ -201,10 +201,10 @@ class Utils
     }
 
     /**
-     * 参数大小验证
-     * @param $params
-     * @return array|mixed|null
-     */
+ * Parameter size validation
+ * @param $params
+ * @return array|mixed|null
+ */
     function checkSize($params)
     {
         $error = null;
@@ -233,10 +233,10 @@ class Utils
     }
 
     /**
-     * 参数 必填验证
-     * @param $params
-     * @return array|mixed|null
-     */
+ * // Required parameter validation
+ * @param $params
+ * @return array|mixed|null
+ */
     function checkRequire($params)
     {
         $error = null;
@@ -263,22 +263,22 @@ class Utils
     }
 
     /**
-     * json 数据获取
-     * @param string $path
-     * @return mixed
-     */
+ * // JSON data retrieval
+ * @param string $path
+ * @return mixed
+ */
     public static function getJson($path = "")
     {
         $files = file_get_contents(RONGCLOUOD_ROOT . $path);
         return json_decode($files, true);
     }
     /**
-     * 变量友好化打印输出
-     * @param variable  $param  可变参数
-     * @example dump($a,$b,$c,$e,[.1]) 支持多变量，使用英文逗号符号分隔，默认方式 print_r，查看数据类型传入 .1
-     * @version php>=5.6
-     * @return void
-     */
+ * // Variable-friendly print output
+ * @param variable  $param  Variable parameter
+ * @example dump($a,$b,$c,$e,[.1]) Supports multiple variables, uses English comma separation, default mode print_r, view data type passed as .1
+ * @version php>=5.6
+ * @return void
+ */
     public static function dump()
     {
         $param = func_get_args();
@@ -304,12 +304,12 @@ class Utils
     }
 
     /**
-     * 错误信息重置
-     *
-     * @param array $result 结果信息
-     * @param array $failList 错误信息列表
-     * @return array
-     */
+ * Error information reset
+ *
+ * @param array $result Result information
+ * @param array $failList Error information list
+ * @return array
+ */
     public function responseError($result = array(), $failList = array(), $bodyParameter = '')
     {
         if (!is_array($result)) {
@@ -333,10 +333,10 @@ class Utils
     }
 
     /**
-     * 生成一个指定长度随机字符串
-     * @param int $len
-     * @return string
-     */
+ * // Generate a random string of specified length
+ * @param int $len
+ * @return string
+ */
     public static function createRand($len = 6)
     {
         $string = 'abcdefghijklmnopqrstuvwxyz0123456789';

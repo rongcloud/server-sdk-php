@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 请求发送
+ * Request to send
  */
 
 namespace RongCloud\Lib;
@@ -10,18 +10,18 @@ use RongCloud\RongCloud;
 
 class Request
 {
-    private $appKey = "";
-    private $appSecret = "";
+    private $appKey = '';
+    private $appSecret = '';
     /**
-     * Server API 接口地址
-     * 新加坡域名: api.sg-light-api.com , api-b.sg-light-api.com
-     *
-     * @var array
-     */
-    private $serverUrl = ['http://api.rong-api.com/', 'http://api-b.rong-api.com/'];
+ * Server API interface address
+ * Singapore domain: api.sg-light-api.com, api-b.sg-light-api.com
+ *
+ * @var array
+ */
+    private $serverUrl = ['http:// api.rong-api.com/', 'http://api-b.rong-api.com/'];
     // private $serverUrl = ['http://api.sg-light-api.com/', 'http://api-b.sg-light-api.com/'];
     // private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
-    private $smsUrl = 'http://api.sms.ronghub.com/';
+    private $smsUrl = 'http:// api.sms.ronghub.com/';
     private $connectTimeout = 20;
     private $timeout = 30;
 
@@ -48,8 +48,8 @@ class Request
     }
 
     /**
-     * server url 多域名切换
-     */
+ * // Server URL multi-domain switching
+ */
     private function resetServerUrl($nextUrl = "")
     {
         if (is_array(RongCloud::$apiUrl)) {
@@ -72,7 +72,7 @@ class Request
         }
         $oldSessionId = session_id();
         session_write_close();
-        //切换到 sdk Session
+        // // Switch to SDK session
         session_id($seesionId);
         session_start();
 
@@ -86,7 +86,7 @@ class Request
         $currentUrl = isset($_SESSION['curl']) ? $_SESSION['curl'] : RongCloud::$apiUrl[0];
         session_write_close();
         unset($_SESSION);
-        //切换到原始 SESSION
+        // Switch to the original SESSION
         session_id($oldSessionId);
         session_start();
         setcookie("PHPSESSID", $oldSessionId);
@@ -94,9 +94,9 @@ class Request
     }
 
     /**
-     * 多域名 设置为下一个域名
-     * @param string $url
-     */
+ * // Set the next domain as the multi-domain
+ * @param string $url
+ */
     private function getNextUrl($url = "")
     {
         $urlList = RongCloud::$apiUrl;
@@ -109,10 +109,10 @@ class Request
     }
 
     /**
-     * 创建http header参数
-     * @param array $data
-     * @return bool
-     */
+ * // Create HTTP header parameters
+ * @param array $data
+ * @return bool
+ */
     private function createHttpHeader($request_id)
     {
         $nonce     = mt_rand();
@@ -128,15 +128,15 @@ class Request
     }
 
     /**
-     * 请求发送
-     *
-     * @param $action 接口方法
-     * @param $params 请求参数
-     * @param string $contentType 接口返回数据类型 默认 json
-     * @param string $module 接口请求模块 默认 im
-     * @param string $httpMethod 接口请求方式 默认 POST
-     * @return int|mixed
-     */
+ *  Send request
+ *
+ * @param Interface $action method
+ * @param Request $params parameters
+ * @param string $contentType Interface return data type, default json
+ * @param string $module Interface request module, default im
+ * @param string $httpMethod Interface request method, default POST
+ * @return int|mixed
+ */
     public function Request($action, $params, $contentType = 'urlencoded', $module = 'im', $httpMethod = 'POST')
     {
         switch ($module) {
@@ -172,13 +172,13 @@ class Request
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, $httpMethod == 'POST');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //处理http证书问题
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // // Handle HTTP certificate issues
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.2.8");
-        //        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
+        // curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
         if (false === $ret) {
@@ -210,25 +210,25 @@ class Request
     }
 
     /**
-     * 获取 POST（x-www-form-urlencoded）/GET 请求的参数
-     * 
-     * @param $params 请求参数
-     * @return bool|string
-     */
+ * // Get parameters from POST (x-www-form-urlencoded)/GET request
+ *
+ * @param Request $params parameters
+ * @return bool|string
+ */
     public function getQueryFields($params)
     {
         return $this->build_query($params);
     }
 
     /**
-     * 生成参数体
-     *
-     * @param $formData
-     * @param string $numericPrefix
-     * @param string $argSeparator
-     * @param string $prefixKey
-     * @return bool|string
-     */
+ * Generate parameter body
+ *
+ * @param $formData
+ * @param string $numericPrefix
+ * @param string $argSeparator
+ * @param string $prefixKey
+ * @return bool|string
+ */
     private function build_query($formData, $numericPrefix = '', $argSeparator = '&', $prefixKey = '')
     {
         $str = '';
@@ -272,9 +272,9 @@ class Request
     }
 
     /**
-     * curl 请求错误信息
-     * @param int $error
-     */
+ * // cURL request error information
+ * @param int $error
+ */
     public function getCurlError($error = 1)
     {
         $errorCodes = array(

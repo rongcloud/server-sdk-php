@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组备注
+ * // Group annotation
  */
 namespace RongCloud\Lib\Group\Remark;
 
@@ -10,48 +10,48 @@ use RongCloud\Lib\Utils;
 class Remark {
 
     /**
-     * 群组模块 群组备注
-     *
-     * @var string
-     */
+ * // Group module group backup
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Group/Remark/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * // User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }
 
     /**
-     * 添加群组备注
-     *
-     * @param $User array
-     * @param
-     * $User = [
-            'userId'=> 'userId',//用户id
-            'groupId'=> 'groupId',//群组id
-            'remark'=> '备注'//群组备注
-        ];
-     * @return array
-     */
+ * Add group remark
+ *
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userId'=> 'userId',//User ID
+ * 'groupId'=> 'groupId',//Group ID
+ * 'remark'=> 'Remark'//Group remark
+ * ];
+ * @return array
+ */
     public function set(array $Group=[]){
         $conf = $this->conf['set'];
         $error = (new Utils())->check([
@@ -67,16 +67,16 @@ class Remark {
     }
 
     /**
-     * 删除群组备注
-     *
-     * @param $User array
-     * @param
-     * $User = [
-            'userId'=> 'ujadk90ha1',//用户id
-            'groupId'=> 'targetUserid'//群组id
-    ];
-     * @return array
-     */
+ * Delete group remark
+ *
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userId'=> 'ujadk90ha1',//User ID
+ * 'groupId'=> 'targetUserid'//Group ID
+ * ];
+ * @return array
+ */
     public function del(array $Group=[]){
         $conf = $this->conf['del'];
         $error = (new Utils())->check([
@@ -92,16 +92,16 @@ class Remark {
     }
 
     /**
-     *获取群组备注
-     * @param $User array
-     * @param
-     * $User = [
-            'userId'=> 'ujadk90ha1',//用户id
-            'groupId'=> 'groupId'//群组id
-        ];
-     * @return array
-     * @return  array
-     */
+ * Get group annotation
+ * @param array $User
+ * @param
+ * $User = [
+ * 'userId'=> 'ujadk90ha1',//User ID
+ * 'groupId'=> 'groupId'//Group ID
+ * ];
+ * @return array
+ * @return  array
+ */
     public function get(array $Group=[]){
         $conf = $this->conf['get'];
         $error = (new Utils())->check([

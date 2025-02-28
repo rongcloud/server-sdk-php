@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组禁言白名单
+ * // Group blacklist
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group\MuteWhiteList;
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class MuteWhiteList
 {
     /**
-     * 群组模块路径
-     *
-     * @var string
-     */
+ * // Group module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Group/MuteWhiteList/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,18 +40,18 @@ class MuteWhiteList
     }
 
     /**
-     * 添加群组禁言白名单
-     *
-     * @param $Group array 添加群组禁言白名单 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//群组 id
-                'members'=>[ //禁言人员列表
-                     ['id'=> 'ujadk90ha']
-                ]
-         ];
-     * @return array
-     */
+ * Add group ban whitelist
+ *
+ * @param array $Group Add group ban whitelist parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',// Group ID
+ * 'members'=>[ // Ban list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -77,18 +77,18 @@ class MuteWhiteList
     }
 
     /**
-     * 解除禁言白名单
-     *
-     * @param $Group array 解除禁言白名单 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//群组 id
-                'members'=>[ //解除禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ]
-            ];
-     * @return array
-     */
+ * Unblock users from the mute list
+ *
+ * @param array $Group Parameters for unblocking users from the mute list
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',// Group ID
+ * 'members'=>[ // List of users to unblock
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -113,15 +113,15 @@ class MuteWhiteList
     }
 
     /**
-     * 查询禁言白名单成员列表
-     *
-     * @param $Group array  参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//群组 id
-         ];
-     * @return array
-     */
+ * // Query the list of members in the banned words whitelist
+ *
+ * @param array $Group  Parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//group id
+ * ];
+ * @return array
+ */
     public function getList(array $Group=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['group'];

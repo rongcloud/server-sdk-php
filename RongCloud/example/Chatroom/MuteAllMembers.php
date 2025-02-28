@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室全体禁言
+ * // Chatroom-wide ban
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加聊天室全体禁言
+ * // Add a chat room-wide ban
  */
 function add()
 {
@@ -25,7 +25,7 @@ function add()
 add();
 
 /**
- * 解除聊天室全体禁言
+ * // Unmute all participants in the chat room
  */
 function remove()
 {
@@ -39,7 +39,7 @@ function remove()
 remove();
 
 /**
- * 聊天室全体禁言状态检查
+ * // Check the status of the entire chat room's mute state
  */
 function check()
 {
@@ -53,7 +53,7 @@ function check()
 check();
 
 /**
- * 获取聊天室全体禁言列表
+ * // Get the list of all banned words in the chat room
  */
 function getList()
 {

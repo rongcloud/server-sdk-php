@@ -1,6 +1,6 @@
 <?php
 /**
- * 敏感词模块测试用例
+ * // Test cases for sensitive word module
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -14,9 +14,9 @@ $RongSDK = new RongCloud(APPKEY,APPSECRET);
 function testSensitive($RongSDK){
     $Sensitive = $RongSDK->getSensitive();
     $params = [
-        'replace'=> '***',//敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
-        'keyword'=>"abc",//敏感词
-        'type'=>0// 0: 敏感词替换 1: 敏感词屏蔽
+        'replace'=> '***',// // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word masking can be empty
+        'keyword'=>"abc",// Sensitive word
+        'type'=>0// 0: Sensitive word substitution 1: Sensitive word filtering
     ];
     Utils::dump("添加敏感词成功",$Sensitive->add($params));
 
@@ -26,11 +26,11 @@ function testSensitive($RongSDK){
     $params = [
         'words' => [
             [
-                'word' => "abc1", //屏蔽
+                'word' => "abc1", // // Screen masking
             ],
             [
-                'word' => "abc2", //敏感词
-                'replaceWord' => '***' //敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
+                'word' => "abc2", // // Sensitive word
+                'replaceWord' => '***' // // Sensitive word replacement, maximum length does not exceed 32 characters, sensitive word masking can be empty
             ]
         ]
     ];

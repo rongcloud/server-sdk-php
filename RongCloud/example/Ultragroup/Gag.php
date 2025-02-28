@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群禁言实例
+ * Supergroup ban example
  */
 
 
@@ -11,47 +11,47 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加超级群禁言
+ * // Add super group ban speech
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
-        'members'=>[ //禁言人员列表
+        'id'=> 'phpgroup1',// Supergroup ID
+        'members'=>[ // // Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
-        'minute'=>3000  //	禁言时长
+        'minute'=>3000  // // Forbidden utterance duration
     ];
     $result = $RongSDK->getUltragroup()->Gag()->add($group);
     Utils::dump("添加超级群禁言",$result);
 }
 add();
 /**
- * 查询禁言成员列表
+ * // Query the list of banned members
  */
 function getList()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
+        'id'=> 'phpgroup1',// // Ultra Group ID
     ];
     $result = $RongSDK->getUltragroup()->Gag()->getList($group);
     Utils::dump("查询禁言成员列表",$result);
 }
 getList();
 /**
- * 解除禁言
+ * // Lift the ban
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',//超级群 id
-        'members'=>[ ////解除禁言人员列表
+        'id'=> 'phpgroup1',// // Supergroup ID
+        'members'=>[ // // Unban user list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];

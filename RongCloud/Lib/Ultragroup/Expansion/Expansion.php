@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 超级群消息扩展
+ * // Super group message extension
  */
 
 namespace RongCloud\Lib\Ultragroup\Expansion;
@@ -13,27 +13,27 @@ class Expansion
 {
 
     /**
-     * @var string 消息扩展
-     */
+ * @var string Message Extension
+ */
     private $jsonPath = 'Lib/Ultragroup/Expansion/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verification configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Person constructor.
-     */
+ * Person constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
@@ -41,19 +41,19 @@ class Expansion
     }
 
     /**
-     * 设置消息扩展
-     * 
-     * @param $param array 设置消息扩展参数
-     * @param
-     * $param = [
-            'msgUID'            => 'BRGM-DEN2-01E4-BN66',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-            'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-            'groupId'          => 'tjw3zbMrU',             //群id
-            'busChannel'  => '',                     //buschannel
-            'extraKeyVal'       => ['type'=>'3']            //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置，如：{"type":"3"}，单条消息可设置 300 个扩展信息，一次最多可以设置 100 个。
-        ];
-     * @return array
-     */
+ * Set message extension
+ *
+ * @param array $param Set message extension parameters
+ * @param
+ * $param = [
+ * 'msgUID'            => 'BRGM-DEN2-01E4-BN66',   //Message unique identifier ID, which can be obtained by the server through the full message routing function.
+ * 'userId'            => 'WNYZbMqpH',             //The ID of the user who needs to set the extension for message sending.
+ * 'groupId'          => 'tjw3zbMrU',             //Group ID
+ * 'busChannel'  => '',                     //Bus channel
+ * 'extraKeyVal'       => ['type'=>'3']            //Custom message extension content in JSON structure, set in Key-Value pairs, e.g., {"type":"3"}. A single message can set up to 300 extension items, with a maximum of 100 items per setting.
+ * ];
+ * @return array
+ */
     public function set(array $param = [])
     {
         $conf = $this->conf['set'];
@@ -73,20 +73,20 @@ class Expansion
     }
 
     /**
-     * 删除消息扩展
-     * 
-     * @param $param array 删除消息扩展参数
-     * @param
-     * $param = [
-            'msgUID'            => 'BRGM-DEN2-01E4-BN66',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-            'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-            'groupId'          => 'tjw3zbMrU',             //超级群id
-            'conversationType'  => '1',                     //会话类型，二人会话是 1 、群组会话是 3，只支持单聊、群组会话类型。
-            'extraKey'          => ['type']                 //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
-            'busChannel         => ""                       //buschannel 可以为空
-       ];
-     * @return array
-     */
+ * Delete message extension
+ *
+ * @param array $param Parameters for deleting message extension
+ * @param
+ * $param = [
+ * 'msgUID'            => 'BRGM-DEN2-01E4-BN66',   //Message unique identifier ID, which can be obtained by the server through the full message routing function.
+ * 'userId'            => 'WNYZbMqpH',             //The user ID of the message sender that needs to set the extension.
+ * 'groupId'          => 'tjw3zbMrU',             //Super group ID
+ * 'conversationType'  => '1',                     //Conversation type, 1 for one-on-one chat, 3 for group chat. Only single chat and group chat types are supported.
+ * 'extraKey'          => ['type']                 //The Key value of the extension information to be deleted, with a maximum of 100 extension information items that can be deleted at once.
+ * 'busChannel         => ""                       //buschannel can be empty
+ * ];
+ * @return array
+ */
     public function delete(array $param = [])
     {
         $conf = $this->conf['remove'];
@@ -106,16 +106,16 @@ class Expansion
     }
 
     /**
-     * 获取扩展信息
-     * 
-     * @param $param array 获取扩展信息参数
-     * @param
-     * $param = [
-            'msgUID' => 'ujadk90ha', //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-            'pageNo' => 1          //页数，默认返回 300 个扩展信息。
-        ];
-     * @return array
-     */
+ * Get extension information
+ *
+ * @param array $param Parameters for obtaining extension information
+ * @param
+ * $param = [
+ * 'msgUID' => 'ujadk90ha', // Message unique identifier ID, which can be obtained by the server through the full message routing function.
+ * 'pageNo' => 1          // Page number, defaults to returning 300 extension information.
+ * ];
+ * @return array
+ */
     public function getList(array $param = [])
     {
         $conf = $this->conf['getList'];

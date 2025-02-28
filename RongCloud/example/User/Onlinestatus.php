@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 用户在线状态
+ * User Module User Online Status
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 在线状态
+ * Online status
  */
 function check()
 {

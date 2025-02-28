@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-管理模块
+ * // Group Information Trusteeship - Management Module
  */
 namespace RongCloud\Lib\Entrust\Group\Manager;
 
@@ -11,29 +11,29 @@ use RongCloud\Lib\Utils;
 class Manager
 {
     /**
-     * 信息托管模块路径
-     *
-     * @var string
-     */
+ * Information hosting module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Entrust/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * // Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * // Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -41,14 +41,14 @@ class Manager
     }
 
     /**
-     * 设置群管理员(添加群管理员)
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userIds' => ['123','456']
-     * ]
-     * @return array
-     */
+ * Set group administrator (add group administrator)
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userIds' => ['123','456']
+ * ]
+ * @return array
+ */
     public function add(array $param = [])
     {
         $modelName = 'groupId_userIds';
@@ -68,14 +68,14 @@ class Manager
     }
 
     /**
-     * 移除群管理员
-     *
-     * @param array $param = [
-     *   'groupId' => '111',
-     *   'userIds' => ['123','456']
-     * ]
-     * @return array
-     */
+ * Remove group administrator
+ *
+ * @param array $param = [
+ * 'groupId' => '111',
+ * 'userIds' => ['123','456']
+ * ]
+ * @return array
+ */
     public function remove(array $param = [])
     {
         $modelName = 'groupId_userIds';

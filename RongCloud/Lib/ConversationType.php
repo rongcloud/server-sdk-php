@@ -1,6 +1,6 @@
 <?php
 /**
- * 会话类型
+ * conversation type
  */
 namespace RongCloud\Lib;
 

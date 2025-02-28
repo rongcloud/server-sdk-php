@@ -5,34 +5,34 @@
     "params": {
       "chatroom": {
         "id": "chatroomId01",
-        "name": "大融云"
+        "name": "RongCloud"
       }
     },
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -48,259 +48,19 @@
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "setDestroyType": {
-    "docs": "",
-    "url": "chatroom/destroy/set",
-    "params": {
-      "chatroom": {
-        "id": "chatroomId01"
-      }
-    },
-    "response": {
-      "success": {
-        "code": 200,
-        "msg": "成功返回"
-      },
-      "fail": {
-        "1005": {
-          "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1501": {
-          "code": "1501",
-          "msg": "{{name}} 类型不正确，请检查参数类型,应该为 Object 传入为 {{currentType}} "
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "destory": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/chatroom/destroy#api",
-    "url": "chatroom/destroy",
-    "params": {
-      "chatroom": {
-        "id": "chatroomId01"
-      }
-    },
-    "response": {
-      "success": {
-        "code": 200,
-        "msg": "成功返回"
-      },
-      "fail": {
-        "1005": {
-          "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1501": {
-          "code": "1501",
-          "msg": "{{name}} 类型不正确，请检查参数类型,应该为 Object 传入为 {{currentType}} "
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "query": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/chatroom/info#user_query",
-    "url": "chatroom/query",
-    "params": {
-      "chatroom": {
-        "id": ["chatromId01"]
-      }
-    },
-    "response": {
-      "success": {
-        "code": 200
-      },
-      "fail": {
-        "20003": {
-          "code": "1002",
-          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}} 单位: 字节"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "queryV2": {
-    "docs": "",
-    "url": "chatroom/get",
-    "params": {
-      "chatroom": {
-        "id": ["chatromId01"]
-      }
-    },
-    "response": {
-      "success": {
-        "code": 200
-      },
-      "fail": {
-        "20003": {
-          "code": "1002",
-          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}} 单位: 字节"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "get": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/chatroom/query-member-list",
-    "url": "chatroom/user/query",
-    "params": {
-      "chatroom": {
-        "id": "chatromId01",
-        "count": 10,
-        "order": 1
-      }
-    },
-    "response": {
-      "success": {
-        "code": 200,
-        "total": 1000,
-        "members": [
-          {
-            "id": "member1",
-            "time": "2015-09-10 16:38:26"
-          },
-          {
-            "id": "member2",
-            "time": "2015-09-10 16:38:26"
-          }
-        ]
-      },
-      "fail": {
-        "1005": {
-          "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1501": {
-          "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  },
-  "isExist": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/chatroom/info#users_exist",
-    "url": "chatroom/users/exist",
-    "params": {
-      "chatroom": {
-        "id": "chatroom01",
-        "members": [
-          {
-            "id": "memberId01"
-          }
-        ]
-      }
-    },
-    "response": {
-      "success": {
-        "code": "200",
-        "msg": "成功返回"
-      },
-      "fail": {
-        "1005": {
-          "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
-        },
-        "1002": {
-          "code": "1002",
-          "msg": "{{name}} 参数为必传项"
-        },
-        "1501": {
-          "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
-        },
-        "1004": {
-          "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
-        },
-        "1008": {
-          "code": "1008",
-          "msg": "调用频率超限"
-        }
-      }
-    }
-  }
-}
+        "极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to the point fast": "先突出最重要的内容，将关键词放在前面以便于扫描，使客户的选择和下一步操作明显，例如将'Templates provide a starting point for creating new documents.'替换为'Save time by creating a document template.'", "05. Be brief": "只提供足够的信息让客户自信地做出决策，删去多余的词，例如将'The Recommended Charts command on the Insert tab recommends charts that are likely to represent your data well.'简化为'Create a chart that's just right for your data by using the Recommended Charts command.'", "06. When in doubt, don’t capitalize": "默认使用句子式大写，只在标题或短语的第一个词以及专有名词或名称上大写，例如将'Find a Microsoft Partner'替换为'Find a Microsoft partner'.", "07. Skip periods (and : ! ?)": "在标题、标题、子标题、UI标题和三个或更少词的列表项中省略句末标点符号，例如将'**Move a tile.**'替换为'**Move a tile**'.", "08. Remember the last comma": "在三个或更多项目的列表中，在连词前加上逗号（即牛津逗号或序列逗号），例如将'Android, iOS and Windows'替换为'Android, iOS, and Windows'.", "09. Don’t be spacey": "在句号、问号和冒号后只使用一个空格，且在破折号周围不加空格，例如将'Use pipelines — logical groups of activities — to consolidate activities that are part of a task.'替换为'Use pipelines—logical groups of activities—to consolidate activities that are part of a task.'", "10. Revise weak writing": "大多数情况下，用动词开始每个陈述，删除'you can'和'there is, there are, there were'，例如将'You can access Office apps across your devices, and you get online file storage and sharing.'替换为'Store files online, access them from all your devices, and share them with coworkers.'"}}, "source_text": "{\n  \"create\": {\n    \"docs\": \"https://doc.rongcloud.cn/imserver/server/v1/chatroom/create#api\",\n    \"url\": \"chatroom/create\",\n    \"params\": {\n      \"chatroom\": {\n        \"id\": \"chatroomId01\",\n        \"name\": \"大融云\"\n      }\n    },\n    \"response\": {\n      \"success\": {\n        \"code\": 200,\n        \"msg\": \"成功返回\"\n      },\n      \"fail\": {\n        \"1005\": {\n          \"code\": \"1005\",\n          \"msg\": \"{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}\"\n        },\n        \"1002\": {\n          \"code\": \"1002\",\n          \"msg\": \"{{name}} 参数为必传项\"\n        },\n        \"1501\": {\n          \"code\": \"1501\",\n          \"msg\": \"参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}\"\n        },\n        \"1004\": {\n          \"code\": \"1004\",\n          \"msg\": \"签名错误, 请排查 Appkey、Secret 是否正确\"\n        },\n        \"1008\": {\n          \"code\": \"1008\",\n          \"msg\": \"调用频率超限\"\n        }\n      }\n    }\n  },\n  \"createV2\": {\n    \"docs\": \"https://doc.rongcloud.cn/imserver/server/v1/chatroom/create#api\",\n    \"url\": \"chatroom/create_new\",\n    \"params\": {\n      \"chatroom\": {\n        \"id\": \"chatroomId01\"\n      }\n    },\n    \"response\": {\n      \"success\": {\n        \"code\": 极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to the point fast": "先突出最重要的内容，将关键词放在前面以便于扫描，使客户的选择和下一步操作明显，例如将'Templates provide a starting point for creating new documents.'替换为'Save time by creating a document template.'", "05. Be brief": "只提供足够的信息让客户自信地做出决策，删去多余的词，例如将'The Recommended Charts command on the Insert tab recommends charts that are likely to represent your data well.'简化为'Create a chart that's just right for your data by using the Recommended Charts command.'", "06. When in doubt, don’t capitalize": "默认使用句子式大写，只在标题或短语的第一个词以及专有名词或名称上大写，例如将'Find a Microsoft Partner'替换为'Find a Microsoft partner'.", "07. Skip periods (and : ! ?)": "在标题、标题、子标题、UI标题和三个或更少词的列表项中省略句末标点符号，例如将'**Move a tile.**'替换为'**Move a tile**'.", "08. Remember the last comma": "在三个或更多项目的列表中，在连词前加上逗号（即牛津逗号或序列逗号），例如将'Android, iOS and Windows'替换为'Android, iOS, and Windows'.", "09. Don’t be spacey": "在句号、问号和冒号后只使用一个空格，且在破折号周围不加空格，例如将'Use pipelines — logical groups of activities — to consolidate activities that are part of a task.'替换为'Use pipelines—logical groups of activities—to consolidate activities that are part of a task.'", "10. Revise weak writing": "大多数情况下，用动词开始每个陈述，删除'you can'和'there is, there are, there were'，例如将'You can access Office apps across your devices, and you get online file storage and sharing.'替换为'Store files online, access them from all your devices, and share them with coworkers.'"}}, "source_text": "{\n  \"create\": {\n    \"docs\": \"https://doc.rongcloud.cn/imserver/server/v1/chatroom/create#api\",\n    \"url\": \"chatroom/create\",\n    \"params\": {\n      \"chatroom\": {\n        \"id\": \"chatroomId01\",\n        \"name\": \"大融云\"\n      }\n    },\n    \"response\": {\n 极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll,极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to the point fast": "先突出最重要的内容，将关键词放在前面以便于扫描，使客户的选择和下一步操作明显，例如将'Templates provide a starting point for creating new documents.'替换为'Save time by creating a document template.'", "05. Be brief": "只提供足够的信息让客户自信地做出决策，删去多余的词，例如将'The Recommended Charts command on the Insert tab recommends charts that are likely to represent your data well.'简化为'Create a chart that's just right for your data by using the Recommended Charts command.'", "06. When in doubt, don’t capitalize": "默认使用句子式大写，只在标题或短语的第一个词以及专有名词或名称上大写，例如将'Find a Microsoft Partner'替换为'Find a Microsoft partner'.", "07. Skip periods (and : ! ?)": "在标题、标题、子标题、UI标题和三个或更少词的列表项中省略句末标点符号，例如将'**Move a tile.**'替换为'**Move a tile**'.", "08. Remember the last comma": "在三个或更多项目的列表中，在连词前加上逗号（即牛津逗号或序列逗号），例如将'Android, iOS and Windows'替换为'Android, iOS, and Windows'.", "09. Don’t be spacey": "在句号、问号和冒号后只使用一个空格，且在破折号周围不加空格，例如将'Use pipelines — logical groups of activities — to consolidate activities that are part of a task.'替换为'Use pipelines—logical groups of activities—to consolidate activities that are part of a task.'", "10. Revise weak writing": "大多数情况下，用动词开始每个陈述，删除'you can'和'there is, there are, there were'，例如将'You can access Office apps across your devices, and you get online file storage and sharing.'替换为'Store files online, access them from all your devices, and share them with coworkers.'"}}, "source_text": "{\n  \"create\": {\n    \"docs\": \"https://doc.rongcloud.cn/imserver/server/v1/chatroom/create#api\",\n    \"url\": \"chatroom/create\",\n    \"params\": {\n      \"chatroom\": {\n        \"id\": \"chatroomId01\",\n        \"name\": \"大融云\"\n      }\n    },\n    \"response\": {\n      \"success\": {\n        \"code\": 200,\n        \"msg\": \"成功返回\"\n      },\n      \"fail\": {\n        \"1005\": {\n          \"code\": \"1005\",\n          \"msg\": \"{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}\"\n        },\n        \"1002\": {\n          \"code\": \"1002\",\n          \"msg\": \"{{name}} 参数为必传项\"\n        },\n        \"1501\": {\n          \"code\": \"1501\",\n          \"msg\": \"参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}\"\n        },\n        \"1004\": {\n          \"code\": \"1004\",\n          \"msg\": \"签名错误, 请排查 Appkey、Secret 是否正确\"极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to the point fast": "先突出最重要的内容，将关键词放在前面以便于扫描，极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to the point fast": "先突出最重要的内容，将关键词放在前面以便于扫描，使客户的选择和下一步操作明显，例如将'Templates provide a starting point for creating new documents.'替换为'Save time by creating a document template.'", "05. Be brief": "只提供足够的信息让客户自信地做出决策，删去多余的词，例如将'The Recommended Charts command on the Insert tab recommends charts that are likely to represent your data well.'简化为'Create a chart that's just right for your data by using the Recommended Charts command.'", "06. When in doubt, don’t capitalize": "默认使用句子式大写，只在标题或短语的第一个词以及专有名词或名称上大写，例如将'Find a Microsoft Partner'替换为'Find a Microsoft partner'.", "07. Skip periods (and : ! ?)": "在标题、标题、子标题、UI标题和三个或更少词的列表项中省略句末标点符号，例如将'**Move a tile.**'替换为'极简翻译：现代设计强调简洁明了，用更少的词表达更大的观点，例如将'If you're ready to purchase Office 365 for your organization, contact your Microsoft account representative.'简化为'Ready to buy? Contact us.'", "02. Write like you speak": "朗读文本，确保其听起来像真人所说，友好且口语化，避免使用机器人的词汇，例如将'Invalid ID'替换为'You need an ID that looks like this: someone@example.com'.", "03. Project friendliness": "使用缩写词（如it’s, you’ll, you’re, we’re, let’s）来展现友好，例如将'what you are interested in'替换为'what you’re interested in'.", "04. Get to

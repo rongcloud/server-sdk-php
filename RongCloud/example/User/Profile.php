@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 用户模块 用户标签
+ * // User Module User Label
  */
 
 
@@ -13,20 +13,20 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 用户资料设置
+ * User profile settings
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => 'ujadk90ha1', //用户id
+        'userId' => 'ujadk90ha1', // User ID
         'userProfile' => [
             'name' => 'testName',
             'email' => 'tester@rongcloud.cn'
-        ],  //用户基本信息
+        ],  // User basic information
         'userExtProfile' => [
             'ext_Profile1' => 'testpro1'
-        ]  //用户扩展信息
+        ]  // User extension information
     ];
     $res = $RongSDK->getUser()->Profile()->set($params);
     Utils::dump("用户资料设置", $res);
@@ -34,13 +34,13 @@ function set()
 set();
 
 /**
- * 用户托管信息清除
+ * // Clear user custody information
  */
 function clean()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], //用户id
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->clean($params);
     Utils::dump("用户托管信息清除", $res);
@@ -48,13 +48,13 @@ function clean()
 clean();
 
 /**
- * 批量查询用户资料
+ * // Batch query user data
  */
 function batchQuery()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], //用户id
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // // User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->batchQuery($params);
     Utils::dump("批量查询用户资料", $res);
@@ -62,7 +62,7 @@ function batchQuery()
 batchQuery();
 
 /**
- * 分页获取应用全部用户列表
+ * // Paginate to retrieve the full list of application users
  */
 function query()
 {
