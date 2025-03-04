@@ -22,7 +22,7 @@ function create()
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->add($group);
-    Utils::dump("超级群频道创建",$result);
+    Utils::dump("Super group channel creation",$result);
 }
 create();
 
@@ -35,7 +35,7 @@ function change()
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->change($group);
-    Utils::dump("超级群频道类型切换",$result);
+    Utils::dump("Super Group Channel Type Switching",$result);
 }
 change();
 /**
@@ -46,7 +46,7 @@ function getList()
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $result = $RongSDK->getUltragroup()->BusChannel()->getList("phpgroup2");
-    Utils::dump("超级群频道列表",$result);
+    Utils::dump("Supergroup channel list",$result);
 }
 getList();
 /**
@@ -61,7 +61,7 @@ function remove()
             'busChannel'=> 'busChannel',// Super Group Channel
         ];
         $result = $RongSDK->getUltragroup()->BusChannel()->remove($group);
-    Utils::dump("超级群频道删除",$result);
+    Utils::dump("Super group channel deletion",$result);
 }
 remove();
 
@@ -77,12 +77,12 @@ function addPrivateUsers()
     $group = [
         'id'=> 'phpgroup1',// Super group ID
         'busChannel'=>'',
-        'members'=>[ // Add super group private channel member
+        'members'=>[//  Add super group private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->addPrivateUsers($group);
-    Utils::dump("添加超级群私有频道成员",$result);
+    Utils::dump("Add supergroup private channel member",$result);
 }
 addPrivateUsers();
 /**
@@ -99,7 +99,7 @@ function getPrivateUserList()
         'pageSize'=>100
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->getPrivateUserList($group);
-    Utils::dump("查询超级群私有频道成员列表",$result);
+    Utils::dump("Query supergroup private channel member list",$result);
 }
 getPrivateUserList();
 /**
@@ -112,12 +112,12 @@ function removePrivateUsers()
     $group = [
         'id'=> 'phpgroup1',// Supergroup ID
         'busChannel'=>'',
-        'members'=>[ // Remove supergroup private channel member
+        'members'=>[//  Remove supergroup private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->removePrivateUsers($group);
-    Utils::dump("移除超级群私有频道成员",$result);
+    Utils::dump("Remove supergroup private channel members",$result);
 }
 removePrivateUsers();
 

@@ -18,10 +18,10 @@ function set()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'userId'=> 'ujadk90ha1',// User ID
-        'tags'=> ['标签557','标签4']// User tag
+        'tags'=> ['tag557','tag4']// User tag
     ];
     $Block = $RongSDK->getUser()->Tag()->set($user);
-    Utils::dump("添加标签",$Block);
+    Utils::dump("Add a label",$Block);
 }
 set();
 
@@ -33,10 +33,10 @@ function batchset()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'userIds'=> ['ujadk90ha1','ujadk90ha2'],// User ID
-        'tags'=> ['标签567','标签2']// User tag
+        'tags'=> ['tag567','tag2']// User tag
     ];
     $Block =  $RongSDK->getUser()->Tag()->batchset($user);
-    Utils::dump("批量添加标签",$Block);
+    Utils::dump("Batch add tags",$Block);
 }
 batchset();
 
@@ -50,6 +50,6 @@ function get()
         'userIds'=> ['ujadk90ha1','ujadk90ha2'],// User ID
     ];
     $Block =  $RongSDK->getUser()->Tag()->get($user);
-    Utils::dump("获取用户标签",$Block);
+    Utils::dump("Get user tags",$Block);
 }
 get();

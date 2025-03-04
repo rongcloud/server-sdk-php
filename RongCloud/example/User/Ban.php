@@ -24,7 +24,7 @@ function set()
         'type' => 'PERSON',              // conversation type, currently supports single conversation PERSON
     ];
     $res = $RongSDK->getUser()->Ban()->set($user);
-    Utils::dump("设置用户单聊禁言", $res);
+    Utils::dump("Set user mute status", $res);
 }
 set();
 
@@ -37,9 +37,9 @@ function getList()
     $param = [
         'num'       => 101,     // Get the number of rows, default is 100, maximum support is 200.
         'offset'    => 0,       // The starting position for the query, default is 0.
-        'type'      => 'PERSON' // Conversation type, currently supports single conversation PERSON.
+        'type'      => 'PERSON'//  Conversation type, currently supports single conversation PERSON.
     ];
     $res = $RongSDK->getUser()->Ban()->getList($param);
-    Utils::dump("查询单聊禁言用户列表", $res);
+    Utils::dump("Query the list of users banned from single chat", $res);
 }
 getList();

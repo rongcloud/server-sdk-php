@@ -17,13 +17,13 @@ function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'members'=>[ // Forbidden personnel list
+        'members'=>[//  Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ],
         'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUser()->MuteGroups()->add($group);
-    Utils::dump("添加群组禁言",$result);
+    Utils::dump("Add group ban",$result);
 }
 add();
 /**
@@ -37,7 +37,7 @@ function getList()
 
     ];
     $result = $RongSDK->getUser()->MuteGroups()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("Query the list of banned words",$result);
 }
 getList();
 /**
@@ -48,12 +48,12 @@ function remove()
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'members'=>[ // //Unblock banned user list
+        'members'=>[ //Unblock banned user list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];
     $result = $RongSDK->getUser()->MuteGroups()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("Unblock",$result);
 }
 remove();
 

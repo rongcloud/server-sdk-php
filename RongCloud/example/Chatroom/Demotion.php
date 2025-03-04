@@ -20,7 +20,7 @@ function add()
         'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// Message type list
     ];
     $Demotion = $RongSDK->getChatroom()->Demotion()->add($chatroom);
-    Utils::dump("添加应用内聊天室降级消息",$Demotion);
+    Utils::dump("Add in-app chat room downgrade message",$Demotion);
 }
 add();
 
@@ -34,7 +34,7 @@ function remove()
         'msgs'=> ['RC:TxtMsg01','RC:TxtMsg02']// Message type list
     ];
     $Demotion = $RongSDK->getChatroom()->Demotion()->remove($chatroom);
-    Utils::dump("移除应用内聊天室降级消息",$Demotion);
+    Utils::dump("Remove in-app chat room downgrade message",$Demotion);
 }
 remove();
 
@@ -48,6 +48,6 @@ function getList()
 
     ];
     $Demotion = $RongSDK->getChatroom()->Demotion()->getList($chatroom);
-    Utils::dump("获取应用内聊天室降级消息",$Demotion);
+    Utils::dump("Get app chat room downgrade message",$Demotion);
 }
 getList();

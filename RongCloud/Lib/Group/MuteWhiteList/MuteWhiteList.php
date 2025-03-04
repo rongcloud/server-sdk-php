@@ -46,7 +46,7 @@ class MuteWhiteList
  * @param
  * $Group = [
  * 'id'=> 'ujadk90ha',// Group ID
- * 'members'=>[ // Ban list
+ * 'members'=>[//  Ban list
  * ['id'=> 'ujadk90ha']
  * ]
  * ];
@@ -83,7 +83,7 @@ class MuteWhiteList
  * @param
  * $Group = [
  * 'id'=> 'ujadk90ha',// Group ID
- * 'members'=>[ // List of users to unblock
+ * 'members'=>[//  List of users to unblock
  * ['id'=> 'ujadk90ha']
  * ]
  * ];

@@ -23,7 +23,7 @@ function create()
         'member'=>['id'=> 'group999'],// Create a userId
     ];
     $result = $RongSDK->getUltragroup()->create($group);
-    Utils::dump("创建超级群",$result);
+    Utils::dump("Create supergroup",$result);
 }
 create();
 
@@ -38,7 +38,7 @@ function joins()
         'member'=>['id'=> 'group999'],// Group member information
     ];
     $result = $RongSDK->getUltragroup()->joins($group);
-    Utils::dump("加入超级群",$result);
+    Utils::dump("Join the supergroup",$result);
 }
 joins();
 
@@ -54,7 +54,7 @@ function quit()
         'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// Exit personnel information
     ];
     $result = $RongSDK->getUltragroup()->quit($group);
-    Utils::dump("退出超级群",$result);
+    Utils::dump("Exit supergroup",$result);
 }
 quit();
 
@@ -68,7 +68,7 @@ function dismiss()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->dismiss($group);
-    Utils::dump("解散超级群",$result);
+    Utils::dump("Disband supergroup",$result);
 }
 dismiss();
 
@@ -83,7 +83,7 @@ function update()
         'name'=>"watergroup"// group name
     ];
     $result = $RongSDK->getUltragroup()->update($group);
-    Utils::dump("修改群信息",$result);
+    Utils::dump("Modify group information",$result);
 }
 update();
 
@@ -98,7 +98,7 @@ function isExist()
         'member'=>"userId1"// Member ID
     ];
     $result = $RongSDK->getUltragroup()->isExist($group);
-    Utils::dump("群成员是否存在 ",$result);
+    Utils::dump("Whether the group member exists",$result);
 }
 isExist();
 

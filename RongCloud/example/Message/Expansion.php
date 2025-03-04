@@ -25,11 +25,11 @@ function set()
         'userId'            => 'WNYZbMqpH',             // Need to set the extended message delivery user Id.
         'targetId'          => 'tjw3zbMrU',             // Target ID, depending on the conversationType, could be a user ID or a group ID.
         'conversationType'  => '1',                     // Conversation type, one-on-one chat is 1, group chat is 3, only supports single chat and group chat types.
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',], // Custom message extension content, JSON structure, set in Key, Value format
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',],//  Custom message extension content, JSON structure, set in Key, Value format
         'isSyncSender'      => 0                        // Whether the sender accepts the terminal user's online status, 0 indicates not accepting, 1 indicates accepting, default is 0 not accepting
     ];
     $res = $RongSDK->getMessage()->Expansion()->set($message);
-    Utils::dump("设置消息扩展", $res);
+    Utils::dump("Set message extension", $res);
 }
 set();
 
@@ -48,7 +48,7 @@ function delete()
         'isSyncSender'      => 0                        // Terminal user online status, whether the sender accepts this setting status, 0 indicates not accepted, 1 indicates accepted, default is 0 not accepted
     ];
     $res = $RongSDK->getMessage()->Expansion()->delete($message);
-    Utils::dump("删除消息扩展", $res);
+    Utils::dump("Delete message extension", $res);
 }
 delete();
 
@@ -63,6 +63,6 @@ function getList()
         'pageNo' => 1                     // Page count, default returns 300 expanded information.
     ];
     $res = $RongSDK->getMessage()->Expansion()->getList($message);
-    Utils::dump("获取扩展信息", $res);
+    Utils::dump("Get extension information", $res);
 }
 getList();

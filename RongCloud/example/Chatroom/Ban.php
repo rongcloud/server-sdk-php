@@ -23,7 +23,7 @@ function add()
         'minute'=>30// Forbidden duration
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->add($chatroom);
-    Utils::dump("添加聊天室全局禁言",$Ban);
+    Utils::dump("Add global chat room ban",$Ban);
 }
 add();
 
@@ -39,7 +39,7 @@ function remove()
         ],
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->remove($chatroom);
-    Utils::dump("解除聊天室全局禁言",$Ban);
+    Utils::dump("Unlock global chat room restrictions",$Ban);
 }
 remove();
 
@@ -53,6 +53,6 @@ function getList()
 
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->getList($chatroom);
-    Utils::dump("获取聊天室全局禁言列表",$Ban);
+    Utils::dump("Get the global banned words list for the chat room",$Ban);
 }
 getList();

@@ -26,7 +26,7 @@ function recall()
         ])
     ];
     $Result = $RongSDK->getMessage()->Broadcast()->recall($message);
-    Utils::dump("广播消息撤回",$Result);
+    Utils::dump("Broadcast message recall",$Result);
 }
 recall();
 

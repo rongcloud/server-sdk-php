@@ -19,12 +19,12 @@ function add()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'replace' => '***', // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word filtering can be empty
-        'keyword' => "abc", // Sensitive word
-        'type' => 0 // 0: Sensitive word substitution 1: Sensitive word filtering
+        'replace' => '***',//  Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word filtering can be empty
+        'keyword' => "abc",//  Sensitive word
+        'type' => 0//  0: Sensitive word substitution 1: Sensitive word filtering
     ];
     $result = $RongSDK->getSensitive()->add($sensitive);
-    Utils::dump("添加敏感词", $result);
+    Utils::dump("Add sensitive words", $result);
 }
 add();
 
@@ -34,16 +34,16 @@ function batchAdd()
     $sensitive = [
         'words' => [
             [
-                'word' => "abc1", // Screen
+                'word' => "abc1",//  Screen
             ],
             [
-                'word' => "abc2", // Sensitive words
-                'replaceWord' => '***' // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word screening can be empty
+                'word' => "abc2",//  Sensitive words
+                'replaceWord' => '***'//  Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word screening can be empty
             ]
         ]
     ];
     $result = $RongSDK->getSensitive()->batchAdd($sensitive);
-    Utils::dump("批量添加敏感词", $result);
+    Utils::dump("Batch add sensitive words", $result);
 }
 batchAdd();
 
@@ -55,10 +55,10 @@ function remove()
 
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'keywords' => ["cccccdddd"] // Delete sensitive words
+        'keywords' => ["cccccdddd"]//  Delete sensitive words
     ];
     $result = $RongSDK->getSensitive()->remove($sensitive);
-    Utils::dump("删除敏感词", $result);
+    Utils::dump("Delete sensitive words", $result);
 }
 remove();
 
@@ -70,9 +70,9 @@ function getList()
 
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $sensitive = [
-        'type' => '', // Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word shielding, empty to retrieve all
+        'type' => '',//  Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word shielding, empty to retrieve all
     ];
     $result = $RongSDK->getSensitive()->getList($sensitive);
-    Utils::dump("获取敏感词列表", $result);
+    Utils::dump("Get sensitive word list", $result);
 }
 getList();

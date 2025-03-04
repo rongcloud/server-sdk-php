@@ -20,10 +20,10 @@ function send()
         'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',// Sender ID
         'targetId'=> ['phpgroup1'],// Super group ID
         "objectName"=>'RC:TxtMsg',// Message type Text
-        'content'=>json_encode(['content'=>'php 群消息 你好，小明'])// Message Body
+        'content'=>json_encode(['content'=>'php Group message, hello, Xiaoming'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Ultragroup()->send($message);
-    Utils::dump("超级群消息发送",$Result);
+    Utils::dump("Super Group Message Sending",$Result);
 }
 send();
 
@@ -38,16 +38,16 @@ function sendMention()
         'targetId'=> ['STRe0shISpQlSOBvek1FfU'],// Supergroup ID
         "objectName"=>'RC:TxtMsg',// Message type: Text
         'content'=>json_encode([// Message content
-            'content'=>'PHP 群 @ 消息 你好，小明',
+            'content'=>'PHP Group @message, hello, Xiaoming',
             'mentionedInfo'=>[
                 'type'=>'1',// @function type, 1 represents @all, 2 represents @specified user
                 'userIds'=>['uPj70HUrRSUk-ixtt7iIGc'],// The @ list is mandatory when type is 2, and can be empty when type is 1
-                'pushContent'=>'php push 问候消息'// Custom @ Message Push Content
+                'pushContent'=>'php push greeting message'// Custom @ Message Push Content
             ]
         ])
     ];
     $Result = $RongSDK->getMessage()->Ultragroup()->sendMention($message);
-    Utils::dump("发送 @ 消息",$Result);
+    Utils::dump("Send @ message",$Result);
 }
 sendMention();
 /**
@@ -64,6 +64,6 @@ function recall()
 /* Delivery Time */
     ];
     $Chartromm = $RongSDK->getMessage()->Ultragroup()->recall($message);
-    Utils::dump("超级群消息撤回",$Chartromm);
+    Utils::dump("Supergroup message recall",$Chartromm);
 }
 recall();

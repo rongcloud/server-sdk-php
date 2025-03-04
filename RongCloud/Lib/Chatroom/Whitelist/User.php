@@ -44,8 +44,8 @@ class User {
  *
  * @param $Chatroom
  * $Chatroom = [
- * 'id'=> "chatroom1", // Chatroom ID
- * 'members'=>['abc','abcd'] // User list
+ * 'id'=> "chatroom1",//  Chatroom ID
+ * 'members'=>['abc','abcd']//  User list
  * ]
  * @return array
  */

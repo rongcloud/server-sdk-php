@@ -22,7 +22,7 @@ function remarkNameSet()
         'remarkName' => 'rongcloud'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->set($param);
-    Utils::dump("设置用户指定群组名称备注名", $result);
+    Utils::dump("Set the user-specified group name annotation", $result);
 }
 remarkNameSet();
 
@@ -37,7 +37,7 @@ function remarkNameDelete()
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->delete($param);
-    Utils::dump("设置用户指定群组名称备注名", $result);
+    Utils::dump("Set the user-specified group name annotation", $result);
 }
 remarkNameDelete();
 
@@ -52,7 +52,7 @@ function remarkNameQuery()
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->query($param);
-    Utils::dump("查询用户指定群组名称备注名", $result);
+    Utils::dump("Query the specified group name for user remarks", $result);
 }
 remarkNameQuery();
 

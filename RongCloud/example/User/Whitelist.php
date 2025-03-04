@@ -18,10 +18,10 @@ function add()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'id'=> 'ujadk90ha',// User ID
-        'whitelist'=> ['kkj9o01'] // The list of personnel requiring whitelist addition
+        'whitelist'=> ['kkj9o01']//  The list of personnel requiring whitelist addition
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->add($user);
-    Utils::dump("添加白名单",$Whitelist);
+    Utils::dump("Add to whitelist",$Whitelist);
 }
 add();
 
@@ -33,10 +33,10 @@ function remove()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'id'=> 'ujadk90ha',// User ID
-        'whitelist'=> ['kkj9o02'] // List of personnel to be removed from the whitelist
+        'whitelist'=> ['kkj9o02']//  List of personnel to be removed from the whitelist
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->remove($user);
-    Utils::dump("移除白名单",$Whitelist);
+    Utils::dump("Remove whitelist",$Whitelist);
 }
 remove();
 
@@ -52,6 +52,6 @@ function getList()
         'pageToken'=> ''// Pagination information, the next request returns 'next', no pagination processing is done when not transmitting, defaults to fetching the first 1000 user lists, sorted in reverse order by whitelist addition time.
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->getList($user);
-    Utils::dump("用户白名单列表",$Whitelist);
+    Utils::dump("User Whitelist",$Whitelist);
 }
 getList();

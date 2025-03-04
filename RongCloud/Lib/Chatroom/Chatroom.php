@@ -90,13 +90,13 @@ class Chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [
- * 'id'=> 'chatroom9992', // Chatroom ID
- * 'destroyType' => 0, // Specifies the destruction type of the chatroom 0: Default value, indicates destruction when inactive, 1: Fixed time destruction
- * 'destroyTime' => 60, // Sets the destruction time of the chatroom
- * 'isBan' => false, // Whether to ban all members of the chatroom, default false
- * 'whiteUserIds' => ['user1','user2'], // Whitelist user list for banning, supports batch setting, maximum not exceeding 20
- * 'entryOwnerId' => '', // The owner user ID of the chatroom's custom properties.
- * 'entryInfo' => '', // Custom properties KV pair of the chatroom, JSON structure.
+ * 'id'=> 'chatroom9992',//  Chatroom ID
+ * 'destroyType' => 0,//  Specifies the destruction type of the chatroom 0: Default value, indicates destruction when inactive, 1: Fixed time destruction
+ * 'destroyTime' => 60,//  Sets the destruction time of the chatroom
+ * 'isBan' => false,//  Whether to ban all members of the chatroom, default false
+ * 'whiteUserIds' => ['user1','user2'],//  Whitelist user list for banning, supports batch setting, maximum not exceeding 20
+ * 'entryOwnerId' => '',//  The owner user ID of the chatroom's custom properties.
+ * 'entryInfo' => '',//  Custom properties KV pair of the chatroom, JSON structure.
  * ];
  * @return mixed|null
  */
@@ -266,9 +266,9 @@ class Chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [
- * 'id'=> 'chatroom9992', // Chatroom ID
+ * 'id'=> 'chatroom9992',//  Chatroom ID
  * 'members'=>[
- * ['id'=>"sea9902"] // Member ID
+ * ['id'=>"sea9902"]//  Member ID
  * ]
  * ];
  * @return mixed|null

@@ -18,10 +18,10 @@ function set()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'userId'=> 'ujadk90ha1',// User ID
-        'remarks'=> json_encode([['id'=>'user1','remark'=>'备注4'],['id'=>'user2','remark'=>'备注4']])// User Annotation
+        'remarks'=> json_encode([['id'=>'user1','remark'=>'note4'],['id'=>'user2','remark'=>'note4']])// User Annotation
     ];
     $Remark = $RongSDK->getUser()->Remark()->set($user);
-    Utils::dump("添加备注",$Remark);
+    Utils::dump("Add a note",$Remark);
 }
 set();
 
@@ -36,7 +36,7 @@ function del()
         'targetId'=> "userId1"// User backup
     ];
     $Remark = $RongSDK->getUser()->Remark()->del($user);
-    Utils::dump("删除备注",$Remark);
+    Utils::dump("Delete backup note",$Remark);
 }
 del();
 
@@ -52,6 +52,6 @@ function get()
         'page'=>1
     ];
     $Remark =  $RongSDK->getUser()->Remark()->get($user);
-    Utils::dump("获取用户备注",$Remark);
+    Utils::dump("Get user remark",$Remark);
 }
 get();

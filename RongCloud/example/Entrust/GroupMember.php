@@ -23,7 +23,7 @@ function set()
         'extra' => 'xxxxxx'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->set($param);
-    Utils::dump("设置群成员资料", $result);
+    Utils::dump("Set group member information", $result);
 }
 set();
 
@@ -41,7 +41,7 @@ function kick()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kick($param);
-    Utils::dump("踢出群组", $result);
+    Utils::dump("Leave the group", $result);
 }
 kick();
 
@@ -55,7 +55,8 @@ function kickAll()
         'userId' => '111'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kickAll($param);
-    Utils::dump("指定用户踢出所有群组", $result);
+    Utils::dump("Specify the user to kick out all groups
+@param user The user to be kicked out", $result);
 }
 kickAll();
 
@@ -71,7 +72,7 @@ function follow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->follow($param);
-    Utils::dump("设置用户指定群特别关注用户", $result);
+    Utils::dump("Set user-specified special attention users", $result);
 }
 follow();
 
@@ -87,7 +88,7 @@ function unFollow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->unFollow($param);
-    Utils::dump("删除用户指定群组中的特别关注用户", $result);
+    Utils::dump("Remove a specific user from the specified group's special attention list", $result);
 }
 unFollow();
 
@@ -102,7 +103,7 @@ function getFollowed()
         'userId' => '222',
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->getFollowed($param);
-    Utils::dump("查询用户指定群组特别关注成员列表", $result);
+    Utils::dump("Query the user-specified group's specially focused member list", $result);
 }
 getFollowed();
 
@@ -120,7 +121,7 @@ function query()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->query($param);
-    Utils::dump("分页获取群成员信息", $result);
+    Utils::dump("Get paginated member information", $result);
 }
 query();
 
@@ -135,6 +136,6 @@ function specificQuery()
         'userIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->specificQuery($param);
-    Utils::dump("获取指定群成员信息", $result);
+    Utils::dump("Retrieve specified member information", $result);
 }
 specificQuery();

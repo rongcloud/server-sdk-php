@@ -20,7 +20,7 @@ if (!defined('RONGCLOUOD_ROOT')) {
     require('Autoloader.php');
 }
 
-// Whether to enable domain name switching true to enable (default) false to disable
+//Whether to enable domain name switching true to enable (default) false to disable
 if (!defined('RONGCLOUOD_DOMAIN_CHANGE')) {
     define('RONGCLOUOD_DOMAIN_CHANGE', true);
 }

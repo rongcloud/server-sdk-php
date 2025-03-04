@@ -22,7 +22,7 @@ function stop()
 /* Chatroom ID */
     ];
     $Demotion = $RongSDK->getChatroom()->Distribute()->stop($chatroom);
-    Utils::dump("停止聊天室消息分发",$Demotion);
+    Utils::dump("Stop chat room message distribution",$Demotion);
 }
 stop();
 
@@ -36,6 +36,6 @@ function resume()
         'id'=> "Txtmsg03"// Chatroom ID
     ];
     $Demotion = $RongSDK->getChatroom()->Distribute()->resume($chatroom);
-    Utils::dump("恢复聊天室消息分发",$Demotion);
+    Utils::dump("Restore chat room message distribution",$Demotion);
 }
 resume();

@@ -23,7 +23,7 @@ function add()
         'minute'=>30// Forbidden speech duration
     ];
     $MuteChatrooms = $RongSDK->getUser()->MuteChatrooms()->add($chatroom);
-    Utils::dump("添加聊天室成员禁言",$MuteChatrooms);
+    Utils::dump("Add chat room member ban",$MuteChatrooms);
 }
 add();
 
@@ -39,7 +39,7 @@ function remove()
         ],
     ];
     $MuteChatrooms = $RongSDK->getUser()->MuteChatrooms()->remove($chatroom);
-    Utils::dump("解除聊天室成员禁言",$MuteChatrooms);
+    Utils::dump("Unban chat room member",$MuteChatrooms);
 }
 remove();
 
@@ -53,6 +53,7 @@ function getList()
         
     ];
     $MuteChatrooms = $RongSDK->getUser()->MuteChatrooms()->getList($chatroom);
-    Utils::dump("获取聊天室成员禁言列表",$MuteChatrooms);
+    Utils::dump("Get the list of banned words for chat room members
+/* @param */",$MuteChatrooms);
 }
 getList();

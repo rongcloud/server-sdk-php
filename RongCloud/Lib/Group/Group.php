@@ -80,8 +80,8 @@ class Group
  * @param array $Group Parameters for creating a group
  * @param
  * $Group = [
- * 'id'=> 'watergroup1', // Group ID
- * 'name'=> 'watergroup', // Group name
+ * 'id'=> 'watergroup1',//  Group ID
+ * 'name'=> 'watergroup',//  Group name
  * 'members'=>[          // List of group members
  * ['id'=> 'group9991111113']
  * ]
@@ -116,9 +116,9 @@ class Group
  * @param array $Group Parameters for joining a group
  * @param
  * $Group = [
- * 'id'=> 'watergroup', // Group ID
- * 'name'=>"watergroup", // Group name
- * 'member'=>['id'=> 'group999'], // Group member information
+ * 'id'=> 'watergroup',//  Group ID
+ * 'name'=>"watergroup",//  Group name
+ * 'member'=>['id'=> 'group999'],//  Group member information
  * ];
  * @return array
  */
@@ -151,8 +151,8 @@ class Group
  * @param array $Group Exit group parameter
  * @param
  * $Group = [
- * 'id'=> 'watergroup', // Group id
- * 'member'=>['id'=> 'group999'], // Group member information
+ * 'id'=> 'watergroup',//  Group id
+ * 'member'=>['id'=> 'group999'],//  Group member information
  * ];
  * @return array
  */

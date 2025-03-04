@@ -44,10 +44,10 @@ class Entry {
  *
  * @param $Chatroom
  * $Chatroom = [
- * 'id'=>       'ujadk90ha', // Chatroom id
- * 'userId'=>   'ujadk90ha', // Operator user Id
- * 'key'=>      'ujadk90ha', // Chatroom property name
- * 'value'=>    'ujadk90ha', // Corresponding value of the chatroom property
+ * 'id'=>       'ujadk90ha',//  Chatroom id
+ * 'userId'=>   'ujadk90ha',//  Operator user Id
+ * 'key'=>      'ujadk90ha',//  Chatroom property name
+ * 'value'=>    'ujadk90ha',//  Corresponding value of the chatroom property
  * ];
  * @return mixed|null
  */
@@ -82,7 +82,7 @@ class Entry {
  * 'id'=>       'ujadk90ha',      // Chatroom ID
  * 'autoDelete'=> 0,              // Whether to delete this Key value after the user (entryOwnerId) exits the chatroom
  * 'entryOwnerId'=> 'test',       // The user ID to whom the chatroom's custom properties belong
- * 'entryInfo'=> '{"key1":"value1","key2":"value2"}', // The value corresponding to the chatroom properties
+ * 'entryInfo'=> '{"key1":"value1","key2":"value2"}',//  The value corresponding to the chatroom properties
  * ];
  * @return mixed|null
  */

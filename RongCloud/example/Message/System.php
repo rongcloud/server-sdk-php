@@ -19,15 +19,16 @@ function send()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'senderId' => '__system__', // Sender ID
-        'targetId' => 'uPj70HUrRSUk-ixtt7iIGc', // Receive release id
-        "objectName" => 'RC:TxtMsg', // Message type Text
-        'content' => ['content' => 'php system message'] // Message Body
+        'senderId' => '__system__',//  Sender ID
+        'targetId' => 'uPj70HUrRSUk-ixtt7iIGc',//  Receive release id
+        "objectName" => 'RC:TxtMsg',//  Message type Text
+        'content' => ['content' => 'php system message']//  Message Body
     ];
     $Result = $RongSDK->getMessage()->System()->send($message);
-    Utils::dump("系统消息发送", $Result);
+    Utils::dump("System message delivery
+/* @param system message delivery */", $Result);
 }
-// send();
+send();
 
 /**
  * System broadcast message
@@ -36,12 +37,12 @@ function broadcast()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'senderId' => '__system__', // Sender ID
-        "objectName" => 'RC:TxtMsg', // Message type
-        'content' => ['content' => 'php 广播消息'] // Message content
+        'senderId' => '__system__',//  Sender ID
+        "objectName" => 'RC:TxtMsg',//  Message type
+        'content' => ['content' => 'php broadcast message']//  Message content
     ];
     $Result = $RongSDK->getMessage()->System()->broadcast($message);
-    Utils::dump("系统广播消息", $Result);
+    Utils::dump("System broadcast message", $Result);
 }
 broadcast();
 
@@ -52,9 +53,9 @@ function onlineBroadcast()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'senderId' => '__system__', // Sender ID
-        "objectName" => 'RC:TxtMsg', // Message type
-        'content' => ['content' => 'php 广播消息'] // Message content
+        'senderId' => '__system__',//  Sender ID
+        "objectName" => 'RC:TxtMsg',//  Message type
+        'content' => ['content' => 'php broadcast message']//  Message content
     ];
     $Result = $RongSDK->getMessage()->System()->onlineBroadcast($message);
     Utils::dump("Broadcast to online users", $Result);
@@ -68,22 +69,22 @@ function sendTemplate()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'senderId' => '__system__', // Sender ID
-        'objectName' => 'RC:TxtMsg', // Message type Text
-        'template' => json_encode(['content' => '{name}, 语文成绩 {score} 分']), // Template content
+        'senderId' => '__system__',//  Sender ID
+        'objectName' => 'RC:TxtMsg',//  Message type Text
+        'template' => json_encode(['content' => '{name}, Language score {score}']),//  Template content
         'content' => json_encode([
-            'Vu-oC0_LQ6kgPqltm_zYtI' => [ // Recipient ID
-                'data' => ['{name}' => '小明', '{score}' => '90'], // Template data
-                'push' => '{name} php 系统模板消息', // Push content
+            'Vu-oC0_LQ6kgPqltm_zYtI' => [//  Recipient ID
+                'data' => ['{name}' => 'Xiaoming', '{score}' => '90'],//  Template data
+                'push' => '{name} php System Template Message',//  Push content
             ],
-            'uPj70HUrRSUk-ixtt7iIGc' => [ // Recipient ID
-                'data' => ['{name}' => '小红', '{score}' => '95'], // Template data
-                'push' => '{name} php 系统模板消息', // push notification content
+            'uPj70HUrRSUk-ixtt7iIGc' => [//  Recipient ID
+                'data' => ['{name}' => '小红', '{score}' => '95'],//  Template data
+                'push' => '{name} php 系统模板消息',//  push notification content
             ]
         ])
     ];
     $Chartromm = $RongSDK->getMessage()->System()->sendTemplate($message);
-    Utils::dump("系统模板消息", $Chartromm);
+    Utils::dump("System template message", $Chartromm);
 }
 sendTemplate();
 
@@ -94,10 +95,10 @@ function pushUser()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'userIds' => ["user1","user2"], // Recipient ID
+        'userIds' => ["user1","user2"],//  Recipient ID
         'notification' => [
-            "pushContent"=>"推送内容",
-            "title"=>"推送标题",
+            "pushContent"=>"push content",
+            "title"=>"push title",
             "ios"=>
                 [
                     "thread-id"=>"223",
@@ -125,6 +126,6 @@ function pushUser()
         ]
     ];
     $Chartromm = $RongSDK->getMessage()->System()->pushUser($message);
-    Utils::dump("不落地通知", $Chartromm);
+    Utils::dump("Push-only Notification", $Chartromm);
 }
 pushUser();

@@ -22,11 +22,11 @@ function register()
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
         'id' => 'CHIQ1',
-        'name' => 'PHPSDK', // Username
-        'portrait' => '' // User avatar
+        'name' => 'PHPSDK',//  Username
+        'portrait' => ''//  User avatar
     ];
     $register = $RongSDK->getUser()->register($user);
-    Utils::dump("用户注册", $register);
+    Utils::dump("User registration", $register);
 }
 
 register();
@@ -38,12 +38,12 @@ function update()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // User ID
-        'name' => 'Maritn', // Username
+        'id' => 'ujadk90ha',//  User ID
+        'name' => 'Maritn',//  Username
         'portrait' => '  http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //User avatar
     ];
     $update = $RongSDK->getUser()->update($user);
-    Utils::dump("用户信息更新", $update);
+    Utils::dump("User information update", $update);
 }
 
 update();
@@ -55,10 +55,10 @@ function get()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // User ID
+        'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->get($user);
-    Utils::dump("获取用户信息", $res);
+    Utils::dump("Get user information", $res);
 }
 
 get();
@@ -70,10 +70,10 @@ function abandon()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // User ID
+        'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->abandon($user);
-    Utils::dump("用户注销", $res);
+    Utils::dump("User cancellation", $res);
 }
 
 abandon();
@@ -89,7 +89,7 @@ function reactivate()
         'time' => 1623123911000
     ];
     $res = $RongSDK->getUser()->reactivate($user);
-    Utils::dump("Token 失效", $res);
+    Utils::dump("Token invalid", $res);
 }
 reactivate();
 
@@ -100,11 +100,11 @@ function abandonQuery()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'page' => 1, // Page number
-        'size' => 10, // Page count
+        'page' => 1,//  Page number
+        'size' => 10,//  Page count
     ];
     $res = $RongSDK->getUser()->abandonQuery($params);
-    Utils::dump("注销用户列表", $res);
+    Utils::dump("List of unsubscribed users", $res);
 }
 
 abandonQuery();
@@ -116,10 +116,10 @@ function active()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // User ID
+        'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->activate($user);
-    Utils::dump("注销用户激活", $res);
+    Utils::dump("Deactivate user activation", $res);
 }
 
 active();
@@ -131,10 +131,10 @@ function getGroups()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => '55vW81Mni', // User ID
+        'id' => '55vW81Mni',//  User ID
     ];
     $res = $RongSDK->getUser()->getGroups($user);
-    Utils::dump("查询用户所在群组", $res);
+    Utils::dump("Query the group where the user is located", $res);
 }
 
 getGroups();
@@ -150,6 +150,6 @@ function expire()
         'time' => 1623123911000
     ];
     $res = $RongSDK->getUser()->expire($user);
-    Utils::dump("Token 失效", $res);
+    Utils::dump("Token expired", $res);
 }
 expire();

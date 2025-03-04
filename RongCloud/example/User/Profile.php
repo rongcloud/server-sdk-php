@@ -19,7 +19,7 @@ function set()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => 'ujadk90ha1', // User ID
+        'userId' => 'ujadk90ha1',//  User ID
         'userProfile' => [
             'name' => 'testName',
             'email' => 'tester@rongcloud.cn'
@@ -29,7 +29,7 @@ function set()
         ]  // User extension information
     ];
     $res = $RongSDK->getUser()->Profile()->set($params);
-    Utils::dump("用户资料设置", $res);
+    Utils::dump("User Profile Settings", $res);
 }
 set();
 
@@ -40,10 +40,10 @@ function clean()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'],//  User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->clean($params);
-    Utils::dump("用户托管信息清除", $res);
+    Utils::dump("Clear user hosting information", $res);
 }
 clean();
 
@@ -54,10 +54,10 @@ function batchQuery()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'],//  User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->batchQuery($params);
-    Utils::dump("批量查询用户资料", $res);
+    Utils::dump("Batch query user data", $res);
 }
 batchQuery();
 
@@ -73,6 +73,6 @@ function query()
         'order' => 0
     ];
     $res =  $RongSDK->getUser()->Profile()->query($params);
-    Utils::dump("分页获取应用全部用户列表", $res);
+    Utils::dump("Get the list of all users in the application by pagination", $res);
 }
 query();

@@ -20,10 +20,10 @@ function send()
         'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',// Sender ID
         'targetId'=> ['php group1'],// Group ID
         "objectName"=>'RC:TxtMsg',// Message type Text
-        'content'=>json_encode(['content'=>'php 群消息 你好，小明'])// Message Body
+        'content'=>json_encode(['content'=>'PHP group message, hello, Xiaoming.'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Group()->send($message);
-    Utils::dump("群组消息发送",$Result);
+    Utils::dump("Group message sending",$Result);
 }
 send();
 
@@ -38,16 +38,16 @@ function sendMention()
         'targetId'=> ['STRe0shISpQlSOBvek1FfU'],// Group ID
         "objectName"=>'RC:TxtMsg',// Message type Text
         'content'=>json_encode([// Message content
-            'content'=>'PHP 群 @ 消息 你好，小明',
+            'content'=>'PHP group @message, hello, Xiaoming',
             'mentionedInfo'=>[
                 'type'=>'1',// Function type, 1 indicates @ all users, 2 indicates @ specified user
                 'userIds'=>['uPj70HUrRSUk-ixtt7iIGc'],// The @ list must be filled when the type is 2, and can be empty when the type is 1.
-                'pushContent'=>'php push 问候消息'// Custom @ Message Push Content
+                'pushContent'=>'PHP push greeting message'// Custom @ Message Push Content
             ]
         ])
     ];
     $Result = $RongSDK->getMessage()->Group()->sendMention($message);
-    Utils::dump("发送 @ 消息",$Result);
+    Utils::dump("Send @ message",$Result);
 }
 sendMention();
 
@@ -61,10 +61,10 @@ function sendStatusMessage()
         'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',// Sender ID
         'targetId'=> ['php group1'],// Group ID
         "objectName"=>'RC:TxtMsg',// Message type Text
-        'content'=>json_encode(['content'=>'php 群状态消息 你好，小明'])// Message Body
+        'content'=>json_encode(['content'=>'PHP group status message, hello, Xiaoming.'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Group()->sendStatusMessage($message);
-    Utils::dump("群组状态消息发送",$Result);
+    Utils::dump("Group status message sending",$Result);
 }
 sendStatusMessage();
 
@@ -75,12 +75,13 @@ function recall()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
-        'senderId'=> 'ujadk90ha',// Sender ID
-        'targetId'=> ['STRe0shISpQlSOBvek1FfU'],// Group ID
-        "uId"=>'5GSB-RPM1-KP8H-9JHF',// The unique identifier of the message
-        'sentTime'=>'1519444243981'// Message sending time
+        'senderId'=> 'ujadk90ha',//Sender ID
+        'targetId'=> ['STRe0shISpQlSOBvek1FfU'],//Group ID
+        "uId"=>'5GSB-RPM1-KP8H-9JHF',//The unique identifier of the message
+        'sentTime'=>'1519444243981'//Message sending time
     ];
     $Result = $RongSDK->getMessage()->Group()->recall($message);
-    Utils::dump("撤回已发送的群聊消息",$Result);
+    Utils::dump("Withdraw a sent group chat message
+@param messageId The ID of the message to be withdrawn",$Result);
 }
 recall();

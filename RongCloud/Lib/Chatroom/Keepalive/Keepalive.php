@@ -44,7 +44,7 @@ class Keepalive {
  *
  * @param $Chatroom
  * $Chatroom = [
- * 'id'=> 'ujadk90ha', // chatroom id
+ * 'id'=> 'ujadk90ha',//  chatroom id
  * ];
  * @return mixed|null
  */

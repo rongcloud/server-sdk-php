@@ -19,12 +19,12 @@ function add()
     $chatroom = [
         "id"=>"seal9901",// Chat room ID
         "members"=>[
-            ["id"=>"user1"], // User ID
+            ["id"=>"user1"],//  User ID
             ["id"=>"user2"]
         ]
     ];
     $User = $RongSDK->getChatroom()->Whitelist()->User()->add($chatroom);
-    Utils::dump("添加聊天室用户白名单",$User);
+    Utils::dump("Add chat room user whitelist",$User);
 }
 add();
 
@@ -37,12 +37,12 @@ function remove()
     $chatroom = [
         "id"=>"seal9901",// Chat room ID
         "members"=>[
-           ["id"=>"user4"], // User ID
+           ["id"=>"user4"],//  User ID
            ["id"=>"user5"]
         ]
     ];
     $User = $RongSDK->getChatroom()->Whitelist()->User()->remove($chatroom);
-    Utils::dump("移除聊天室用户白名单",$User);
+    Utils::dump("Remove chat room user whitelist",$User);
 }
 remove();
 
@@ -56,6 +56,6 @@ function getList()
         "id"=>"seal9901",// chatroom id
     ];
     $User = $RongSDK->getChatroom()->Whitelist()->User()->getList($chatroom);
-    Utils::dump("获取聊天室用户白名单",$User);
+    Utils::dump("Get the chat room user whitelist",$User);
 }
 getList();

@@ -44,11 +44,11 @@ class Block {
  *
  * @param array $Chatroom
  * $Chatroom = [
- * 'id'=> 'ujadk90ha', // Chatroom ID
+ * 'id'=> 'ujadk90ha',//  Chatroom ID
  * 'members'=> [
- * ['id'=>'seal9901'] // Banned member ID
+ * ['id'=>'seal9901']//  Banned member ID
  * ],
- * 'minute'=>30 // Ban duration in minutes
+ * 'minute'=>30//  Ban duration in minutes
  * ];
  * @return mixed|null
  */

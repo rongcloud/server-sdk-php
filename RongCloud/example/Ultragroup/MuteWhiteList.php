@@ -18,13 +18,13 @@ function add()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Super group ID
-        'members'=>[ // Forbidden whitelist personnel list
+        'members'=>[//  Forbidden whitelist personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->add($group);
-    Utils::dump("添加超级群禁言白名单",$result);
+    Utils::dump("Add super group ban whitelist",$result);
 }
 add();
 /**
@@ -38,7 +38,7 @@ function getList()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->getList($group);
-    Utils::dump("查询禁言白名单成员列表",$result);
+    Utils::dump("Query the list of banned words whitelist members",$result);
 }
 getList();
 /**
@@ -50,12 +50,12 @@ function remove()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Super group ID
-        'members'=>[ // //Unblock whitelisted personnel list
+        'members'=>[ //Unblock whitelisted personnel list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->remove($group);
-    Utils::dump("解除禁言白名单",$result);
+    Utils::dump("Remove from the whitelist",$result);
 }
 remove();
 

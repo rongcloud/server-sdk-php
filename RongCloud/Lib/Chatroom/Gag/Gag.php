@@ -44,11 +44,11 @@ class Gag {
  *
  * @param array $Chatroom
  * $Chatroom = [
- * 'id'=> 'ujadk90ha', // Chatroom ID
+ * 'id'=> 'ujadk90ha',//  Chatroom ID
  * 'members'=> [
- * ['id'=>'seal9901'] // Muted member ID
+ * ['id'=>'seal9901']//  Muted member ID
  * ],
- * 'minute'=>30 // Mute duration in minutes
+ * 'minute'=>30//  Mute duration in minutes
  * ];
  * @return mixed|null
  */

@@ -74,8 +74,8 @@ class MuteAllMembers
  * @param array $Group Unblock users parameter
  * @param
  * $Group = [
- * 'id'=> 'ujadk90ha', // Group ID
- * 'members'=>[ // List of users to unblock
+ * 'id'=> 'ujadk90ha',//  Group ID
+ * 'members'=>[//  List of users to unblock
  * ['id'=> 'ujadk90ha']
  * ]
  * ];

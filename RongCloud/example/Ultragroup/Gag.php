@@ -18,14 +18,14 @@ function add()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Supergroup ID
-        'members'=>[ // Forbidden personnel list
+        'members'=>[//  Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
         'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUltragroup()->Gag()->add($group);
-    Utils::dump("添加超级群禁言",$result);
+    Utils::dump("Add super group ban words",$result);
 }
 add();
 /**
@@ -39,7 +39,7 @@ function getList()
         'id'=> 'phpgroup1',// Ultra Group ID
     ];
     $result = $RongSDK->getUltragroup()->Gag()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("Query the list of forbidden words",$result);
 }
 getList();
 /**
@@ -51,12 +51,12 @@ function remove()
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Supergroup ID
-        'members'=>[ // Unban user list
+        'members'=>[//  Unban user list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];
     $result = $RongSDK->getUltragroup()->Gag()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("Lift the ban",$result);
 }
 remove();
 

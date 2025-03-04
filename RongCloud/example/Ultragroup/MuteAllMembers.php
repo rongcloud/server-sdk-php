@@ -21,7 +21,7 @@ function set()
         "status"=>1
     ];
     $result = $RongSDK->getUltragroup()->MuteAllMembers()->set($group);
-    Utils::dump("添加超级群全部禁言",$result);
+    Utils::dump("Add supergroup total ban",$result);
 }
 set();
 /**
@@ -35,7 +35,7 @@ function get()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->MuteAllMembers()->get($group);
-    Utils::dump("查询超级群禁言状态",$result);
+    Utils::dump("Query supergroup mute status",$result);
 }
 get();
 

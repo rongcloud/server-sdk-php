@@ -18,18 +18,18 @@ function testConversation($RongSDK){
         'userId'=>'mka091amn',// Session Owner
         'targetId'=>'adm1klnm'// session id
     ];
-    Utils::dump("设置用户某个会话屏蔽 Push成功",$Conversation->mute($params));
+    Utils::dump("Set user's session screen push success",$Conversation->mute($params));
 
-    Utils::dump("设置用户某个会话屏蔽 Push type 错误",$Conversation->mute());
+    Utils::dump("Set the user's session screen push type error",$Conversation->mute());
 
     $params = [
         'type'=> 'PRIVATE',// Conversation types PRIVATE, GROUP, DISCUSSION, SYSTEM
         'userId'=>'mka091amn',// Session owner
         'targetId'=>'adm1klnm'// Session ID
     ];
-    Utils::dump("设置用户某个会话接收 Push成功",$Conversation->unmute($params));
+    Utils::dump("Set the user's session to successfully receive Push",$Conversation->unmute($params));
 
-    Utils::dump("设置用户某个会话接收 Push type 错误",$Conversation->unmute());
+    Utils::dump("Set the user's session to receive Push type errors",$Conversation->unmute());
 
 }
 

@@ -42,13 +42,13 @@ class Broadcast {
  * @param array $Message Broadcast message recall
  * @param
  * $message = [
- * 'senderId'=> 'test', // Sender ID
- * "objectName"=>'RC:RcCmd', // Message type
+ * 'senderId'=> 'test',//  Sender ID
+ * "objectName"=>'RC:RcCmd',//  Message type
  * 'content'=>[
- * 'uId'=>'xxxxx', // Unique message identifier, obtained after sending a broadcast message via /push, returned as id.
- * 'type'=>'SYSTEM', // System session
- * 'isAdmin'=>'0', // Whether it is an administrator, default is 0; when set to 1, the IMKit SDK will display a gray bar as "Admin recalled a message" upon receiving this message.
- * 'isDelete'=>0] // Whether to delete the message, default is 0. When recalling this message, the client will delete it and replace it with a gray bar recall prompt message; when set to 1, the message will be deleted without being replaced by a gray bar prompt message.
+ * 'uId'=>'xxxxx',//  Unique message identifier, obtained after sending a broadcast message via /push, returned as id.
+ * 'type'=>'SYSTEM',//  System session
+ * 'isAdmin'=>'0',//  Whether it is an administrator, default is 0; when set to 1, the IMKit SDK will display a gray bar as "Admin recalled a message" upon receiving this message.
+ * 'isDelete'=>0]//  Whether to delete the message, default is 0. When recalling this message, the client will delete it and replace it with a gray bar recall prompt message; when set to 1, the message will be deleted without being replaced by a gray bar prompt message.
  * ];
  * @return array
  */

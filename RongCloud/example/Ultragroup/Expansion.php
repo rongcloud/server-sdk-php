@@ -26,10 +26,10 @@ function set()
         'userId'            => 'WNYZbMqpH',             // The user ID for extended message delivery needs to be set.
         'groupId'          => 'tjw3zbMrU',             // Super group ID
         'busChannel'  => '',                     // Channel ID can be empty
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',] // Custom message extension content, JSON structure, set in Key-Value format
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',]//  Custom message extension content, JSON structure, set in Key-Value format
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->set($message);
-    Utils::dump("设置消息扩展", $res);
+    Utils::dump("Set message extension", $res);
 }
 set();
 
@@ -45,7 +45,7 @@ function delete()
         'extraKey'          => ['type1', 'type2']       // The Key value of the extension information to be deleted, with a maximum of 100 extension information items that can be deleted at once
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->delete($message);
-    Utils::dump("删除消息扩展", $res);
+    Utils::dump("Delete message extension", $res);
 }
 delete();
 
@@ -62,6 +62,6 @@ function getList()
         'pageNo' => 1                     // Page count, defaults to returning 300 extended information.
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->getList($message);
-    Utils::dump("获取扩展信息", $res);
+    Utils::dump("Get extension information", $res);
 }
 getList();

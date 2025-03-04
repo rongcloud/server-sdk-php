@@ -50,7 +50,7 @@ class Gag
  * ['id'=> 'ujadk90ha']
  * ]
  * ,
- * 'minute'=>50  //  Mute duration in minutes
+ * 'minute'=>50 //   Mute duration in minutes
  * ];
  * @return array
  */
@@ -85,7 +85,7 @@ class Gag
  * @param
  * $Group = [
  * 'id'=> 'ujadk90ha',// Group id
- * 'members'=>[ // Unblock members list
+ * 'members'=>[//  Unblock members list
  * ['id'=> 'ujadk90ha']
  * ]
  * ];

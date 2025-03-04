@@ -28,82 +28,82 @@ function testUser($RongSDK)
         'name' => 'test', // Username
         'portrait' => $portrait // User avatar
     ];
-    Utils::dump("用户注册成功", $User->register($params));
+    Utils::dump("User registration successful", $User->register($params));
 
-    Utils::dump("用户注册 id 错误", $User->register());
+    Utils::dump("User registration ID error", $User->register());
 
     $params = [
         'id' => 'ujadk90had',
         'name' => '',
         'portrait' => $portrait
     ];
-    Utils::dump("用户注册 name 错误", $User->register($params));
+    Utils::dump("User registration name error", $User->register($params));
 
     $params = [
         'id' => 'ujadk90had',
         'name' => Utils::createRand(66),
         'portrait' => $portrait
     ];
-    Utils::dump("用户注册 name 长度错误", $User->register($params));
+    Utils::dump("User registration name length error", $User->register($params));
 
     $params = [
         'id' => 'ujadk90had',
         'name' => '测试用户',
         'portrait' => Utils::createRand(513)
     ];
-    Utils::dump("用户注册 portrait 错误", $User->register($params));
+    Utils::dump("User registration portrait error", $User->register($params));
 
     $params = [
         'id' => 'ujadk90had',
         'name' => '新用户',
         'portrait' => $portrait
     ];
-    Utils::dump("用户更新成功", $User->update($params));
+    Utils::dump("User update successful", $User->update($params));
 
-    Utils::dump("用户更新 id 错误", $User->update());
+    Utils::dump("User update ID error", $User->update());
 
     $params = [
         'id' => 'ujadk90had',
         'name' => '',
         'portrait' => $portrait
     ];
-    Utils::dump("用户更新 name 错误", $User->update($params));
+    Utils::dump("User update name error", $User->update($params));
 
     $params = [
         'id' => 'ujadk90had',
         'name' => Utils::createRand(66),
         'portrait' => $portrait
     ];
-    Utils::dump("用户更新 name 长度错误", $User->update($params));
+    Utils::dump("User update name length error", $User->update($params));
 
     $params = [
         'id' => 'ujadk90had',
         'name' => '测试用户',
         'portrait' => Utils::createRand(513)
     ];
-    Utils::dump("用户更新 portrait 错误", $User->update($params));
+    Utils::dump("User update portrait error", $User->update($params));
 
     $params = [
         'id' => 'ujadk90had',
     ];
-    Utils::dump("获取用户信息成功", $User->get($params));
+    Utils::dump("Successfully retrieved user information", $User->get($params));
 
     $params = [
         'id' => '55vW81Mni',
     ];
-    Utils::dump("查询用户所在群组成功", $User->getGroups($params));
+    Utils::dump("Query user's group membership success", $User->getGroups($params));
 
 
     $params = [
         'id' => ['55vW81Mni','kkj9o02'],
         'time' => 1623123911000
     ];
-    Utils::dump("Token 失效", $User->expire($params));
+    Utils::dump("Token expired", $User->expire($params));
 
     $params = [
         'id' => '55vW81Mni',
     ];
-    Utils::dump("Token 失效，失败 time 为必填参数", $User->expire($params));
+    Utils::dump("Token invalid, failure time is a required parameter", $User->expire($params));
 }
 
 testUser($RongSDK);
@@ -116,31 +116,31 @@ function testUserBlock($RongSDK)
         'id' => 'ujadk90had', // User ID, unique identifier, maximum length of 30 characters
         'minute' => 20 // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
     ];
-    Utils::dump("添加封禁用户成功", $User->add($params));
+    Utils::dump("User blocked successfully", $User->add($params));
 
-    Utils::dump("添加封禁用户 id 错误", $User->add());
+    Utils::dump("Add banned user ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
         'minute' => 0
     ];
-    Utils::dump("添加封禁用户 minute 错误", $User->add($params));
+    Utils::dump("Add banned user minute error", $User->add($params));
 
     $params = [
         'id' => 'ujadk90ha1d',
         'minute' => 1 * 30 * 24 * 60 * 2
     ];
-    Utils::dump("添加封禁用户 minute 大小错误", $User->add($params));
+    Utils::dump("Add a banned user with minute size error", $User->add($params));
 
 
     $params = [
         'id' => 'ujadk90had',
     ];
-    Utils::dump("移除封禁用户成功", $User->remove($params));
+    Utils::dump("User unblocked successfully", $User->remove($params));
 
-    Utils::dump("移除封禁用户 id 错误", $User->remove());
+    Utils::dump("Remove blocked user ID error", $User->remove());
 
-    Utils::dump("封禁用户获取成功", $User->getList());
+    Utils::dump("User ban successful", $User->getList());
 }
 
 testUserBlock($RongSDK);
@@ -153,36 +153,36 @@ function testUserBlacklist($RongSDK)
         'id' => 'ujadk90ha1d', // User ID
         'blacklist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
-    Utils::dump("用户黑名单添加成功", $User->add($params));
+    Utils::dump("User blacklist added successfully", $User->add($params));
 
-    Utils::dump("用户黑名单 id 错误", $User->add());
+    Utils::dump("User blacklist ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
     ];
-    Utils::dump("用户黑名单 blacklist 错误", $User->add($params));
+    Utils::dump("User blacklist error", $User->add($params));
 
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
         'blacklist' => ['ujadk90ha1d'] // Add to blacklist personnel list
     ];
-    Utils::dump("移除用户黑名单成功", $User->add($params));
+    Utils::dump("User blacklist removed successfully", $User->add($params));
 
-    Utils::dump("移除用户黑名单 id 错误", $User->add());
-
-    $params = [
-        'id' => 'ujadk90ha1d',
-    ];
-    Utils::dump("移除用户黑名单 blacklist 错误", $User->add($params));
+    Utils::dump("Remove user blacklist ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
     ];
-    Utils::dump("用户黑名单获取成功", $User->getList($params));
+    Utils::dump("Remove user blacklist error", $User->add($params));
+
+    $params = [
+        'id' => 'ujadk90ha1d',
+    ];
+    Utils::dump("User blacklist retrieval successful", $User->getList($params));
 
 
-    Utils::dump("用户黑名单获取 id 错误", $User->getList());
+    Utils::dump("Error in obtaining user blacklist ID", $User->getList());
 }
 
 testUserBlacklist($RongSDK);
@@ -194,9 +194,9 @@ function testUserOnlinestatus($RongSDK)
     $params = [
         'id' => 'ujadk90ha1d', // User ID
     ];
-    Utils::dump("用户在线状态获取成功", $User->check($params));
+    Utils::dump("User online status retrieved successfully", $User->check($params));
 
-    Utils::dump("用户在线状态参数错误", $User->check());
+    Utils::dump("User online status parameter error", $User->check());
 }
 
 testUserOnlinestatus($RongSDK);
@@ -209,11 +209,11 @@ function testUserMuteGroups($RongSDK)
         'members' => [ // Forbidden personnel list
             ['id' => 'group9994']
         ],
-        'minute' => 500  // Prohibition duration
+        'minute' => 500   //Prohibition duration
     ];
-    Utils::dump("添加群组禁言成功", $Group->add($params));
+    Utils::dump("Group mute added successfully", $Group->add($params));
 
-    Utils::dump("添加群组禁言参数错误", $Group->add());
+    Utils::dump("Add group ban parameter error", $Group->add());
 
     $params = [
         'members' => [
@@ -221,23 +221,23 @@ function testUserMuteGroups($RongSDK)
         ],
         'minute' => 0
     ];
-    Utils::dump("添加群组禁言 minute 错误", $Group->add($params));
+    Utils::dump("Add group ban minute error", $Group->add($params));
 
     $params = [
         'members' => [ // Forbidden personnel list
             ['id' => 'group9994']
         ]
     ];
-    Utils::dump("解除群组禁言成功", $Group->remove($params));
+    Utils::dump("Group mute lifted successfully", $Group->remove($params));
 
-    Utils::dump("解除群组禁言参数错误", $Group->remove());
+    Utils::dump("Unblock group mute parameter error", $Group->remove());
     $params = [
         'members' => []
     ];
-    Utils::dump("解除群组禁言 members 错误", $Group->remove($params));
+    Utils::dump("Remove group ban error for members", $Group->remove($params));
 
     $params = [];
-    Utils::dump("查询群组禁言成员列表成功", $Group->getList($params));
+    Utils::dump("Successfully queried the list of banned members in the group", $Group->getList($params));
 }
 
 testUserMuteGroups($RongSDK);
@@ -251,21 +251,21 @@ function testUserMuteChatrooms($RongSDK)
         ],
         'minute' => 30 // Prohibited duration
     ];
-    Utils::dump("添加聊天室全局禁言成功", $Chatroom->add($params));
+    Utils::dump("Add chat room global ban success", $Chatroom->add($params));
 
-    Utils::dump("添加聊天室全局禁言参数错误", $Chatroom->add());
+    Utils::dump("Add chat room global ban parameter error", $Chatroom->add());
 
     $params = [
         'members' => [
             ['id' => 'seal9901'] // Personnel ID
         ],
     ];
-    Utils::dump("解除聊天室全局禁言成功", $Chatroom->remove($params));
+    Utils::dump("Successfully lifted the global ban in the chat room", $Chatroom->remove($params));
 
-    Utils::dump("解除聊天室全局禁言错误", $Chatroom->remove());
+    Utils::dump("Remove global chat ban error", $Chatroom->remove());
 
     $params = [];
-    Utils::dump("获取聊天室全局禁言列表成功", $Chatroom->getList($params));
+    Utils::dump("Successfully retrieved the global banned word list for the chat room", $Chatroom->getList($params));
 }
 testUserMuteChatrooms($RongSDK);
 
@@ -275,26 +275,26 @@ function testUserTag($RongSDK)
     $Chatroom = $RongSDK->getUser()->Tag();
     $params = [
         'userId' => 'ujadk90ha1', // User ID
-        'tags' => ['标签1', '标签2'] // User label
+        'tags' => ['tag1', 'tag2'] // User label
     ];
-    Utils::dump("添加用户标签成功", $Chatroom->set($params));
+    Utils::dump("User tag added successfully", $Chatroom->set($params));
 
-    Utils::dump("添加用户标签参数错误", $Chatroom->set());
+    Utils::dump("Error in adding user tag parameter", $Chatroom->set());
 
     $params = [
         'userIds' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
-        'tags' => ['标签1', '标签2'] // User label
+        'tags' => ['tag1', 'tag2'] // User label
     ];
-    Utils::dump("批量添加用户标签成功", $Chatroom->batchset($params));
+    Utils::dump("Batch adding user tags succeeded", $Chatroom->batchset($params));
 
-    Utils::dump("批量添加用户标签参数错误", $Chatroom->batchset());
+    Utils::dump("Batch add user tag parameter error", $Chatroom->batchset());
 
     $params = [
         'userIds' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
-    Utils::dump("获取用户标签成功", $Chatroom->get($params));
+    Utils::dump("Get user tag success", $Chatroom->get($params));
 
-    Utils::dump("获取用户标签参数错误", $Chatroom->get());
+    Utils::dump("Get user tag parameter error", $Chatroom->get());
 }
 testUserTag($RongSDK);
 
@@ -306,36 +306,36 @@ function testUserWhitelist($RongSDK)
         'id' => 'ujadk90ha1d', // User ID
         'whitelist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
-    Utils::dump("用户白名单添加成功", $User->add($params));
+    Utils::dump("User whitelist added successfully", $User->add($params));
 
-    Utils::dump("用户白名单 id 错误", $User->add());
+    Utils::dump("User whitelist ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
     ];
-    Utils::dump("用户白名单 whitelist 错误", $User->add($params));
+    Utils::dump("User whitelist error", $User->add($params));
 
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
         'whitelist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
-    Utils::dump("移除用户白名单成功", $User->add($params));
+    Utils::dump("Remove user whitelist successfully", $User->add($params));
 
-    Utils::dump("移除用户白名单 id 错误", $User->add());
-
-    $params = [
-        'id' => 'ujadk90ha1d',
-    ];
-    Utils::dump("移除用户白名单 whitelist 错误", $User->add($params));
+    Utils::dump("Remove user whitelist ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
     ];
-    Utils::dump("用户白名单获取成功", $User->getList($params));
+    Utils::dump("Remove user whitelist error", $User->add($params));
+
+    $params = [
+        'id' => 'ujadk90ha1d',
+    ];
+    Utils::dump("User whitelist obtained successfully", $User->getList($params));
 
 
-    Utils::dump("用户白名单获取 id 错误", $User->getList());
+    Utils::dump("User whitelist ID retrieval error", $User->getList());
 }
 
 testUserWhitelist($RongSDK);
@@ -345,22 +345,22 @@ function testChatBan($RongSDK)
 {
     $ban = $RongSDK->getUser()->Ban();
     $params = [
-        'id' => ['kkj9o01', 'kkj9o02'],  // Banned user Id, supports batch setting, with a maximum of no more than 1000.
-        'state' => 1,                    // Forbidden state, 0: Remove forbidden. 1: Add forbidden.
-        'type' => 'PERSON',              // conversation type, currently supports single conversation PERSON
+        'id' => ['kkj9o01', 'kkj9o02'],   //Banned user Id, supports batch setting, with a maximum of no more than 1000.
+        'state' => 1,                     //Forbidden state, 0: Remove forbidden. 1: Add forbidden.
+        'type' => 'PERSON',               //conversation type, currently supports single conversation PERSON
     ];
-    Utils::dump("设置用户单聊禁言", $ban->set($params));
+    Utils::dump("Set user single chat ban", $ban->set($params));
     $params = [
         'state' => 1,
         'type' => 'PERSON',
     ];
-    Utils::dump("设置用户单聊禁言 id 错误", $ban->set($params));
+    Utils::dump("Set user single chat ban error", $ban->set($params));
     $param = [
-        'num'       => 101,     // Get the number of rows, default is 100, maximum supported is 200.
-        'offset'    => 0,       // The starting position for the query, default is 0.
+        'num'       => 101,      //Get the number of rows, default is 100, maximum supported is 200.
+        'offset'    => 0,        //The starting position for the query, default is 0.
         'type'      => 'PERSON' // Currently supports single-person conversation type PERSON.
     ];
-    Utils::dump("查询单聊禁言用户列表", $ban->getList($param));
+    Utils::dump("Query single-chat banned user list", $ban->getList($param));
 }
 
 testChatBan($RongSDK);
@@ -372,28 +372,28 @@ function testUserRemark($RongSDK)
         'userId' => 'kkj9o01',
         'remarks'=>json_encode([["id"=>"userid1","remark"=>"remark1"]])
     ];
-    Utils::dump("设置用户备注", $remark->set($params));
+    Utils::dump("Set user remarks", $remark->set($params));
     $params = [
     ];
-    Utils::dump("设置用户备注 userId 错误", $remark->set($params));
+    Utils::dump("Set user backup note userId error", $remark->set($params));
 
     $params = [
         'userId' => 'kkj9o01',
         'targetId'=>"friendId"
     ];
-    Utils::dump("删除用户备注", $remark->del($params));
+    Utils::dump("Delete user remarks", $remark->del($params));
     $params = [
     ];
-    Utils::dump("删除用户备注 userId 错误", $remark->del($params));
+    Utils::dump("Delete user backup annotation userId error", $remark->del($params));
     $params = [
         'userId' => 'kkj9o01',
         'size'=>50,
         'page'=>1
     ];
-    Utils::dump("获取用户备注列表", $remark->get($params));
+    Utils::dump("Get user annotation list", $remark->get($params));
     $params = [
     ];
-    Utils::dump("获取用户备注列表 userId 错误", $remark->get($params));
+    Utils::dump("Get user annotation list userId error", $remark->get($params));
 }
 
 testUserRemark($RongSDK);
@@ -409,22 +409,22 @@ function testUserAbandon($RongSDK)
     Utils::dump("deactivate users", $User->abandon($params));
     $params = [
     ];
-    Utils::dump("deactivate users id 错误", $User->abandon($params));
+    Utils::dump("Deactivate user ID error", $User->abandon($params));
 
     $params = [
         'id' => 'kkj9o01',
     ];
-    Utils::dump("注销用户激活", $User->activate($params));
+    Utils::dump("Deactivate user activation", $User->activate($params));
     $params = [
     ];
-    Utils::dump("注销用户激活 id 错误", $User->activate($params));
+    Utils::dump("Error in deactivated user activation ID", $User->activate($params));
 
 
     $params = [
         'size'=>50,
         'page'=>1
     ];
-    Utils::dump("注销用户列表", $User->abandonQuery($params));
+    Utils::dump("List of unsubscribed users", $User->abandonQuery($params));
 }
 
 testUserAbandon($RongSDK);
@@ -436,28 +436,28 @@ function testBlockPushPeriod($RongSDK)
 
     $params = [
         'id' => 'ujadk90had', // User ID unique identifier, maximum length 30 characters
-        'startTime' => "23:59:59",// No interference start time
-        'period'=>'600',// Do not disturb duration: minutes
-        'level'=>1,// Do Not Disturb Level 1 only notifies for private chats and @ messages, including @ specified users and @ all messages. Does not receive notifications, even for @ messages.
+        'startTime' => "23:59:59", //No interference start time
+        'period'=>'600', //Do not disturb duration: minutes
+        'level'=>1, //Do Not Disturb Level 1 only notifies for private chats and @ messages, including @ specified users and @ all messages. Does not receive notifications, even for @ messages.
     ];
-    Utils::dump("添加免打扰时段", $User->add($params));
+    Utils::dump("Add a do-not-disturb period", $User->add($params));
 
-    Utils::dump("添加免打扰时段 id 错误", $User->add());
+    Utils::dump("Add do-not-disturb period ID error", $User->add());
 
     $params = [
         'id' => 'ujadk90ha1d',
     ];
-    Utils::dump("添加免打扰时段 startTime 错误", $User->add($params));
+    Utils::dump("Add error-free quiet period startTime", $User->add($params));
 
 
     $params = [
         'id' => 'ujadk90had',
     ];
-    Utils::dump("移除免打扰时段成功", $User->remove($params));
+    Utils::dump("Successfully removed the do-not-disturb period", $User->remove($params));
 
-    Utils::dump("移除免打扰时段 id 错误", $User->remove());
+    Utils::dump("Remove the no-disturb period ID error", $User->remove());
 
-    Utils::dump("免打扰时段获取成功", $User->getList($params));
+    Utils::dump("Quiet hours acquisition succeeded", $User->getList($params));
 }
 
 testBlockPushPeriod($RongSDK);
@@ -477,29 +477,29 @@ function testProfile($RongSDK)
         'userProfile' => [
             'name' => 'testName',
             'email' => 'tester@rongcloud.cn'
-        ],  // User basic information
+        ],   //User basic information
         'userExtProfile' => [
             'ext_Profile1' => 'testpro1'
-        ]  // User extension information
+        ]   //User extension information
     ];
-    Utils::dump("用户资料设置", $User->set($params));
+    Utils::dump("User profile settings", $User->set($params));
 
     $params = [
         'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
-    Utils::dump("用户托管信息清除", $User->clean($params));
+    Utils::dump("User custody information clearance", $User->clean($params));
 
     $params = [
         'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
-    Utils::dump("批量查询用户资料", $User->batchQuery($params));
+    Utils::dump("Batch query user information", $User->batchQuery($params));
 
     $params = [
         'page' => 1,
         'size' => 20,
         'order' => 0
     ];
-    Utils::dump("分页获取应用全部用户列表", $User->query($params));
+    Utils::dump("Retrieve the full list of users for the application", $User->query($params));
 
 }
 testProfile($RongSDK);
@@ -516,5 +516,5 @@ function query()
         'order' => 0
     ];
     $res =  $RongSDK->getUser()->Profile()->query($params);
-    Utils::dump("分页获取应用全部用户列表", $res);
+    Utils::dump("Get the full list of users by pagination", $res);
 }

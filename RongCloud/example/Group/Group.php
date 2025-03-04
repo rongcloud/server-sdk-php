@@ -21,7 +21,7 @@ function sync()
         'groups'=>[['id'=> 'php group1', 'name'=> 'watergroup']]// User group information
     ];
     $result = $RongSDK->getGroup()->sync($group);
-    Utils::dump("群组信息同步",$result);
+    Utils::dump("Group Information Synchronization",$result);
 }
 sync();
 
@@ -39,7 +39,7 @@ function create()
         ]
     ];
     $result = $RongSDK->getGroup()->create($group);
-    Utils::dump("创建群组",$result);
+    Utils::dump("Create a group",$result);
 }
 create();
 
@@ -53,7 +53,7 @@ function get()
         'id'=> 'php group1',// @param group id
     ];
     $result = $RongSDK->getGroup()->get($group);
-    Utils::dump("获取群信息",$result);
+    Utils::dump("Retrieve group information",$result);
 }
 get();
 
@@ -69,7 +69,7 @@ function joins()
         'member'=>['id'=> 'group999'],// Group member information
     ];
     $result = $RongSDK->getGroup()->joins($group);
-    Utils::dump("加入群组",$result);
+    Utils::dump("Join a group",$result);
 }
 joins();
 
@@ -84,7 +84,7 @@ function quit()
         'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// Exit personnel information
     ];
     $result = $RongSDK->getGroup()->quit($group);
-    Utils::dump("退出群组",$result);
+    Utils::dump("Exit group",$result);
 }
 quit();
 
@@ -99,7 +99,7 @@ function dismiss()
         'member'=>['id'=> 'group999']// Administrator Information
     ];
     $result = $RongSDK->getGroup()->dismiss($group);
-    Utils::dump("解散群组",$result);
+    Utils::dump("Disband the group",$result);
 }
 dismiss();
 
@@ -114,7 +114,7 @@ function update()
         'name'=>"watergroup"// group name
     ];
     $result = $RongSDK->getGroup()->update($group);
-    Utils::dump("修改群信息",$result);
+    Utils::dump("Modify group information",$result);
 }
 update();
 
