@@ -23,7 +23,7 @@ function send()
         'content'=>json_encode(['content'=>'php 群消息 你好，小明'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Group()->send($message);
-    Utils::dump("群组消息发送",$Result);
+    Utils::dump("Group message sending",$Result);
 }
 send();
 
@@ -47,7 +47,7 @@ function sendMention()
         ])
     ];
     $Result = $RongSDK->getMessage()->Group()->sendMention($message);
-    Utils::dump("发送 @ 消息",$Result);
+    Utils::dump("Send @ message",$Result);
 }
 sendMention();
 
@@ -64,7 +64,7 @@ function sendStatusMessage()
         'content'=>json_encode(['content'=>'php 群状态消息 你好，小明'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Group()->sendStatusMessage($message);
-    Utils::dump("群组状态消息发送",$Result);
+    Utils::dump("Group status message sending",$Result);
 }
 sendStatusMessage();
 
@@ -81,6 +81,6 @@ function recall()
         'sentTime'=>'1519444243981'// Message sending time
     ];
     $Result = $RongSDK->getMessage()->Group()->recall($message);
-    Utils::dump("撤回已发送的群聊消息",$Result);
+    Utils::dump("Recall a sent group chat message",$Result);
 }
 recall();

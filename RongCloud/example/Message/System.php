@@ -25,7 +25,7 @@ function send()
         'content' => ['content' => 'php system message'] // Message Body
     ];
     $Result = $RongSDK->getMessage()->System()->send($message);
-    Utils::dump("系统消息发送", $Result);
+    Utils::dump("System message delivery", $Result);
 }
 // send();
 
@@ -41,7 +41,7 @@ function broadcast()
         'content' => ['content' => 'php 广播消息'] // Message content
     ];
     $Result = $RongSDK->getMessage()->System()->broadcast($message);
-    Utils::dump("系统广播消息", $Result);
+    Utils::dump("System broadcast message", $Result);
 }
 broadcast();
 
@@ -83,7 +83,7 @@ function sendTemplate()
         ])
     ];
     $Chartromm = $RongSDK->getMessage()->System()->sendTemplate($message);
-    Utils::dump("系统模板消息", $Chartromm);
+    Utils::dump("System template message", $Chartromm);
 }
 sendTemplate();
 
@@ -125,6 +125,6 @@ function pushUser()
         ]
     ];
     $Chartromm = $RongSDK->getMessage()->System()->pushUser($message);
-    Utils::dump("不落地通知", $Chartromm);
+    Utils::dump("Push-only Notification", $Chartromm);
 }
 pushUser();

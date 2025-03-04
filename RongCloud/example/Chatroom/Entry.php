@@ -28,7 +28,7 @@ function set() {
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->set($params);
-    Utils::dump("设置聊天室属性（KV）", $Entry);
+    Utils::dump("Set chat room attributes (KV)", $Entry);
 }
 
 set();
@@ -51,7 +51,7 @@ function batchSet() {
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->batchSet($params);
-    Utils::dump("批量设置聊天室属性（KV）", $Entry);
+    Utils::dump("Batch set chat room properties (KV)", $Entry);
 }
 
 batchSet();
@@ -67,7 +67,7 @@ function query() {
         'id' => 'chatroom001',// chatroom id
     ];
     $Entry = $RongSDK->getChatroom()->Entry()->query($params);
-    Utils::dump("获取聊天室属性", $Entry);
+    Utils::dump("Get chat room properties", $Entry);
 }
 
 query();
@@ -84,7 +84,7 @@ function remove() {
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->remove($params);
-    Utils::dump("删除聊天室属性", $Entry);
+    Utils::dump("Delete chat room attribute", $Entry);
 }
 
 remove();

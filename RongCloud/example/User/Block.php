@@ -35,7 +35,7 @@ function remove()
         'id'=> 'ujadk90ha1',// Unlock user ID unique identifier, maximum length 30 characters
     ];
     $Block =  $RongSDK->getUser()->Block()->remove($user);
-    Utils::dump("解除用户封禁",$Block);
+    Utils::dump("remove",$Block);
 }
 remove();
 
@@ -49,6 +49,6 @@ function getList()
 
     ];
     $Block =  $RongSDK->getUser()->Block()->getList($user);
-    Utils::dump("封禁用户列表",$Block);
+    Utils::dump("getList",$Block);
 }
 getList();

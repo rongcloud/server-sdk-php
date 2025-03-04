@@ -22,7 +22,7 @@ function create()
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->add($group);
-    Utils::dump("超级群频道创建",$result);
+    Utils::dump("Super group channel creation",$result);
 }
 create();
 
@@ -35,7 +35,7 @@ function change()
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->change($group);
-    Utils::dump("超级群频道类型切换",$result);
+    Utils::dump("change",$result);
 }
 change();
 /**
@@ -46,7 +46,7 @@ function getList()
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $result = $RongSDK->getUltragroup()->BusChannel()->getList("phpgroup2");
-    Utils::dump("超级群频道列表",$result);
+    Utils::dump("Super group channel acquisition",$result);
 }
 getList();
 /**
@@ -54,14 +54,13 @@ getList();
  */
 function remove()
 {
-
      $RongSDK = new RongCloud(APPKEY,APPSECRET);
         $group = [
             'id'=> 'phpgroup1',// Supergroup ID
             'busChannel'=> 'busChannel',// Super Group Channel
         ];
         $result = $RongSDK->getUltragroup()->BusChannel()->remove($group);
-    Utils::dump("超级群频道删除",$result);
+    Utils::dump("Super group channel deletion",$result);
 }
 remove();
 
@@ -82,7 +81,7 @@ function addPrivateUsers()
         ]
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->addPrivateUsers($group);
-    Utils::dump("添加超级群私有频道成员",$result);
+    Utils::dump("Add supergroup private channel member",$result);
 }
 addPrivateUsers();
 /**
@@ -99,7 +98,7 @@ function getPrivateUserList()
         'pageSize'=>100
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->getPrivateUserList($group);
-    Utils::dump("查询超级群私有频道成员列表",$result);
+    Utils::dump("Query the list of members in the super private channel",$result);
 }
 getPrivateUserList();
 /**
@@ -117,7 +116,7 @@ function removePrivateUsers()
         ]
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->removePrivateUsers($group);
-    Utils::dump("移除超级群私有频道成员",$result);
+    Utils::dump("Remove members from the super private channel",$result);
 }
 removePrivateUsers();
 

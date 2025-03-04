@@ -20,7 +20,7 @@ function get()
         'date'=> '2019011711',// Date
     ];
     $Chartromm = $RongSDK->getMessage()->History()->get($message);
-    Utils::dump("历史消息获取",$Chartromm);
+    Utils::dump("Historical message retrieval",$Chartromm);
 }
 get();
 
@@ -34,7 +34,7 @@ function remove()
         'date'=> '2018011116',// Date
     ];
     $Chartromm = $RongSDK->getMessage()->History()->remove($message);
-    Utils::dump("历史消息文件删除",$Chartromm);
+    Utils::dump("Historical message file deletion",$Chartromm);
 }
 remove();
 
@@ -52,6 +52,6 @@ function clean()
         'msgTimestamp'=>"1588838388320",// Clear all historical messages before the specified timestamp, accurate to the millisecond, to empty all historical messages of the session.
     ];
     $Chartromm = $RongSDK->getMessage()->History()->clean($message);
-    Utils::dump("消息清除",$Chartromm);
+    Utils::dump("Message clearance",$Chartromm);
 }
 clean();

@@ -23,7 +23,7 @@ function send()
         'content'=>json_encode(['content'=>'php chatroom 你好，主播'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Chatroom()->send($message);
-    Utils::dump("聊天室发送消息",$Chartromm);
+    Utils::dump("Send messages in the chat room",$Chartromm);
 }
 send();
 
@@ -39,7 +39,7 @@ function broadcast()
         'content'=>json_encode(['content'=>'php Chatroom Broadcast 你好，主播'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Chatroom()->broadcast($message);
-    Utils::dump("聊天室广播消息",$Chartromm);
+    Utils::dump("Chat room broadcast message",$Chartromm);
 }
 broadcast();
 
@@ -56,7 +56,7 @@ function recall()
         'sentTime'=>'1519444243981'// Message delivery time
     ];
     $Result = $RongSDK->getMessage()->Chatroom()->recall($message);
-    Utils::dump("撤回已发送的聊天室消息",$Result);
+    Utils::dump("Withdraw a sent chat room message",$Result);
 }
 recall();
 

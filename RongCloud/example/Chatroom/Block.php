@@ -24,7 +24,7 @@ function add()
         'minute'=>500// Block duration
     ];
     $Block = $RongSDK->getChatroom()->Block()->add($chatroom);
-    Utils::dump("添加封禁",$Block);
+    Utils::dump("Add ban",$Block);
 }
 add();
 
@@ -41,7 +41,7 @@ function remove()
         ],
     ];
     $Block = $RongSDK->getChatroom()->Block()->remove($chatroom);
-    Utils::dump("解除封禁",$Block);
+    Utils::dump("Unblock",$Block);
 }
 remove();
 
@@ -55,6 +55,6 @@ function getList()
         'id'=>'OIBbeKlkx'// @param chatroom id
     ];
     $Block = $RongSDK->getChatroom()->Block()->getList($chatroom);
-    Utils::dump("查询被封禁成员列表",$Block);
+    Utils::dump("Query the list of banned members",$Block);
 }
 getList();

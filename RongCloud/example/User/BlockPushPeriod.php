@@ -24,7 +24,7 @@ function add()
 // No notifications are received, even for @ messages.
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->add($user);
-    Utils::dump("添加免打扰时段",$Blacklist);
+    Utils::dump("add",$Blacklist);
 }
 add();
 
@@ -38,7 +38,7 @@ function remove()
         'id'=> 'ujadk90ha',// User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->remove($user);
-    Utils::dump("移除免打扰时段",$Blacklist);
+    Utils::dump("remove",$Blacklist);
 }
 
 
@@ -52,7 +52,7 @@ function getList()
         'id'=> 'ujadk90ha',// User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->getList($user);
-    Utils::dump("获取免打扰时段",$Blacklist);
+    Utils::dump("getList",$Blacklist);
 }
 getList();
 

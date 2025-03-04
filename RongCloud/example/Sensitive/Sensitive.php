@@ -24,7 +24,7 @@ function add()
         'type' => 0 // 0: Sensitive word substitution 1: Sensitive word filtering
     ];
     $result = $RongSDK->getSensitive()->add($sensitive);
-    Utils::dump("添加敏感词", $result);
+    Utils::dump("Add sensitive words", $result);
 }
 add();
 
@@ -43,7 +43,7 @@ function batchAdd()
         ]
     ];
     $result = $RongSDK->getSensitive()->batchAdd($sensitive);
-    Utils::dump("批量添加敏感词", $result);
+    Utils::dump("batchAdd", $result);
 }
 batchAdd();
 
@@ -58,7 +58,7 @@ function remove()
         'keywords' => ["cccccdddd"] // Delete sensitive words
     ];
     $result = $RongSDK->getSensitive()->remove($sensitive);
-    Utils::dump("删除敏感词", $result);
+    Utils::dump("Remove sensitive words", $result);
 }
 remove();
 
@@ -73,6 +73,6 @@ function getList()
         'type' => '', // Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word shielding, empty to retrieve all
     ];
     $result = $RongSDK->getSensitive()->getList($sensitive);
-    Utils::dump("获取敏感词列表", $result);
+    Utils::dump("Get the list of sensitive words", $result);
 }
 getList();

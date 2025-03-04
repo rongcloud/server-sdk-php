@@ -25,7 +25,7 @@ function send()
         'content'=>json_encode(['content'=>'你好，这是 1 条二人消息'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->send($message);
-    Utils::dump("二人消息发送",$Chartromm);
+    Utils::dump("Two-person message sending",$Chartromm);
 }
 send();
 
@@ -51,7 +51,7 @@ function sendTemplate()
         ])
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendTemplate($message);
-    Utils::dump("向多个用户发送不同内容消息",$Chartromm);
+    Utils::dump("Send different content messages to multiple users",$Chartromm);
 }
 sendTemplate();
 
@@ -68,7 +68,7 @@ function sendStatusMessage()
         'content'=>json_encode(['content'=>'你好，这是 1 条二人状态消息'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendStatusMessage($message);
-    Utils::dump("二人状态消息发送",$Chartromm);
+    Utils::dump("Two-person status message sending",$Chartromm);
 }
 sendStatusMessage();
 /**
@@ -84,6 +84,6 @@ function recall()
         'sentTime'=>'1519444243981'// Send time
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->recall($message);
-    Utils::dump("二人消息撤回",$Chartromm);
+    Utils::dump("Two-person message recall",$Chartromm);
 }
 recall();

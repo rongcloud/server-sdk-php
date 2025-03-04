@@ -24,7 +24,7 @@ function set()
         'type' => 'PERSON',              // conversation type, currently supports single conversation PERSON
     ];
     $res = $RongSDK->getUser()->Ban()->set($user);
-    Utils::dump("设置用户单聊禁言", $res);
+    Utils::dump("set", $res);
 }
 set();
 
@@ -40,6 +40,6 @@ function getList()
         'type'      => 'PERSON' // Conversation type, currently supports single conversation PERSON.
     ];
     $res = $RongSDK->getUser()->Ban()->getList($param);
-    Utils::dump("查询单聊禁言用户列表", $res);
+    Utils::dump("getList", $res);
 }
 getList();

@@ -23,7 +23,7 @@ function send()
         'content'=>json_encode(['content'=>'php 群消息 你好，小明'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Ultragroup()->send($message);
-    Utils::dump("超级群消息发送",$Result);
+    Utils::dump("Super group message delivery",$Result);
 }
 send();
 
@@ -47,7 +47,7 @@ function sendMention()
         ])
     ];
     $Result = $RongSDK->getMessage()->Ultragroup()->sendMention($message);
-    Utils::dump("发送 @ 消息",$Result);
+    Utils::dump("Send @ message",$Result);
 }
 sendMention();
 /**
@@ -64,6 +64,6 @@ function recall()
 /* Delivery Time */
     ];
     $Chartromm = $RongSDK->getMessage()->Ultragroup()->recall($message);
-    Utils::dump("超级群消息撤回",$Chartromm);
+    Utils::dump("Supergroup message recall",$Chartromm);
 }
 recall();

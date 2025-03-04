@@ -24,7 +24,7 @@ function add()
         ,
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->add($group);
-    Utils::dump("添加超级群禁言白名单",$result);
+    Utils::dump("Add super group ban whitelist",$result);
 }
 add();
 /**
@@ -38,7 +38,7 @@ function getList()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->getList($group);
-    Utils::dump("查询禁言白名单成员列表",$result);
+    Utils::dump("Query the list of members in the forbidden word whitelist",$result);
 }
 getList();
 /**
@@ -55,7 +55,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->remove($group);
-    Utils::dump("解除禁言白名单",$result);
+    Utils::dump("Remove the denylist whitelist",$result);
 }
 remove();
 

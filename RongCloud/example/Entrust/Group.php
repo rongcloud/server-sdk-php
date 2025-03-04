@@ -24,7 +24,7 @@ function create()
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->Group()->create($param);
-    Utils::dump("创建群组", $result);
+    Utils::dump("Create a group", $result);
 }
 create();
 
@@ -42,7 +42,7 @@ function update()
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->update($param);
-    Utils::dump("设置群组资料", $result);
+    Utils::dump("Set group resources", $result);
 }
 update();
 
@@ -60,7 +60,7 @@ function quit()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->quit($param);
-    Utils::dump("退出群组", $result);
+    Utils::dump("Exit group", $result);
 }
 quit();
 
@@ -74,7 +74,7 @@ function dismiss()
         'groupId' => 'CHIQ_GROUP_2'
     ];
     $result = $RongSDK->getEntrust()->Group()->dismiss($param);
-    Utils::dump("解散群组", $result);
+    Utils::dump("Disband group", $result);
 }
 dismiss();
 
@@ -89,7 +89,7 @@ function groupJoin()
         'userIds' => ['123', '456']
     ];
     $result = $RongSDK->getEntrust()->Group()->join($param);
-    Utils::dump("加入群组", $result);
+    Utils::dump("Join the group", $result);
 }
 groupJoin();
 
@@ -108,7 +108,7 @@ function transferOwner()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->transferOwner($param);
-    Utils::dump("转让群组", $result);
+    Utils::dump("Transfer group", $result);
 }
 transferOwner();
 
@@ -127,7 +127,7 @@ function import()
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->import($param);
-    Utils::dump("群组托管导入", $result);
+    Utils::dump("Group hosting import", $result);
 }
 import();
 
@@ -143,7 +143,7 @@ function query()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->query($param);
-    Utils::dump("分页查询应用下群组信息", $result);
+    Utils::dump("Query application group information under pagination", $result);
 }
 query();
 
@@ -161,7 +161,7 @@ function joinedQuery()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->joinedQuery($param);
-    Utils::dump("分页查询用户加入的群组", $result);
+    Utils::dump("Pagination query for users added to the group", $result);
 }
 joinedQuery();
 
@@ -175,6 +175,6 @@ function profileQuery()
         'groupIds' => ['RC_GROUP_1', 'CHIQ_GROUP_2']
     ];
     $result = $RongSDK->getEntrust()->Group()->profileQuery($param);
-    Utils::dump("批量查询群组资料", $result);
+    Utils::dump("Batch query group data", $result);
 }
 profileQuery();

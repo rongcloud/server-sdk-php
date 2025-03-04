@@ -29,7 +29,7 @@ function set()
         ]  // User extension information
     ];
     $res = $RongSDK->getUser()->Profile()->set($params);
-    Utils::dump("用户资料设置", $res);
+    Utils::dump("set", $res);
 }
 set();
 
@@ -43,7 +43,7 @@ function clean()
         'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->clean($params);
-    Utils::dump("用户托管信息清除", $res);
+    Utils::dump("clean", $res);
 }
 clean();
 
@@ -57,7 +57,7 @@ function batchQuery()
         'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->batchQuery($params);
-    Utils::dump("批量查询用户资料", $res);
+    Utils::dump("batchQuery", $res);
 }
 batchQuery();
 
@@ -73,6 +73,6 @@ function query()
         'order' => 0
     ];
     $res =  $RongSDK->getUser()->Profile()->query($params);
-    Utils::dump("分页获取应用全部用户列表", $res);
+    Utils::dump("query", $res);
 }
 query();

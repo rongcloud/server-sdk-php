@@ -20,7 +20,7 @@ function add()
         'id'=> "Txtmsg03"
     ];
     $Keeplive = $RongSDK->getChatroom()->Keepalive()->add($chatroom);
-    Utils::dump("添加保活聊天室",$Keeplive);
+    Utils::dump("Add a chat room for live conversations",$Keeplive);
 }
 add();
 
@@ -34,7 +34,7 @@ function remove()
         'id'=> "chrmId001"
     ];
     $Keeplive = $RongSDK->getChatroom()->Keepalive()->remove($chatroom);
-    Utils::dump("删除保活聊天室",$Keeplive);
+    Utils::dump("Delete chat room with keep-alive",$Keeplive);
 }
 remove();
 
@@ -48,6 +48,6 @@ function getList()
 
     ];
     $Keeplive = $RongSDK->getChatroom()->Keepalive()->getList($chatroom);
-    Utils::dump("获取保活聊天室",$Keeplive);
+    Utils::dump("Get the chat room for preservation",$Keeplive);
 }
 getList();

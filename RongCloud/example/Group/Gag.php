@@ -25,7 +25,7 @@ function add()
         'minute'=>3000  // Forbidden duration
     ];
     $result = $RongSDK->getGroup()->Gag()->add($group);
-    Utils::dump("添加群组禁言",$result);
+    Utils::dump("Add group ban words",$result);
 }
 add();
 /**
@@ -39,7 +39,7 @@ function getList()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->Gag()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**
@@ -56,7 +56,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getGroup()->Gag()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("Unblock",$result);
 }
 remove();
 

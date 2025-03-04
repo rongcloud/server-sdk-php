@@ -22,7 +22,7 @@ function set()
         'remark'=> '人员备注'// Group annotation
     ];
     $Remark = $RongSDK->getGroup()->Remark()->set($group);
-    Utils::dump("添加备注",$Remark);
+    Utils::dump("Add group annotation",$Remark);
 }
 set();
 
@@ -37,7 +37,7 @@ function del()
         'groupId'=>'abca', // Group ID
     ];
     $Remark = $RongSDK->getGroup()->Remark()->del($group);
-    Utils::dump("删除备注",$Remark);
+    Utils::dump("Delete group backup",$Remark);
 }
 del();
 
@@ -53,6 +53,6 @@ function get()
         'groupId'=>'abca', // Group ID
     ];
     $Remark =  $RongSDK->getGroup()->Remark()->get($group);
-    Utils::dump("获取群组备注",$Remark);
+    Utils::dump("Get group remarks",$Remark);
 }
 get();

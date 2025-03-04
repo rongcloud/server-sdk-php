@@ -23,7 +23,7 @@ function add()
         'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUser()->MuteGroups()->add($group);
-    Utils::dump("添加群组禁言",$result);
+    Utils::dump("add",$result);
 }
 add();
 /**
@@ -37,7 +37,7 @@ function getList()
 
     ];
     $result = $RongSDK->getUser()->MuteGroups()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("getList",$result);
 }
 getList();
 /**
@@ -53,7 +53,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getUser()->MuteGroups()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("remove",$result);
 }
 remove();
 

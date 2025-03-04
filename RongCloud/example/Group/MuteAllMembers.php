@@ -20,7 +20,7 @@ function add()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->add($group);
-    Utils::dump("添加指定群组全部禁言",$result);
+    Utils::dump("Add group ban",$result);
 }
 add();
 /**
@@ -34,7 +34,7 @@ function getList()
 
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->getList($group);
-    Utils::dump("查询指定群组全部禁言列表",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**
@@ -48,7 +48,7 @@ function remove()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->remove($group);
-    Utils::dump("解除指定群组全部禁言",$result);
+    Utils::dump("Remove ban",$result);
 }
 remove();
 
