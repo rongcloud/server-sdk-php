@@ -173,14 +173,14 @@
           "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
         },
         "1004": {
-          "code": "极客时间", 
+          "code": "1004", 
           "msg": "Signature error, please verify if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
           "msg": "Request frequency limit exceeded"
         },
-       极客时间": {
+        "1502": {
           "code": "1502",
           "msg": "Incorrect ban duration, currently passed as {{size}}, correct range is 1 - 1 * 30 * 24 * 60 minutes"
         }
@@ -214,7 +214,7 @@
           "code": "1004",
           "msg": "Signature error, please verify if Appkey and Secret are correct"
         },
-        "100极客时间": {
+        "1008": {
           "code": "1008",
           "msg": "Request frequency limit exceeded"
         }

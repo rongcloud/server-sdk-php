@@ -1,6 +1,6 @@
 <?php
 /**
- * // Historical message
+ * Historical message
  */
 namespace RongCloud\Lib\Message\History;
 

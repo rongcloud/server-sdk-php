@@ -1,6 +1,6 @@
 <?php
 /**
- * // Banned user relationship
+ * Banned user relationship
  */
 namespace RongCloud\Lib\User\Block;
 
@@ -11,14 +11,14 @@ use RongCloud\Lib\Utils;
 class Block {
 
     /**
- * // User module path to block user
+ * User module path to block user
  *
  * @var string
  */
     private $jsonPath = 'Lib/User/Block/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -32,7 +32,7 @@ class Block {
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {
@@ -42,7 +42,7 @@ class Block {
     }
 
     /**
- * // Add banned user
+ * Add banned user
  *
  * @param array $User Banned user parameters
  * @param
@@ -97,7 +97,7 @@ class Block {
     }
 
     /**
- * // Get the list of banned users
+ * Get the list of banned users
  *
  * @param array $User Banned user list parameter
  * @param

@@ -14,17 +14,17 @@ class Ban
 {
 
     /**
- * // User module user single chat forbidden path
+ * User module user single chat forbidden path
  *
  * @var string
  */
     private $jsonPath = 'Lib/User/Chat/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
- * // Configuration file path
+ * Configuration file path
  */
     private $conf = '';
 
@@ -36,11 +36,11 @@ class Ban
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
@@ -77,7 +77,7 @@ class Ban
     }
 
     /**
- * // Query the list of banned users
+ * Query the list of banned users
  *
  * @param array $param Parameters for querying the list of banned users
  * @param

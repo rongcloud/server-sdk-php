@@ -34,4 +34,339 @@
           "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
         },
         "1004": {
-          "code": "极客时间", "name": "geektime", "url": "https://www.geekbang.org/", "desc": "极客时间是一个面向IT技术人员的在线教育平台，提供高质量的技术课程和专栏。", "tags": ["IT", "在线教育", "技术课程"], "status": "active"
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "create": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#createGroup",
+    "url": "group/create",
+    "params": {
+      "group": {
+        "id": "10001",
+        "name": "TestGroup",
+        "members": ["aFo990k","aFo991k"]
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "invite": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#joinGroup",
+    "url": "group/join",
+    "params": {
+      "group": {
+        "members": ["aFo990k","aFo991k"],
+        "id": "10001",
+        "name": "TestGroup"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}} "
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "join": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#joinGroup",
+    "url": "group/join",
+    "params": {
+      "group": {
+        "member": "aFo990k",
+        "id": "10001",
+        "name": "TestGroup"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}} "
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "quit": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#quitGroup",
+    "url": "group/quit",
+    "params": {
+      "group": {
+        "id": "10001",
+        "members": ["aFo990k"]
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "kick": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#quitGroup",
+    "url": "group/quit",
+    "params": {
+      "group": {
+        "id": "10001",
+        "members": ["aFo990k","aFo991k"]
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "dismiss": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#dismissGroup",
+    "url": "group/dismiss",
+    "params": {
+      "group": {
+        "id": "10001"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "update": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#refreshGroup",
+    "url": "group/refresh",
+    "params": {
+      "group": {
+        "id":"10001",
+        "name": "testGroup1"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Success"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  },
+  "get": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#getGroup",
+    "url": "group/user/query",
+    "params": {
+      "group": {
+        "id": "10001"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "members": [{
+          "id": "10001"
+        }, {
+          "id": "10002"
+        }, {
+          "id": "10000"
+        }, {
+          "id": "10003"
+        }]
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        }
+      }
+    }
+  }
+}

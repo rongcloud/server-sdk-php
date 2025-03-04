@@ -1,6 +1,6 @@
 <?php
 /**
- * // Test cases for sensitive word module
+ * Test cases for sensitive word module
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -14,7 +14,7 @@ $RongSDK = new RongCloud(APPKEY,APPSECRET);
 function testSensitive($RongSDK){
     $Sensitive = $RongSDK->getSensitive();
     $params = [
-        'replace'=> '***',// // Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word masking can be empty
+        'replace'=> '***',// Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word masking can be empty
         'keyword'=>"abc",// Sensitive word
         'type'=>0// 0: Sensitive word substitution 1: Sensitive word filtering
     ];
@@ -26,11 +26,11 @@ function testSensitive($RongSDK){
     $params = [
         'words' => [
             [
-                'word' => "abc1", // // Screen masking
+                'word' => "abc1", // Screen masking
             ],
             [
-                'word' => "abc2", // // Sensitive word
-                'replaceWord' => '***' // // Sensitive word replacement, maximum length does not exceed 32 characters, sensitive word masking can be empty
+                'word' => "abc2", // Sensitive word
+                'replaceWord' => '***' // Sensitive word replacement, maximum length does not exceed 32 characters, sensitive word masking can be empty
             ]
         ]
     ];

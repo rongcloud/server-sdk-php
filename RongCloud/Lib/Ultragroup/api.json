@@ -102,4 +102,141 @@
           "code": "1502",
           "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
-        "极简风格"
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}} "
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency limit exceeded"
+        }
+      }
+    }
+  },
+  "isExist": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#quitGroup",
+    "url": "/ultragroup/member/exist",
+    "params": {
+      "group": {
+        "id": "10001",
+        "member": "aFo990k"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency limit exceeded"
+        }
+      }
+    }
+  },
+  "dis": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#dismissGroup",
+    "url": "ultragroup/dis",
+    "params": {
+      "group": {
+        "id": "10001",
+        "member": "10001"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency limit exceeded"
+        }
+      }
+    }
+  },
+  "refresh": {
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/group/basic#dismissGroup",
+    "url": "ultragroup/refresh",
+    "params": {
+      "group": {
+        "id": "10001",
+        "name": "10001"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency limit exceeded"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room message whitelist
+ * Chat room message whitelist
  */
 namespace RongCloud\Lib\Chatroom\Whitelist;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class Message {
 
     /**
- * // Chat room message whitelist path
+ * Chat room message whitelist path
  *
  * @var string
  */
@@ -94,7 +94,7 @@ class Message {
     }
 
     /**
- * // Get the chatroom message whitelist
+ * Get the chatroom message whitelist
  *
  * @param $Chatroom
  * $Chatroom = [

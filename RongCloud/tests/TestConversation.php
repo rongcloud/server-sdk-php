@@ -1,6 +1,6 @@
 <?php
 /**
- * // Session module test case
+ * Session module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -16,15 +16,15 @@ function testConversation($RongSDK){
     $params = [
         'type'=> 'PRIVATE',// Session types PRIVATE, GROUP, DISCUSSION, SYSTEM
         'userId'=>'mka091amn',// Session Owner
-        'targetId'=>'adm1klnm'// // session id
+        'targetId'=>'adm1klnm'// session id
     ];
     Utils::dump("设置用户某个会话屏蔽 Push成功",$Conversation->mute($params));
 
     Utils::dump("设置用户某个会话屏蔽 Push type 错误",$Conversation->mute());
 
     $params = [
-        'type'=> 'PRIVATE',// // Conversation types PRIVATE, GROUP, DISCUSSION, SYSTEM
-        'userId'=>'mka091amn',// // Session owner
+        'type'=> 'PRIVATE',// Conversation types PRIVATE, GROUP, DISCUSSION, SYSTEM
+        'userId'=>'mka091amn',// Session owner
         'targetId'=>'adm1klnm'// Session ID
     ];
     Utils::dump("设置用户某个会话接收 Push成功",$Conversation->unmute($params));

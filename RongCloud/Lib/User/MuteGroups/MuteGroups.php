@@ -1,6 +1,6 @@
 <?php
 /**
- * // User module global group member ban service
+ * User module global group member ban service
  */
 namespace RongCloud\Lib\User\MuteGroups;
 
@@ -11,14 +11,14 @@ use RongCloud\Lib\Utils;
 class MuteGroups {
 
     /**
- * // User module global group member mute service
+ * User module global group member mute service
  *
  * @var string
  */
     private $jsonPath = 'Lib/User/MuteGroups/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -26,7 +26,7 @@ class MuteGroups {
     private $conf = '';
 
     /**
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
  */
@@ -37,7 +37,7 @@ class MuteGroups {
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'verify.json');
     }

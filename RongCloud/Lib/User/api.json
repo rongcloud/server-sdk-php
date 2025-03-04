@@ -101,13 +101,12 @@
           "code": "1005",
           "msg": "{{name}} length exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
-        "极简风格: 仅输出翻译后的内容，不包含任何解释或说明。",
         "1002": {
           "code": "1002",
           "msg": "{{name}} parameter is required"
         },
         "1004": {
-          "code": "极简风格: 仅输出翻译后的内容，不包含任何解释或说明。",
+          "code": "1004",
           "msg": "Signature error. Please verify if the Appkey and Secret are correct"
         },
         "1008": {
@@ -151,7 +150,7 @@
     }
   },
   "cancel_set": {
-    "docs": "https极简风格: 仅输出翻译后的内容，不包含任何解释或说明。",
+    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
     "url": "user/deactivate",
     "params": {
       "deactivate": {
@@ -178,7 +177,6 @@
         },
         "1008": {
           "code": "1008",
-          "极简风格: 仅输出翻译后的内容，不包含任何解释或说明。",
           "msg": "Call frequency limit exceeded"
         }
       }

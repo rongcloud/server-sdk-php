@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Super group message extension
+ * Super group message extension
  */
 
 namespace RongCloud\Lib\Ultragroup\Expansion;
@@ -18,7 +18,7 @@ class Expansion
     private $jsonPath = 'Lib/Ultragroup/Expansion/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */

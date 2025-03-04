@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group blacklist
+ * Group blacklist
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group\MuteWhiteList;
@@ -10,14 +10,14 @@ use RongCloud\Lib\Utils;
 class MuteWhiteList
 {
     /**
- * // Group module path
+ * Group module path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Group/MuteWhiteList/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -113,7 +113,7 @@ class MuteWhiteList
     }
 
     /**
- * // Query the list of members in the banned words whitelist
+ * Query the list of members in the banned words whitelist
  *
  * @param array $Group  Parameter
  * @param

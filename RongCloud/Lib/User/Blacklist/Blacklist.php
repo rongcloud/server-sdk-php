@@ -20,7 +20,7 @@ class Blacklist {
     private $jsonPath = 'Lib/User/Blacklist/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -34,7 +34,7 @@ class Blacklist {
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {

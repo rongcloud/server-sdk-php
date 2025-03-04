@@ -23,14 +23,14 @@ class Notdisturb {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {

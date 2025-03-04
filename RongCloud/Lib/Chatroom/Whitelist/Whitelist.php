@@ -10,7 +10,7 @@ use RongCloud\Lib\Chatroom\Whitelist\Message;
 class Whitelist {
 
     /**
- * // Get the whitelist message object for LianTian
+ * Get the whitelist message object for LianTian
  *
  * @return Message
  */
@@ -19,7 +19,7 @@ class Whitelist {
     }
 
     /**
- * // Get the User object for the whitelist user in LianTian
+ * Get the User object for the whitelist user in LianTian
  *
  * @return User
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * // Conversation example
+ * Conversation example
  */
 
 
@@ -10,15 +10,15 @@ define('APPSECRET','');
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 /**
- * // Set user's session screen to Push
+ * Set user's session screen to Push
  */
 function mute()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $conversation = [
-        'type'=> 'PRIVATE',// // Conversation types: PRIVATE, GROUP, DISCUSSION, SYSTEM
+        'type'=> 'PRIVATE',// Conversation types: PRIVATE, GROUP, DISCUSSION, SYSTEM
         'userId'=>'Vu-oC0_LQ6kgPqltm_zYtI',// Session owner
-        'targetId'=>'Vu-oC0_LQ6kgPqltm_zYtI'// // Session ID
+        'targetId'=>'Vu-oC0_LQ6kgPqltm_zYtI'// Session ID
     ];
     $result = $RongSDK->getConversation()->mute($conversation);
     Utils::dump("设置用户某个会话屏蔽 Push",$result);
@@ -26,7 +26,7 @@ function mute()
 mute();
 
 /**
- * // Set the user to receive Push notifications for a specific session
+ * Set the user to receive Push notifications for a specific session
  */
 function unmute()
 {
@@ -35,7 +35,7 @@ function unmute()
     $conversation = [
         'type'=> 'PRIVATE',// Session types PRIVATE, GROUP, DISCUSSION, SYSTEM
         'userId'=>'mka091amn',// Session owner
-        'targetId'=>'adm1klnm'// // Session ID
+        'targetId'=>'adm1klnm'// Session ID
     ];
     $result = $RongSDK->getConversation()->unmute($conversation);
     Utils::dump("设置用户某个会话接收 Push",$result);

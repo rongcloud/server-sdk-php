@@ -18,10 +18,10 @@ class Request
  *
  * @var array
  */
-    private $serverUrl = ['http:// api.rong-api.com/', 'http://api-b.rong-api.com/'];
+    private $serverUrl = ['  http://api.rong-api.com/', 'http://api-b.rong-api.com/'];
     // private $serverUrl = ['http://api.sg-light-api.com/', 'http://api-b.sg-light-api.com/'];
     // private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
-    private $smsUrl = 'http:// api.sms.ronghub.com/';
+    private $smsUrl = '  http://api.sms.ronghub.com/';
     private $connectTimeout = 20;
     private $timeout = 30;
 
@@ -48,7 +48,7 @@ class Request
     }
 
     /**
- * // Server URL multi-domain switching
+ * Server URL multi-domain switching
  */
     private function resetServerUrl($nextUrl = "")
     {
@@ -72,7 +72,7 @@ class Request
         }
         $oldSessionId = session_id();
         session_write_close();
-        // // Switch to SDK session
+        // Switch to SDK session
         session_id($seesionId);
         session_start();
 
@@ -94,7 +94,7 @@ class Request
     }
 
     /**
- * // Set the next domain as the multi-domain
+ * Set the next domain as the multi-domain
  * @param string $url
  */
     private function getNextUrl($url = "")
@@ -109,7 +109,7 @@ class Request
     }
 
     /**
- * // Create HTTP header parameters
+ * Create HTTP header parameters
  * @param array $data
  * @return bool
  */
@@ -172,7 +172,7 @@ class Request
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, $httpMethod == 'POST');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // // Handle HTTP certificate issues
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Handle HTTP certificate issues
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
@@ -210,7 +210,7 @@ class Request
     }
 
     /**
- * // Get parameters from POST (x-www-form-urlencoded)/GET request
+ * Get parameters from POST (x-www-form-urlencoded)/GET request
  *
  * @param Request $params parameters
  * @return bool|string
@@ -272,7 +272,7 @@ class Request
     }
 
     /**
- * // cURL request error information
+ * cURL request error information
  * @param int $error
  */
     public function getCurlError($error = 1)

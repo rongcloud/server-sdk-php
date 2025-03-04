@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chatroom Keepalive
+ * Chatroom Keepalive
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add a chat room for live conversations
+ * Add a chat room for live conversations
  */
 function add()
 {
@@ -25,7 +25,7 @@ function add()
 add();
 
 /**
- * // Delete chat room with keep-alive
+ * Delete chat room with keep-alive
  */
 function remove()
 {
@@ -39,7 +39,7 @@ function remove()
 remove();
 
 /**
- * // Get the chat room for preservation
+ * Get the chat room for preservation
  */
 function getList()
 {

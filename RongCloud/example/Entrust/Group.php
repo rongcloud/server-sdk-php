@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group information module test
+ * Group information module test
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -12,7 +12,7 @@ use RongCloud\Lib\Utils;
 
 
 /**
- * // Create a group
+ * Create a group
  */
 function create()
 {
@@ -29,7 +29,7 @@ function create()
 create();
 
 /**
- * // Set group resources
+ * Set group resources
  */
 function update()
 {
@@ -47,7 +47,7 @@ function update()
 update();
 
 /**
- * // Exit group
+ * Exit group
  */
 function quit()
 {
@@ -65,7 +65,7 @@ function quit()
 quit();
 
 /**
- * // Disband group
+ * Disband group
  */
 function dismiss()
 {
@@ -94,7 +94,7 @@ function groupJoin()
 groupJoin();
 
 /**
- * // Transfer group
+ * Transfer group
  */
 function transferOwner()
 {
@@ -113,7 +113,7 @@ function transferOwner()
 transferOwner();
 
 /**
- * // Group hosting import
+ * Group hosting import
  */
 function import()
 {
@@ -132,7 +132,7 @@ function import()
 import();
 
 /**
- * // Query application group information under pagination
+ * Query application group information under pagination
  */
 function query()
 {
@@ -148,7 +148,7 @@ function query()
 query();
 
 /**
- * // Pagination query for users added to the group
+ * Pagination query for users added to the group
  */
 function joinedQuery()
 {
@@ -166,7 +166,7 @@ function joinedQuery()
 joinedQuery();
 
 /**
- * // Batch query group data
+ * Batch query group data
  */
 function profileQuery()
 {

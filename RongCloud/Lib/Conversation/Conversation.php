@@ -13,7 +13,7 @@ use RongCloud\Lib\Utils;
 class Conversation
 {
     /**
- * // Session module path
+ * Session module path
  *
  * @var string
  */
@@ -27,14 +27,14 @@ class Conversation
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {
@@ -107,7 +107,7 @@ class Conversation
     }
 
     /**
- * // Get the conversation state without interruption
+ * Get the conversation state without interruption
  *
  * @param array $Conversation Receive conversation Push parameters
  * @param

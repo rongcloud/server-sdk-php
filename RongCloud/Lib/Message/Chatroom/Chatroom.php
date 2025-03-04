@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room message
+ * Chat room message
  */
 namespace RongCloud\Lib\Message\Chatroom;
 
@@ -12,7 +12,7 @@ class Chatroom {
     private $jsonPath = 'Lib/Message/Chatroom/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -26,7 +26,7 @@ class Chatroom {
     private $verify = '';
 
     /**
- * // Chatroom constructor.
+ * Chatroom constructor.
  */
     function __construct()
     {

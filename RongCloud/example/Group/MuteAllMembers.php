@@ -1,6 +1,6 @@
 <?php
 /**
- * // Specify the group-wide ban instance
+ * Specify the group-wide ban instance
  */
 
 
@@ -24,7 +24,7 @@ function add()
 }
 add();
 /**
- * // Query the list of banned members
+ * Query the list of banned members
  */
 function getList()
 {
@@ -38,7 +38,7 @@ function getList()
 }
 getList();
 /**
- * // Remove ban
+ * Remove ban
  */
 function remove()
 {

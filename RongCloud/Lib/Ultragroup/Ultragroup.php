@@ -1,6 +1,6 @@
 <?php
 /**
- * // Super cluster module
+ * Super cluster module
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup;
@@ -237,7 +237,7 @@ class Ultragroup
 
 
     /**
- * // Create a super group gag object
+ * Create a super group gag object
  *
  * @return Gag
  */
@@ -254,7 +254,7 @@ class Ultragroup
         return new MuteAllMembers();
     }
     /**
- * // Create a mute for all members of the specified supergroup
+ * Create a mute for all members of the specified supergroup
  *
  * @return MuteWhiteList
  */
@@ -263,7 +263,7 @@ class Ultragroup
     }
 
     /**
- * // Super Group Expansion
+ * Super Group Expansion
  *
  * @return Expansion
  */
@@ -272,7 +272,7 @@ class Ultragroup
     }
 
     /**
- * // Super Cluster Expansion
+ * Super Cluster Expansion
  *
  * @return BusChannel
  */
@@ -281,7 +281,7 @@ class Ultragroup
     }
 
     /**
- * // Super group expansion does not disturb
+ * Super group expansion does not disturb
  *
  * @return Notdisturb
  */

@@ -18,7 +18,7 @@ class Message
 {
 
     /**
- * // Create a chatroom object
+ * Create a chatroom object
  *
  * @return Chatroom
  */
@@ -27,7 +27,7 @@ class Message
     }
 
     /**
- * // Create a chat room object
+ * Create a chat room object
  *
  * @return Discussion
  */
@@ -55,7 +55,7 @@ class Message
 
 
     /**
- * // Create a chat room object
+ * Create a chat room object
  *
  * @return Person
  */
@@ -64,7 +64,7 @@ class Message
     }
 
     /**
- * // Create a chat room object
+ * Create a chat room object
  *
  * @return System
  */
@@ -82,7 +82,7 @@ class Message
     }
 
     /**
- * // Create a broadcast message object
+ * Create a broadcast message object
  *
  * @return Expansion
  */
@@ -91,7 +91,7 @@ class Message
     }
 
     /**
- * // Create a supergroup message object
+ * Create a supergroup message object
  *
  * @return Expansion
  */

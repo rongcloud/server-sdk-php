@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room attributes
+ * Chat room attributes
  */
 
 namespace RongCloud\Lib\Chatroom\Entry;
@@ -18,14 +18,14 @@ class Entry {
     private $jsonPath = 'Lib/Chatroom/Entry/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Validate configuration file
+ * Validate configuration file
  *
  * @var string
  */
@@ -75,7 +75,7 @@ class Entry {
     }
 
     /**
- * // Batch set chatroom properties (KV)
+ * Batch set chatroom properties (KV)
  *
  * @param $Chatroom
  * $Chatroom = [

@@ -17,8 +17,8 @@ function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha1',// // User ID unique identifier, maximum length 30 characters
-        'minute'=> 20 // // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
+        'id'=> 'ujadk90ha1',// User ID unique identifier, maximum length 30 characters
+        'minute'=> 20 // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
     ];
     $Block = $RongSDK->getUser()->Block()->add($user);
     Utils::dump("banned user",$Block);
@@ -26,13 +26,13 @@ function add()
 add();
 
 /**
- * // Unblock user
+ * Unblock user
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'id'=> 'ujadk90ha1',// // Unlock user ID unique identifier, maximum length 30 characters
+        'id'=> 'ujadk90ha1',// Unlock user ID unique identifier, maximum length 30 characters
     ];
     $Block =  $RongSDK->getUser()->Block()->remove($user);
     Utils::dump("解除用户封禁",$Block);
@@ -40,7 +40,7 @@ function remove()
 remove();
 
 /**
- * // Banned user list
+ * Banned user list
  */
 function getList()
 {

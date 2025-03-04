@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chatroom member ban speech
+ * Chatroom member ban speech
  */
 namespace RongCloud\Lib\Chatroom\Gag;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class Gag {
 
     /**
- * // Chatroom member ban path
+ * Chatroom member ban path
  *
  * @var string
  */
@@ -24,7 +24,7 @@ class Gag {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
@@ -40,7 +40,7 @@ class Gag {
     }
 
     /**
- * // Add member mute
+ * Add member mute
  *
  * @param array $Chatroom
  * $Chatroom = [

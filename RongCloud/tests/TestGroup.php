@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group module test case
+ * Group module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -33,7 +33,7 @@ function testGroup($RongSDK){
     Utils::dump("创建群组错误",$Group->create());
 
     $params = [
-        'id'=> 'watergroup',// // Group ID
+        'id'=> 'watergroup',// Group ID
         'name'=>"watergroup",// Group Name
         'member'=>['id'=> 'group999'],// Group member information
     ];
@@ -47,8 +47,8 @@ function testGroup($RongSDK){
     Utils::dump("加入群组 id 错误",$Group->joins($params));
 
     $params = [
-        'id'=> 'watergroup',// // Group ID
-        'member'=>['id'=> 'group999']// // Exit personnel information
+        'id'=> 'watergroup',// Group ID
+        'member'=>['id'=> 'group999']// Exit personnel information
     ];
     Utils::dump("退出群组成功",$Group->quit($params));
 
@@ -63,7 +63,7 @@ function testGroup($RongSDK){
     Utils::dump("解散群组 id 错误",$Group->dismiss());
 
     $params = [
-        'id'=> 'watergroup',// // Group ID
+        'id'=> 'watergroup',// Group ID
         'name'=>"watergroup"// group name
     ];
     Utils::dump("修改群信息成功",$Group->update($params));
@@ -75,7 +75,7 @@ function testGroup($RongSDK){
     Utils::dump("修改群信息 id 错误",$Group->update($params));
 
     $params = [
-        'id'=> 'watergroup',// // Group ID
+        'id'=> 'watergroup',// Group ID
         'name'=>""// group name
     ];
     Utils::dump("修改群信息 name 错误",$Group->update($params));
@@ -87,11 +87,11 @@ testGroup($RongSDK);
 function testGroupGag($RongSDK){
     $Group = $RongSDK->getGroup()->Gag();
     $params = [
-        'id'=> 'watergroup1',// // Group ID
-        'members'=>[ // // Forbidden personnel list
+        'id'=> 'watergroup1',// Group ID
+        'members'=>[ // Forbidden personnel list
             ['id'=> 'group9994']
         ],
-        'minute'=>500  // // Forbidden duration
+        'minute'=>500  // Forbidden duration
     ];
     Utils::dump("添加群组禁言成功",$Group->add($params));
 
@@ -107,8 +107,8 @@ function testGroupGag($RongSDK){
     Utils::dump("添加群组禁言 minute 错误",$Group->add($params));
 
     $params = [
-        'id'=> 'watergroup1',// // Group ID
-        'members'=>[ // // Forbidden personnel list
+        'id'=> 'watergroup1',// Group ID
+        'members'=>[ // Forbidden personnel list
             ['id'=> 'group9994']
         ]
     ];
@@ -161,8 +161,8 @@ testGroupMuteAllMembers($RongSDK);
 function testGroupMuteWhiteList($RongSDK){
     $Group = $RongSDK->getGroup()->MuteWhiteList();
     $params = [
-        'id'=> 'watergroup1',// // Group ID
-        'members'=>[ // // Prohibited personnel list
+        'id'=> 'watergroup1',// Group ID
+        'members'=>[ // Prohibited personnel list
             ['id'=> 'group9994']
         ],
     ];
@@ -171,8 +171,8 @@ function testGroupMuteWhiteList($RongSDK){
     Utils::dump("添加群组禁言白名单参数错误",$Group->add());
 
     $params = [
-        'id'=> 'watergroup1',// // Group ID
-        'members'=>[ // // Forbidden personnel whitelist
+        'id'=> 'watergroup1',// Group ID
+        'members'=>[ // Forbidden personnel whitelist
             ['id'=> 'group9994']
         ]
     ];
@@ -186,7 +186,7 @@ function testGroupMuteWhiteList($RongSDK){
     Utils::dump("解除禁言白名单 members 错误",$Group->remove($params));
 
     $params = [
-        'id'=> 'watergroup1',// // @param group id
+        'id'=> 'watergroup1',// @param group id
     ];
     Utils::dump("查询禁言白名单成员列表成功",$Group->getList($params));
 
@@ -198,17 +198,17 @@ testGroupMuteWhiteList($RongSDK);
 function testGroupRemark($RongSDK){
     $Group = $RongSDK->getGroup()->Remark();
     $params = [
-        'userId'=> 'ujadk90ha1',// // @param personnel id
-        'groupId'=>'groupId', // // Group ID
-        'remark'=> '人员备注'// // Group annotation
+        'userId'=> 'ujadk90ha1',// @param personnel id
+        'groupId'=>'groupId', // Group ID
+        'remark'=> '人员备注'// Group annotation
     ];
     Utils::dump("添加群组人员备注成功",$Group->set($params));
 
     Utils::dump("添加群组人员备注参数错误",$Group->set());
 
     $params = [
-        'userId'=> 'ujadk90ha1',// // Staff ID
-        'groupId'=>'groupId', // // Group ID
+        'userId'=> 'ujadk90ha1',// Staff ID
+        'groupId'=>'groupId', // Group ID
     ];
     Utils::dump("移除群组人员备注成功",$Group->del($params));
 

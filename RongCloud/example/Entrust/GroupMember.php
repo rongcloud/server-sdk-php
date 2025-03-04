@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Set group member information
+ * Set group member information
  */
 function set()
 {
@@ -46,7 +46,7 @@ function kick()
 kick();
 
 /**
- * // Specify the user to kick out all groups
+ * Specify the user to kick out all groups
  */
 function kickAll()
 {
@@ -60,7 +60,7 @@ function kickAll()
 kickAll();
 
 /**
- * // Set user-specified group special attention users
+ * Set user-specified group special attention users
  */
 function follow()
 {
@@ -76,7 +76,7 @@ function follow()
 follow();
 
 /**
- * // Remove the specified user from the group's special attention list
+ * Remove the specified user from the group's special attention list
  */
 function unFollow()
 {
@@ -92,7 +92,7 @@ function unFollow()
 unFollow();
 
 /**
- * // Query the list of members in the specified group that the user particularly focuses on
+ * Query the list of members in the specified group that the user particularly focuses on
  */
 function getFollowed()
 {
@@ -107,7 +107,7 @@ function getFollowed()
 getFollowed();
 
 /**
- * // Get group member information by pagination
+ * Get group member information by pagination
  */
 function query()
 {
@@ -125,7 +125,7 @@ function query()
 query();
 
 /**
- * // Get specified member information
+ * Get specified member information
  */
 function specificQuery()
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * // Banned user relationship
+ * Banned user relationship
  */
 namespace RongCloud\Lib\User\Tag;
 
@@ -17,14 +17,14 @@ class Tag {
     private $jsonPath = 'Lib/User/Tag/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */

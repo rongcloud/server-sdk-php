@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group Information Management Module
+ * Group Information Management Module
  */
 
 namespace RongCloud\Lib\Entrust\Group;
@@ -83,7 +83,7 @@ class Group
     }
 
     /**
- * // Set group information
+ * Set group information
  *
  * @param array $param = [
  * 'groupId' => '111',
@@ -277,7 +277,7 @@ class Group
 
 
     /**
- * // Pagination query application group information
+ * Pagination query application group information
  *
  * @param array $param = [
  * 'pageToken' => '',
@@ -294,7 +294,7 @@ class Group
     }
 
     /**
- * // Paginated query for users added to a group
+ * Paginated query for users added to a group
  *
  * @param array $param = [
  * 'userId' => '10',
@@ -324,7 +324,7 @@ class Group
     }
 
     /**
- * // Batch query group information
+ * Batch query group information
  *
  * @param array $param = [
  * 'groupIds' => ['123','456'],

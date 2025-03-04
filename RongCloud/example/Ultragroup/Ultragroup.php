@@ -1,6 +1,6 @@
 <?php
 /**
- * // Super cluster module
+ * Super cluster module
  */
 
 
@@ -11,16 +11,16 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Create a super group
+ * Create a super group
  */
 function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
 
     $group = [
-        'id'=> 'phpgroup1',// // Super group ID
+        'id'=> 'phpgroup1',// Super group ID
         'name'=> 'watergroup',// Supergroup Name
-        'member'=>['id'=> 'group999'],// // Create a userId
+        'member'=>['id'=> 'group999'],// Create a userId
     ];
     $result = $RongSDK->getUltragroup()->create($group);
     Utils::dump("创建超级群",$result);
@@ -44,14 +44,14 @@ joins();
 
 
 /**
- * // Exit super group
+ * Exit super group
  */
 function quit()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Super group ID
-        'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// // Exit personnel information
+        'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// Exit personnel information
     ];
     $result = $RongSDK->getUltragroup()->quit($group);
     Utils::dump("退出超级群",$result);
@@ -59,14 +59,13 @@ function quit()
 quit();
 
 /**
- * // Disassemble super cluster
+ * Disassemble super cluster
  */
 function dismiss()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',// // Ultra group ID
-@param ultraGroupId The unique identifier for the ultra group.
+        'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->dismiss($group);
     Utils::dump("解散超级群",$result);
@@ -89,7 +88,7 @@ function update()
 update();
 
 /**
- * // Whether the group member exists
+ * Whether the group member exists
  */
 function isExist()
 {

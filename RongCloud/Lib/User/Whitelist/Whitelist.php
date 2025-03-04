@@ -1,6 +1,6 @@
 <?php
 /**
- * // User relationship allowlist
+ * User relationship allowlist
  * User: hejinyu
  * Date: 2018/7/23
  * Time: 11:41
@@ -13,7 +13,7 @@ use RongCloud\Lib\Utils;
 class Whitelist {
 
     /**
- * // User module whitelist path
+ * User module whitelist path
  *
  * @var string
  */
@@ -27,18 +27,18 @@ class Whitelist {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }

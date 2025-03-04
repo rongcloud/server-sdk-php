@@ -30,25 +30,25 @@ class Entrust
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
 
 
     /**
- * // Group information module
+ * Group information module
  *
  * @return Group
  */
@@ -58,7 +58,7 @@ class Entrust
     }
 
     /**
- * // Group information management module
+ * Group information management module
  *
  * @return Manager
  */

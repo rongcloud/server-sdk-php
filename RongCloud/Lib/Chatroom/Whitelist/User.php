@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room user whitelist
+ * Chat room user whitelist
  */
 namespace RongCloud\Lib\Chatroom\Whitelist;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class User {
 
     /**
- * // Chat room whitelist user module path
+ * Chat room whitelist user module path
  *
  * @var string
  */
@@ -24,14 +24,14 @@ class User {
     private $conf = '';
 
     /**
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Keepalive constructor.
+ * Keepalive constructor.
  */
     function __construct()
     {

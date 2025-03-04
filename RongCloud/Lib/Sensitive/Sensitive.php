@@ -12,21 +12,21 @@ class Sensitive
 {
 
     /**
- * // Sensitive word module path
+ * Sensitive word module path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Sensitive/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
@@ -80,7 +80,7 @@ class Sensitive
         return $result;
     }
     /**
- * // Batch add sensitive words
+ * Batch add sensitive words
  *
  * @param array $Sensitive Parameters for adding sensitive words
  * @param

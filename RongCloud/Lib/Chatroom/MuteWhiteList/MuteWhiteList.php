@@ -1,6 +1,6 @@
 <?php
 /**
- * // Global chat room ban
+ * Global chat room ban
  */
 namespace RongCloud\Lib\Chatroom\MuteWhiteList;
 
@@ -10,28 +10,28 @@ use RongCloud\Lib\Utils;
 class MuteWhiteList {
 
     /**
- * // Chatroom global mute path
+ * Chatroom global mute path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Chatroom/MuteWhiteList/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // MuteWhiteList constructor.
+ * MuteWhiteList constructor.
  */
     function __construct()
     {

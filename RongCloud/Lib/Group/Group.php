@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group module
+ * Group module
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group;
@@ -21,7 +21,7 @@ class Group
     private $jsonPath = 'Lib/Group/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -302,7 +302,7 @@ class Group
     }
 
     /**
- * // Group member remark
+ * Group member remark
  *
  * @return Remark
  */

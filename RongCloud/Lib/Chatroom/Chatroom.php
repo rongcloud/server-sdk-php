@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chatroom
+ * Chatroom
  */
 namespace RongCloud\Lib\Chatroom;
 
@@ -21,7 +21,7 @@ use RongCloud\Lib\Chatroom\MuteWhiteList\MuteWhiteList;
 class Chatroom
 {
     /**
- * // Chat room module path
+ * Chat room module path
  *
  * @var string
  */
@@ -42,7 +42,7 @@ class Chatroom
     private $verify = '';
 
     /**
- * // Chatroom constructor.
+ * Chatroom constructor.
  */
     function __construct()
     {
@@ -178,7 +178,7 @@ class Chatroom
     }
 
     /**
- * // Query chatroom basic information
+ * Query chatroom basic information
  *
  * @DateTime 2023-06-14
  * @deprecated Deprecated, please use the queryV2 method for creation
@@ -206,7 +206,7 @@ class Chatroom
     }
 
     /**
- * // Query chatroom basic information V2
+ * Query chatroom basic information V2
  *
  * @DateTime 2023-10-08
  * @param array $Chatroom ['id'=> ['chatroom1','chatroom1','chatroom1']]
@@ -303,7 +303,7 @@ class Chatroom
     }
 
     /**
- * // Create a global mute object for the chat room
+ * Create a global mute object for the chat room
  *
  * @return MuteWhiteList
  */
@@ -321,7 +321,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room message demotion object
+ * Create a chat room message demotion object
  *
  * @return Demotion
  */
@@ -330,7 +330,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room message distribution object
+ * Create a chat room message distribution object
  *
  * @return Distribute
  */
@@ -339,7 +339,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room member gag object
+ * Create a chat room member gag object
  *
  * @return Gag
  */
@@ -348,7 +348,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room keepalive object
+ * Create a chat room keepalive object
  *
  * @return Keepalive
  */
@@ -357,7 +357,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room user whitelist object
+ * Create a chat room user whitelist object
  *
  * @return Whitelist
  */
@@ -366,7 +366,7 @@ class Chatroom
     }
 
     /**
- * // Create a chat room whitelist message object
+ * Create a chat room whitelist message object
  *
  * @return Message
  */
@@ -375,7 +375,7 @@ class Chatroom
     }
 
     /**
- * // Create a whitelist message object for the chat room
+ * Create a whitelist message object for the chat room
  *
  * @return Entry
  */
@@ -384,7 +384,7 @@ class Chatroom
     }
 
     /**
- * // Mute all members in the chat room
+ * Mute all members in the chat room
  *
  * @return MuteAllMembers
  */
@@ -393,7 +393,7 @@ class Chatroom
     }
 
     /**
- * // Chat room global mute whitelist
+ * Chat room global mute whitelist
  *
  * @return MuteWhiteList
  */

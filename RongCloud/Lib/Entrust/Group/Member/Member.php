@@ -11,7 +11,7 @@ use RongCloud\Lib\Utils;
 class Member
 {
     /**
- * // Information hosting module path
+ * Information hosting module path
  *
  * @var string
  */
@@ -25,7 +25,7 @@ class Member
     private $conf = '';
 
     /**
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
  *
@@ -33,7 +33,7 @@ class Member
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {
@@ -100,7 +100,7 @@ class Member
     }
     
     /**
- * // Specify the user to exit all groups
+ * Specify the user to exit all groups
  *
  * @param array $param = [
  * 'userId' => '111'
@@ -207,7 +207,7 @@ class Member
     }
 
     /**
- * // Get paginated member information
+ * Get paginated member information
  *
  * @param array $param = [
  * 'groupId' => '111',

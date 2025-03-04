@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group Information Trusteeship - Management Module
+ * Group Information Trusteeship - Management Module
  */
 namespace RongCloud\Lib\Entrust\Group\Manager;
 
@@ -18,14 +18,14 @@ class Manager
     private $jsonPath = 'Lib/Entrust/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */

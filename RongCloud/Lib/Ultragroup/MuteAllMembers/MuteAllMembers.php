@@ -1,6 +1,6 @@
 <?php
 /**
- * // Specify a supergroup ban for all members
+ * Specify a supergroup ban for all members
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\MuteAllMembers;

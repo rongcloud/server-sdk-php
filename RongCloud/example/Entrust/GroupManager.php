@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Set group administrator (Add group administrator)
+ * Set group administrator (Add group administrator)
  */
 function add()
 {

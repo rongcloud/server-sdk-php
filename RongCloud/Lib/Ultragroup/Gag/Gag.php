@@ -1,6 +1,6 @@
 <?php
 /**
- * // Super group ban
+ * Super group ban
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\Gag;
@@ -10,14 +10,14 @@ use RongCloud\Lib\Utils;
 class Gag
 {
     /**
- * // Super cluster module path
+ * Super cluster module path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Ultragroup/Gag/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -32,7 +32,7 @@ class Gag
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {

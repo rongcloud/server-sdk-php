@@ -1,6 +1,6 @@
 <?php
 /**
- * // Global mute in the chat room
+ * Global mute in the chat room
  */
 namespace RongCloud\Lib\Chatroom\MuteAllMembers;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class MuteAllMembers {
 
     /**
- * // Chat room global mute path
+ * Chat room global mute path
  *
  * @var string
  */
@@ -24,14 +24,14 @@ class MuteAllMembers {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // MuteAllMembers constructor.
+ * MuteAllMembers constructor.
  */
     function __construct()
     {
@@ -40,7 +40,7 @@ class MuteAllMembers {
     }
 
     /**
- * // Add a global mute for the chatroom
+ * Add a global mute for the chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [
@@ -123,7 +123,7 @@ class MuteAllMembers {
     }
 
     /**
- * // Get the list of global mute status for the chatroom
+ * Get the list of global mute status for the chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [

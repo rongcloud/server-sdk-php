@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // User module user instance
+ * User module user instance
  */
 
 
@@ -17,13 +17,13 @@ use RongCloud\Lib\Utils;
  */
 function register()
 {
-    // // Connect to the Singapore data center
+    // Connect to the Singapore data center
     // RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
         'id' => 'CHIQ1',
         'name' => 'PHPSDK', // Username
-        'portrait' => '' // // User avatar
+        'portrait' => '' // User avatar
     ];
     $register = $RongSDK->getUser()->register($user);
     Utils::dump("用户注册", $register);
@@ -39,8 +39,8 @@ function update()
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
         'id' => 'ujadk90ha', // User ID
-        'name' => 'Maritn', // // Username
-        'portrait' => 'http:// 7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //User avatar
+        'name' => 'Maritn', // Username
+        'portrait' => '  http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //User avatar
     ];
     $update = $RongSDK->getUser()->update($user);
     Utils::dump("用户信息更新", $update);
@@ -64,13 +64,13 @@ function get()
 get();
 
 /**
- * // User logout
+ * User logout
  */
 function abandon()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // // User ID
+        'id' => 'ujadk90ha', // User ID
     ];
     $res = $RongSDK->getUser()->abandon($user);
     Utils::dump("用户注销", $res);
@@ -79,7 +79,7 @@ function abandon()
 abandon();
 
 /**
- * // Reactivate user ID
+ * Reactivate user ID
  */
 function reactivate()
 {
@@ -94,7 +94,7 @@ function reactivate()
 reactivate();
 
 /**
- * // List of unsubscribed users
+ * List of unsubscribed users
  */
 function abandonQuery()
 {
@@ -110,13 +110,13 @@ function abandonQuery()
 abandonQuery();
 
 /**
- * // Deactivate Activation
+ * Deactivate Activation
  */
 function active()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $user = [
-        'id' => 'ujadk90ha', // // User ID
+        'id' => 'ujadk90ha', // User ID
     ];
     $res = $RongSDK->getUser()->activate($user);
     Utils::dump("注销用户激活", $res);
@@ -125,7 +125,7 @@ function active()
 active();
 
 /**
- * // Query the user's group
+ * Query the user's group
  */
 function getGroups()
 {
@@ -140,7 +140,7 @@ function getGroups()
 getGroups();
 
 /**
- * // Token invalid
+ * Token invalid
  */
 function expire()
 {

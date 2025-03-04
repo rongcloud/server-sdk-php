@@ -31,7 +31,7 @@ class BusChannel
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {
@@ -101,7 +101,7 @@ class BusChannel
     }
 
     /**
- * // Query channel list
+ * Query channel list
  *
  * @param
  * @return array

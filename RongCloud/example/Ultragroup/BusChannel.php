@@ -1,6 +1,6 @@
 <?php
 /**
- * // Super group channel instance
+ * Super group channel instance
  */
 
 
@@ -11,13 +11,13 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Super group channel creation
+ * Super group channel creation
  */
 function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'phpgroup1',// // Super group ID
+        'id'=> 'phpgroup1',// Super group ID
         'busChannel'=> 'busChannel',// Super Group Channel
         'type'=>1
     ];
@@ -50,14 +50,14 @@ function getList()
 }
 getList();
 /**
- * // Super group channel deletion
+ * Super group channel deletion
  */
 function remove()
 {
 
      $RongSDK = new RongCloud(APPKEY,APPSECRET);
         $group = [
-            'id'=> 'phpgroup1',// // Supergroup ID
+            'id'=> 'phpgroup1',// Supergroup ID
             'busChannel'=> 'busChannel',// Super Group Channel
         ];
         $result = $RongSDK->getUltragroup()->BusChannel()->remove($group);
@@ -70,14 +70,14 @@ getList();
 
 /* /**
 * Add supergroup private channel member
-*/ */
+*/
 function addPrivateUsers()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
         'id'=> 'phpgroup1',// Super group ID
         'busChannel'=>'',
-        'members'=>[ // // Add super group private channel member
+        'members'=>[ // Add super group private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];
@@ -86,7 +86,7 @@ function addPrivateUsers()
 }
 addPrivateUsers();
 /**
- * // Query the list of members in the super private channel
+ * Query the list of members in the super private channel
  */
 function getPrivateUserList()
 {

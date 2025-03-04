@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat Room Module User Whitelist Instance
+ * Chat Room Module User Whitelist Instance
  */
 
 
@@ -11,15 +11,15 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add chat room user whitelist
+ * Add chat room user whitelist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        "id"=>"seal9901",// // Chat room ID
+        "id"=>"seal9901",// Chat room ID
         "members"=>[
-            ["id"=>"user1"], // // User ID
+            ["id"=>"user1"], // User ID
             ["id"=>"user2"]
         ]
     ];
@@ -35,9 +35,9 @@ function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        "id"=>"seal9901",// // Chat room ID
+        "id"=>"seal9901",// Chat room ID
         "members"=>[
-           ["id"=>"user4"], // // User ID
+           ["id"=>"user4"], // User ID
            ["id"=>"user5"]
         ]
     ];
@@ -47,13 +47,13 @@ function remove()
 remove();
 
 /**
- * // Get the chat room user whitelist
+ * Get the chat room user whitelist
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        "id"=>"seal9901",// // chatroom id
+        "id"=>"seal9901",// chatroom id
     ];
     $User = $RongSDK->getChatroom()->Whitelist()->User()->getList($chatroom);
     Utils::dump("获取聊天室用户白名单",$User);

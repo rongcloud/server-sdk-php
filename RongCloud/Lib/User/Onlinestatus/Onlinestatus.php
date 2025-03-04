@@ -1,6 +1,6 @@
 <?php
 /**
- * // User module User Online Status
+ * User module User Online Status
  */
 namespace RongCloud\Lib\User\Onlinestatus;
 
@@ -36,7 +36,7 @@ class Onlinestatus {
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }

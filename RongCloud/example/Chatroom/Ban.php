@@ -11,16 +11,16 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add global chat room ban
+ * Add global chat room ban
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
         'members'=> [
-            ['id'=>'seal9901']// // Personnel ID
+            ['id'=>'seal9901']// Personnel ID
         ],
-        'minute'=>30// // Forbidden duration
+        'minute'=>30// Forbidden duration
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->add($chatroom);
     Utils::dump("添加聊天室全局禁言",$Ban);
@@ -28,14 +28,14 @@ function add()
 add();
 
 /**
- * // Unblock global chat room restrictions
+ * Unblock global chat room restrictions
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
         'members'=> [
-            ['id'=>'seal9901']// // Person ID
+            ['id'=>'seal9901']// Person ID
         ],
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->remove($chatroom);
@@ -44,7 +44,7 @@ function remove()
 remove();
 
 /**
- * // Get the global banned word list of the chat room
+ * Get the global banned word list of the chat room
  */
 function getList()
 {

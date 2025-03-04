@@ -24,7 +24,7 @@ class Gag
     private $conf = '';
 
     /**
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
  */
@@ -50,7 +50,7 @@ class Gag
  * ['id'=> 'ujadk90ha']
  * ]
  * ,
- * 'minute'=>50  //\tMute duration in minutes
+ * 'minute'=>50  //  Mute duration in minutes
  * ];
  * @return array
  */

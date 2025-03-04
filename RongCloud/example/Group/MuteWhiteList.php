@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group ban whitelist whitelist instance
+ * Group ban whitelist whitelist instance
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add group blocklist
+ * Add group blocklist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',// // Group ID
-        'members'=>[ // // Forbidden personnel whitelist
+        'id'=> 'php group1',// Group ID
+        'members'=>[ // Forbidden personnel whitelist
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
@@ -28,7 +28,7 @@ function add()
 }
 add();
 /**
- * // Query the forbidden whitelist member list
+ * Query the forbidden whitelist member list
  */
 function getList()
 {
@@ -42,14 +42,14 @@ function getList()
 }
 getList();
 /**
- * // Remove the ban from the whitelist
+ * Remove the ban from the whitelist
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',// // Group ID
+        'id'=> 'php group1',// Group ID
         'members'=>[ // //Unblock the whitelist personnel list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]

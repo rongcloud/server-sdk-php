@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group annotation
+ * Group annotation
  */
 namespace RongCloud\Lib\Group\Remark;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class Remark {
 
     /**
- * // Group module group backup
+ * Group module group backup
  *
  * @var string
  */
@@ -31,11 +31,11 @@ class Remark {
     private $verify = '';
 
     /**
- * // User constructor.
+ * User constructor.
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }

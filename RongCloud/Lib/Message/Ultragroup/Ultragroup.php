@@ -19,7 +19,7 @@ class Ultragroup {
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  *

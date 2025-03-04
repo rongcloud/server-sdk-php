@@ -1,6 +1,6 @@
 <?php
 /**
- * // Push module
+ * Push module
  * conversation=> hejinyu
  */
 namespace RongCloud\Lib\Push;
@@ -10,14 +10,14 @@ use RongCloud\Lib\Utils;
 class Push
 {
     /**
- * // Push module path
+ * Push module path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Push/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -25,7 +25,7 @@ class Push
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */

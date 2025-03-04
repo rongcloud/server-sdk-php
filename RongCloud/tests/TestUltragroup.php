@@ -1,6 +1,6 @@
 <?php
 /**
- * // Super cluster module test case
+ * Super cluster module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -14,9 +14,9 @@ $RongSDK = new RongCloud(APPKEY,APPSECRET);
 function testGroup($RongSDK){
     $Group = $RongSDK->getUltragroup();
     $params = [
-        'id'=> 'watergroup1',// // Super group ID
-        'name'=> 'watergroup',// // Super group name
-        'member'=>['id'=> 'group999'],// // Create a userId
+        'id'=> 'watergroup1',// Super group ID
+        'name'=> 'watergroup',// Super group name
+        'member'=>['id'=> 'group999'],// Create a userId
     ];
     Utils::dump("创建超级群成功",$Group->create($params));
 
@@ -24,7 +24,7 @@ function testGroup($RongSDK){
 
     $params = [
         'id'=> 'watergroup',// Supergroup ID
-        'member'=>['id'=> 'group999'],// // Group member information
+        'member'=>['id'=> 'group999'],// Group member information
     ];
     Utils::dump("加入超级群成功",$Group->joins($params));
 
@@ -36,7 +36,7 @@ function testGroup($RongSDK){
     Utils::dump("加入超级群 id 错误",$Group->joins($params));
 
     $params = [
-        'id'=> 'watergroup',// // Super group ID
+        'id'=> 'watergroup',// Super group ID
         'member'=>['id'=> 'group999']// Exit personnel information
     ];
     Utils::dump("退出超级群成功",$Group->quit($params));
@@ -44,19 +44,19 @@ function testGroup($RongSDK){
     Utils::dump("退出超级群 id 错误",$Group->quit());
 
     $params = [
-        'id'=> 'watergroup',// // Supergroup ID
+        'id'=> 'watergroup',// Supergroup ID
         'name'=>"watergroup"// group name
     ];
     Utils::dump("修改群信息成功",$Group->update($params));
 
     $params = [
-        'id'=> '',// // Super group ID
+        'id'=> '',// Super group ID
         'name'=>"watergroup"// group name
     ];
     Utils::dump("修改群信息 id 错误",$Group->update($params));
 
     $params = [
-        'id'=> 'watergroup',// // Super group ID
+        'id'=> 'watergroup',// Super group ID
         'name'=>""// group name
     ];
     Utils::dump("修改群信息 name 错误",$Group->update($params));
@@ -70,7 +70,7 @@ function testGroup($RongSDK){
     Utils::dump("解散超级群 id 错误",$Group->dismiss());
     $params = [
         'id'=> 'watergroup',// Super group ID
-        'member'=>"userId1"// // Member ID
+        'member'=>"userId1"// Member ID
     ];
 
     Utils::dump("超级群成员是否存在成功",$Group->isExist($params));
@@ -86,8 +86,8 @@ testGroup($RongSDK);
 function testGroupGag($RongSDK){
     $Group = $RongSDK->getUltragroup()->Gag();
     $params = [
-        'id'=> 'watergroup1',// // Super group ID
-        'members'=>[ // // Prohibited personnel list
+        'id'=> 'watergroup1',// Super group ID
+        'members'=>[ // Prohibited personnel list
             ['id'=> 'group9994']
         ]
     ];
@@ -97,7 +97,7 @@ function testGroupGag($RongSDK){
 
     $params = [
         'id'=> 'watergroup1',// Supergroup ID
-        'members'=>[ // // Forbidden personnel list
+        'members'=>[ // Forbidden personnel list
             ['id'=> 'group9994']
         ]
     ];
@@ -111,7 +111,7 @@ function testGroupGag($RongSDK){
     Utils::dump("解除禁言 members 错误",$Group->remove($params));
 
     $params = [
-        'id'=> 'watergroup1',// // ultra group id
+        'id'=> 'watergroup1',// ultra group id
     ];
     Utils::dump("查询禁言成员列表成功",$Group->getList($params));
 
@@ -125,7 +125,7 @@ testGroupGag($RongSDK);
 function testGroupMuteAllMembers($RongSDK){
     $Group = $RongSDK->getUltragroup()->MuteAllMembers();
     $params = [
-        'id'=> 'watergroup1',// // Super group ID
+        'id'=> 'watergroup1',// Super group ID
         'status'=>true
     ];
     Utils::dump("添加指定超级群全部禁言成功",$Group->set($params));
@@ -133,7 +133,7 @@ function testGroupMuteAllMembers($RongSDK){
     Utils::dump("添加指定超级群全部禁言参数错误",$Group->set());
 
     $params = [
-        'id'=> 'watergroup1',// // ultra group id
+        'id'=> 'watergroup1',// ultra group id
     ];
     Utils::dump("查询指定超级群全部禁言列表成功",$Group->get($params));
 }
@@ -144,7 +144,7 @@ function testGroupMuteWhiteList($RongSDK){
     $Group = $RongSDK->getUltragroup()->MuteWhiteList();
     $params = [
         'id'=> 'watergroup1',// Super group ID
-        'members'=>[ // // Prohibited whitelist personnel list
+        'members'=>[ // Prohibited whitelist personnel list
             ['id'=> 'group9994']
         ],
     ];
@@ -153,8 +153,8 @@ function testGroupMuteWhiteList($RongSDK){
     Utils::dump("添加超级群禁言白名单参数错误",$Group->add());
 
     $params = [
-        'id'=> 'watergroup1',// // Super group ID
-        'members'=>[ // // Prohibited whitelist personnel list
+        'id'=> 'watergroup1',// Super group ID
+        'members'=>[ // Prohibited whitelist personnel list
             ['id'=> 'group9994']
         ]
     ];
@@ -168,7 +168,7 @@ function testGroupMuteWhiteList($RongSDK){
     Utils::dump("解除禁言白名单 members 错误",$Group->remove($params));
 
     $params = [
-        'id'=> 'watergroup1',// // Ultra group ID
+        'id'=> 'watergroup1',// Ultra group ID
     ];
     Utils::dump("查询禁言白名单成员列表成功",$Group->getList($params));
 
@@ -180,7 +180,7 @@ testGroupMuteWhiteList($RongSDK);
 function testGroupBusChannel($RongSDK){
     $Group = $RongSDK->getUltragroup()->BusChannel();
     $params = [
-        'id'=> 'phpgroup1',// // Super group ID
+        'id'=> 'phpgroup1',// Super group ID
         'busChannel'=> 'busChannel',// Super Group Channel
         'type'=>0
     ];
@@ -201,7 +201,7 @@ function testGroupBusChannel($RongSDK){
     Utils::dump("超级群频道类型切换参数错误",$Group->change());
 
     $group = [
-        'id'=> 'phpgroup1',// // Super group ID
+        'id'=> 'phpgroup1',// Super group ID
         'busChannel'=>'',
         'members'=>[ // Add supergroup private channel member
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']

@@ -1,6 +1,6 @@
 <?php
 /**
- * // Group module group annotation
+ * Group module group annotation
  */
 
 
@@ -11,15 +11,15 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add group annotation
+ * Add group annotation
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'userId'=> 'ujadk90ha1',// // @param personnelId
-        'groupId'=>'abca', // // Group ID
-        'remark'=> '人员备注'// // Group annotation
+        'userId'=> 'ujadk90ha1',// @param personnelId
+        'groupId'=>'abca', // Group ID
+        'remark'=> '人员备注'// Group annotation
     ];
     $Remark = $RongSDK->getGroup()->Remark()->set($group);
     Utils::dump("添加备注",$Remark);
@@ -27,14 +27,14 @@ function set()
 set();
 
 /**
- * // Delete group backup
+ * Delete group backup
  */
 function del()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'userId'=> 'ujadk90ha11',// // Personnel ID
-        'groupId'=>'abca', // // Group ID
+        'userId'=> 'ujadk90ha11',// Personnel ID
+        'groupId'=>'abca', // Group ID
     ];
     $Remark = $RongSDK->getGroup()->Remark()->del($group);
     Utils::dump("删除备注",$Remark);
@@ -42,15 +42,15 @@ function del()
 del();
 
 /**
- * // Get group remarks
+ * Get group remarks
  */
 function get()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'userId'=> 'ujadk90ha1',// // Personnel ID
+        'userId'=> 'ujadk90ha1',// Personnel ID
 /* Personnel ID */
-        'groupId'=>'abca', // // Group ID
+        'groupId'=>'abca', // Group ID
     ];
     $Remark =  $RongSDK->getGroup()->Remark()->get($group);
     Utils::dump("获取群组备注",$Remark);

@@ -1,6 +1,6 @@
 <?php
 /**
- * // Mute all chatrooms
+ * Mute all chatrooms
  */
 namespace RongCloud\Lib\Chatroom\Ban;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class Ban {
 
     /**
- * // Global forbidden words path for chat room
+ * Global forbidden words path for chat room
  *
  * @var string
  */
@@ -31,7 +31,7 @@ class Ban {
     private $verify = '';
 
     /**
- * // Ban constructor.
+ * Ban constructor.
  */
     function __construct()
     {
@@ -74,7 +74,7 @@ class Ban {
     }
 
     /**
- * // Get the global banned words list of the chatroom
+ * Get the global banned words list of the chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [
@@ -107,7 +107,7 @@ class Ban {
     }
 
     /**
- * // Add ban
+ * Add ban
  *
  * @param array $Chatroom
  * $Chatroom = [

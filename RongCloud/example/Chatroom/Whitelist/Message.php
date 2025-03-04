@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room message whitelist instance
+ * Chat room message whitelist instance
  */
 
 require "./../../../RongCloud.php";
@@ -10,13 +10,13 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add chat room message whitelist
+ * Add chat room message whitelist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'msgs'=> ["RC:TxtMsg"]// // Message type list
+        'msgs'=> ["RC:TxtMsg"]// Message type list
     ];
     $Message = $RongSDK->getChatroom()->Whitelist()->Message()->add($chatroom);
     Utils::dump("添加聊天室消息白名单",$Message);
@@ -24,7 +24,7 @@ function add()
 add();
 
 /**
- * // Get the chat room message whitelist
+ * Get the chat room message whitelist
  */
 function getList()
 {
@@ -38,7 +38,7 @@ function getList()
 getList();
 
 /**
- * // Remove chat room message whitelist
+ * Remove chat room message whitelist
  */
 function remove()
 {

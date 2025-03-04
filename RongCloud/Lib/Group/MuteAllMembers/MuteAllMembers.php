@@ -1,6 +1,6 @@
 <?php
 /**
- * // Specify the group-wide member ban
+ * Specify the group-wide member ban
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group\MuteAllMembers;
@@ -17,14 +17,14 @@ class MuteAllMembers
     private $jsonPath = 'Lib/Group/MuteAllMembers/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Validate configuration file
+ * Validate configuration file
  *
  * @var string
  */
@@ -69,7 +69,7 @@ class MuteAllMembers
     }
 
     /**
- * // Unblock users
+ * Unblock users
  *
  * @param array $Group Unblock users parameter
  * @param
@@ -101,7 +101,7 @@ class MuteAllMembers
     }
 
     /**
- * // Query the list of banned members
+ * Query the list of banned members
  *
  * @param array $Group Unban parameter
  * @param

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // User module test case
+ * User module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -20,13 +20,13 @@ $RongSDK = new RongCloud(APPKEY, APPSECRET);
  */
 function testUser($RongSDK)
 {
-    $portrait = "http:// 7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982";
+    $portrait = "  http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982";
     $User = $RongSDK->getUser();
 
     $params = [
-        'id' => 'ujadk90had', // // User ID
+        'id' => 'ujadk90had', // User ID
         'name' => 'test', // Username
-        'portrait' => $portrait // // User avatar
+        'portrait' => $portrait // User avatar
     ];
     Utils::dump("用户注册成功", $User->register($params));
 
@@ -113,8 +113,8 @@ function testUserBlock($RongSDK)
     $User = $RongSDK->getUser()->Block();
 
     $params = [
-        'id' => 'ujadk90had', // // User ID, unique identifier, maximum length of 30 characters
-        'minute' => 20 // // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
+        'id' => 'ujadk90had', // User ID, unique identifier, maximum length of 30 characters
+        'minute' => 20 // Blocking duration 1 - 1 * 30 * 24 * 60 minutes
     ];
     Utils::dump("添加封禁用户成功", $User->add($params));
 
@@ -151,7 +151,7 @@ function testUserBlacklist($RongSDK)
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
-        'blacklist' => ['ujadk90ha1d'] // // Add blacklist personnel list
+        'blacklist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
     Utils::dump("用户黑名单添加成功", $User->add($params));
 
@@ -165,7 +165,7 @@ function testUserBlacklist($RongSDK)
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
-        'blacklist' => ['ujadk90ha1d'] // // Add to blacklist personnel list
+        'blacklist' => ['ujadk90ha1d'] // Add to blacklist personnel list
     ];
     Utils::dump("移除用户黑名单成功", $User->add($params));
 
@@ -206,10 +206,10 @@ function testUserMuteGroups($RongSDK)
 {
     $Group = $RongSDK->getUser()->MuteGroups();
     $params = [
-        'members' => [ // // Forbidden personnel list
+        'members' => [ // Forbidden personnel list
             ['id' => 'group9994']
         ],
-        'minute' => 500  // // Prohibition duration
+        'minute' => 500  // Prohibition duration
     ];
     Utils::dump("添加群组禁言成功", $Group->add($params));
 
@@ -224,7 +224,7 @@ function testUserMuteGroups($RongSDK)
     Utils::dump("添加群组禁言 minute 错误", $Group->add($params));
 
     $params = [
-        'members' => [ // // Forbidden personnel list
+        'members' => [ // Forbidden personnel list
             ['id' => 'group9994']
         ]
     ];
@@ -249,7 +249,7 @@ function testUserMuteChatrooms($RongSDK)
         'members' => [
             ['id' => 'seal9901'] // Personnel ID
         ],
-        'minute' => 30 // // Prohibited duration
+        'minute' => 30 // Prohibited duration
     ];
     Utils::dump("添加聊天室全局禁言成功", $Chatroom->add($params));
 
@@ -274,7 +274,7 @@ function testUserTag($RongSDK)
 {
     $Chatroom = $RongSDK->getUser()->Tag();
     $params = [
-        'userId' => 'ujadk90ha1', // // User ID
+        'userId' => 'ujadk90ha1', // User ID
         'tags' => ['标签1', '标签2'] // User label
     ];
     Utils::dump("添加用户标签成功", $Chatroom->set($params));
@@ -283,14 +283,14 @@ function testUserTag($RongSDK)
 
     $params = [
         'userIds' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
-        'tags' => ['标签1', '标签2'] // // User label
+        'tags' => ['标签1', '标签2'] // User label
     ];
     Utils::dump("批量添加用户标签成功", $Chatroom->batchset($params));
 
     Utils::dump("批量添加用户标签参数错误", $Chatroom->batchset());
 
     $params = [
-        'userIds' => ['ujadk90ha1', 'ujadk90ha2'], // // User ID
+        'userIds' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     Utils::dump("获取用户标签成功", $Chatroom->get($params));
 
@@ -304,7 +304,7 @@ function testUserWhitelist($RongSDK)
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
-        'whitelist' => ['ujadk90ha1d'] // // Add blacklist personnel list
+        'whitelist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
     Utils::dump("用户白名单添加成功", $User->add($params));
 
@@ -318,7 +318,7 @@ function testUserWhitelist($RongSDK)
 
     $params = [
         'id' => 'ujadk90ha1d', // User ID
-        'whitelist' => ['ujadk90ha1d'] // // Add blacklist personnel list
+        'whitelist' => ['ujadk90ha1d'] // Add blacklist personnel list
     ];
     Utils::dump("移除用户白名单成功", $User->add($params));
 
@@ -345,9 +345,9 @@ function testChatBan($RongSDK)
 {
     $ban = $RongSDK->getUser()->Ban();
     $params = [
-        'id' => ['kkj9o01', 'kkj9o02'],  // // Banned user Id, supports batch setting, with a maximum of no more than 1000.
-        'state' => 1,                    // // Forbidden state, 0: Remove forbidden. 1: Add forbidden.
-        'type' => 'PERSON',              // // conversation type, currently supports single conversation PERSON
+        'id' => ['kkj9o01', 'kkj9o02'],  // Banned user Id, supports batch setting, with a maximum of no more than 1000.
+        'state' => 1,                    // Forbidden state, 0: Remove forbidden. 1: Add forbidden.
+        'type' => 'PERSON',              // conversation type, currently supports single conversation PERSON
     ];
     Utils::dump("设置用户单聊禁言", $ban->set($params));
     $params = [
@@ -356,9 +356,9 @@ function testChatBan($RongSDK)
     ];
     Utils::dump("设置用户单聊禁言 id 错误", $ban->set($params));
     $param = [
-        'num'       => 101,     // // Get the number of rows, default is 100, maximum supported is 200.
-        'offset'    => 0,       // // The starting position for the query, default is 0.
-        'type'      => 'PERSON' // // Currently supports single-person conversation type PERSON.
+        'num'       => 101,     // Get the number of rows, default is 100, maximum supported is 200.
+        'offset'    => 0,       // The starting position for the query, default is 0.
+        'type'      => 'PERSON' // Currently supports single-person conversation type PERSON.
     ];
     Utils::dump("查询单聊禁言用户列表", $ban->getList($param));
 }
@@ -435,10 +435,10 @@ function testBlockPushPeriod($RongSDK)
     $User = $RongSDK->getUser()->BlockPushPeriod();
 
     $params = [
-        'id' => 'ujadk90had', // // User ID unique identifier, maximum length 30 characters
-        'startTime' => "23:59:59",// // No interference start time
+        'id' => 'ujadk90had', // User ID unique identifier, maximum length 30 characters
+        'startTime' => "23:59:59",// No interference start time
         'period'=>'600',// Do not disturb duration: minutes
-        'level'=>1,// // Do Not Disturb Level 1 only notifies for private chats and @ messages, including @ specified users and @ all messages. Does not receive notifications, even for @ messages.
+        'level'=>1,// Do Not Disturb Level 1 only notifies for private chats and @ messages, including @ specified users and @ all messages. Does not receive notifications, even for @ messages.
     ];
     Utils::dump("添加免打扰时段", $User->add($params));
 
@@ -473,14 +473,14 @@ function testProfile($RongSDK)
     $User = $RongSDK->getUser()->Profile();
 
     $params = [
-        'userId' => 'ujadk90ha1', // // User ID
+        'userId' => 'ujadk90ha1', // User ID
         'userProfile' => [
             'name' => 'testName',
             'email' => 'tester@rongcloud.cn'
         ],  // User basic information
         'userExtProfile' => [
             'ext_Profile1' => 'testpro1'
-        ]  // // User extension information
+        ]  // User extension information
     ];
     Utils::dump("用户资料设置", $User->set($params));
 
@@ -490,7 +490,7 @@ function testProfile($RongSDK)
     Utils::dump("用户托管信息清除", $User->clean($params));
 
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // // User ID
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     Utils::dump("批量查询用户资料", $User->batchQuery($params));
 
@@ -505,7 +505,7 @@ function testProfile($RongSDK)
 testProfile($RongSDK);
 
 /**
- * // Paginate to retrieve the full list of application users
+ * Paginate to retrieve the full list of application users
  */
 function query()
 {

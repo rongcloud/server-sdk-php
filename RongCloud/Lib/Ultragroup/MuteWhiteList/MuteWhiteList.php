@@ -31,7 +31,7 @@ class MuteWhiteList
     private $verify = '';
 
     /**
- * // Conversation constructor.
+ * Conversation constructor.
  */
     function __construct()
     {

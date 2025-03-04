@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group information hosting module test case
+ * Group information hosting module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -37,7 +37,7 @@ function testGroupCreate($RongSDK)
 testGroupCreate($RongSDK);
 
 /**
- * // Set group resources
+ * Set group resources
  */
 function testGroupUpdate($RongSDK)
 {
@@ -79,7 +79,7 @@ function testGroupQuit($RongSDK)
 testGroupQuit($RongSDK);
 
 /**
- * // Dissolve group
+ * Dissolve group
  */
 function testGroupDismiss($RongSDK)
 {
@@ -132,7 +132,7 @@ function testGroupTransferOwner($RongSDK)
 testGroupTransferOwner($RongSDK);
 
 /**
- * // Group hosting import
+ * Group hosting import
  */
 function testGroupImport($RongSDK)
 {
@@ -154,7 +154,7 @@ function testGroupImport($RongSDK)
 testGroupImport($RongSDK);
 
 /**
- * // Pagination query application group information
+ * Pagination query application group information
  */
 function testGroupQuery($RongSDK)
 {
@@ -169,7 +169,7 @@ function testGroupQuery($RongSDK)
 testGroupQuery($RongSDK);
 
 /**
- * // Query users added to a group by page
+ * Query users added to a group by page
  */
 function testGroupJoinedQuery($RongSDK)
 {
@@ -190,7 +190,7 @@ function testGroupJoinedQuery($RongSDK)
 testGroupJoinedQuery($RongSDK);
 
 /**
- * // Batch query group data
+ * Batch query group data
  */
 function testGroupProfileQuery($RongSDK)
 {
@@ -207,7 +207,7 @@ function testGroupProfileQuery($RongSDK)
 testGroupProfileQuery($RongSDK);
 
 /**
- * // Set group administrator (Add group administrator)
+ * Set group administrator (Add group administrator)
  */
 function testGroupManagerAdd($RongSDK)
 {
@@ -243,7 +243,7 @@ function testGroupManagerRemove($RongSDK)
 testGroupManagerRemove($RongSDK);
 
 /**
- * // Set member information
+ * Set member information
  */
 function testGroupMemberSet($RongSDK)
 {
@@ -263,7 +263,7 @@ function testGroupMemberSet($RongSDK)
 testGroupMemberSet($RongSDK);
 
 /**
- * // Exit group
+ * Exit group
  */
 function testGroupMemberKick($RongSDK)
 {
@@ -284,7 +284,7 @@ function testGroupMemberKick($RongSDK)
 testGroupMemberKick($RongSDK);
 
 /**
- * // Specify the user to kick out all groups
+ * Specify the user to kick out all groups
  */
 function testGroupMemberKickAll($RongSDK)
 {
@@ -301,7 +301,7 @@ function testGroupMemberKickAll($RongSDK)
 testGroupMemberKickAll($RongSDK);
 
 /**
- * // Set user-specified group special attention user
+ * Set user-specified group special attention user
  */
 function testGroupMemberFollow($RongSDK)
 {
@@ -320,7 +320,7 @@ function testGroupMemberFollow($RongSDK)
 testGroupMemberFollow($RongSDK);
 
 /**
- * // Remove a specific user from the specified group's special attention list
+ * Remove a specific user from the specified group's special attention list
  */
 function testGroupMemberUnFollow($RongSDK)
 {
@@ -339,7 +339,7 @@ function testGroupMemberUnFollow($RongSDK)
 testGroupMemberUnFollow($RongSDK);
 
 /**
- * // Query the list of members in the user-specified group with special attention
+ * Query the list of members in the user-specified group with special attention
  */
 function testGroupMemberGetFollowed($RongSDK)
 {
@@ -357,7 +357,7 @@ function testGroupMemberGetFollowed($RongSDK)
 testGroupMemberGetFollowed($RongSDK);
 
 /**
- * // Retrieve member information by pagination
+ * Retrieve member information by pagination
  */
 function testGroupMemberQuery($RongSDK)
 {
@@ -378,7 +378,7 @@ function testGroupMemberQuery($RongSDK)
 testGroupMemberQuery($RongSDK);
 
 /**
- * // Get specified member information
+ * Get specified member information
  */
 function testGroupMemberSpecificQuery($RongSDK)
 {
@@ -396,7 +396,7 @@ function testGroupMemberSpecificQuery($RongSDK)
 testGroupMemberSpecificQuery($RongSDK);
 
 /**
- * // Set the user-specified group name as the backup name
+ * Set the user-specified group name as the backup name
  */
 function testGroupRemarkNameSet($RongSDK)
 {
@@ -415,7 +415,7 @@ function testGroupRemarkNameSet($RongSDK)
 testGroupRemarkNameSet($RongSDK);
 
 /**
- * // Set the user-specified group name annotation
+ * Set the user-specified group name annotation
  */
 function testGroupRemarkNameDelete($RongSDK)
 {
@@ -433,7 +433,7 @@ function testGroupRemarkNameDelete($RongSDK)
 testGroupRemarkNameDelete($RongSDK);
 
 /**
- * // Query the specified group name annotation
+ * Query the specified group name annotation
  */
 function testGroupRemarkNameQuery($RongSDK)
 {

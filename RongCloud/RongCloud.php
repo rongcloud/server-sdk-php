@@ -20,7 +20,7 @@ if (!defined('RONGCLOUOD_ROOT')) {
     require('Autoloader.php');
 }
 
-// // Whether to enable domain name switching true to enable (default) false to disable
+// Whether to enable domain name switching true to enable (default) false to disable
 if (!defined('RONGCLOUOD_DOMAIN_CHANGE')) {
     define('RONGCLOUOD_DOMAIN_CHANGE', true);
 }
@@ -35,14 +35,14 @@ class RongCloud
     public static $appkey;
 
     /**
- * // Application appSecret
+ * Application appSecret
  *
  * @var string
  */
     public static $appSecret;
 
     /**
- * // Global data center API address, default to domestic data center
+ * Global data center API address, default to domestic data center
  *
  * @var string
  */
@@ -92,7 +92,7 @@ class RongCloud
     public $_ultragroup;
 
     /**
- * // Conversation object
+ * Conversation object
  *
  * @var Conversation
  */
@@ -141,7 +141,7 @@ class RongCloud
             self::$appSecret = $appSecret;
         }
         if($apiUrl) self::$apiUrl = $apiUrl;
-        // // Create User
+        // Create User
         $this->_user = new User();
 
         // Create Group
@@ -179,7 +179,7 @@ class RongCloud
     }
 
     /**
- * // Get the message object
+ * Get the message object
  *
  * @return Message
  */
@@ -188,7 +188,7 @@ class RongCloud
     }
 
     /**
- * // Get the group object
+ * Get the group object
  *
  * @return Group
  */
@@ -197,7 +197,7 @@ class RongCloud
     }
 
     /**
- * // Get the chatroom object
+ * Get the chatroom object
  *
  * @return Chatroom
  */
@@ -206,7 +206,7 @@ class RongCloud
     }
 
     /**
- * // Get the conversation object
+ * Get the conversation object
  *
  * @return Conversation
  */
@@ -215,7 +215,7 @@ class RongCloud
     }
 
     /**
- * // Get sensitive word object
+ * Get sensitive word object
  *
  * @return Sensitive
  */
@@ -224,7 +224,7 @@ class RongCloud
     }
 
     /**
- * // Get the push object
+ * Get the push object
  *
  * @return Push
  */
@@ -233,7 +233,7 @@ class RongCloud
     }
 
     /**
- * // Get the ultragroup object
+ * Get the ultragroup object
  *
  * @return Ultragroup
  */
@@ -242,7 +242,7 @@ class RongCloud
     }
 
     /**
- * // Get the information entrust object
+ * Get the information entrust object
  *
  * @return Entrust
  */

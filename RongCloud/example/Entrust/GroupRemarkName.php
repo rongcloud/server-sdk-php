@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group Information Hosting - Annotation Module Testing
+ * Group Information Hosting - Annotation Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Set the user-specified group name remark
+ * Set the user-specified group name remark
  */
 function remarkNameSet()
 {
@@ -27,7 +27,7 @@ function remarkNameSet()
 remarkNameSet();
 
 /**
- * // Set user-specified group name annotation
+ * Set user-specified group name annotation
  */
 function remarkNameDelete()
 {
@@ -42,7 +42,7 @@ function remarkNameDelete()
 remarkNameDelete();
 
 /**
- * // Query the specified group name for user remarks
+ * Query the specified group name for user remarks
  */
 function remarkNameQuery()
 {

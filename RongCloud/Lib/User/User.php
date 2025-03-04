@@ -33,7 +33,7 @@ class User
     private $jsonPath = 'Lib/User/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
@@ -51,7 +51,7 @@ class User
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
@@ -91,7 +91,7 @@ class User
     }
 
     /**
- * // Token invalidation
+ * Token invalidation
  *
  * @param array $User User information
  * @param
@@ -273,7 +273,7 @@ class User
     }
 
     /**
- * // Reactivate user ID
+ * Reactivate user ID
  * @param array $User User ID
  * @param
  * $User = [
@@ -334,7 +334,7 @@ class User
     }
 
     /**
- * // Create a block object
+ * Create a block object
  *
  * @return Block
  */
@@ -344,7 +344,7 @@ class User
     }
 
     /**
- * // Create a blacklist object
+ * Create a blacklist object
  *
  * @return Blacklist
  */
@@ -354,7 +354,7 @@ class User
     }
 
     /**
- * // Create an online status object for the user
+ * Create an online status object for the user
  *
  * @return Onlinestatus
  */
@@ -364,7 +364,7 @@ class User
     }
 
     /**
- * // Global group muting
+ * Global group muting
  *
  * @return MuteGroups
  */
@@ -374,7 +374,7 @@ class User
     }
 
     /**
- * // Global chatroom mute
+ * Global chatroom mute
  *
  * @return MuteChatrooms
  */
@@ -394,7 +394,7 @@ class User
     }
 
     /**
- * // Create a whitelist object
+ * Create a whitelist object
  *
  * @return Whitelist
  */
@@ -404,7 +404,7 @@ class User
     }
 
     /**
- * // User mute ban
+ * User mute ban
  *
  * @return Ban
  */
@@ -424,7 +424,7 @@ class User
     }
 
     /**
- * // User quiet time period
+ * User quiet time period
  *
  * @return Remark
  */

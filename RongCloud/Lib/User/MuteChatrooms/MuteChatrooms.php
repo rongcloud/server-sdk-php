@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chatroom member banned words
+ * Chatroom member banned words
  */
 namespace RongCloud\Lib\User\MuteChatrooms;
 
@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class MuteChatrooms {
 
     /**
- * // Chat room member banned path
+ * Chat room member banned path
  *
  * @var string
  */
@@ -24,14 +24,14 @@ class MuteChatrooms {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Gag constructor.
+ * Gag constructor.
  */
     function __construct()
     {
@@ -74,7 +74,7 @@ class MuteChatrooms {
     }
 
     /**
- * // Unban chatroom members
+ * Unban chatroom members
  *
  * @param array $Chatroom
  * $Chatroom = [
@@ -107,7 +107,7 @@ class MuteChatrooms {
     }
 
     /**
- * // Get the list of banned members in a chatroom
+ * Get the list of banned members in a chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [

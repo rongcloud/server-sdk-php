@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // Group Information Hosting - Backup Naming Module
+ * Group Information Hosting - Backup Naming Module
  */
 namespace RongCloud\Lib\Entrust\Group\RemarkName;
 
@@ -25,7 +25,7 @@ class RemarkName
     private $conf = '';
 
     /**
- * // Configuration file validation
+ * Configuration file validation
  *
  * @var string
  */
@@ -41,7 +41,7 @@ class RemarkName
     }
 
     /**
- * // Set the user-specified group name remark
+ * Set the user-specified group name remark
  *
  * @param array $param = [
  * 'groupId' => '111',
@@ -95,7 +95,7 @@ class RemarkName
     }
 
     /**
- * // Query the specified group name for user remarks
+ * Query the specified group name for user remarks
  *
  * @param array $param = [
  * 'groupId' => '111',

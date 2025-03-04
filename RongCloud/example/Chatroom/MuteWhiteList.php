@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chatroom full ban whitelist
+ * Chatroom full ban whitelist
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add the chat room's entire ban list to the whitelist
+ * Add the chat room's entire ban list to the whitelist
  */
 function add()
 {
@@ -29,7 +29,7 @@ function add()
 add();
 
 /**
- * // Remove the chat room's global ban whitelist
+ * Remove the chat room's global ban whitelist
  */
 function remove()
 {
@@ -47,7 +47,7 @@ function remove()
 remove();
 
 /**
- * // Get the whitelist of the chat room's global mute list
+ * Get the whitelist of the chat room's global mute list
  */
 function getList()
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * // User Module User Label
+ * User Module User Label
  */
 
 
@@ -34,7 +34,7 @@ function set()
 set();
 
 /**
- * // Clear user custody information
+ * Clear user custody information
  */
 function clean()
 {
@@ -48,13 +48,13 @@ function clean()
 clean();
 
 /**
- * // Batch query user data
+ * Batch query user data
  */
 function batchQuery()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // // User ID
+        'userId' => ['ujadk90ha1', 'ujadk90ha2'], // User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->batchQuery($params);
     Utils::dump("批量查询用户资料", $res);
@@ -62,7 +62,7 @@ function batchQuery()
 batchQuery();
 
 /**
- * // Paginate to retrieve the full list of application users
+ * Paginate to retrieve the full list of application users
  */
 function query()
 {

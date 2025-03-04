@@ -10,24 +10,24 @@ use RongCloud\Lib\Utils;
 class Distribute {
 
     /**
- * // Stop the chat room message distribution path
+ * Stop the chat room message distribution path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Chatroom/Distribute/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
- * // Configuration file for verification
+ * Configuration file for verification
  *
  * @var string
  *

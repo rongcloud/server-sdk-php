@@ -19,7 +19,7 @@ class Expansion
     private $jsonPath = 'Lib/Message/Expansion/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -34,7 +34,7 @@ class Expansion
     private $verify = '';
 
     /**
- * // Person constructor.
+ * Person constructor.
  */
     function __construct()
     {
@@ -109,7 +109,7 @@ class Expansion
     }
 
     /**
- * // Get extension information
+ * Get extension information
  *
  * @param array $param Parameters for obtaining extension information
  * @param

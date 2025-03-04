@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room message downgrade
+ * Chat room message downgrade
  */
 
 
@@ -11,13 +11,13 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add in-app chat room downgrade message
+ * Add in-app chat room downgrade message
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// // Message type list
+        'msgs'=> ['RC:TxtMsg03','RC:TxtMsg02']// Message type list
     ];
     $Demotion = $RongSDK->getChatroom()->Demotion()->add($chatroom);
     Utils::dump("添加应用内聊天室降级消息",$Demotion);
@@ -25,7 +25,7 @@ function add()
 add();
 
 /**
- * // Remove application chat room downgrade message
+ * Remove application chat room downgrade message
  */
 function remove()
 {
@@ -39,7 +39,7 @@ function remove()
 remove();
 
 /**
- * // Get the downgrade message within the app chat room
+ * Get the downgrade message within the app chat room
  */
 function getList()
 {

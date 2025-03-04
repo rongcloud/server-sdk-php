@@ -1,6 +1,6 @@
 <?php
 /**
- * // Two-person message
+ * Two-person message
  */
 namespace RongCloud\Lib\Message\Person;
 
@@ -30,7 +30,7 @@ class Person {
     private $verify = '';
 
     /**
- * // Person constructor.
+ * Person constructor.
  */
     function __construct()
     {

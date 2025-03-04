@@ -9,7 +9,7 @@ namespace RongCloud\Lib;
 class Utils
 {
     /**
- * // Whether the digital length matches
+ * Whether the digital length matches
  * @param $params
  * @return bool
  */
@@ -44,7 +44,7 @@ class Utils
     }
 
     /**
- * // Template replacement
+ * Template replacement
  * @param $temp
  * @param $data
  * @return mixed
@@ -59,7 +59,7 @@ class Utils
     }
 
     /**
- * // Get error information
+ * Get error information
  * @param $params
  * @return array|mixed
  */
@@ -85,7 +85,7 @@ class Utils
     }
 
     /**
- * // Parameter length validation
+ * Parameter length validation
  * @param $params
  * @return array|mixed|null
  */
@@ -119,7 +119,7 @@ class Utils
     }
 
     /**
- * // Parameter type validation
+ * Parameter type validation
  * @param $params
  * @return array|int|mixed
  */
@@ -152,7 +152,7 @@ class Utils
     }
 
     /**
- * // Parameter validation
+ * Parameter validation
  * @param $params
  * @return null
  */
@@ -233,7 +233,7 @@ class Utils
     }
 
     /**
- * // Required parameter validation
+ * Required parameter validation
  * @param $params
  * @return array|mixed|null
  */
@@ -263,7 +263,7 @@ class Utils
     }
 
     /**
- * // JSON data retrieval
+ * JSON data retrieval
  * @param string $path
  * @return mixed
  */
@@ -273,7 +273,7 @@ class Utils
         return json_decode($files, true);
     }
     /**
- * // Variable-friendly print output
+ * Variable-friendly print output
  * @param variable  $param  Variable parameter
  * @example dump($a,$b,$c,$e,[.1]) Supports multiple variables, uses English comma separation, default mode print_r, view data type passed as .1
  * @version php>=5.6
@@ -333,7 +333,7 @@ class Utils
     }
 
     /**
- * // Generate a random string of specified length
+ * Generate a random string of specified length
  * @param int $len
  * @return string
  */

@@ -12,14 +12,14 @@ class Group {
     private $jsonPath = 'Lib/Message/Group/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */

@@ -10,7 +10,7 @@ use RongCloud\Lib\Utils;
 class Keepalive {
 
     /**
- * // Chat room keep-alive path
+ * Chat room keep-alive path
  *
  * @var string
  */
@@ -24,14 +24,14 @@ class Keepalive {
     private $conf = '';
 
     /**
- * // Verify configuration file
+ * Verify configuration file
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Keepalive constructor.
+ * Keepalive constructor.
  */
     function __construct()
     {

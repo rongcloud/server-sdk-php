@@ -1,6 +1,6 @@
 <?php
 /**
- * // User non-disturbance time period
+ * User non-disturbance time period
  */
 namespace RongCloud\Lib\User\BlockPushPeriod;
 
@@ -17,14 +17,14 @@ class BlockPushPeriod {
     private $jsonPath = 'Lib/User/BlockPushPeriod/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
@@ -35,7 +35,7 @@ class BlockPushPeriod {
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }

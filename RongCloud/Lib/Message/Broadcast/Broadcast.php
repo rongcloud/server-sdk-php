@@ -16,14 +16,14 @@ class Broadcast {
     private $jsonPath = 'Lib/Message/Broadcast/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * // User Module User Tag
+ * User Module User Tag
  */
 
 
@@ -11,14 +11,14 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add user tag
+ * Add user tag
  */
 function set()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
         'userId'=> 'ujadk90ha1',// User ID
-        'tags'=> ['标签557','标签4']// // User tag
+        'tags'=> ['标签557','标签4']// User tag
     ];
     $Block = $RongSDK->getUser()->Tag()->set($user);
     Utils::dump("添加标签",$Block);
@@ -26,13 +26,13 @@ function set()
 set();
 
 /**
- * // Batch add user tags
+ * Batch add user tags
  */
 function batchset()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $user = [
-        'userIds'=> ['ujadk90ha1','ujadk90ha2'],// // User ID
+        'userIds'=> ['ujadk90ha1','ujadk90ha2'],// User ID
         'tags'=> ['标签567','标签2']// User tag
     ];
     $Block =  $RongSDK->getUser()->Tag()->batchset($user);
@@ -41,7 +41,7 @@ function batchset()
 batchset();
 
 /**
- * // Get user tags
+ * Get user tags
  */
 function get()
 {

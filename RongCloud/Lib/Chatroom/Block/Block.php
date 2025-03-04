@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room ban
+ * Chat room ban
  */
 namespace RongCloud\Lib\Chatroom\Block;
 
@@ -24,14 +24,14 @@ class Block {
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // Block constructor.
+ * Block constructor.
  */
     function __construct()
     {

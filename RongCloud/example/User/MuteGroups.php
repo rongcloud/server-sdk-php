@@ -1,6 +1,6 @@
 <?php
 /**
- * // Global group ban instance
+ * Global group ban instance
  */
 
 
@@ -11,13 +11,13 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * // Add group ban
+ * Add group ban
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'members'=>[ // // Forbidden personnel list
+        'members'=>[ // Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ],
         'minute'=>3000  // Forbidden utterance duration
@@ -27,7 +27,7 @@ function add()
 }
 add();
 /**
- * // Query the list of banned members
+ * Query the list of banned members
  */
 function getList()
 {
@@ -41,7 +41,7 @@ function getList()
 }
 getList();
 /**
- * // Unblock
+ * Unblock
  */
 function remove()
 {

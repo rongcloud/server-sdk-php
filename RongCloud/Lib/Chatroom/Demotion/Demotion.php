@@ -1,6 +1,6 @@
 <?php
 /**
- * // Chat room message downgrade
+ * Chat room message downgrade
  */
 namespace RongCloud\Lib\Chatroom\Demotion;
 
@@ -10,14 +10,14 @@ use RongCloud\Lib\Utils;
 class Demotion {
 
     /**
- * // Chat room message degradation path
+ * Chat room message degradation path
  *
  * @var string
  */
     private $jsonPath = 'Lib/Chatroom/Demotion/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -95,7 +95,7 @@ class Demotion {
     }
 
     /**
- * // Get the downgrade message of the in-app chatroom
+ * Get the downgrade message of the in-app chatroom
  *
  * @param array $Chatroom
  * $Chatroom = [

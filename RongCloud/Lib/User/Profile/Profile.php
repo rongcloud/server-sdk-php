@@ -20,7 +20,7 @@ class Profile
     private $jsonPath = 'Lib/User/Profile/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -28,7 +28,7 @@ class Profile
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  * //
@@ -40,7 +40,7 @@ class Profile
  */
     function __construct()
     {
-        // // Initialize request configuration and validate file path
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . 'verify.json');
     }
@@ -130,7 +130,7 @@ class Profile
     }
 
     /**
- * // Get paginated list of all application users
+ * Get paginated list of all application users
  *
  * @param array
  * $params = [

@@ -1,6 +1,6 @@
 <?php
 /**
- * // User backup note
+ * User backup note
  */
 namespace RongCloud\Lib\User\Remark;
 
@@ -17,14 +17,14 @@ class Remark {
     private $jsonPath = 'Lib/User/Remark/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  */
     private $conf = '';
 
     /**
- * // Validate configuration file
+ * Validate configuration file
  *
  * @var string
  */

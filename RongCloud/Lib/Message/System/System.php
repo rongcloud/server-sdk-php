@@ -18,7 +18,7 @@ class System
     private $jsonPath = 'Lib/Message/System/';
 
     /**
- * // Request configuration file
+ * Request configuration file
  *
  * @var string
  *
@@ -26,14 +26,14 @@ class System
     private $conf = '';
 
     /**
- * // Configuration file for validation
+ * Configuration file for validation
  *
  * @var string
  */
     private $verify = '';
 
     /**
- * // System constructor.
+ * System constructor.
  */
     function __construct()
     {
