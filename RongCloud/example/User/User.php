@@ -26,7 +26,7 @@ function register()
         'portrait' => ''//  User avatar
     ];
     $register = $RongSDK->getUser()->register($user);
-    Utils::dump("User registration", $register);
+    Utils::dump("register", $register);
 }
 
 register();
@@ -43,7 +43,7 @@ function update()
         'portrait' => '  http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982' //User avatar
     ];
     $update = $RongSDK->getUser()->update($user);
-    Utils::dump("User information update", $update);
+    Utils::dump("update", $update);
 }
 
 update();
@@ -58,7 +58,7 @@ function get()
         'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->get($user);
-    Utils::dump("Get user information", $res);
+    Utils::dump("get", $res);
 }
 
 get();
@@ -73,7 +73,7 @@ function abandon()
         'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->abandon($user);
-    Utils::dump("User cancellation", $res);
+    Utils::dump("abandon", $res);
 }
 
 abandon();
@@ -89,7 +89,7 @@ function reactivate()
         'time' => 1623123911000
     ];
     $res = $RongSDK->getUser()->reactivate($user);
-    Utils::dump("Token invalid", $res);
+    Utils::dump("reactivate", $res);
 }
 reactivate();
 
@@ -104,7 +104,7 @@ function abandonQuery()
         'size' => 10,//  Page count
     ];
     $res = $RongSDK->getUser()->abandonQuery($params);
-    Utils::dump("List of unsubscribed users", $res);
+    Utils::dump("abandonQuery", $res);
 }
 
 abandonQuery();
@@ -119,7 +119,7 @@ function active()
         'id' => 'ujadk90ha',//  User ID
     ];
     $res = $RongSDK->getUser()->activate($user);
-    Utils::dump("Deactivate user activation", $res);
+    Utils::dump("active", $res);
 }
 
 active();
@@ -134,7 +134,7 @@ function getGroups()
         'id' => '55vW81Mni',//  User ID
     ];
     $res = $RongSDK->getUser()->getGroups($user);
-    Utils::dump("Query the group where the user is located", $res);
+    Utils::dump("getGroups", $res);
 }
 
 getGroups();
@@ -150,6 +150,6 @@ function expire()
         'time' => 1623123911000
     ];
     $res = $RongSDK->getUser()->expire($user);
-    Utils::dump("Token expired", $res);
+    Utils::dump("expire", $res);
 }
 expire();

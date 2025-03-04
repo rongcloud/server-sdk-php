@@ -25,7 +25,7 @@ function add()
         'minute'=>3000  // Forbidden duration
     ];
     $result = $RongSDK->getGroup()->Gag()->add($group);
-    Utils::dump("Add group ban",$result);
+    Utils::dump("Add group ban words",$result);
 }
 add();
 /**

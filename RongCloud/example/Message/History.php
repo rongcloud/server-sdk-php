@@ -52,6 +52,6 @@ function clean()
         'msgTimestamp'=>"1588838388320",//Clear all historical messages before the specified timestamp, accurate to the millisecond, to empty all historical messages of the session.
     ];
     $Chartromm = $RongSDK->getMessage()->History()->clean($message);
-    Utils::dump("Message Clear",$Chartromm);
+    Utils::dump("Message clearance",$Chartromm);
 }
 clean();

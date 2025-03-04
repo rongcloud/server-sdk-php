@@ -39,7 +39,7 @@ function remove()
         ],
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->remove($chatroom);
-    Utils::dump("Unlock global chat room restrictions",$Ban);
+    Utils::dump("Unblock global chat room restrictions",$Ban);
 }
 remove();
 
@@ -53,6 +53,6 @@ function getList()
 
     ];
     $Ban = $RongSDK->getChatroom()->Ban()->getList($chatroom);
-    Utils::dump("Get the global banned words list for the chat room",$Ban);
+    Utils::dump("Get the global banned word list of the chat room",$Ban);
 }
 getList();

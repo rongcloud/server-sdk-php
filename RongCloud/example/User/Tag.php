@@ -21,7 +21,7 @@ function set()
         'tags'=> ['tag557','tag4']// User tag
     ];
     $Block = $RongSDK->getUser()->Tag()->set($user);
-    Utils::dump("Add a label",$Block);
+    Utils::dump("set",$Block);
 }
 set();
 
@@ -36,7 +36,7 @@ function batchset()
         'tags'=> ['tag567','tag2']// User tag
     ];
     $Block =  $RongSDK->getUser()->Tag()->batchset($user);
-    Utils::dump("Batch add tags",$Block);
+    Utils::dump("batchset",$Block);
 }
 batchset();
 
@@ -50,6 +50,6 @@ function get()
         'userIds'=> ['ujadk90ha1','ujadk90ha2'],// User ID
     ];
     $Block =  $RongSDK->getUser()->Tag()->get($user);
-    Utils::dump("Get user tags",$Block);
+    Utils::dump("get",$Block);
 }
 get();

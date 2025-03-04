@@ -35,7 +35,7 @@ function change()
         'type'=>1
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->change($group);
-    Utils::dump("Super Group Channel Type Switching",$result);
+    Utils::dump("change",$result);
 }
 change();
 /**
@@ -46,7 +46,7 @@ function getList()
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $result = $RongSDK->getUltragroup()->BusChannel()->getList("phpgroup2");
-    Utils::dump("Supergroup channel list",$result);
+    Utils::dump("Super group channel acquisition",$result);
 }
 getList();
 /**
@@ -54,7 +54,6 @@ getList();
  */
 function remove()
 {
-
      $RongSDK = new RongCloud(APPKEY,APPSECRET);
         $group = [
             'id'=> 'phpgroup1',// Supergroup ID
@@ -99,7 +98,7 @@ function getPrivateUserList()
         'pageSize'=>100
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->getPrivateUserList($group);
-    Utils::dump("Query supergroup private channel member list",$result);
+    Utils::dump("Query the list of members in the super private channel",$result);
 }
 getPrivateUserList();
 /**
@@ -117,7 +116,7 @@ function removePrivateUsers()
         ]
     ];
     $result = $RongSDK->getUltragroup()->BusChannel()->removePrivateUsers($group);
-    Utils::dump("Remove supergroup private channel members",$result);
+    Utils::dump("Remove members from the super private channel",$result);
 }
 removePrivateUsers();
 

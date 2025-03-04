@@ -21,7 +21,7 @@ function add()
         'blacklist'=> ['kkj9o01']//  List of personnel to be added to the blacklist
     ];
     $Blacklist = $RongSDK->getUser()->Blacklist()->add($user);
-    Utils::dump("Add to blacklist",$Blacklist);
+    Utils::dump("add",$Blacklist);
 }
 add();
 
@@ -36,7 +36,7 @@ function remove()
         'blacklist'=> ['kkj9o02']//  List of personnel requiring removal from the blacklist
     ];
     $Blacklist = $RongSDK->getUser()->Blacklist()->remove($user);
-    Utils::dump("Remove from blacklist",$Blacklist);
+    Utils::dump("remove",$Blacklist);
 }
 remove();
 
@@ -52,6 +52,6 @@ function getList()
         'pageToken'=> ''// Pagination information, the previous request returns next, no pagination processing when not transmitting, defaults to fetching the first 1000 user lists, sorted in reverse order by blacklist addition time.
     ];
     $Blacklist = $RongSDK->getUser()->Blacklist()->getList($user);
-    Utils::dump("User blacklist",$Blacklist);
+    Utils::dump("getList",$Blacklist);
 }
 getList();

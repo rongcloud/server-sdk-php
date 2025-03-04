@@ -24,7 +24,7 @@ function add()
 // No notifications are received, even for @ messages.
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->add($user);
-    Utils::dump("Add a do-not-disturb period",$Blacklist);
+    Utils::dump("add",$Blacklist);
 }
 add();
 
@@ -38,7 +38,7 @@ function remove()
         'id'=> 'ujadk90ha',// User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->remove($user);
-    Utils::dump("Remove the do-not-disturb period",$Blacklist);
+    Utils::dump("remove",$Blacklist);
 }
 
 
@@ -52,7 +52,7 @@ function getList()
         'id'=> 'ujadk90ha',// User ID
     ];
     $Blacklist = $RongSDK->getUser()->BlockPushPeriod()->getList($user);
-    Utils::dump("Get the no-disturb period",$Blacklist);
+    Utils::dump("getList",$Blacklist);
 }
 getList();
 

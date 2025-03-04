@@ -21,7 +21,7 @@ function set()
         'remarks'=> json_encode([['id'=>'user1','remark'=>'note4'],['id'=>'user2','remark'=>'note4']])// User Annotation
     ];
     $Remark = $RongSDK->getUser()->Remark()->set($user);
-    Utils::dump("Add a note",$Remark);
+    Utils::dump("set",$Remark);
 }
 set();
 
@@ -36,7 +36,7 @@ function del()
         'targetId'=> "userId1"// User backup
     ];
     $Remark = $RongSDK->getUser()->Remark()->del($user);
-    Utils::dump("Delete backup note",$Remark);
+    Utils::dump("del",$Remark);
 }
 del();
 
@@ -52,6 +52,6 @@ function get()
         'page'=>1
     ];
     $Remark =  $RongSDK->getUser()->Remark()->get($user);
-    Utils::dump("Get user remark",$Remark);
+    Utils::dump("get",$Remark);
 }
 get();

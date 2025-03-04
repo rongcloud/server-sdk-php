@@ -60,7 +60,7 @@ function quit()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->quit($param);
-    Utils::dump("Exit the group", $result);
+    Utils::dump("Exit group", $result);
 }
 quit();
 
@@ -74,7 +74,7 @@ function dismiss()
         'groupId' => 'CHIQ_GROUP_2'
     ];
     $result = $RongSDK->getEntrust()->Group()->dismiss($param);
-    Utils::dump("Dissolve the group", $result);
+    Utils::dump("Disband group", $result);
 }
 dismiss();
 
@@ -89,7 +89,7 @@ function groupJoin()
         'userIds' => ['123', '456']
     ];
     $result = $RongSDK->getEntrust()->Group()->join($param);
-    Utils::dump("Join a group", $result);
+    Utils::dump("Join the group", $result);
 }
 groupJoin();
 
@@ -143,7 +143,7 @@ function query()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->query($param);
-    Utils::dump("Query group information under the pagination application", $result);
+    Utils::dump("Query application group information under pagination", $result);
 }
 query();
 
@@ -161,7 +161,7 @@ function joinedQuery()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->joinedQuery($param);
-    Utils::dump("Query users added to the group by page", $result);
+    Utils::dump("Pagination query for users added to the group", $result);
 }
 joinedQuery();
 
@@ -175,6 +175,6 @@ function profileQuery()
         'groupIds' => ['RC_GROUP_1', 'CHIQ_GROUP_2']
     ];
     $result = $RongSDK->getEntrust()->Group()->profileQuery($param);
-    Utils::dump("Batch query group information", $result);
+    Utils::dump("Batch query group data", $result);
 }
 profileQuery();

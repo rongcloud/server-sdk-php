@@ -25,8 +25,7 @@ function send()
         'content' => ['content' => 'php system message']//  Message Body
     ];
     $Result = $RongSDK->getMessage()->System()->send($message);
-    Utils::dump("System message delivery
-/* @param system message delivery */", $Result);
+    Utils::dump("System message delivery", $Result);
 }
 send();
 

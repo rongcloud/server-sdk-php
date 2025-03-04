@@ -51,7 +51,7 @@ function sendTemplate()
         ])
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendTemplate($message);
-    Utils::dump("Send different messages to multiple users",$Chartromm);
+    Utils::dump("Send different content messages to multiple users",$Chartromm);
 }
 sendTemplate();
 
@@ -68,7 +68,7 @@ function sendStatusMessage()
         'content'=>json_encode(['content'=>'Hello, this is a two-person status message.'])//Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendStatusMessage($message);
-    Utils::dump("Two-player status message sending",$Chartromm);
+    Utils::dump("Two-person status message sending",$Chartromm);
 }
 sendStatusMessage();
 /**
@@ -84,6 +84,6 @@ function recall()
         'sentTime'=>'1519444243981'//Send time
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->recall($message);
-    Utils::dump("Withdraw message in two-person chat",$Chartromm);
+    Utils::dump("Two-person message recall",$Chartromm);
 }
 recall();

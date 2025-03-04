@@ -29,7 +29,7 @@ function set()
         'isSyncSender'      => 0                        // Whether the sender accepts the terminal user's online status, 0 indicates not accepting, 1 indicates accepting, default is 0 not accepting
     ];
     $res = $RongSDK->getMessage()->Expansion()->set($message);
-    Utils::dump("Set message extension", $res);
+    Utils::dump("Two-person message sending", $res);
 }
 set();
 
@@ -48,7 +48,7 @@ function delete()
         'isSyncSender'      => 0                        // Terminal user online status, whether the sender accepts this setting status, 0 indicates not accepted, 1 indicates accepted, default is 0 not accepted
     ];
     $res = $RongSDK->getMessage()->Expansion()->delete($message);
-    Utils::dump("Delete message extension", $res);
+    Utils::dump("Send different content messages to multiple users", $res);
 }
 delete();
 
@@ -63,6 +63,6 @@ function getList()
         'pageNo' => 1                     // Page count, default returns 300 expanded information.
     ];
     $res = $RongSDK->getMessage()->Expansion()->getList($message);
-    Utils::dump("Get extension information", $res);
+    Utils::dump("Two-person status message sending", $res);
 }
 getList();

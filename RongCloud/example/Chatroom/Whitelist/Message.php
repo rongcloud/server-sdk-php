@@ -47,6 +47,6 @@ function remove()
         'msgs'=> ["RC:TxtMsg"]// Message type list
     ];
     $Message = $RongSDK->getChatroom()->Whitelist()->Message()->remove($chatroom);
-    Utils::dump("Delete chat room message whitelist",$Message);
+    Utils::dump("Remove chat room message whitelist",$Message);
 }
 remove();

@@ -21,7 +21,7 @@ function mute()
         'targetId'=>'Vu-oC0_LQ6kgPqltm_zYtI'// Session ID
     ];
     $result = $RongSDK->getConversation()->mute($conversation);
-    Utils::dump("Set user session screen push",$result);
+    Utils::dump("Set user's session screen to Push",$result);
 }
 mute();
 
@@ -38,6 +38,6 @@ function unmute()
         'targetId'=>'adm1klnm'// Session ID
     ];
     $result = $RongSDK->getConversation()->unmute($conversation);
-    Utils::dump("Set the user's session to receive Push notifications",$result);
+    Utils::dump("Set the user to receive Push notifications for a specific session",$result);
 }
 unmute();

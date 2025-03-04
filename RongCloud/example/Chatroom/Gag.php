@@ -24,7 +24,7 @@ function add()
         'minute'=>30// Forbidden utterance duration
     ];
     $Gag = $RongSDK->getChatroom()->Gag()->add($chatroom);
-    Utils::dump("Add chat room member ban.",$Gag);
+    Utils::dump("Add chat room member mute",$Gag);
 }
 add();
 
@@ -41,7 +41,7 @@ function remove()
         ],
     ];
     $Gag = $RongSDK->getChatroom()->Gag()->remove($chatroom);
-    Utils::dump("Unban chatroom member",$Gag);
+    Utils::dump("Unban chat room member",$Gag);
 }
 remove();
 
@@ -55,6 +55,6 @@ function getList()
         "id"=>"chatroom001"// chatroom id
     ];
     $Gag = $RongSDK->getChatroom()->Gag()->getList($chatroom);
-    Utils::dump("Get the list of banned words in the chat room",$Gag);
+    Utils::dump("Get the list of muted members in the chat room",$Gag);
 }
 getList();

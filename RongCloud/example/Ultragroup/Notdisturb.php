@@ -35,7 +35,7 @@ function set()
         // 5: No notifications will be received, even if it is an @ message.
     ];
     $result = $RongSDK->getUltragroup()->Notdisturb()->set($group);
-    Utils::dump("Set supergroup do not disturb",$result);
+    Utils::dump("Set super group do not disturb",$result);
 }
 set();
 /**
@@ -50,7 +50,7 @@ function get()
         'busChannel'=>"",
     ];
     $result = $RongSDK->getUltragroup()->Notdisturb()->get($group);
-    Utils::dump("Query supergroup to avoid disturbance",$result);
+    Utils::dump("Query super group mute",$result);
 }
 get();
 

@@ -20,7 +20,7 @@ function add()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->add($group);
-    Utils::dump("Add specified group to the ban list",$result);
+    Utils::dump("Add group ban",$result);
 }
 add();
 /**
@@ -34,7 +34,7 @@ function getList()
 
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->getList($group);
-    Utils::dump("Query the complete banned word list for a specified group",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**
@@ -48,7 +48,7 @@ function remove()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->remove($group);
-    Utils::dump("Remove all bans from the specified group",$result);
+    Utils::dump("Remove ban",$result);
 }
 remove();
 

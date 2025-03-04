@@ -24,7 +24,7 @@ function add()
         'minute'=>500// Block duration
     ];
     $Block = $RongSDK->getChatroom()->Block()->add($chatroom);
-    Utils::dump("Add a block",$Block);
+    Utils::dump("Add ban",$Block);
 }
 add();
 

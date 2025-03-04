@@ -23,7 +23,7 @@ function create()
         'member'=>['id'=> 'group999'],// Create a userId
     ];
     $result = $RongSDK->getUltragroup()->create($group);
-    Utils::dump("Create supergroup",$result);
+    Utils::dump("Create a super group",$result);
 }
 create();
 
@@ -38,7 +38,7 @@ function joins()
         'member'=>['id'=> 'group999'],// Group member information
     ];
     $result = $RongSDK->getUltragroup()->joins($group);
-    Utils::dump("Join the supergroup",$result);
+    Utils::dump("Join the super group",$result);
 }
 joins();
 
@@ -54,7 +54,7 @@ function quit()
         'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// Exit personnel information
     ];
     $result = $RongSDK->getUltragroup()->quit($group);
-    Utils::dump("Exit supergroup",$result);
+    Utils::dump("Exit super group",$result);
 }
 quit();
 
@@ -68,7 +68,7 @@ function dismiss()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->dismiss($group);
-    Utils::dump("Disband supergroup",$result);
+    Utils::dump("Disassemble super cluster",$result);
 }
 dismiss();
 
@@ -98,7 +98,7 @@ function isExist()
         'member'=>"userId1"// Member ID
     ];
     $result = $RongSDK->getUltragroup()->isExist($group);
-    Utils::dump("Whether the group member exists",$result);
+    Utils::dump("Whether the group member exists ",$result);
 }
 isExist();
 

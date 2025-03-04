@@ -25,7 +25,7 @@ function add()
         'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUltragroup()->Gag()->add($group);
-    Utils::dump("Add super group ban words",$result);
+    Utils::dump("Add super group ban speech",$result);
 }
 add();
 /**
@@ -39,7 +39,7 @@ function getList()
         'id'=> 'phpgroup1',// Ultra Group ID
     ];
     $result = $RongSDK->getUltragroup()->Gag()->getList($group);
-    Utils::dump("Query the list of forbidden words",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**

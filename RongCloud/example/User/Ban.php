@@ -24,7 +24,7 @@ function set()
         'type' => 'PERSON',              // conversation type, currently supports single conversation PERSON
     ];
     $res = $RongSDK->getUser()->Ban()->set($user);
-    Utils::dump("Set user mute status", $res);
+    Utils::dump("set", $res);
 }
 set();
 
@@ -40,6 +40,6 @@ function getList()
         'type'      => 'PERSON'//  Conversation type, currently supports single conversation PERSON.
     ];
     $res = $RongSDK->getUser()->Ban()->getList($param);
-    Utils::dump("Query the list of users banned from single chat", $res);
+    Utils::dump("getList", $res);
 }
 getList();

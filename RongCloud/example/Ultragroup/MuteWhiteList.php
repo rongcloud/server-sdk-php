@@ -38,7 +38,7 @@ function getList()
         'id'=> 'phpgroup1',// Ultra group ID
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->getList($group);
-    Utils::dump("Query the list of banned words whitelist members",$result);
+    Utils::dump("Query the list of members in the forbidden word whitelist",$result);
 }
 getList();
 /**
@@ -55,7 +55,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getUltragroup()->MuteWhiteList()->remove($group);
-    Utils::dump("Remove from the whitelist",$result);
+    Utils::dump("Remove the denylist whitelist",$result);
 }
 remove();
 

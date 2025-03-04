@@ -81,7 +81,6 @@ function recall()
         'sentTime'=>'1519444243981'//Message sending time
     ];
     $Result = $RongSDK->getMessage()->Group()->recall($message);
-    Utils::dump("Withdraw a sent group chat message
-@param messageId The ID of the message to be withdrawn",$Result);
+    Utils::dump("Recall a sent group chat message",$Result);
 }
 recall();

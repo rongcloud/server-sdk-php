@@ -24,7 +24,7 @@ function add()
         ,
     ];
     $result = $RongSDK->getGroup()->MuteWhiteList()->add($group);
-    Utils::dump("Add group ban whitelist",$result);
+    Utils::dump("Add group blocklist",$result);
 }
 add();
 /**
@@ -38,7 +38,7 @@ function getList()
         'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteWhiteList()->getList($group);
-    Utils::dump("Query the forbidden word whitelist member list",$result);
+    Utils::dump("Query the forbidden whitelist member list",$result);
 }
 getList();
 /**
@@ -55,7 +55,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getGroup()->MuteWhiteList()->remove($group);
-    Utils::dump("Unblock whitelist",$result);
+    Utils::dump("Remove the ban from the whitelist",$result);
 }
 remove();
 

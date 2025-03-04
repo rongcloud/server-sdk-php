@@ -43,7 +43,7 @@ function batchAdd()
         ]
     ];
     $result = $RongSDK->getSensitive()->batchAdd($sensitive);
-    Utils::dump("Batch add sensitive words", $result);
+    Utils::dump("batchAdd", $result);
 }
 batchAdd();
 
@@ -58,7 +58,7 @@ function remove()
         'keywords' => ["cccccdddd"]//  Delete sensitive words
     ];
     $result = $RongSDK->getSensitive()->remove($sensitive);
-    Utils::dump("Delete sensitive words", $result);
+    Utils::dump("Remove sensitive words", $result);
 }
 remove();
 
@@ -73,6 +73,6 @@ function getList()
         'type' => '',//  Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word shielding, empty to retrieve all
     ];
     $result = $RongSDK->getSensitive()->getList($sensitive);
-    Utils::dump("Get sensitive word list", $result);
+    Utils::dump("Get the list of sensitive words", $result);
 }
 getList();

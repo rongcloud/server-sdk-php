@@ -29,7 +29,7 @@ function set()
         ]  // User extension information
     ];
     $res = $RongSDK->getUser()->Profile()->set($params);
-    Utils::dump("User Profile Settings", $res);
+    Utils::dump("set", $res);
 }
 set();
 
@@ -43,7 +43,7 @@ function clean()
         'userId' => ['ujadk90ha1', 'ujadk90ha2'],//  User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->clean($params);
-    Utils::dump("Clear user hosting information", $res);
+    Utils::dump("clean", $res);
 }
 clean();
 
@@ -57,7 +57,7 @@ function batchQuery()
         'userId' => ['ujadk90ha1', 'ujadk90ha2'],//  User ID
     ];
     $res =  $RongSDK->getUser()->Profile()->batchQuery($params);
-    Utils::dump("Batch query user data", $res);
+    Utils::dump("batchQuery", $res);
 }
 batchQuery();
 
@@ -73,6 +73,6 @@ function query()
         'order' => 0
     ];
     $res =  $RongSDK->getUser()->Profile()->query($params);
-    Utils::dump("Get the list of all users in the application by pagination", $res);
+    Utils::dump("query", $res);
 }
 query();

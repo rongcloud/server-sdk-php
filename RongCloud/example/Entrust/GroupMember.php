@@ -41,7 +41,7 @@ function kick()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kick($param);
-    Utils::dump("Leave the group", $result);
+    Utils::dump("Kick out of the group", $result);
 }
 kick();
 
@@ -55,8 +55,7 @@ function kickAll()
         'userId' => '111'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kickAll($param);
-    Utils::dump("Specify the user to kick out all groups
-@param user The user to be kicked out", $result);
+    Utils::dump("Specify the user to kick out all groups", $result);
 }
 kickAll();
 
@@ -72,7 +71,7 @@ function follow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->follow($param);
-    Utils::dump("Set user-specified special attention users", $result);
+    Utils::dump("Set user-specified group special attention users", $result);
 }
 follow();
 
@@ -88,7 +87,7 @@ function unFollow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->unFollow($param);
-    Utils::dump("Remove a specific user from the specified group's special attention list", $result);
+    Utils::dump("Remove the specified user from the group's special attention list", $result);
 }
 unFollow();
 
@@ -103,7 +102,7 @@ function getFollowed()
         'userId' => '222',
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->getFollowed($param);
-    Utils::dump("Query the user-specified group's specially focused member list", $result);
+    Utils::dump("Query the list of members in the specified group that the user particularly focuses on", $result);
 }
 getFollowed();
 
@@ -121,7 +120,7 @@ function query()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->query($param);
-    Utils::dump("Get paginated member information", $result);
+    Utils::dump("Get group member information by pagination", $result);
 }
 query();
 
@@ -136,6 +135,6 @@ function specificQuery()
         'userIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->specificQuery($param);
-    Utils::dump("Retrieve specified member information", $result);
+    Utils::dump("Get specified member information", $result);
 }
 specificQuery();

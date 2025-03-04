@@ -21,7 +21,7 @@ function add()
         'whitelist'=> ['kkj9o01']//  The list of personnel requiring whitelist addition
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->add($user);
-    Utils::dump("Add to whitelist",$Whitelist);
+    Utils::dump("add",$Whitelist);
 }
 add();
 
@@ -36,7 +36,7 @@ function remove()
         'whitelist'=> ['kkj9o02']//  List of personnel to be removed from the whitelist
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->remove($user);
-    Utils::dump("Remove whitelist",$Whitelist);
+    Utils::dump("remove",$Whitelist);
 }
 remove();
 
@@ -52,6 +52,6 @@ function getList()
         'pageToken'=> ''// Pagination information, the next request returns 'next', no pagination processing is done when not transmitting, defaults to fetching the first 1000 user lists, sorted in reverse order by whitelist addition time.
     ];
     $Whitelist = $RongSDK->getUser()->Whitelist()->getList($user);
-    Utils::dump("User Whitelist",$Whitelist);
+    Utils::dump("getList",$Whitelist);
 }
 getList();

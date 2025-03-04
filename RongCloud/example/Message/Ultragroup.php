@@ -23,7 +23,7 @@ function send()
         'content'=>json_encode(['content'=>'php Group message, hello, Xiaoming'])// Message Body
     ];
     $Result = $RongSDK->getMessage()->Ultragroup()->send($message);
-    Utils::dump("Super Group Message Sending",$Result);
+    Utils::dump("Super group message delivery",$Result);
 }
 send();
 

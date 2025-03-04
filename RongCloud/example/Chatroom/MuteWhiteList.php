@@ -24,7 +24,7 @@ function add()
         ]
     ];
     $MuteWhiteList = $RongSDK->getChatroom()->MuteWhiteList()->add($chatroom);
-    Utils::dump("Add the entire chat room to the mute whitelist",$MuteWhiteList);
+    Utils::dump("Add the chat room's entire ban list to the whitelist",$MuteWhiteList);
 }
 add();
 
@@ -42,7 +42,7 @@ function remove()
         ]
     ];
     $MuteWhiteList = $RongSDK->getChatroom()->MuteWhiteList()->remove($chatroom);
-    Utils::dump("Remove the entire chat room mute whitelist",$MuteWhiteList);
+    Utils::dump("Remove the chat room's global ban whitelist",$MuteWhiteList);
 }
 remove();
 

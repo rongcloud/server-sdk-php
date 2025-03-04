@@ -21,7 +21,7 @@ function sync()
         'groups'=>[['id'=> 'php group1', 'name'=> 'watergroup']]// User group information
     ];
     $result = $RongSDK->getGroup()->sync($group);
-    Utils::dump("Group Information Synchronization",$result);
+    Utils::dump("Group information synchronization",$result);
 }
 sync();
 
@@ -53,7 +53,7 @@ function get()
         'id'=> 'php group1',// @param group id
     ];
     $result = $RongSDK->getGroup()->get($group);
-    Utils::dump("Retrieve group information",$result);
+    Utils::dump("Get group information",$result);
 }
 get();
 
@@ -69,7 +69,7 @@ function joins()
         'member'=>['id'=> 'group999'],// Group member information
     ];
     $result = $RongSDK->getGroup()->joins($group);
-    Utils::dump("Join a group",$result);
+    Utils::dump("Join the group",$result);
 }
 joins();
 

@@ -24,7 +24,7 @@ function broadcast()
         'notification'=>['alert'=>"this is a push",'ios'=>['alert'=>'abc'],'android'=>['alert'=>'abcd']]
     ];
     $result = $RongSDK->getPush()->broadcast($sensitive);
-    Utils::dump("Broadcast message",$result);
+    Utils::dump("Broadcast Message",$result);
 }
 broadcast();
 
@@ -40,7 +40,7 @@ function push()
         'notification'=>['alert'=>"this is a push"]
     ];
     $result = $RongSDK->getPush()->push($sensitive);
-    Utils::dump("Push notification",$result);
+    Utils::dump("Push notifications",$result);
 }
 push();
 

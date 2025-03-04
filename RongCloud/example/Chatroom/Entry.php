@@ -84,8 +84,7 @@ function remove() {
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->remove($params);
-    Utils::dump("Delete chat room property
-/* Delete chat room property */", $Entry);
+    Utils::dump("Delete chat room attribute", $Entry);
 }
 
 remove();

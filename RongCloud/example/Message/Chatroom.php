@@ -23,7 +23,7 @@ function send()
         'content'=>json_encode(['content'=>'php chatroom 你好，主播'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Chatroom()->send($message);
-    Utils::dump("Chat room send message",$Chartromm);
+    Utils::dump("Send messages in the chat room",$Chartromm);
 }
 send();
 
@@ -39,7 +39,7 @@ function broadcast()
         'content'=>json_encode(['content'=>'php Chatroom Broadcast 你好，主播'])// Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Chatroom()->broadcast($message);
-    Utils::dump("Chat Room Broadcast Message",$Chartromm);
+    Utils::dump("Chat room broadcast message",$Chartromm);
 }
 broadcast();
 

@@ -23,7 +23,7 @@ function add()
         'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUser()->MuteGroups()->add($group);
-    Utils::dump("Add group ban",$result);
+    Utils::dump("add",$result);
 }
 add();
 /**
@@ -37,7 +37,7 @@ function getList()
 
     ];
     $result = $RongSDK->getUser()->MuteGroups()->getList($group);
-    Utils::dump("Query the list of banned words",$result);
+    Utils::dump("getList",$result);
 }
 getList();
 /**
@@ -53,7 +53,7 @@ function remove()
             ]
     ];
     $result = $RongSDK->getUser()->MuteGroups()->remove($group);
-    Utils::dump("Unblock",$result);
+    Utils::dump("remove",$result);
 }
 remove();
 
