@@ -41,7 +41,7 @@ function sendTemplate()
         'template'=>json_encode(['content'=>'{name}, Language score {score}']),// Template content
         'content'=>json_encode([
             'uPj70HUrRSUk-ixtt7iIGc'=>[//Recipient ID
-                'data'=>['{name}'=>'小明','{score}'=>'90'],//Template Data
+                'data'=>['{name}'=>'Xiaoming','{score}'=>'90'],//Template Data
                 'push'=>'{name} 你的成绩出来了',//Push content
             ],
             'Vu-oC0_LQ6kgPqltm_zYtI'=>[//Recipient ID

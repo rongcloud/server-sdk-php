@@ -77,8 +77,8 @@ function sendTemplate()
                 'push' => '{name} php System Template Message',//  Push content
             ],
             'uPj70HUrRSUk-ixtt7iIGc' => [//  Recipient ID
-                'data' => ['{name}' => '小红', '{score}' => '95'],//  Template data
-                'push' => '{name} php 系统模板消息',//  push notification content
+                'data' => ['{name}' => 'Xiaohong', '{score}' => '95'],//  Template data
+                'push' => '{name} PHP system template message',//  push notification content
             ]
         ])
     ];
