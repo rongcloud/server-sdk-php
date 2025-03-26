@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群频道
+ * Super group channel
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\BusChannel;
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class BusChannel
 {
     /**
-     * 超级群模块路径
-     *
-     * @var string
-     */
+ * Super cluster module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Ultragroup/BusChannel/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,17 +40,17 @@ class BusChannel
     }
 
     /**
-     * 添加超级群频道
-     *
-     * @param $Group array 添加超级群频道 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid'//频道 id
-                'type'=>0 // 0 共有频道，1 私有频道
-            ];
-     * @return array
-     */
+ * Add super group channel
+ *
+ * @param array $Group Parameters for adding a super group channel
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha', // Super group ID
+ * 'busChannel'=> 'busid' // Channel ID
+ * 'type'=>0 // 0 Public channel, 1 Private channel
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -71,16 +71,16 @@ class BusChannel
     }
 
     /**
-     * 删除超级群频道
-     *
-     * @param $Group array 删除超级群频道 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-         ];
-     * @return array
-     */
+ * Delete super group channel
+ *
+ * @param array $Group Parameters for deleting the super group channel
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha', // Super group id
+ * 'busChannel'=> 'busid', // Channel id, can be empty
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -101,11 +101,11 @@ class BusChannel
     }
 
     /**
-     * 查询频道列表
-     *
-     * @param
-     * @return array
-     */
+ * Query channel list
+ *
+ * @param
+ * @return array
+ */
     public function getList($groupId = "", $page = 1, $limit = 20){
         $conf = $this->conf['getList'];
         $Group = ["page"=> $page, "limit"=>$limit,"groupId"=>$groupId];
@@ -115,17 +115,17 @@ class BusChannel
     }
 
     /**
-     * 超级群频道类型切换
-     *
-     * @param $Group array 超级群频道类型切换 参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//超级群 id
-            'busChannel'=> 'busid'//频道 id
-            'type'=>0 // 0 共有频道，1 私有频道
-    ];
-     * @return array
-     */
+ * Super group channel type switch
+ *
+ * @param array $Group Super group channel type switch parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid'//Channel id
+ * 'type'=>0 // 0 Public channel, 1 Private channel
+ * ];
+ * @return array
+ */
     public function change(array $Group=[]){
         $conf = $this->conf['change'];
         $verify = $this->verify['group'];
@@ -146,19 +146,19 @@ class BusChannel
     }
 
     /**
-     * 添加超级群私有频道成员
-     *
-     * @param $Group array 添加超级群私有频道成员 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //添加超级群私有频道成员
-                ['id'=> 'ujadk90ha']
-                ]
-    ];
-     * @return array
-     */
+ * Add super group private channel members
+ *
+ * @param array $Group Add super group private channel members parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id can be empty
+ * 'members'=>[ //Add super group private channel members
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function addPrivateUsers(array $Group=[]){
         $conf = $this->conf['privateUserAdd'];
         $verify = $this->verify['group'];
@@ -183,19 +183,19 @@ class BusChannel
     }
 
     /**
-     * 移除私有频道成员
-     *
-     * @param $Group array 移除私有频道成员 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //移除私有频道成员列表
-                    ['id'=> 'ujadk90ha']
-                    ]
-    ];
-     * @return array
-     */
+ * Remove private channel members
+ *
+ * @param array $Group Parameters for removing private channel members
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id, can be empty
+ * 'members'=>[ //List of private channel members to remove
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function removePrivateUsers(array $Group=[]){
         $conf = $this->conf['privateUserRemove'];
         $verify = $this->verify['group'];
@@ -220,18 +220,18 @@ class BusChannel
     }
 
     /**
-     * 查询私有频道成员列表
-     *
-     * @param $Group array  参数
-     * @param
-     * $Group = [
-        'id'=> 'ujadk90ha',//超级群 id
-        'busChannel'=> 'busid',//频道 id  可以为空
-        'page'=> 1,
-        'pageSize'=>1000,
-    ];
-     * @return array
-     */
+ * Query private channel member list
+ *
+ * @param array $Group  Parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id  Can be empty
+ * 'page'=> 1,
+ * 'pageSize'=>1000,
+ * ];
+ * @return array
+ */
     public function getPrivateUserList(array $Group=[]){
         $conf = $this->conf['getPrivateUsers'];
         $verify = $this->verify['group'];

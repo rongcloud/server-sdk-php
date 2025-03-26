@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室
+ * chatroom
  */
 
 
@@ -11,120 +11,120 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 创建聊天室
+ * Create a chat room
  */
 function create()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        ['id'=> 'phpchatroom4',//聊天室 id
-        'name'=> 'phpchatroom1']//聊天室 name
+        ['id'=> 'phpchatroom4',// Chat room ID
+        'name'=> 'phpchatroom1']// Chatroom name
     ];
     $result = $RongSDK->getChatroom()->create($chatroom);
-    Utils::dump("创建聊天室",$result);
+    Utils::dump("Create a chat room",$result);
 }
 create();
 
 /**
- * 创建聊天室V2
+ * Create Chat Room V2
  */
 function createV2()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'id'=> 'phpchatroom4',  //聊天室 id
-        'destroyType'=> 0,      //指定聊天室的销毁类型 0：默认值，表示不活跃时销毁,1：固定时间销毁
-        'isBan' => true,        //是否禁言聊天室全体成员，默认 false
-        'whiteUserIds' => ['user1','user2'] //禁言白名单用户列表，支持批量设置，最多不超过 20 个
+        'id'=> 'phpchatroom4',  // Chat room id
+        'destroyType'=> 0,      // Specifies the destruction type of the chat room 0: default value, indicates destruction when inactive, 1: fixed time destruction
+        'isBan' => true,        // Whether to ban all members of the chat room, default false
+        'whiteUserIds' => ['user1','user2'] //  Forbidden whitelist user list, supports batch settings, maximum not exceeding 20
     ];
     $result = $RongSDK->getChatroom()->createV2($chatroom);
-    Utils::dump("创建聊天室V2",$result);
+    Utils::dump("Create Chat Room V2",$result);
 }
 createV2();
 
 /**
- * 查询聊天室基础信息
+ * Query chat room basic information
  */
 function query()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-                'id'=> ['aaa','bbb','ccc'],//聊天室 id
+                'id'=> ['aaa','bbb','ccc'],// @param chatroom id - The unique identifier for the chatroom.
                 ];
     $result = $RongSDK->getChatroom()->query($chatroom);
-    Utils::dump("查询聊天室基础信息",$result);
+    Utils::dump("Query chat room basic information",$result);
 }
 query();
 
 /**
- * 查询聊天室基础信息V2
+ * Query chat room basic information V2
  */
 function queryV2()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
-    $chatroom = ['id'=> 'aaa'];//聊天室 id
+    $chatroom = ['id'=> 'aaa'];// Chatroom ID
     $result = $RongSDK->getChatroom()->queryV2($chatroom);
-    Utils::dump("查询聊天室基础信息V2",$result);
+    Utils::dump("Query the basic information of the chat room V2",$result);
 }
 queryV2();
 
 /**
- * 获取聊天室成员
+ * Get chat room members
  */
 function get()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-                'id'=> 'phpchatroom4',//聊天室 id
+                'id'=> 'phpchatroom4',// Chat room id
                 'count'=>10,
                 'order'=>1
                 ];
     $result = $RongSDK->getChatroom()->get($chatroom);
-    Utils::dump("获取聊天室成员",$result);
+    Utils::dump("Get chat room members",$result);
 }
 get();
 
 /**
- * 设置聊天室销毁类型
+ * Set chat room destruction type
  */
 function setDestroyType()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
-    $chatroom = ['id'=> 'phpchatroom','destroyType'=> 0,'destroyTime'=> 60];//聊天室 id
+    $chatroom = ['id'=> 'phpchatroom','destroyType'=> 0,'destroyTime'=> 60];// chatroom id
     $result = $RongSDK->getChatroom()->setDestroyType($chatroom);
-    Utils::dump("设置聊天室销毁类型",$result);
+    Utils::dump("Set chat room destruction type",$result);
 }
 setDestroyType();
 
 /**
- * 销毁聊天室
+ * Destroy chat room
  */
 function destory()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
-    $chatroom = ['id'=> 'phpchatroom'];//聊天室 id
+    $chatroom = ['id'=> 'phpchatroom'];// chatroom id
     $result = $RongSDK->getChatroom()->destory($chatroom);
-    Utils::dump("销毁聊天室",$result);
+    Utils::dump("Destroy chat room",$result);
 }
 destory();
 
 /**
- * 检查用户是否在聊天室
+ * Check if the user is in the chat room
  */
 function isExist()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'id'=> 'php chatroom',//聊天室 id
+        'id'=> 'php chatroom',// Chat room ID
         'members'=>[
-            ['id'=>"sea9902"]//人员id
+            ['id'=>"sea9902"]// @param personnel id
         ]
     ];
     $result = $RongSDK->getChatroom()->isExist($chatroom);
-    Utils::dump("检查用户是否在聊天室",$result);
+    Utils::dump("Check if the user is in the chat room",$result);
 }
 isExist();

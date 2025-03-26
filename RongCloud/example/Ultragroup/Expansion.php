@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 超级群模块 超级群扩展消息
+ * Supercluster module supercluster expansion message
  */
 
 
@@ -14,22 +14,22 @@ use RongCloud\Lib\Utils;
 
 $RongSDK = new RongCloud(APPKEY,APPSECRET);
 /**
- * 消息发送
+ * Message Sending
  */
 function set()
 {
-    //连接新加坡数据中心
-    //RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
+    // Connect to Singapore Data Center
+    // RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'groupId'          => 'tjw3zbMrU',             //超级群id
-        'busChannel'  => '',                     //频道id 可以为空
-        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',] //消息自定义扩展内容，JSON 结构，以 Key、Value 的方式进行设置
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // The unique message identifier, which the server can obtain through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // The user ID for extended message delivery needs to be set.
+        'groupId'          => 'tjw3zbMrU',             // Super group ID
+        'busChannel'  => '',                     // Channel ID can be empty
+        'extraKeyVal'       => ['type1' => '1', 'type2' => '2', 'type3' => '3', 'type4' => '4',]//  Custom message extension content, JSON structure, set in Key-Value format
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->set($message);
-    Utils::dump("设置消息扩展", $res);
+    Utils::dump("Message Sending", $res);
 }
 set();
 
@@ -38,30 +38,30 @@ function delete()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID'            => 'BS45-NPH4-HV87-10LM',   //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'userId'            => 'WNYZbMqpH',             //需要设置扩展的消息发送用户 Id。
-        'groupId'          => 'tjw3zbMrU',             //超级群id
-        'busChannel'  => '',                     //频道id 可以为空
-        'extraKey'          => ['type1', 'type2']       //需要删除的扩展信息的 Key 值，一次最多可以删除 100 个扩展信息
+        'msgUID'            => 'BS45-NPH4-HV87-10LM',   // The unique message identifier ID, which the server can obtain through the full message routing function.
+        'userId'            => 'WNYZbMqpH',             // Need to set the extended message sending user Id.
+        'groupId'          => 'tjw3zbMrU',             // Super group ID
+        'busChannel'  => '',                     // The channel ID can be empty
+        'extraKey'          => ['type1', 'type2']       // The Key value of the extension information to be deleted, with a maximum of 100 extension information items that can be deleted at once
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->delete($message);
-    Utils::dump("删除消息扩展", $res);
+    Utils::dump("delete", $res);
 }
 delete();
 
 /**
- * 获取超级群扩展消息
+ * Get supergroup extension message
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
-        'msgUID' => 'BS45-NPH4-HV87-10LM',  //消息唯一标识 ID，服务端可通过全量消息路由功能获取。
-        'groupId'=>"aaa" ,//超级群id
-        'busChannel'=>"aaa" ,//超级群频道
-        'pageNo' => 1                     //页数，默认返回 300 个扩展信息。
+        'msgUID' => 'BS45-NPH4-HV87-10LM',  // The unique message identifier ID, which can be obtained by the server through the full message routing function.
+        'groupId'=>"aaa" ,// Super cluster ID
+        'busChannel'=>"aaa" ,// Super Group Channel
+        'pageNo' => 1                     // Page count, defaults to returning 300 extended information.
     ];
     $res = $RongSDK->getUltragroup()->Expansion()->getList($message);
-    Utils::dump("获取扩展信息", $res);
+    Utils::dump("Get supergroup extension message", $res);
 }
 getList();

@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组禁言
+ * Group Mute
  * @author hejinyu
  */
 namespace RongCloud\Lib\Group\Gag;
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class Gag
 {
     /**
-     * 群组模块路径
-     *
-     * @var string
-     */
+ * Group module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Group/Gag/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Configuration file for verification
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,20 +40,20 @@ class Gag
     }
 
     /**
-     * 添加群组禁言
-     *
-     * @param $Group array 添加群组禁言 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//群组 id
-                'members'=>[ //禁言人员列表
-                     ['id'=> 'ujadk90ha']
-                ]
-                ,
-                'minute'=>50  //	禁言时长
-         ];
-     * @return array
-     */
+ * Add group mute
+ *
+ * @param array $Group Add group mute parameters
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Group ID
+ * 'members'=>[ //Muted members list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ,
+ * 'minute'=>50 //   Mute duration in minutes
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -79,18 +79,18 @@ class Gag
     }
 
     /**
-     * 解除禁言
-     *
-     * @param $Group array 解除禁言 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//群组 id
-                'members'=>[ //解除禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ]
-            ];
-     * @return array
-     */
+ * Unblock
+ *
+ * @param array $Group Unblock parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',// Group id
+ * 'members'=>[//  Unblock members list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -115,15 +115,15 @@ class Gag
     }
 
     /**
-     * 查询禁言成员列表
-     *
-     * @param $Group array 解除禁言 参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//群组 id
-         ];
-     * @return array
-     */
+ * Query the list of banned members
+ *
+ * @param array $Group Parameters for unbanning
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//group id
+ * ];
+ * @return array
+ */
     public function getList(array $Group=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['group'];

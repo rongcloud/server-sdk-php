@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室用户白名单
+ * Chat room user whitelist
  */
 namespace RongCloud\Lib\Chatroom\Whitelist;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class User {
 
     /**
-     * 聊天室白名单用户模块路径
-     *
-     * @var string
-     */
+ * Chat room whitelist user module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Whitelist/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Configuration file for verification
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Keepalive constructor.
-     */
+ * Keepalive constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'user-api.json');
@@ -40,15 +40,15 @@ class User {
     }
 
     /**
-     * 添加聊天室用户白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'id'=> "chatroom1",//聊天室 id
-             'members'=>['abc','abcd']//用户列表
-        ]
-     * @return array
-     */
+ * Add chatroom user whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=> "chatroom1",//  Chatroom ID
+ * 'members'=>['abc','abcd']//  User list
+ * ]
+ * @return array
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['chatroom'] ;
@@ -73,15 +73,15 @@ class User {
     }
 
     /**
-     * 移除聊天室用户白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'id'=> "chatroom1",//聊天室 id
-            'members'=>['abc','abcd']//用户列表
-     ]
-     * @return array
-     */
+ * Remove chatroom user whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=> "chatroom1",//chatroom id
+ * 'members'=>['abc','abcd']//user list
+ * ]
+ * @return array
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'] ;
@@ -106,14 +106,14 @@ class User {
     }
 
     /**
-     * 获取聊天室用户白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-
-    ]
-     * @return array
-     */
+ * Get the chatroom user whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ *
+ * ]
+ * @return array
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['chatroom'] ;

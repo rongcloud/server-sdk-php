@@ -1,6 +1,6 @@
 <?php
 /**
- * 敏感词管理
+ * Sensitive Word Management
  * Date=> 2018/7/23
  * Time=> 11=>41
  */
@@ -12,29 +12,29 @@ class Sensitive
 {
 
     /**
-     * 敏感词模块路径
-     *
-     * @var string
-     */
+ * Sensitive word module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Sensitive/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Sensitive constructor.
-     */
+ * Sensitive constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -42,17 +42,17 @@ class Sensitive
     }
 
     /**
-     * 敏感词添加
-     *
-     * @param $Sensitive array 敏感词添加参数
-     * @param
-     * $Sensitive = [
-                'replace'=> '***',//敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
-                'keyword'=>"abc",//敏感词
-                'type'=>0// 0: 敏感词替换 1: 敏感词屏蔽
-        ];
-     * @return array
-     */
+ *  Sensitive word addition
+ *
+ * @param array $Sensitive Sensitive word addition parameter
+ * @param
+ * $Sensitive = [
+ * 'replace'=> '***',// Sensitive word replacement, maximum length not exceeding 32 characters, sensitive word masking can be empty
+ * 'keyword'=>"abc",// Sensitive word
+ * 'type'=>0// 0: Sensitive word replacement 1: Sensitive word masking
+ * ];
+ * @return array
+ */
     public function add(array $Sensitive=[]){
         $Sensitive['replace'] = isset($Sensitive['replace'])?$Sensitive['replace']:"";
         $conf = $this->conf['add'];
@@ -80,18 +80,18 @@ class Sensitive
         return $result;
     }
     /**
-     * 敏感词批量添加
-     *
-     * @param $Sensitive array 敏感词添加参数
-     * @param
-     * $Sensitive = [
-     *    [
-     *      'word'=>'abc',//敏感词
-     *      'replaceWord'=>'***'//敏感词替换，最长不超过 32 个字符， 敏感词屏蔽可以为空
-     *    ]
-     * ];
-     * @return array
-     */
+ * Batch add sensitive words
+ *
+ * @param array $Sensitive Parameters for adding sensitive words
+ * @param
+ * $Sensitive = [
+ * [
+ * 'word'=>'abc',// Sensitive word
+ * 'replaceWord'=>'***'// Replacement for sensitive word, maximum length not exceeding 32 characters, sensitive word masking can be empty
+ * ]
+ * ];
+ * @return array
+ */
     public function batchAdd(array $Sensitive = []) {
         $conf = $this->conf['batchAdd'];
         $verify = $this->verify['batchAdd'];
@@ -109,15 +109,15 @@ class Sensitive
     }
 
     /**
-     * 敏感词删除
-     *
-     * @param $Sensitive array  敏感词删除参数
-     * @param
-     * $Sensitive = [
-                'keywords'=>["bbb"]//删除敏感词列表
-            ];
-     * @return array
-     */
+ * Sensitive word deletion
+ *
+ * @param array $Sensitive  Sensitive word deletion parameter
+ * @param
+ * $Sensitive = [
+ * 'keywords'=>["bbb"]//Sensitive word deletion list
+ * ];
+ * @return array
+ */
     public function remove(array $Sensitive=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['sensitive'];
@@ -137,15 +137,15 @@ class Sensitive
     }
 
     /**
-     * 敏感词列表
-     *
-     * @param $Sensitive array 敏感词列表参数
-     * @param
-     * $Sensitive = [
-                'type'=> 1,//敏感词类型，0: 敏感词替换， 1: 敏感词屏蔽， 为空获取全部
-            ];
-     * @return array
-     */
+ * Sensitive word list
+ *
+ * @param array $Sensitive Sensitive word list parameter
+ * @param
+ * $Sensitive = [
+ * 'type'=> 1,//Sensitive word type, 0: Sensitive word replacement, 1: Sensitive word filtering, empty to get all
+ * ];
+ * @return array
+ */
     public function getList(array $Sensitive=[]){
         $Sensitive['type'] = isset($Sensitive['type'])?intval($Sensitive['type']):2;
         $conf = $this->conf['getList'];

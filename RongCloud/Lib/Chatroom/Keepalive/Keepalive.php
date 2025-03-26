@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室保活
+ * Chatroom Keepalive
  */
 namespace RongCloud\Lib\Chatroom\Keepalive;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class Keepalive {
 
     /**
-     * 聊天室保活路径
-     *
-     * @var string
-     */
+ * Chat room keep-alive path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Keepalive/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Keepalive constructor.
-     */
+ * Keepalive constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,14 +40,14 @@ class Keepalive {
     }
 
     /**
-     * 添加保活聊天室
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-        ];
-     * @return mixed|null
-     */
+ * Add a chatroom for live chat
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//  chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['chatroom'] ;
@@ -68,14 +68,14 @@ class Keepalive {
     }
 
     /**
-     * 删除保活聊天室
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-        ];
-     * @return mixed|null
-     */
+ * Delete chatroom
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'] ;
@@ -96,14 +96,14 @@ class Keepalive {
     }
 
     /**
-     * 获取保活聊天室
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-
-        ];
-     * @return mixed|null
-     */
+ * Get the chatroom for preserving
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ *
+ * ];
+ * @return mixed|null
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $result = (new Request())->Request($conf['url'],$Chatroom);

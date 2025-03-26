@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户免打扰时间段
+ * User non-disturbance time period
  */
 namespace RongCloud\Lib\User\BlockPushPeriod;
 
@@ -10,49 +10,49 @@ use RongCloud\Lib\Utils;
 class BlockPushPeriod {
 
     /**
-     * 用户免打扰时间段路径
-     *
-     * @var string
-     */
+ * User quiet hours path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/BlockPushPeriod/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Configuration file for validation
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }
 
     /**
-     * 添加免打扰时间段
-     *
-     * @param $User array 封禁用户参数
-     * @param
-     * $User = [
-            'id'=> 'ujadk90ha1',//用户id 唯一标识，最大长度 30 个字符
-            'startTime'=> "23:59:59" //免打扰开始时间
-            'period' => 50,//免打扰分钟数 以免打扰时间开始计算
-            'level' => 1 //1仅针对单聊及 @ 消息进行通知，包括 @指定用户和 @所有人的消息。  5不接收通知，即使为 @ 消息也不推送通知
-        ];
-     * @return array
-     */
+ * Add a do-not-disturb time period
+ *
+ * @param array $User Parameters for the banned user
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha1', // User ID, unique identifier, maximum length 30 characters
+ * 'startTime'=> "23:59:59" // Start time of do-not-disturb
+ * 'period' => 50, // Do-not-disturb duration in minutes, calculated from the start time
+ * 'level' => 1 // 1: Only notify for single chats and @ messages, including messages @ specific users and @ everyone. 5: Do not receive notifications, even for @ messages
+ * ];
+ * @return array
+ */
     public function add(array $User=[]){
         $conf = $this->conf['add'];
         $error = (new Utils())->check([
@@ -74,15 +74,15 @@ class BlockPushPeriod {
     }
 
     /**
-     *删除用户免打扰时间段
-     *
-     * @param $User array
-     * @param
-     *  $user = [
-            'id'=> 'ujadk90ha',//用户id 唯一标识，最大长度 30 个字符
-    ];
-     * @return array
-     */
+ * Delete user's do-not-disturb time period
+ *
+ * @param array $User
+ * @param
+ * $user = [
+ * 'id'=> 'ujadk90ha',//User ID, unique identifier, maximum length 30 characters
+ * ];
+ * @return array
+ */
     public function remove(array $User=[]){
         $conf = $this->conf['remove'];
         $error = (new Utils())->check([
@@ -101,15 +101,15 @@ class BlockPushPeriod {
     }
 
     /**
-     *获取用户免打扰时间段
-     *
-     * @param $User array
-     * @param
-     * $user = [
-        'id'=> 'ujadk90ha',//用户id 唯一标识，最大长度 30 个字符
-    ];
-     * @return  array
-     */
+ * Get user's do-not-disturb time period
+ *
+ * @param array $User
+ * @param
+ * $user = [
+ * 'id'=> 'ujadk90ha',//User ID, unique identifier, maximum length 30 characters
+ * ];
+ * @return  array
+ */
     public function getList(array $User=[]){
         $conf = $this->conf['getList'];
         $User = (new Utils())->rename($User, [

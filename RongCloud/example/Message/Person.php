@@ -1,6 +1,6 @@
 <?php
 /**
- * 消息模块 二人消息实例
+ * Message Module Two-Person Message Instance
  */
 
 
@@ -11,79 +11,79 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 二人消息发送
+ * Two-person message sending
  */
 function send()
 {
-    //连接新加坡数据中心
+    //Connect to Singapore Data Center
     //RongCloud::$apiUrl = ['http://api.sg-light-api.com/'];
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
-        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
-        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//接收人 id
-        "objectName"=>'RC:TxtMsg',//消息类型 文本
-        'content'=>json_encode(['content'=>'你好，这是 1 条二人消息'])//消息内容
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//Sender ID
+        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//recipient id
+        "objectName"=>'RC:TxtMsg',//Message type Text
+        'content'=>json_encode(['content'=>'Hello, this is a two-person message'])//Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->send($message);
-    Utils::dump("二人消息发送",$Chartromm);
+    Utils::dump("Two-person message sending",$Chartromm);
 }
 send();
 
 /**
- * 向多个用户发送不同内容消息
+ * Send different content messages to multiple users
  */
 function sendTemplate()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
-        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
-        'objectName'=>'RC:TxtMsg',//消息类型 文本
-        'template'=>json_encode(['content'=>'{name}, 语文成绩 {score} 分']),//模板内容
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//Sender ID
+        'objectName'=>'RC:TxtMsg',//Message type: Text
+        'template'=>json_encode(['content'=>'{name}, Language score {score}']),// Template content
         'content'=>json_encode([
-            'uPj70HUrRSUk-ixtt7iIGc'=>[//接收人 id
-                'data'=>['{name}'=>'小明','{score}'=>'90'],//模板数据
-                'push'=>'{name} 你的成绩出来了',//推送内容
+            'uPj70HUrRSUk-ixtt7iIGc'=>[//Recipient ID
+                'data'=>['{name}'=>'Xiaoming','{score}'=>'90'],//Template Data
+                'push'=>'{name} 你的成绩出来了',//Push content
             ],
-            'Vu-oC0_LQ6kgPqltm_zYtI'=>[//接收人 id
-                'data'=>['{name}'=>'小红','{score}'=>'95'],//模板数据
-                'push'=>'{name} 你的成绩出来了',//推送内容
+            'Vu-oC0_LQ6kgPqltm_zYtI'=>[//Recipient ID
+                'data'=>['{name}'=>'XiaoHong','{score}'=>'95'],// Template Data
+                'push'=>'{name} Your grades are in.',//push notification content
             ]
         ])
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendTemplate($message);
-    Utils::dump("向多个用户发送不同内容消息",$Chartromm);
+    Utils::dump("Send different content messages to multiple users",$Chartromm);
 }
 sendTemplate();
 
 /**
- * 二人状态消息发送
+ * Two-person status message sending
  */
 function sendStatusMessage()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
-        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
-        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//接收人 id
-        "objectName"=>'RC:TxtMsg',//消息类型 文本
-        'content'=>json_encode(['content'=>'你好，这是 1 条二人状态消息'])//消息内容
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//Sender ID
+        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//Recipient ID
+        "objectName"=>'RC:TxtMsg',//Message type Text
+        'content'=>json_encode(['content'=>'Hello, this is a two-person status message.'])//Message content
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->sendStatusMessage($message);
-    Utils::dump("二人状态消息发送",$Chartromm);
+    Utils::dump("Two-person status message sending",$Chartromm);
 }
 sendStatusMessage();
 /**
- * 二人消息撤回
+ * Two-person message recall
  */
 function recall()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $message = [
-        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//发送人 id
-        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//接收人 id
-        "uId"=>'5GSB-RPM1-KP8H-9JHF',//消息唯一标识
-        'sentTime'=>'1519444243981'//发送时间
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//Sender ID
+        'targetId'=> ['uPj70HUrRSUk-ixtt7iIGc'],//Recipient ID
+        "uId"=>'5GSB-RPM1-KP8H-9JHF',//Message unique identifier
+        'sentTime'=>'1519444243981'//Send time
     ];
     $Chartromm = $RongSDK->getMessage()->Person()->recall($message);
-    Utils::dump("二人消息撤回",$Chartromm);
+    Utils::dump("Two-person message recall",$Chartromm);
 }
 recall();

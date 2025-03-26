@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室消息白名单
+ * Chat room message whitelist
  */
 namespace RongCloud\Lib\Chatroom\Whitelist;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class Message {
 
     /**
-     * 聊天室消息白名单路径
-     *
-     * @var string
-     */
+ * Chat room message whitelist path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Whitelist/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Message constructor.
-     */
+ * Message constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'message-api.json');
@@ -40,14 +40,14 @@ class Message {
     }
 
     /**
-     * 添加聊天室消息白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'msgs'=> ["RC:TxtMsg"]//消息类型列表
-         ]
-     * @return array
-     */
+ * Add chatroom message whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'msgs'=> ["RC:TxtMsg"]//Message type list
+ * ]
+ * @return array
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['demotion'] ;
@@ -67,14 +67,14 @@ class Message {
     }
 
     /**
-     * 删除聊天室消息白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-            'msgs'=> ["RC:TxtMsg"]//消息类型列表
-        ]
-     * @return array
-     */
+ * Delete chatroom message whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'msgs'=> ["RC:TxtMsg"]//Message type list
+ * ]
+ * @return array
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['demotion'] ;
@@ -94,14 +94,14 @@ class Message {
     }
 
     /**
-     * 获取聊天室消息白名单
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-
-         ]
-     * @return array
-     */
+ * Get the chatroom message whitelist
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ *
+ * ]
+ * @return array
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $result = (new Request())->Request($conf['url'],$Chatroom);

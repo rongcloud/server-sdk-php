@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室属性设置
+ * Chat room property settings
  */
 
 use RongCloud\Lib\Utils;
@@ -12,79 +12,79 @@ define('APPSECRET', '');
 
 
 /**
- * 设置聊天室属性（KV）
+ * Set chat room attributes (KV)
  */
 function set() {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
-    // 创建聊天室
+    // Create a chat room
     $RongSDK->getChatroom()->create(['id' => 'chatroom001', 'name' => 'RongCloud']);
 
     $params = [
-        'id' => 'chatroom001',//聊天室 id
-        'userId' => 'userId01',//操作用户 Id
-        'key' => 'key01',//聊天室属性名称
-        'value' => 'value01',//聊天室属性对应的值
+        'id' => 'chatroom001',// Chat room ID
+        'userId' => 'userId01',// Operator User Id
+        'key' => 'key01',// Chat room attribute name
+        'value' => 'value01',// The value corresponding to the chat room attribute
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->set($params);
-    Utils::dump("设置聊天室属性（KV）", $Entry);
+    Utils::dump("Set chat room attributes (KV)", $Entry);
 }
 
 set();
 
 
 /**
- * 批量设置聊天室属性（KV）
+ * Batch set chat room properties (KV)
  */
 function batchSet() {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
-    // 创建聊天室
+    // Create a chat room
     $RongSDK->getChatroom()->createV2(['id' => 'chatroom001']);
 
     $params = [
-        'id' => 'chatroom001',//聊天室 id
-        'autoDelete'=> 0,              //用户（entryOwnerId）退出聊天室后，是否删除此 Key 值
-        'entryOwnerId'=> 'test',       //聊天室自定义属性的所属用户 ID
-        'entryInfo'=> '{"key1":"value1","key2":"value2"}',//聊天室属性对应的值
+        'id' => 'chatroom001',// Chat room ID
+        'autoDelete'=> 0,              // Whether to delete this key value after the user (entryOwnerId) exits the chat room
+        'entryOwnerId'=> 'test',       // Custom attribute of the chat room's user ID
+        'entryInfo'=> '{"key1":"value1","key2":"value2"}',// Chat room attribute corresponding value
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->batchSet($params);
-    Utils::dump("批量设置聊天室属性（KV）", $Entry);
+    Utils::dump("Batch set chat room properties (KV)", $Entry);
 }
 
 batchSet();
 
 
 /**
- * 获取聊天室属性
+ * Get chat room properties
  */
 function query() {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
     $params = [
-        'id' => 'chatroom001',//聊天室 id
+        'id' => 'chatroom001',// chatroom id
     ];
     $Entry = $RongSDK->getChatroom()->Entry()->query($params);
-    Utils::dump("获取聊天室属性", $Entry);
+    Utils::dump("Get chat room properties", $Entry);
 }
 
 query();
 
 /**
- * 删除聊天室属性
+ * Delete chat room attribute
  */
 function remove() {
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $params = [
-        'id' => 'chatroom001',//聊天室 id
-        'userId' => 'userId01',//操作用户 Id
-        'key' => 'key01',//聊天室属性名称
+        'id' => 'chatroom001',// Chat room id
+        'userId' => 'userId01',// Operator User ID
+        'key' => 'key01',// Chat room attribute name
     ];
 
     $Entry = $RongSDK->getChatroom()->Entry()->remove($params);
-    Utils::dump("删除聊天室属性", $Entry);
+    Utils::dump("Delete chat room attribute", $Entry);
 }
 
 remove();

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-成员模块测试
+ * Group Information Hosting - Member Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置群成员资料
+ * Set group member information
  */
 function set()
 {
@@ -23,12 +23,12 @@ function set()
         'extra' => 'xxxxxx'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->set($param);
-    Utils::dump("设置群成员资料", $result);
+    Utils::dump("Set group member information", $result);
 }
 set();
 
 /**
- * 踢出群组
+ * Kick out of the group
  */
 function kick()
 {
@@ -41,12 +41,12 @@ function kick()
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kick($param);
-    Utils::dump("踢出群组", $result);
+    Utils::dump("Kick out of the group", $result);
 }
 kick();
 
 /**
- * 指定用户踢出所有群组
+ * Specify the user to kick out all groups
  */
 function kickAll()
 {
@@ -55,12 +55,12 @@ function kickAll()
         'userId' => '111'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kickAll($param);
-    Utils::dump("指定用户踢出所有群组", $result);
+    Utils::dump("Specify the user to kick out all groups", $result);
 }
 kickAll();
 
 /**
- * 设置用户指定群特别关注用户
+ * Set user-specified group special attention users
  */
 function follow()
 {
@@ -71,12 +71,12 @@ function follow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->follow($param);
-    Utils::dump("设置用户指定群特别关注用户", $result);
+    Utils::dump("Set user-specified group special attention users", $result);
 }
 follow();
 
 /**
- * 删除用户指定群组中的特别关注用户
+ * Remove the specified user from the group's special attention list
  */
 function unFollow()
 {
@@ -87,12 +87,12 @@ function unFollow()
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->unFollow($param);
-    Utils::dump("删除用户指定群组中的特别关注用户", $result);
+    Utils::dump("Remove the specified user from the group's special attention list", $result);
 }
 unFollow();
 
 /**
- * 查询用户指定群组特别关注成员列表
+ * Query the list of members in the specified group that the user particularly focuses on
  */
 function getFollowed()
 {
@@ -102,12 +102,12 @@ function getFollowed()
         'userId' => '222',
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->getFollowed($param);
-    Utils::dump("查询用户指定群组特别关注成员列表", $result);
+    Utils::dump("Query the list of members in the specified group that the user particularly focuses on", $result);
 }
 getFollowed();
 
 /**
- * 分页获取群成员信息
+ * Get group member information by pagination
  */
 function query()
 {
@@ -120,12 +120,12 @@ function query()
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->query($param);
-    Utils::dump("分页获取群成员信息", $result);
+    Utils::dump("Get group member information by pagination", $result);
 }
 query();
 
 /**
- * 获取指定群成员信息
+ * Get specified member information
  */
 function specificQuery()
 {
@@ -135,6 +135,6 @@ function specificQuery()
         'userIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->specificQuery($param);
-    Utils::dump("获取指定群成员信息", $result);
+    Utils::dump("Get specified member information", $result);
 }
 specificQuery();

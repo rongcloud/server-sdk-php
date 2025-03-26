@@ -1,6 +1,6 @@
 <?php
 /**
- * 推送模块
+ * Push module
  * conversation=> hejinyu
  */
 namespace RongCloud\Lib\Push;
@@ -10,29 +10,30 @@ use RongCloud\Lib\Utils;
 class Push
 {
     /**
-     * 推送模块路径
-     *
-     * @var string
-     */
+ * Push module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Push/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Push constructor.
-     */
+ * Push constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,19 +41,19 @@ class Push
     }
 
     /**
-     * 广播消息
-     *
-     * @param $Push array Push 参数
-     * @param
-     * $Push = [
-             'platform'=> ['ios','android'],//目标操作系统
-            'fromuserid'=>'mka091amn',//送人用户 Id
-            'audience'=>['is_to_all'=>true],//推送条件，包括： tag、userid、is_to_all。
-            'message'=>['content'=>json_encode(['content'=>'1111','extra'=>'aaa']),'objectName'=>'RC:TxtMsg'],//发送消息内容
-            'notification'=>['alert'=>"this is a push",'ios'=>['alert'=>'abc'],'android'=>['alert'=>'abcd']]//推送显示
-        ];
-     * @return array
-     */
+ * Broadcast Message
+ *
+ * @param array $Push Push parameters
+ * @param
+ * $Push = [
+ * 'platform'=> ['ios','android'],//Target operating systems
+ * 'fromuserid'=>'mka091amn',//Sender user ID
+ * 'audience'=>['is_to_all'=>true],//Push conditions, including: tag, userid, is_to_all.
+ * 'message'=>['content'=>json_encode(['content'=>'1111','extra'=>'aaa']),'objectName'=>'RC:TxtMsg'],//Message content to be sent
+ * 'notification'=>['alert'=>"this is a push",'ios'=>['alert'=>'abc'],'android'=>['alert'=>'abcd']]//Push display
+ * ];
+ * @return array
+ */
     public function broadcast(array $Push=[]){
         $conf = $this->conf['broadcast'];
         $error = (new Utils())->check([
@@ -68,17 +69,17 @@ class Push
     }
 
     /**
-     * push
-     *
-     * @param $Push  Push 参数
-     * @param
-     * $Push = [
-             'platform'=> ['ios','android'],//目标操作系统
-            'audience'=>['is_to_all'=>true],//推送条件，包括： tag、userid、is_to_all。
-            'notification'=>['alert'=>"this is a push",'ios'=>['alert'=>'abc'],'android'=>['alert'=>'abcd']]//推送显示
-        ];
-     * @return array
-     */
+ * push
+ *
+ * @param Push $Push parameter
+ * @param
+ * $Push = [
+ * 'platform'=> ['ios','android'],//Target operating systems
+ * 'audience'=>['is_to_all'=>true],//Push conditions, including: tag, userid, is_to_all.
+ * 'notification'=>['alert'=>"this is a push",'ios'=>['alert'=>'abc'],'android'=>['alert'=>'abcd']]//Push display
+ * ];
+ * @return array
+ */
     public function push(array $Push=[]){
         $conf = $this->conf['push'];
         $error = (new Utils())->check([

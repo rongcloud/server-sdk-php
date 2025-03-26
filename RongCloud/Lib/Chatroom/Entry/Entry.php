@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室属性
+ * Chat room attributes
  */
 
 namespace RongCloud\Lib\Chatroom\Entry;
@@ -11,46 +11,46 @@ use RongCloud\Lib\Utils;
 class Entry {
 
     /**
-     * 聊天室属性路径
-     *
-     * @var string
-     */
+ * Chat room attribute path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Entry/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validate configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Keepalive constructor.
-     */
+ * Keepalive constructor.
+ */
     function __construct() {
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
         $this->verify = Utils::getJson($this->jsonPath . '../verify.json');;
     }
 
     /**
-     * 设置聊天室属性（KV）
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-     * 'id'=>       'ujadk90ha',//聊天室 id
-     * 'userId'=>   'ujadk90ha',//操作用户 Id
-     * 'key'=>      'ujadk90ha',//聊天室属性名称
-     * 'value'=>    'ujadk90ha',//聊天室属性对应的值
-     * ];
-     * @return mixed|null
-     */
+ * Set chatroom properties (KV)
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=>       'ujadk90ha',//  Chatroom id
+ * 'userId'=>   'ujadk90ha',//  Operator user Id
+ * 'key'=>      'ujadk90ha',//  Chatroom property name
+ * 'value'=>    'ujadk90ha',//  Corresponding value of the chatroom property
+ * ];
+ * @return mixed|null
+ */
     public function set(array $Chatroom = []) {
         $conf = $this->conf['set'];
         $verify = $this->verify['chatroom'];
@@ -75,17 +75,17 @@ class Entry {
     }
 
     /**
-     * 批量设置聊天室属性（KV）
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-     * 'id'=>       'ujadk90ha',      //聊天室 id
-     * 'autoDelete'=> 0,              //用户（entryOwnerId）退出聊天室后，是否删除此 Key 值
-     * 'entryOwnerId'=> 'test',       //聊天室自定义属性的所属用户 ID
-     * 'entryInfo'=> '{"key1":"value1","key2":"value2"}',//聊天室属性对应的值
-     * ];
-     * @return mixed|null
-     */
+ * Batch set chatroom properties (KV)
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=>       'ujadk90ha',      // Chatroom ID
+ * 'autoDelete'=> 0,              // Whether to delete this Key value after the user (entryOwnerId) exits the chatroom
+ * 'entryOwnerId'=> 'test',       // The user ID to whom the chatroom's custom properties belong
+ * 'entryInfo'=> '{"key1":"value1","key2":"value2"}',//  The value corresponding to the chatroom properties
+ * ];
+ * @return mixed|null
+ */
     public function batchSet(array $Chatroom = []) {
         $conf = $this->conf['batchset'];
         $verify = $this->verify['chatroom'];
@@ -110,16 +110,16 @@ class Entry {
     }
 
     /**
-     * 获取聊天室属性
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-     * 'id'=>       'ujadk90ha',//聊天室 id
-     * 'userId'=>   'ujadk90ha',//操作用户 Id
-     * 'key'=>      'ujadk90ha',//聊天室属性名称
-     * ];
-     * @return mixed|null
-     */
+ * Get chatroom properties
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=>       'ujadk90ha',//Chatroom id
+ * 'userId'=>   'ujadk90ha',//Operator user Id
+ * 'key'=>      'ujadk90ha',//Chatroom property name
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom = []) {
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'];
@@ -144,15 +144,15 @@ class Entry {
     }
 
     /**
-     * 获取聊天室属性
-     *
-     * @param $Chatroom
-     * $Chatroom = [
-     * 'id'=>       'ujadk90ha',//聊天室 id
-     * 'keys'=>   'ujadk90ha',//操作用户 Id
-     * ]
-     * @return array
-     */
+ * Get chatroom properties
+ *
+ * @param $Chatroom
+ * $Chatroom = [
+ * 'id'=>       'ujadk90ha',//Chatroom ID
+ * 'keys'=>   'ujadk90ha',//Operator user ID
+ * ]
+ * @return array
+ */
     public function query(array $Chatroom = []) {
         $conf = $this->conf['query'];
         $verify = $this->verify['chatroom'];

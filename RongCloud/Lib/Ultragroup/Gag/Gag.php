@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群禁言
+ * Super group ban
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\Gag;
@@ -10,29 +10,30 @@ use RongCloud\Lib\Utils;
 class Gag
 {
     /**
-     * 超级群模块路径
-     *
-     * @var string
-     */
+ * Super cluster module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Ultragroup/Gag/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ *
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,19 +41,19 @@ class Gag
     }
 
     /**
-     * 添加超级群禁言
-     *
-     * @param $Group array 添加超级群禁言 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //禁言人员列表
-                     ['id'=> 'ujadk90ha']
-                ]
-         ];
-     * @return array
-     */
+ *  Add super group ban
+ *
+ * @param array $Group Parameters for adding super group ban
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha', // Super group ID
+ * 'busChannel'=> 'busid', // Channel ID (can be empty)
+ * 'members'=>[ // List of banned members
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -77,19 +78,19 @@ class Gag
     }
 
     /**
-     * 解除禁言
-     *
-     * @param $Group array 解除禁言 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //解除禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ]
-            ];
-     * @return array
-     */
+ *  Unblock
+ *
+ * @param array $Group Unblock parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id can be empty
+ * 'members'=>[ //Unblock member list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -114,16 +115,16 @@ class Gag
     }
 
     /**
-     * 查询禁言成员列表
-     *
-     * @param $Group array 解除禁言 参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//超级群 id
-            'busChannel'=> 'busid',//频道 id  可以为空
-         ];
-     * @return array
-     */
+ * Query the list of banned members
+ *
+ * @param array $Group Parameters for lifting the ban
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha', // Super group id
+ * 'busChannel'=> 'busid', // Channel id, can be empty
+ * ];
+ * @return array
+ */
     public function getList(array $Group=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['group'];

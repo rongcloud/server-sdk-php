@@ -1,6 +1,6 @@
 <?php
 /**
- * 融云 server sdk
+ * RongCloud server SDK
  */
 namespace RongCloud;
 
@@ -20,7 +20,7 @@ if (!defined('RONGCLOUOD_ROOT')) {
     require('Autoloader.php');
 }
 
-//是否启用域名切换 true 开启（默认）  false 则关闭
+//Whether to enable domain name switching true to enable (default) false to disable
 if (!defined('RONGCLOUOD_DOMAIN_CHANGE')) {
     define('RONGCLOUOD_DOMAIN_CHANGE', true);
 }
@@ -28,224 +28,224 @@ if (!defined('RONGCLOUOD_DOMAIN_CHANGE')) {
 class RongCloud
 {
     /**
-     * 应用 appkey
-     *
-     * @var string
-     */
+ * Application appkey
+ *
+ * @var string
+ */
     public static $appkey;
 
     /**
-     * 应用 appSecret
-     *
-     * @var string
-     */
+ * Application appSecret
+ *
+ * @var string
+ */
     public static $appSecret;
 
     /**
-     * 海外数据中心 api 地址 ，默认为国内数据中心
-     *
-     * @var string
-     */
+ * Global data center API address, default to domestic data center
+ *
+ * @var string
+ */
     public static $apiUrl;
 
     /**
-     * CURLOPT_CONNECTTIMEOUT 
-     *
-     * @var int
-     */
+ * CURLOPT_CONNECTTIMEOUT
+ *
+ * @var int
+ */
     public static $connectTimeout = 20;
 
     /**
-     * CURLOPT_TIMEOUT
-     *
-     * @var int
-     */
+ * CURLOPT_TIMEOUT
+ *
+ * @var int
+ */
     public static $timeout = 30;
 
 
     /**
-     * 用户对象
-     *
-     * @var  User
-     */
+ * User object
+ *
+ * @var  User
+ */
     public $_user;
 
     /**
-     * 消息对象
-     *
-     * @var Message
-     */
+ * Message Object
+ *
+ * @var Message
+ */
     public $_message;
 
     /**
-     * 群组对象
-     *
-     * @var Group
-     */
+ * Group object
+ *
+ * @var Group
+ */
     public $_group;
 
     /**
-     * 超级群对象
-     *
-     * @var Ultragroup
-     */
+ * Ultragroup Object
+ *
+ * @var Ultragroup
+ */
     public $_ultragroup;
 
     /**
-     * 会话对象
-     *
-     * @var Conversation
-     */
+ * Conversation object
+ *
+ * @var Conversation
+ */
     public $_conversation;
 
     /**
-     * 聊天室对象
-     *
-     * @var Chatroom
-     */
+ * Chatroom object
+ *
+ * @var Chatroom
+ */
     public $_chatroom;
 
     /**
-     * 敏感词对象
-     *
-     * @var Sensitive
-     */
+ * Sensitive object
+ *
+ * @var Sensitive
+ */
     public $_sensitive;
 
     /**
-     * 推送模块对象
-     *
-     * @var Push
-     */
+ * Push module object
+ *
+ * @var Push
+ */
     public $_push;
 
 
     /**
-     * 信息托管模块对象
-     *
-     * @var Entrust
-     */
+ * Information Escrow Module Object
+ *
+ * @var Entrust
+ */
     public $_entrust;
     
 
     /**
-     * RongCloud constructor.
-     * @param string $appKey 实体 appKey 应用 key
-     * @param string $appSecret 实体 appSecret 应用 秘钥
-     */
+ * RongCloud constructor.
+ * @param string $appKey Entity appKey application key
+ * @param string $appSecret Entity appSecret application secret
+ */
     public function __construct($appKey="",$appSecret="",$apiUrl="")
     {
-        //设置 key 和秘钥
+        // Set key and secret
         if($appKey){
             self::$appkey = $appKey;
             self::$appSecret = $appSecret;
         }
         if($apiUrl) self::$apiUrl = $apiUrl;
-        //创建 User
+        // Create User
         $this->_user = new User();
 
-        //创建 Group
+        // Create Group
         $this->_group = new Group();
 
-        //创建 Chatroome
+        // Create Chatroom
         $this->_chatroom = new Chatroom();
 
-        //创建 Conversation
+        // Create Conversation
         $this->_conversation= new Conversation();
 
-        //创建 Message
+        // Create Message
         $this->_message = new Message();
 
-        //创建 Sensitive
+        // Create Sensitive
         $this->_sensitive= new Sensitive();
 
-        //创建 Push
+        // Create Push
         $this->_push= new Push();
 
-        //创建 Ultragroup
+        // Create Ultragroup
         $this->_ultragroup = new Ultragroup();
 
-        //创建 Entrust
+        // Create Entrust
         $this->_entrust = new Entrust();
     }
 
     /**
-     * 获取用户对象
-     *
-     * @return User
-     */
+ * Retrieve the user object
+ *
+ * @return User
+ */
     public function getUser(){
         return $this->_user;
     }
 
     /**
-     * 获取消息对象
-     *
-     * @return Message
-     */
+ * Get the message object
+ *
+ * @return Message
+ */
     public function getMessage(){
         return $this->_message;
     }
 
     /**
-     * 获取群组对象
-     *
-     * @return Group
-     */
+ * Get the group object
+ *
+ * @return Group
+ */
     public function getGroup(){
         return $this->_group;
     }
 
     /**
-     * 获取聊天室对象
-     *
-     * @return Chatroom
-     */
+ * Get the chatroom object
+ *
+ * @return Chatroom
+ */
     public function getChatroom(){
         return $this->_chatroom;
     }
 
     /**
-     * 获取会话对象
-     *
-     * @return Conversation
-    */
+ * Get the conversation object
+ *
+ * @return Conversation
+ */
     public function getConversation(){
         return $this->_conversation;
     }
 
     /**
-     * 获取敏感词对象
-     *
-     * @return Sensitive
-     */
+ * Get sensitive word object
+ *
+ * @return Sensitive
+ */
     public function getSensitive(){
         return $this->_sensitive;
     }
 
     /**
-     * 获取推送对象
-     *
-     * @return Push
-     */
+ * Get the push object
+ *
+ * @return Push
+ */
     public function getPush(){
         return $this->_push;
     }
 
     /**
-     * 获取超级群对象
-     *
-     * @return Ultragroup
-     */
+ * Get the ultragroup object
+ *
+ * @return Ultragroup
+ */
     public function getUltragroup(){
         return $this->_ultragroup;
     }
 
     /**
-     * 获取信息托管对象
-     *
-     * @return Entrust
-     */
+ * Get the information entrust object
+ *
+ * @return Entrust
+ */
     public function getEntrust(){
         return $this->_entrust;
     }

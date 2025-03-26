@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-备注名模块测试
+ * Group Information Hosting - Annotation Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置用户指定群组名称备注名
+ * Set the user-specified group name remark
  */
 function remarkNameSet()
 {
@@ -22,12 +22,12 @@ function remarkNameSet()
         'remarkName' => 'rongcloud'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->set($param);
-    Utils::dump("设置用户指定群组名称备注名", $result);
+    Utils::dump("Set the user-specified group name remark", $result);
 }
 remarkNameSet();
 
 /**
- * 设置用户指定群组名称备注名
+ * Set user-specified group name annotation
  */
 function remarkNameDelete()
 {
@@ -37,12 +37,12 @@ function remarkNameDelete()
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->delete($param);
-    Utils::dump("设置用户指定群组名称备注名", $result);
+    Utils::dump("Set user-specified group name annotation", $result);
 }
 remarkNameDelete();
 
 /**
- * 查询用户指定群组名称备注名
+ * Query the specified group name for user remarks
  */
 function remarkNameQuery()
 {
@@ -52,7 +52,7 @@ function remarkNameQuery()
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->query($param);
-    Utils::dump("查询用户指定群组名称备注名", $result);
+    Utils::dump("Query the specified group name for user remarks", $result);
 }
 remarkNameQuery();
 

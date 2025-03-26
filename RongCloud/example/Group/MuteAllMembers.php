@@ -1,6 +1,6 @@
 <?php
 /**
- * 指定群组全员禁言实例
+ * Specify the group-wide ban instance
  */
 
 
@@ -11,20 +11,20 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加群组禁言
+ * Add group ban
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
+        'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->add($group);
-    Utils::dump("添加指定群组全部禁言",$result);
+    Utils::dump("Add group ban",$result);
 }
 add();
 /**
- * 查询禁言成员列表
+ * Query the list of banned members
  */
 function getList()
 {
@@ -34,21 +34,21 @@ function getList()
 
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->getList($group);
-    Utils::dump("查询指定群组全部禁言列表",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**
- * 解除禁言
+ * Remove ban
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
+        'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->MuteAllMembers()->remove($group);
-    Utils::dump("解除指定群组全部禁言",$result);
+    Utils::dump("Remove ban",$result);
 }
 remove();
 

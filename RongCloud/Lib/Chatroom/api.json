@@ -5,34 +5,34 @@
     "params": {
       "chatroom": {
         "id": "chatroomId01",
-        "name": "大融云"
+        "name": "RongCloud"
       }
     },
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -48,28 +48,28 @@
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -85,28 +85,28 @@
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "{{name}} 类型不正确，请检查参数类型,应该为 Object 传入为 {{currentType}} "
+          "msg": "The {{name}} type is incorrect, please check the parameter type, it should be passed as {{currentType}} for Object "
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -122,28 +122,28 @@
     "response": {
       "success": {
         "code": 200,
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "{{name}} 类型不正确，请检查参数类型,应该为 Object 传入为 {{currentType}} "
+          "msg": "The {{name}} type is incorrect, please check the parameter type, it should be passed as {{currentType}} for Object "
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -163,19 +163,19 @@
       "fail": {
         "20003": {
           "code": "1002",
-          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}} 单位: 字节"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}} Unit: Bytes"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -195,19 +195,19 @@
       "fail": {
         "20003": {
           "code": "1002",
-          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}} 单位: 字节"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}} Unit: Bytes"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -240,23 +240,23 @@
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }
@@ -277,28 +277,28 @@
     "response": {
       "success": {
         "code": "200",
-        "msg": "成功返回"
+        "msg": "Success"
       },
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 数量超限，{{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} is a required parameter"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, expected {{type}}, current type is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please check whether Appkey and Secret are correct."
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Request frequency exceeded"
         }
       }
     }

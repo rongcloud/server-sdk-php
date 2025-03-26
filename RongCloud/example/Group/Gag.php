@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组禁言实例
+ * Group ban example
  */
 
 
@@ -11,52 +11,52 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加群组禁言
+ * Add group ban words
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'members'=>[ //禁言人员列表
+        'id'=> 'php group1',// Group ID
+        'members'=>[ // Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
         ,
-        'minute'=>3000  //	禁言时长
+        'minute'=>3000  // Forbidden duration
     ];
     $result = $RongSDK->getGroup()->Gag()->add($group);
-    Utils::dump("添加群组禁言",$result);
+    Utils::dump("Add group ban words",$result);
 }
 add();
 /**
- * 查询禁言成员列表
+ * Query the list of banned members
  */
 function getList()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
+        'id'=> 'php group1',// group id
     ];
     $result = $RongSDK->getGroup()->Gag()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("Query the list of banned members",$result);
 }
 getList();
 /**
- * 解除禁言
+ * Unblock
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'members'=>[ ////解除禁言人员列表
+        'id'=> 'php group1',// Group ID
+        'members'=>[ //Unblock the list of banned personnel
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];
     $result = $RongSDK->getGroup()->Gag()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("Unblock",$result);
 }
 remove();
 

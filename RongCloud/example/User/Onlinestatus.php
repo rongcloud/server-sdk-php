@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 用户在线状态
+ * User Module User Online Status
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 在线状态
+ * Online status
  */
 function check()
 {
@@ -20,7 +20,7 @@ function check()
         'id'=> 'ujadk90hadsdfasdf',
     ];
     $register = $RongSDK->getUser()->Onlinestatus()->check($user);
-    Utils::dump("用户注册",$register);
+    Utils::dump("check",$register);
 }
 check();
 

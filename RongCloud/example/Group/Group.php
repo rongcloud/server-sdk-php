@@ -1,6 +1,6 @@
 <?php
 /**
- * 群组模块
+ * Group module
  */
 
 
@@ -11,110 +11,110 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 群组信息同步
+ * Group information synchronization
  */
 function sync()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'uPj70HUrRSUk-ixtt7iIGc',//用户id
-        'groups'=>[['id'=> 'php group1', 'name'=> 'watergroup']]//用户群组信息
+        'id'=> 'uPj70HUrRSUk-ixtt7iIGc',// User ID
+        'groups'=>[['id'=> 'php group1', 'name'=> 'watergroup']]// User group information
     ];
     $result = $RongSDK->getGroup()->sync($group);
-    Utils::dump("群组信息同步",$result);
+    Utils::dump("Group information synchronization",$result);
 }
 sync();
 
 /**
- * 创建群组
+ * Create a group
  */
 function create()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'name'=> 'watergroup',//群组名称
-        'members'=>[          //群成员 列表
+        'id'=> 'php group1',// Group ID
+        'name'=> 'watergroup',// Group name
+        'members'=>[          // Group member list
             ['id'=> 'uPj70HUrRSUk-ixtt7iIGc'],['id'=>'Vu-oC0_LQ6kgPqltm_zYtI']
         ]
     ];
     $result = $RongSDK->getGroup()->create($group);
-    Utils::dump("创建群组",$result);
+    Utils::dump("Create a group",$result);
 }
 create();
 
 /**
- * 获取群信息
+ * Get group information
  */
 function get()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
+        'id'=> 'php group1',// @param group id
     ];
     $result = $RongSDK->getGroup()->get($group);
-    Utils::dump("获取群信息",$result);
+    Utils::dump("Get group information",$result);
 }
 get();
 
 /**
- * 加入群组
+ * Join the group
  */
 function joins()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'name'=>"watergroup",//群组名称
-        'member'=>['id'=> 'group999'],//群成员信息
+        'id'=> 'php group1',// Group ID
+        'name'=>"watergroup",// Group name
+        'member'=>['id'=> 'group999'],// Group member information
     ];
     $result = $RongSDK->getGroup()->joins($group);
-    Utils::dump("加入群组",$result);
+    Utils::dump("Join the group",$result);
 }
 joins();
 
 /**
- * 退出群组
+ * Exit group
  */
 function quit()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']//退出人员信息
+        'id'=> 'php group1',// Group ID
+        'member'=>['id'=> 'uPj70HUrRSUk-ixtt7iIGc']// Exit personnel information
     ];
     $result = $RongSDK->getGroup()->quit($group);
-    Utils::dump("退出群组",$result);
+    Utils::dump("Exit group",$result);
 }
 quit();
 
 /**
- * 解散群组
+ * Disband the group
  */
 function dismiss()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'member'=>['id'=> 'group999']//管理员信息
+        'id'=> 'php group1',// Group ID
+        'member'=>['id'=> 'group999']// Administrator Information
     ];
     $result = $RongSDK->getGroup()->dismiss($group);
-    Utils::dump("解散群组",$result);
+    Utils::dump("Disband the group",$result);
 }
 dismiss();
 
 /**
- * 修改群信息
+ * Modify group information
  */
 function update()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'id'=> 'php group1',//群组 id
-        'name'=>"watergroup"//群名称
+        'id'=> 'php group1',// Group ID
+        'name'=>"watergroup"// group name
     ];
     $result = $RongSDK->getGroup()->update($group);
-    Utils::dump("修改群信息",$result);
+    Utils::dump("Modify group information",$result);
 }
 update();
 

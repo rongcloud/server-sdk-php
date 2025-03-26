@@ -1,6 +1,6 @@
 <?php
 /**
- * 会话实例
+ * Conversation example
  */
 
 
@@ -10,34 +10,34 @@ define('APPSECRET','');
 use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 /**
- * 设置用户某个会话屏蔽 Push
+ * Set user's session screen to Push
  */
 function mute()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $conversation = [
-        'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
-        'userId'=>'Vu-oC0_LQ6kgPqltm_zYtI',//会话所有者
-        'targetId'=>'Vu-oC0_LQ6kgPqltm_zYtI'//会话 id
+        'type'=> 'PRIVATE',// Conversation types: PRIVATE, GROUP, DISCUSSION, SYSTEM
+        'userId'=>'Vu-oC0_LQ6kgPqltm_zYtI',// Session owner
+        'targetId'=>'Vu-oC0_LQ6kgPqltm_zYtI'// Session ID
     ];
     $result = $RongSDK->getConversation()->mute($conversation);
-    Utils::dump("设置用户某个会话屏蔽 Push",$result);
+    Utils::dump("Set user's session screen to Push",$result);
 }
 mute();
 
 /**
- *设置用户某个会话接收 Push
+ * Set the user to receive Push notifications for a specific session
  */
 function unmute()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $conversation = [
-        'type'=> 'PRIVATE',//会话类型 PRIVATE、GROUP、DISCUSSION、SYSTEM
-        'userId'=>'mka091amn',//会话所有者
-        'targetId'=>'adm1klnm'//会话 id
+        'type'=> 'PRIVATE',// Session types PRIVATE, GROUP, DISCUSSION, SYSTEM
+        'userId'=>'mka091amn',// Session owner
+        'targetId'=>'adm1klnm'// Session ID
     ];
     $result = $RongSDK->getConversation()->unmute($conversation);
-    Utils::dump("设置用户某个会话接收 Push",$result);
+    Utils::dump("Set the user to receive Push notifications for a specific session",$result);
 }
 unmute();

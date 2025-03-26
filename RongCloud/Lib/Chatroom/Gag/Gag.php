@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室成员禁言
+ * Chatroom member ban speech
  */
 namespace RongCloud\Lib\Chatroom\Gag;
 
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class Gag {
 
     /**
-     * 聊天室成员禁言路径
-     *
-     * @var string
-     */
+ * Chatroom member ban path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Chatroom/Gag/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Gag constructor.
-     */
+ * Gag constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,18 +40,18 @@ class Gag {
     }
 
     /**
-     * 添加成员禁言
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-            'members'=> [
-                ['id'=>'seal9901']//禁言成员 id
-            ],
-            'minute'=>30//禁言时长
-         ];
-     * @return mixed|null
-     */
+ * Add member mute
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//  Chatroom ID
+ * 'members'=> [
+ * ['id'=>'seal9901']//  Muted member ID
+ * ],
+ * 'minute'=>30//  Mute duration in minutes
+ * ];
+ * @return mixed|null
+ */
     public function add(array $Chatroom=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['chatroom'] ;
@@ -76,17 +76,17 @@ class Gag {
     }
 
     /**
-     * 解除聊天室成员禁言
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-            'members'=> [
-                 ['id'=>'seal9901']//人员 id
-            ]
-        ];
-     * @return mixed|null
-     */
+ * Unmute chatroom members
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//Chatroom id
+ * 'members'=> [
+ * ['id'=>'seal9901']//Member id
+ * ]
+ * ];
+ * @return mixed|null
+ */
     public function remove(array $Chatroom=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['chatroom'] ;
@@ -111,14 +111,14 @@ class Gag {
     }
 
     /**
-     * 获取聊天室成员禁言列表
-     *
-     * @param array $Chatroom
-     * $Chatroom = [
-            'id'=> 'ujadk90ha',//聊天室 id
-         ];
-     * @return mixed|null
-     */
+ * Get the list of banned members in a chatroom
+ *
+ * @param array $Chatroom
+ * $Chatroom = [
+ * 'id'=> 'ujadk90ha',//chatroom id
+ * ];
+ * @return mixed|null
+ */
     public function getList(array $Chatroom=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['chatroom'] ;

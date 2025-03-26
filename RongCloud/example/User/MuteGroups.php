@@ -1,6 +1,6 @@
 <?php
 /**
- * 全局群组禁言实例
+ * Global group ban instance
  */
 
 
@@ -11,23 +11,23 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加群组禁言
+ * Add group ban
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'members'=>[ //禁言人员列表
+        'members'=>[//  Forbidden personnel list
             ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
         ],
-        'minute'=>3000  //	禁言时长
+        'minute'=>3000  // Forbidden utterance duration
     ];
     $result = $RongSDK->getUser()->MuteGroups()->add($group);
-    Utils::dump("添加群组禁言",$result);
+    Utils::dump("add",$result);
 }
 add();
 /**
- * 查询禁言成员列表
+ * Query the list of banned members
  */
 function getList()
 {
@@ -37,23 +37,23 @@ function getList()
 
     ];
     $result = $RongSDK->getUser()->MuteGroups()->getList($group);
-    Utils::dump("查询禁言成员列表",$result);
+    Utils::dump("getList",$result);
 }
 getList();
 /**
- * 解除禁言
+ * Unblock
  */
 function remove()
 {
 
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $group = [
-        'members'=>[ ////解除禁言人员列表
+        'members'=>[ //Unblock banned user list
                 ['id'=> 'Vu-oC0_LQ6kgPqltm_zYtI']
             ]
     ];
     $result = $RongSDK->getUser()->MuteGroups()->remove($group);
-    Utils::dump("解除禁言",$result);
+    Utils::dump("remove",$result);
 }
 remove();
 

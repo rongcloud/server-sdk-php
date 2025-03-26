@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模块 用户在线状态
+ * User module User Online Status
  */
 namespace RongCloud\Lib\User\Onlinestatus;
 
@@ -11,46 +11,46 @@ use RongCloud\Lib\Utils;
 class Onlinestatus {
 
     /**
-     * 用户模块用户状态
-     *
-     * @var string
-     */
+ * User module user status
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/User/Onlinestatus/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Verify configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * User constructor.
-     */
+ * User constructor.
+ */
     function __construct()
     {
-        //初始化请求配置和校验文件路径
+        // Initialize request configuration and validate file path
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
         $this->verify = Utils::getJson($this->jsonPath.'../verify.json');
     }
 
     /**
-     * 检查用户在线状态
-     *
-     * @param $User array 检查用户在线状态参数
-     * @param
-     * $User = [
-            'id'=> 'ujadk90ha1',//用户id 唯一标识，最大长度 30 个字符
-        ];
-     * @return array
-     */
+ * Check user online status
+ *
+ * @param array $User Parameters for checking user online status
+ * @param
+ * $User = [
+ * 'id'=> 'ujadk90ha1',//User ID, unique identifier, maximum length 30 characters
+ * ];
+ * @return array
+ */
     public function check(array $User=[]){
         $conf = $this->conf['get'];
         $error = (new Utils())->check([

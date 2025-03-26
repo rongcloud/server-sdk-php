@@ -12,28 +12,28 @@
     "response":{
       "success": {
         "code": "200",
-        "msg": "成功返回"
+        "msg": "Successfully returned"
       },
       "fail": {
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} parameter is required"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}} "
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}}, currently it is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Call frequency exceeded"
         },
         "1502": {
           "code": "1502",
-          "msg": "封禁时间不正确, 当前传入为 {{size}}, 正确范围 1 - 1 * 30 * 24 * 60 分钟"
+          "msg": "Incorrect ban time, currently passed as {{size}}, correct range is 1 - 1 * 30 * 24 * 60 minutes"
         }
       }
     }
@@ -50,24 +50,24 @@
     "response": {
       "success": {
         "code": "200",
-        "msg": "成功返回"
+        "msg": "Successfully returned"
       },
       "fail": {
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} parameter is required"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}} "
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}}, currently it is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Call frequency exceeded"
         }
       }
     }
@@ -93,23 +93,23 @@
       "fail": {
         "1005": {
           "code": "1005",
-          "msg": "{{name}} 长度超限, {{name}} >= {{min}} 且 {{name}} <= {{max}}"
+          "msg": "{{name}} length exceeded, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
         "1002": {
           "code": "1002",
-          "msg": "{{name}} 参数为必传项"
+          "msg": "{{name}} parameter is required"
         },
         "1501": {
           "code": "1501",
-          "msg": "参数类型不正确，请检查参数类型，应该为 {{type}} 当前为 {{currentType}}"
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}}, currently it is {{currentType}}"
         },
         "1004": {
           "code": "1004",
-          "msg": "签名错误, 请排查 Appkey、Secret 是否正确"
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
         },
         "1008": {
           "code": "1008",
-          "msg": "调用频率超限"
+          "msg": "Call frequency exceeded"
         }
       }
     }

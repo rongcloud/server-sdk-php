@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管-管理模块测试
+ * Group Information Management - Management Module Testing
  */
 require "./../../RongCloud.php";
 define("APPKEY", '');
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 设置群管理员(添加群管理员)
+ * Set group administrator (Add group administrator)
  */
 function add()
 {
@@ -21,12 +21,12 @@ function add()
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->GroupManager()->add($param);
-    Utils::dump("设置群管理员(添加群管理员)", $result);
+    Utils::dump("Set group administrator (Add group administrator)", $result);
 }
 add();
 
 /**
- * 移除群管理员
+ * Remove group administrator
  */
 function remove()
 {
@@ -36,6 +36,6 @@ function remove()
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->GroupManager()->remove($param);
-    Utils::dump("移除群管理员", $result);
+    Utils::dump("Remove group administrator", $result);
 }
 remove();

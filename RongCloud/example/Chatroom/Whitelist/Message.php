@@ -1,6 +1,6 @@
 <?php
 /**
- *聊天室消息白名单实例
+ * Chat room message whitelist instance
  */
 
 require "./../../../RongCloud.php";
@@ -10,21 +10,21 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加聊天室消息白名单
+ * Add chat room message whitelist
  */
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'msgs'=> ["RC:TxtMsg"]//消息类型列表
+        'msgs'=> ["RC:TxtMsg"]// Message type list
     ];
     $Message = $RongSDK->getChatroom()->Whitelist()->Message()->add($chatroom);
-    Utils::dump("添加聊天室消息白名单",$Message);
+    Utils::dump("Add chat room message whitelist",$Message);
 }
 add();
 
 /**
- * 获取聊天室消息白名单
+ * Get the chat room message whitelist
  */
 function getList()
 {
@@ -33,20 +33,20 @@ function getList()
 
     ];
     $Message = $RongSDK->getChatroom()->Whitelist()->Message()->getList($chatroom);
-    Utils::dump("获取聊天室消息白名单",$Message);
+    Utils::dump("Get the chat room message whitelist",$Message);
 }
 getList();
 
 /**
- * 删除聊天室消息白名单
+ * Remove chat room message whitelist
  */
 function remove()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $chatroom = [
-        'msgs'=> ["RC:TxtMsg"]//消息类型列表
+        'msgs'=> ["RC:TxtMsg"]// Message type list
     ];
     $Message = $RongSDK->getChatroom()->Whitelist()->Message()->remove($chatroom);
-    Utils::dump("删除聊天室消息白名单",$Message);
+    Utils::dump("Remove chat room message whitelist",$Message);
 }
 remove();

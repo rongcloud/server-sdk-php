@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室全体禁言白名单
+ * Chatroom full ban whitelist
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加聊天室全体禁言白名单
+ * Add the chat room's entire ban list to the whitelist
  */
 function add()
 {
@@ -24,12 +24,12 @@ function add()
         ]
     ];
     $MuteWhiteList = $RongSDK->getChatroom()->MuteWhiteList()->add($chatroom);
-    Utils::dump("添加聊天室全体禁言白名单",$MuteWhiteList);
+    Utils::dump("Add the chat room's entire ban list to the whitelist",$MuteWhiteList);
 }
 add();
 
 /**
- * 移除聊天室全体禁言白名单
+ * Remove the chat room's global ban whitelist
  */
 function remove()
 {
@@ -42,12 +42,12 @@ function remove()
         ]
     ];
     $MuteWhiteList = $RongSDK->getChatroom()->MuteWhiteList()->remove($chatroom);
-    Utils::dump("移除聊天室全体禁言白名单",$MuteWhiteList);
+    Utils::dump("Remove the chat room's global ban whitelist",$MuteWhiteList);
 }
 remove();
 
 /**
- * 获取聊天室全体禁言列表白名单
+ * Get the whitelist of the chat room's global mute list
  */
 function getList()
 {
@@ -56,6 +56,6 @@ function getList()
         "id"=>"chatroom",
     ];
     $MuteWhiteList = $RongSDK->getChatroom()->MuteWhiteList()->getList($chatroom);
-    Utils::dump("获取聊天室全体禁言列表白名单",$MuteWhiteList);
+    Utils::dump("Get the chat room's entire ban list whitelist",$MuteWhiteList);
 }
 getList();

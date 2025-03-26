@@ -1,6 +1,6 @@
 <?php
 /**
- * 聊天室全体禁言
+ * Chatroom-wide ban
  */
 
 
@@ -11,7 +11,7 @@ use RongCloud\RongCloud;
 use RongCloud\Lib\Utils;
 
 /**
- * 添加聊天室全体禁言
+ * Add a chat room-wide ban
  */
 function add()
 {
@@ -20,12 +20,12 @@ function add()
         "id"=>"chatroom"
     ];
     $MuteAllMembers = $RongSDK->getChatroom()->MuteAllMembers()->add($chatroom);
-    Utils::dump("添加聊天室全体禁言",$MuteAllMembers);
+    Utils::dump("Add a chat room-wide ban",$MuteAllMembers);
 }
 add();
 
 /**
- * 解除聊天室全体禁言
+ * Unmute all participants in the chat room
  */
 function remove()
 {
@@ -34,12 +34,12 @@ function remove()
         "id"=>"chatroom"
     ];
     $MuteAllMembers = $RongSDK->getChatroom()->MuteAllMembers()->remove($chatroom);
-    Utils::dump("解除聊天室全体禁言",$MuteAllMembers);
+    Utils::dump("Unmute all participants in the chat room",$MuteAllMembers);
 }
 remove();
 
 /**
- * 聊天室全体禁言状态检查
+ * Check the status of the entire chat room's mute state
  */
 function check()
 {
@@ -48,17 +48,17 @@ function check()
         "id"=>"chatroom"
     ];
     $MuteAllMembers = $RongSDK->getChatroom()->MuteAllMembers()->check($chatroom);
-    Utils::dump("聊天室全体禁言状态检查",$MuteAllMembers);
+    Utils::dump("Check the status of the entire chat room's mute state",$MuteAllMembers);
 }
 check();
 
 /**
- * 获取聊天室全体禁言列表
+ * Get the list of all banned words in the chat room
  */
 function getList()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
     $MuteAllMembers = $RongSDK->getChatroom()->MuteAllMembers()->getList(1, 50);
-    Utils::dump("获取聊天室全体禁言列表",$MuteAllMembers);
+    Utils::dump("Get the list of all banned words in the chat room",$MuteAllMembers);
 }
 getList();

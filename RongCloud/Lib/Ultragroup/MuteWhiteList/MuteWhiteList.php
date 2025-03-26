@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级群禁言白名单
+ * Super group ban whitelist
  * @author hejinyu
  */
 namespace RongCloud\Lib\Ultragroup\MuteWhiteList;
@@ -10,29 +10,29 @@ use RongCloud\Lib\Utils;
 class MuteWhiteList
 {
     /**
-     * 超级群模块路径
-     *
-     * @var string
-     */
+ * Super cluster module path
+ *
+ * @var string
+ */
     private $jsonPath = 'Lib/Ultragroup/MuteWhiteList/';
 
     /**
-     * 请求配置文件
-     *
-     * @var string
-     */
-    private $conf = "";
+ * Request configuration file
+ *
+ * @var string
+ */
+    private $conf = '';
 
     /**
-     * 校验配置文件
-     *
-     * @var string
-     */
-    private $verify = "";
+ * Validation configuration file
+ *
+ * @var string
+ */
+    private $verify = '';
 
     /**
-     * Conversation constructor.
-     */
+ * Conversation constructor.
+ */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath.'api.json');
@@ -40,19 +40,19 @@ class MuteWhiteList
     }
 
     /**
-     * 添加超级群禁言白名单
-     *
-     * @param $Group array 添加超级群禁言白名单 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //禁言人员列表
-                     ['id'=> 'ujadk90ha']
-                ]
-         ];
-     * @return array
-     */
+ * Add super group mute whitelist
+ *
+ * @param array $Group Add super group mute whitelist parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//super group id
+ * 'busChannel'=> 'busid',//channel id can be empty
+ * 'members'=>[ //mute member list
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function add(array $Group=[]){
         $conf = $this->conf['add'];
         $verify = $this->verify['group'];
@@ -77,19 +77,19 @@ class MuteWhiteList
     }
 
     /**
-     * 解除禁言白名单
-     *
-     * @param $Group array 解除禁言白名单 参数
-     * @param
-     * $Group = [
-                'id'=> 'ujadk90ha',//超级群 id
-                'busChannel'=> 'busid',//频道 id  可以为空
-                'members'=>[ //解除禁言人员列表
-                    ['id'=> 'ujadk90ha']
-                ]
-            ];
-     * @return array
-     */
+ * Unblock whitelist
+ *
+ * @param array $Group Unblock whitelist parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id, can be empty
+ * 'members'=>[ //List of unblocked members
+ * ['id'=> 'ujadk90ha']
+ * ]
+ * ];
+ * @return array
+ */
     public function remove(array $Group=[]){
         $conf = $this->conf['remove'];
         $verify = $this->verify['group'];
@@ -114,16 +114,16 @@ class MuteWhiteList
     }
 
     /**
-     * 查询禁言白名单成员列表
-     *
-     * @param $Group array  参数
-     * @param
-     * $Group = [
-            'id'=> 'ujadk90ha',//超级群 id
-            'busChannel'=> 'busid',//频道 id  可以为空
-         ];
-     * @return array
-     */
+ * Query the forbidden word whitelist member list
+ *
+ * @param array $Group  Parameter
+ * @param
+ * $Group = [
+ * 'id'=> 'ujadk90ha',//Super group id
+ * 'busChannel'=> 'busid',//Channel id  Can be empty
+ * ];
+ * @return array
+ */
     public function getList(array $Group=[]){
         $conf = $this->conf['getList'];
         $verify = $this->verify['group'];

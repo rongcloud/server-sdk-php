@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 群组信息托管模块测试用例
+ * Group information hosting module test case
  */
 require "./../RongCloud.php";
 define("APPKEY", '');
@@ -13,17 +13,17 @@ use RongCloud\Lib\Utils;
 $RongSDK = new RongCloud(APPKEY, APPSECRET);
 
 /**
- * 创建群组
+ * Create a group
  */
 function testGroupCreate($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->Group()->create($param);
-    Utils::dump('创建群组失败,缺少必要参数 name', $result);
+    Utils::dump('Failed to create group, missing required parameter name', $result);
 
     $param['name'] = 'RC_NAME_1';
     $result = $RongSDK->getEntrust()->Group()->create($param);
-    Utils::dump('创建群组失败,缺少必要参数 owner', $result);
+    Utils::dump('Failed to create group, missing required parameter owner', $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -32,18 +32,18 @@ function testGroupCreate($RongSDK)
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->Group()->create($param);
-    Utils::dump('创建群组成功', $result);
+    Utils::dump('Group creation successful', $result);
 }
 testGroupCreate($RongSDK);
 
 /**
- * 设置群组资料
+ * Set group resources
  */
 function testGroupUpdate($RongSDK)
 {
     $param = ['groupId' => 'CHIQ_GROUP_2'];
     $result = $RongSDK->getEntrust()->Group()->update($param);
-    Utils::dump("设置群组资料失败,缺少必要参数 name", $result);
+    Utils::dump("Set group resource failure, missing required parameter name", $result);
 
     $param = [
         'groupId' => 'CHIQ_GROUP_2',
@@ -53,18 +53,18 @@ function testGroupUpdate($RongSDK)
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->update($param);
-    Utils::dump("设置群组资料成功", $result);
+    Utils::dump("Set group resources successfully", $result);
 }
 testGroupUpdate($RongSDK);
 
 /**
- * 退出群组
+ * Exit the group
  */
 function testGroupQuit($RongSDK)
 {
     $param = ['groupId' => 'CHIQ_GROUP_2'];
     $result = $RongSDK->getEntrust()->Group()->quit($param);
-    Utils::dump("退出群组失败,缺少必要参数 userIds", $result);
+    Utils::dump("Failed to exit the group, missing required parameter userIds", $result);
 
     $param = [
         'groupId' => 'CHIQ_GROUP_2',
@@ -74,12 +74,12 @@ function testGroupQuit($RongSDK)
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->quit($param);
-    Utils::dump("退出群组成功", $result);
+    Utils::dump("Successfully exited the group", $result);
 }
 testGroupQuit($RongSDK);
 
 /**
- * 解散群组
+ * Dissolve group
  */
 function testGroupDismiss($RongSDK)
 {
@@ -87,36 +87,36 @@ function testGroupDismiss($RongSDK)
         'groupId' => 'CHIQ_GROUP_2'
     ];
     $result = $RongSDK->getEntrust()->Group()->dismiss($param);
-    Utils::dump("解散群组成功", $result);
+    Utils::dump("Disband group success", $result);
 }
 testGroupDismiss($RongSDK);
 
 /**
- * 加入群组
+ * Join the group
  */
 function testGroupJoin($RongSDK)
 {
     $param = ['groupId' => 'CHIQ_GROUP_2'];
     $result = $RongSDK->getEntrust()->Group()->join($param);
-    Utils::dump("加入群组失败,缺少必要参数 userIds", $result);
+    Utils::dump("Failed to join group, missing required parameter userIds", $result);
 
     $param = [
         'groupId' => 'CHIQ_GROUP_2',
         'userIds' => ['123', '456']
     ];
     $result = $RongSDK->getEntrust()->Group()->join($param);
-    Utils::dump("加入群组成功", $result);
+    Utils::dump("Group join successful", $result);
 }
 testGroupJoin($RongSDK);
 
 /**
- * 转让群组
+ * Transfer group
  */
 function testGroupTransferOwner($RongSDK)
 {
     $param = ['groupId' => 'CHIQ_GROUP_2'];
     $result = $RongSDK->getEntrust()->Group()->transferOwner($param);
-    Utils::dump("转让群组失败,缺少必要参数 newOwner", $result);
+    Utils::dump("Transfer group failed, missing required parameter newOwner", $result);
 
     $param = [
         'groupId' => 'CHIQ_GROUP_2',
@@ -127,18 +127,18 @@ function testGroupTransferOwner($RongSDK)
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->transferOwner($param);
-    Utils::dump("转让群组成功", $result);
+    Utils::dump("Group transfer successful", $result);
 }
 testGroupTransferOwner($RongSDK);
 
 /**
- * 群组托管导入
+ * Group hosting import
  */
 function testGroupImport($RongSDK)
 {
     $param = ['name' => 'RC_NAME_1'];
     $result = $RongSDK->getEntrust()->Group()->import($param);
-    Utils::dump("群组托管导入失败,缺少必要参数 groupId", $result);
+    Utils::dump("Group hosting import failed, missing required parameter groupId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -149,12 +149,12 @@ function testGroupImport($RongSDK)
         'groupExtProfile' => ['key' => 'value']
     ];
     $result = $RongSDK->getEntrust()->Group()->import($param);
-    Utils::dump("群组托管导入成功", $result);
+    Utils::dump("Group hosting import successful", $result);
 }
 testGroupImport($RongSDK);
 
 /**
- * 分页查询应用下群组信息
+ * Pagination query application group information
  */
 function testGroupQuery($RongSDK)
 {
@@ -164,18 +164,18 @@ function testGroupQuery($RongSDK)
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->query($param);
-    Utils::dump("分页查询应用下群组信息成功", $result);
+    Utils::dump("Pagination query application group information succeeded", $result);
 }
 testGroupQuery($RongSDK);
 
 /**
- * 分页查询用户加入的群组
+ * Query users added to a group by page
  */
 function testGroupJoinedQuery($RongSDK)
 {
     $param = ['role' => 0];
     $result = $RongSDK->getEntrust()->Group()->joinedQuery($param);
-    Utils::dump("分页查询用户加入的群组失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to query the user's joined groups by page, missing required parameter userId", $result);
 
     $param = [
         'userId' => '10',
@@ -185,71 +185,71 @@ function testGroupJoinedQuery($RongSDK)
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->Group()->joinedQuery($param);
-    Utils::dump("分页查询用户加入的群组成功", $result);
+    Utils::dump("Pagination query for user-added groups successful", $result);
 }
 testGroupJoinedQuery($RongSDK);
 
 /**
- * 批量查询群组资料
+ * Batch query group data
  */
 function testGroupProfileQuery($RongSDK)
 {
     $param = [];
     $result = $RongSDK->getEntrust()->Group()->profileQuery($param);
-    Utils::dump("批量查询群组资料失败,缺少必要参数 groupIds", $result);
+    Utils::dump("Batch query group data failed, missing required parameter groupIds", $result);
 
     $param = [
         'groupIds' => ['RC_GROUP_1', 'CHIQ_GROUP_2']
     ];
     $result = $RongSDK->getEntrust()->Group()->profileQuery($param);
-    Utils::dump("批量查询群组资料成功", $result);
+    Utils::dump("Batch query group data successful", $result);
 }
 testGroupProfileQuery($RongSDK);
 
 /**
- * 设置群管理员(添加群管理员)
+ * Set group administrator (Add group administrator)
  */
 function testGroupManagerAdd($RongSDK)
 {
     $param = [];
     $result = $RongSDK->getEntrust()->GroupManager()->add($param);
-    Utils::dump("设置群管理员(添加群管理员)失败,缺少必要参数 groupId", $result);
+    Utils::dump("Failed to set group administrator (add group administrator), missing required parameter groupId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->GroupManager()->add($param);
-    Utils::dump("设置群管理员(添加群管理员)成功", $result);
+    Utils::dump("Set group administrator (add group administrator) successful", $result);
 }
 testGroupManagerAdd($RongSDK);
 
 /**
- * 移除群管理员
+ * Remove group administrator
  */
 function testGroupManagerRemove($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupManager()->remove($param);
-    Utils::dump("移除群管理员失败,缺少必要参数 userIds", $result);
+    Utils::dump("Failed to remove group administrator, missing required parameter userIds", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userIds' => ['C_U_1', 'C_U_2', 'C_U_3']
     ];
     $result = $RongSDK->getEntrust()->GroupManager()->remove($param);
-    Utils::dump("移除群管理员成功", $result);
+    Utils::dump("Remove group administrator successfully", $result);
 }
 testGroupManagerRemove($RongSDK);
 
 /**
- * 设置群成员资料
+ * Set member information
  */
 function testGroupMemberSet($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->set($param);
-    Utils::dump("设置群成员资料失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to set group member information, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -258,18 +258,18 @@ function testGroupMemberSet($RongSDK)
         'extra' => 'xxxxxx'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->set($param);
-    Utils::dump("设置群成员资料成功", $result);
+    Utils::dump("Set group member information successfully", $result);
 }
 testGroupMemberSet($RongSDK);
 
 /**
- * 踢出群组
+ * Exit group
  */
 function testGroupMemberKick($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->kick($param);
-    Utils::dump("踢出群组失败,缺少必要参数 userIds", $result);
+    Utils::dump("Failed to leave the group, missing required parameter userIds", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -279,35 +279,35 @@ function testGroupMemberKick($RongSDK)
         'isDelFollowed' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kick($param);
-    Utils::dump("踢出群组成功", $result);
+    Utils::dump("Successfully kicked out of the group", $result);
 }
 testGroupMemberKick($RongSDK);
 
 /**
- * 指定用户踢出所有群组
+ * Specify the user to kick out all groups
  */
 function testGroupMemberKickAll($RongSDK)
 {
     $param = [];
     $result = $RongSDK->getEntrust()->GroupMember()->kickAll($param);
-    Utils::dump("指定用户踢出所有群组失败,缺少必要参数 userId", $result);
+    Utils::dump("Specifies that the user has failed to exit all groups, missing the required parameter userId", $result);
 
     $param = [
         'userId' => '111'
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->kickAll($param);
-    Utils::dump("指定用户踢出所有群组成功", $result);
+    Utils::dump("Specifies the user successfully exits all groups", $result);
 }
 testGroupMemberKickAll($RongSDK);
 
 /**
- * 设置用户指定群特别关注用户
+ * Set user-specified group special attention user
  */
 function testGroupMemberFollow($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->follow($param);
-    Utils::dump("设置用户指定群特别关注用户失败,缺少必要参数 userId", $result);
+    Utils::dump("Set user specified group special attention user failure, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -315,18 +315,18 @@ function testGroupMemberFollow($RongSDK)
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->follow($param);
-    Utils::dump("设置用户指定群特别关注用户成功", $result);
+    Utils::dump("Set user-specified group to particularly focus on successful users", $result);
 }
 testGroupMemberFollow($RongSDK);
 
 /**
- * 删除用户指定群组中的特别关注用户
+ * Remove a specific user from the specified group's special attention list
  */
 function testGroupMemberUnFollow($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->unFollow($param);
-    Utils::dump("删除用户指定群组中的特别关注用户失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to remove the specified user from the group, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -334,36 +334,36 @@ function testGroupMemberUnFollow($RongSDK)
         'followUserIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->unFollow($param);
-    Utils::dump("删除用户指定群组中的特别关注用户成功", $result);
+    Utils::dump("Successfully delete the specified user from the group's special attention list", $result);
 }
 testGroupMemberUnFollow($RongSDK);
 
 /**
- * 查询用户指定群组特别关注成员列表
+ * Query the list of members in the user-specified group with special attention
  */
 function testGroupMemberGetFollowed($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->getFollowed($param);
-    Utils::dump("查询用户指定群组特别关注成员列表失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to query the list of members of the specified group that the user is particularly interested in, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userId' => '222',
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->getFollowed($param);
-    Utils::dump("查询用户指定群组特别关注成员列表成功", $result);
+    Utils::dump("Query the user-specified group's special attention member list successfully", $result);
 }
 testGroupMemberGetFollowed($RongSDK);
 
 /**
- * 分页获取群成员信息
+ * Retrieve member information by pagination
  */
 function testGroupMemberQuery($RongSDK)
 {
     $param = [];
     $result = $RongSDK->getEntrust()->GroupMember()->query($param);
-    Utils::dump("分页获取群成员信息失败,缺少必要参数 groupId", $result);
+    Utils::dump("Failed to get group member information due to missing required parameter groupId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -373,36 +373,36 @@ function testGroupMemberQuery($RongSDK)
         'order' => 1
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->query($param);
-    Utils::dump("分页获取群成员信息成功", $result);
+    Utils::dump("Successfully retrieved group member information for pagination", $result);
 }
 testGroupMemberQuery($RongSDK);
 
 /**
- * 获取指定群成员信息
+ * Get specified member information
  */
 function testGroupMemberSpecificQuery($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupMember()->specificQuery($param);
-    Utils::dump("获取指定群成员信息失败,缺少必要参数 userIds", $result);
+    Utils::dump("Failed to retrieve specified member information, missing required parameter userIds", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userIds' => ['111', '222']
     ];
     $result = $RongSDK->getEntrust()->GroupMember()->specificQuery($param);
-    Utils::dump("获取指定群成员信息成功", $result);
+    Utils::dump("Successfully obtained the specified group member information", $result);
 }
 testGroupMemberSpecificQuery($RongSDK);
 
 /**
- * 设置用户指定群组名称备注名
+ * Set the user-specified group name as the backup name
  */
 function testGroupRemarkNameSet($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->set($param);
-    Utils::dump("设置用户指定群组名称备注名失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to set the user-specified group name remark, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
@@ -410,42 +410,42 @@ function testGroupRemarkNameSet($RongSDK)
         'remarkName' => 'rongcloud'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->set($param);
-    Utils::dump("设置用户指定群组名称备注名成功", $result);
+    Utils::dump("Set the user-specified group name annotation successfully", $result);
 }
 testGroupRemarkNameSet($RongSDK);
 
 /**
- * 设置用户指定群组名称备注名
+ * Set the user-specified group name annotation
  */
 function testGroupRemarkNameDelete($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->delete($param);
-    Utils::dump("设置用户指定群组名称备注名失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to set the user-specified group name annotation, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->delete($param);
-    Utils::dump("设置用户指定群组名称备注名成功", $result);
+    Utils::dump("Set the user-specified group name annotation successfully", $result);
 }
 testGroupRemarkNameDelete($RongSDK);
 
 /**
- * 查询用户指定群组名称备注名
+ * Query the specified group name annotation
  */
 function testGroupRemarkNameQuery($RongSDK)
 {
     $param = ['groupId' => 'RC_GROUP_1'];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->query($param);
-    Utils::dump("查询用户指定群组名称备注名失败,缺少必要参数 userId", $result);
+    Utils::dump("Failed to query the user-specified group name remark, missing required parameter userId", $result);
 
     $param = [
         'groupId' => 'RC_GROUP_1',
         'userId' => '222'
     ];
     $result = $RongSDK->getEntrust()->GroupRemarkName()->query($param);
-    Utils::dump("查询用户指定群组名称备注名成功", $result);
+    Utils::dump("Query the user-specified group name backup note successfully", $result);
 }
 testGroupRemarkNameQuery($RongSDK);
