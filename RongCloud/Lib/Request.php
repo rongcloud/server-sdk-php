@@ -66,6 +66,7 @@ class Request
         if(RONGCLOUOD_DOMAIN_CHANGE != true){
             return RongCloud::$apiUrl[0];
         }
+        ob_start(); // 启用输出缓冲
         $seesionId = "RongCloudServerSDKUrl";
         if (!session_id()) {
             @session_start();
@@ -90,6 +91,7 @@ class Request
         session_id($oldSessionId);
         session_start();
         setcookie("PHPSESSID", $oldSessionId);
+        ob_end_flush(); // 结束输出缓冲并发送输出
         return $currentUrl;
     }
 
@@ -190,6 +192,7 @@ class Request
         $result = json_decode($ret, true);
         if (isset($result['code']) && $result['code'] == 1000) {
         }
+        $this->getNextUrl($this->serverUrl);
         if ($module == "im") {
             if (is_null($result)) {
                 $this->getNextUrl($this->serverUrl);
