@@ -41,3 +41,23 @@ function unmute()
     Utils::dump("Set the user to receive Push notifications for a specific session",$result);
 }
 unmute();
+
+/**
+ * Set whether a conversation is pinned.
+ */
+function pinned()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $conversation = [
+        'userId'=>'mka091amn',
+        'conversationType'=>'1',
+        'targetId'=>'adm1klnd',
+        'setTop'=>'true'
+    ];
+    $result = $RongSDK->getConversation()->pinned($conversation);
+    Utils::dump("Set whether a conversation is pinned",$result);
+}
+pinned();
+
+
+
