@@ -13,11 +13,11 @@ class Request
     private $appKey = '';
     private $appSecret = '';
     /**
- * Server API interface address
- * Singapore domain: api.sg-light-api.com, api-b.sg-light-api.com
- *
- * @var array
- */
+     * Server API interface address
+     * Singapore domain: api.sg-light-api.com, api-b.sg-light-api.com
+     *
+     * @var array
+     */
     private $serverUrl = ['  http://api.rong-api.com/', 'http://api-b.rong-api.com/'];
     // private $serverUrl = ['http://api.sg-light-api.com/', 'http://api-b.sg-light-api.com/'];
     // private $serverUrl = 'https://api-rce-rcxtest.rongcloud.net/';
@@ -48,8 +48,8 @@ class Request
     }
 
     /**
- * Server URL multi-domain switching
- */
+     * Server URL multi-domain switching
+     */
     private function resetServerUrl($nextUrl = "")
     {
         if (is_array(RongCloud::$apiUrl)) {
@@ -63,42 +63,47 @@ class Request
         if (is_string(RongCloud::$apiUrl)) {
             return RongCloud::$apiUrl;
         }
-        if(RONGCLOUOD_DOMAIN_CHANGE != true){
+        if (RONGCLOUOD_DOMAIN_CHANGE != true) {
             return RongCloud::$apiUrl[0];
         }
-        ob_start(); // 启用输出缓冲
+
+        ob_start();
         $seesionId = "RongCloudServerSDKUrl";
         if (!session_id()) {
             @session_start();
         }
         $oldSessionId = session_id();
         session_write_close();
-        // Switch to SDK session
-        session_id($seesionId);
-        session_start();
+        if (!headers_sent()) {
+            // Switch to SDK session
+            @session_id($seesionId);
+            @session_start();
 
-        if (!isset($_SESSION['curl'])) {
-            $_SESSION['curl'] = RongCloud::$apiUrl[0];
-        }
-        if ($nextUrl) {
-            $_SESSION['curl'] = $nextUrl;
-        }
+            if (!isset($_SESSION['curl'])) {
+                $_SESSION['curl'] = RongCloud::$apiUrl[0];
+            }
+            if ($nextUrl) {
+                $_SESSION['curl'] = $nextUrl;
+            }
 
-        $currentUrl = isset($_SESSION['curl']) ? $_SESSION['curl'] : RongCloud::$apiUrl[0];
-        session_write_close();
-        unset($_SESSION);
-        // Switch to the original SESSION
-        session_id($oldSessionId);
-        session_start();
-        setcookie("PHPSESSID", $oldSessionId);
-        ob_end_flush(); // 结束输出缓冲并发送输出
+            $currentUrl = isset($_SESSION['curl']) ? $_SESSION['curl'] : RongCloud::$apiUrl[0];
+            session_write_close();
+            unset($_SESSION);
+            // Switch to the original SESSION
+            @session_id($oldSessionId);
+            @session_start();
+            setcookie("PHPSESSID", $oldSessionId);
+        } else {
+            $currentUrl = RongCloud::$apiUrl[0];
+        }
+        ob_end_flush();
         return $currentUrl;
     }
 
     /**
- * Set the next domain as the multi-domain
- * @param string $url
- */
+     * Set the next domain as the multi-domain
+     * @param string $url
+     */
     private function getNextUrl($url = "")
     {
         $urlList = RongCloud::$apiUrl;
@@ -111,10 +116,10 @@ class Request
     }
 
     /**
- * Create HTTP header parameters
- * @param array $data
- * @return bool
- */
+     * Create HTTP header parameters
+     * @param array $data
+     * @return bool
+     */
     private function createHttpHeader($request_id)
     {
         $nonce     = mt_rand();
@@ -130,15 +135,15 @@ class Request
     }
 
     /**
- *  Send request
- *
- * @param Interface $action method
- * @param Request $params parameters
- * @param string $contentType Interface return data type, default json
- * @param string $module Interface request module, default im
- * @param string $httpMethod Interface request method, default POST
- * @return int|mixed
- */
+     *  Send request
+     *
+     * @param Interface $action method
+     * @param Request $params parameters
+     * @param string $contentType Interface return data type, default json
+     * @param string $module Interface request module, default im
+     * @param string $httpMethod Interface request method, default POST
+     * @return int|mixed
+     */
     public function Request($action, $params, $contentType = 'urlencoded', $module = 'im', $httpMethod = 'POST')
     {
         switch ($module) {
@@ -174,12 +179,12 @@ class Request
         curl_setopt($ch, CURLOPT_URL, $action);
         curl_setopt($ch, CURLOPT_POST, $httpMethod == 'POST');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//  Handle HTTP certificate issues
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); //  Handle HTTP certificate issues
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.3.4");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.3.5");
         // curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
@@ -192,7 +197,6 @@ class Request
         $result = json_decode($ret, true);
         if (isset($result['code']) && $result['code'] == 1000) {
         }
-        $this->getNextUrl($this->serverUrl);
         if ($module == "im") {
             if (is_null($result)) {
                 $this->getNextUrl($this->serverUrl);
@@ -213,25 +217,25 @@ class Request
     }
 
     /**
- * Get parameters from POST (x-www-form-urlencoded)/GET request
- *
- * @param Request $params parameters
- * @return bool|string
- */
+     * Get parameters from POST (x-www-form-urlencoded)/GET request
+     *
+     * @param Request $params parameters
+     * @return bool|string
+     */
     public function getQueryFields($params)
     {
         return $this->build_query($params);
     }
 
     /**
- * Generate parameter body
- *
- * @param $formData
- * @param string $numericPrefix
- * @param string $argSeparator
- * @param string $prefixKey
- * @return bool|string
- */
+     * Generate parameter body
+     *
+     * @param $formData
+     * @param string $numericPrefix
+     * @param string $argSeparator
+     * @param string $prefixKey
+     * @return bool|string
+     */
     private function build_query($formData, $numericPrefix = '', $argSeparator = '&', $prefixKey = '')
     {
         $str = '';
@@ -275,9 +279,9 @@ class Request
     }
 
     /**
- * cURL request error information
- * @param int $error
- */
+     * cURL request error information
+     * @param int $error
+     */
     public function getCurlError($error = 1)
     {
         $errorCodes = array(
