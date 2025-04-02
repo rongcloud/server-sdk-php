@@ -100,6 +100,7 @@ Server SDK Feature Supported Version List
 | [Conversation Do Not Disturb](./RongCloud/Lib/Conversation/Conversation.php) | mute | Add DND conversation | 3.0.1 |
 |  | unMute | Remove DND conversation | 3.0.1 |
 |  | get | Get DND status | 3.0.1 |
+|  | pinned | Set whether a conversation is pinned. | 3.3.3 |
 | [Chatrooms](./RongCloud/Lib/Chatroom/Chatroom.php) | create | Create chatroom | 3.0.1 |
 |  | destroy | Destroy chatroom | 3.0.1 |
 |  | query | Query chatroom info | 3.2.0 |

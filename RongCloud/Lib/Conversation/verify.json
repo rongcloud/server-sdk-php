@@ -33,5 +33,41 @@
         "invalid": "1002"
       }
     }
+  },
+  "pinned": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "conversationType": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "targetId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "setTop": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
   }
 }

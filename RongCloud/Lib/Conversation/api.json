@@ -76,5 +76,46 @@
         }
       }
     }
+  },
+  "pinned": {
+    "url": "conversation/top/set",
+    "params": {
+      "pinned": {
+        "userId": "b5NwvIrW5",
+        "conversationType": "1",
+        "targetId": "b5NwvIrW8",
+        "setTop": "true"
+      }
+    },
+    "response":{
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} parameter is required"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, should be {{type}} currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Call frequency exceeds limit"
+        }
+      }
+    }
   }
+
+  
 }

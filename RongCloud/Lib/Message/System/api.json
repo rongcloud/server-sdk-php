@@ -71,7 +71,6 @@
           "code": "1005",
           "msg": "{{name}} length exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
-        "極端
         "1002": {
           "code": "1002",
           "msg": "{{name}} is a required parameter"
@@ -85,7 +84,7 @@
           "msg": "Signature error, please check if Appkey and Secret are correct"
         },
         "1008": {
-          "code": "極端
+          "code": "1008",
           "msg": "Call frequency exceeds the limit"
         }
       }
@@ -148,7 +147,7 @@
     },
     "response": {
       "success": {
-        "極端
+        "code": "200",
         "msg": "Success"
       },
       "fail": {
