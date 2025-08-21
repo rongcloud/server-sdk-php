@@ -126,10 +126,10 @@ class Request
         $timeStamp = time();
         $sign      = sha1($this->appSecret . $nonce . $timeStamp);
         return [
-            'RC-App-Key:' . $this->appKey,
-            'RC-Nonce:' . $nonce,
-            'RC-Timestamp:' . $timeStamp,
-            'RC-Signature:' . $sign,
+            'App-Key:' . $this->appKey,
+            'Nonce:' . $nonce,
+            'Timestamp:' . $timeStamp,
+            'Signature:' . $sign,
             'X-Request-ID:' . $request_id
         ];
     }
