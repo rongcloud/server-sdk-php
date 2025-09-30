@@ -244,5 +244,48 @@
         "invalid": "1002"
       }
     }
+  },
+  "historyMsg": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "targetId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "startTime": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "endTime": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    },
+    "includeStart": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      }
+    }
   }
+
 }

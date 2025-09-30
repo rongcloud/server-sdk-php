@@ -141,4 +141,30 @@ class Ultragroup {
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
+
+    /**
+     * getHistoryMsg
+     *
+     * @param array $param = [
+     * 'userId'=> 'ujadk90ha', 
+     * 'targetId'=> 'markoiwm', 
+     * "startTime"=> 1759130000000, 
+     * 'endTime'=> 1759140981000,
+     * 'includeStart'=> true
+     * ];
+     * @return array
+     */
+    public function getHistoryMsg(array $param = [])
+    {
+        $conf = $this->conf['ultraGroupHistoryMsg'];
+        $error = (new Utils())->check([
+            'api' => $conf,
+            'model' => 'historyMsg',
+            'data' => $param,
+            'verify' => $this->verify['historyMsg']
+        ]);
+        if ($error) return $error;
+        $result = (new Request())->Request($conf['url'], $param, 'json');
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+    }
 }

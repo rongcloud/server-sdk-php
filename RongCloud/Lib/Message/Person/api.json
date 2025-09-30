@@ -175,5 +175,50 @@
         }
       }
     }
+  },
+  "privateHistoryMsg":{
+    "docs": "",
+    "url": "v3/message/private/query",
+    "params": {
+      "historyMsg": {
+        "userId": "fDR2cVpxxR5zSMUNh3yAwh",
+        "targetId": "MersNRhaKwJkRV9mJR5JXY",
+        "startTime": "1759130000000",
+        "endTime": "1759140981000",
+        "includeStart": true
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1502": {
+          "code": "1502",
+          "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} exceeds the length limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} is a required parameter"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Incorrect parameter type, please check the parameter type, it should be {{type}} but currently is {{currentType}}"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please check if Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Call frequency exceeds the limit"
+        }
+      }
+    }
   }
 }

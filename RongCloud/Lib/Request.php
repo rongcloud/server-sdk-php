@@ -68,15 +68,18 @@ class Request
         }
 
         ob_start();
-        $seesionId = "RongCloudServerSDKUrl";
-        if (!session_id()) {
+        $sessionId = "RongCloudServerSDKUrl";
+
+        $originalSessionStatus = session_status();
+        $originalSessionId = session_id();
+
+        if ($originalSessionStatus !== PHP_SESSION_ACTIVE) {
             @session_start();
+            session_write_close();
         }
-        $oldSessionId = session_id();
-        session_write_close();
+
         if (!headers_sent()) {
-            // Switch to SDK session
-            @session_id($seesionId);
+            @session_id($sessionId);
             @session_start();
 
             if (!isset($_SESSION['curl'])) {
@@ -88,11 +91,17 @@ class Request
 
             $currentUrl = isset($_SESSION['curl']) ? $_SESSION['curl'] : RongCloud::$apiUrl[0];
             session_write_close();
-            unset($_SESSION);
-            // Switch to the original SESSION
-            @session_id($oldSessionId);
-            @session_start();
-            setcookie("PHPSESSID", $oldSessionId);
+
+            if ($originalSessionId) {
+                @session_id($originalSessionId);
+                if ($originalSessionStatus !== PHP_SESSION_ACTIVE) {
+                    @session_start();
+                }
+            } else {
+                if (session_status() === PHP_SESSION_ACTIVE) {
+                    session_destroy();
+                }
+            }
         } else {
             $currentUrl = RongCloud::$apiUrl[0];
         }
@@ -184,7 +193,7 @@ class Request
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->connectTimeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.3.7");
+        curl_setopt($ch, CURLOPT_USERAGENT, "rc-php-sdk/3.4.0");
         // curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $ret = curl_exec($ch);
