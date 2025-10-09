@@ -67,3 +67,18 @@ function recall()
     Utils::dump("Supergroup message recall",$Chartromm);
 }
 recall();
+
+function getHistoryMsg()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $param = [
+        'userId' => 'tester1',
+        'targetId' => 'tester2',
+        'startTime' => time() * 1000,
+        "endTime" => strtotime('-10 day') * 1000,
+        'includeStart' => true
+    ];
+    $res = $RongSDK->getMessage()->Ultragroup()->getHistoryMsg($param);
+    Utils::dump("getHistoryMsg", $res);
+}
+getHistoryMsg();

@@ -84,3 +84,18 @@ function recall()
     Utils::dump("Recall a sent group chat message",$Result);
 }
 recall();
+
+function getHistoryMsg()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $param = [
+        'userId' => 'YfvHSATMy',
+        'targetId' => 'M2z38Hwn9',
+        'startTime' => time() * 1000,
+        "endTime" => strtotime('-10 day') * 1000,
+        'includeStart' => true
+    ];
+    $res = $RongSDK->getMessage()->Group()->getHistoryMsg($param);
+    Utils::dump("getHistoryMsg", $res);
+}
+getHistoryMsg();

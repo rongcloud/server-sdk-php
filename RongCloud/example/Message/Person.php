@@ -87,3 +87,18 @@ function recall()
     Utils::dump("Two-person message recall",$Chartromm);
 }
 recall();
+
+function getHistoryMsg()
+{
+    $RongSDK = new RongCloud(APPKEY, APPSECRET);
+    $param = [
+        'userId' => 'JmFV3UytI',
+        'targetId' => 'AI32767626983b4d11b691bb86248dd8f3',
+        'startTime' => time() * 1000,
+        "endTime" => strtotime('-10 day') * 1000,
+        'includeStart' => true
+    ];
+    $res = $RongSDK->getMessage()->Person()->getHistoryMsg($param);
+    Utils::dump("getHistoryMsg", $res);
+}
+getHistoryMsg();

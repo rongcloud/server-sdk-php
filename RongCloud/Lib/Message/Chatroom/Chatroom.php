@@ -150,5 +150,6 @@ class Chatroom
         if ($error) return $error;
         $result = (new Request())->Request($conf['url'], $param, 'json');
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
     }
 }
