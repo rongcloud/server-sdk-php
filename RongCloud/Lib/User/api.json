@@ -42,9 +42,8 @@
         }
       }
     }
-
   },
-  "expire":{
+  "expire": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/expire#intro",
     "url": "user/token/expire",
     "params": {
@@ -185,9 +184,7 @@
   "cancel_query": {
     "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/get#intro",
     "url": "user/deactivate/query",
-    "params": {
-
-    },
+    "params": {},
     "response": {
       "success": {
         "code": "200",
@@ -293,6 +290,65 @@
         "msg": "Successfully returned"
       },
       "fail": {
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error. Please verify if the Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Call frequency limit exceeded"
+        }
+      }
+    }
+  },
+  "user_query": {
+    "docs": "",
+    "url": "user/query",
+    "params": {},
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} parameter is required"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error. Please verify if the Appkey and Secret are correct"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Call frequency limit exceeded"
+        }
+      }
+    }
+  },
+  "user_del": {
+    "docs": "",
+    "url": "user/delusers",
+    "params": {
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1005": {
+          "code": "1005",
+          "msg": "{{name}} length exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
+        },
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} parameter is required"
+        },
         "1004": {
           "code": "1004",
           "msg": "Signature error. Please verify if the Appkey and Secret are correct"

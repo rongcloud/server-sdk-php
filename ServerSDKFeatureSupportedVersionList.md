@@ -8,6 +8,8 @@ Server SDK Feature Supported Version List
 |  | getGroups | Query user's groups | 3.0.12 |
 |  | expire | Token invalidation | 3.0.14 |
 |  | reactivate | Reactivate user ID | 3.2.3 |
+|  | del | Delete users(Dev) | 3.4.1 |
+|  | query | List of users(Dev) | 3.4.1 |
 | [Check User Online Status](./RongCloud/Lib/User/Onlinestatus/OnlineStatus.php) | onlinestatus.check | Check user online status | 3.0.1 |
 | [Blocklist](./RongCloud/Lib/User/Blacklist/Blacklist.php) | blacklist.add | Add to blocklist | 3.0.1 |
 |  | blacklist.getList | Get blocklist | 3.0.1 |
@@ -41,13 +43,16 @@ Server SDK Feature Supported Version List
 |  | person.sendTemplate | Send template message | 3.0.1 |
 |  | person.sendStatusMessage | Send status message | 3.0.6 |
 |  | person.recall | Recall message | 3.0.1 |
+|  | person.getHistoryMsg | Recall message | 3.4.0 |
 | [Chatroom Messages](./RongCloud/Lib/Message/Chatroom/Chatroom.php) | chatroom.send | Send chatroom message | 3.0.1 |
 |  | chatroom.broadcast | Broadcast chatroom message | 3.0.1 |
 |  | chatroom.recall | Recall chatroom message | 3.0.2 |
+|  | chatroom.getHistoryMsg | Recall message | 3.4.0 |
 | [Group Messages](./RongCloud/Lib/Message/Group/Group.php) | group.send | Send group message | 3.0.1 |
 |  | group.sendMention | Send group @message | 3.0.1 |
 |  | group.sendStatusMessage | Send group status message | 3.0.6 |
 |  | group.recall | Recall group message | 3.0.1 |
+|  | group.getHistoryMsg | Recall message | 3.4.0 |
 | [System Messages](./RongCloud/Lib/Message/System/System.php) | system.send | Send system message | 3.0.1 |
 |  | system.sendTemplate | Send system template message | 3.0.1 |
 |  | system.broadcast | Broadcast message (max 2/hr, 3/day) | 3.0.1 |
