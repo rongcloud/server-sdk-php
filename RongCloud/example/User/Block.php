@@ -16,8 +16,12 @@ use RongCloud\Lib\Utils;
 function add()
 {
     $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    // $user = [
+    //     'id'=> 'ujadk90ha1',// User ID unique identifier, maximum length 30 characters
+    //     'minute'=> 20//  Blocking duration 1 - 1 * 30 * 24 * 60 minutes
+    // ];
     $user = [
-        'id'=> 'ujadk90ha1',// User ID unique identifier, maximum length 30 characters
+        'userId'=> ['ujadk90ha1','ujadk90ha2'], // User ID unique identifier, maximum length 30 characters
         'minute'=> 20//  Blocking duration 1 - 1 * 30 * 24 * 60 minutes
     ];
     $Block = $RongSDK->getUser()->Block()->add($user);

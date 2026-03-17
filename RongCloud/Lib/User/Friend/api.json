@@ -1,0 +1,80 @@
+{
+  "get": {
+    "docs": "https://docs.rongcloud.cn/platform-chat-api/user/friend-profile/get-friend",
+    "url": "friend/get",
+    "params": {
+      "friendGet": {
+        "userId": "id1",
+        "pageToken": "XM2AKD1B2AH",
+        "size": 50,
+        "order": 0
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} parameter is required"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "Invalid parameter"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Invalid parameter type, please check the parameter type, it should be {{type}}, currently {{currentType}}"
+        }
+      }
+    }
+  },
+  "check": {
+    "docs": "https://docs.rongcloud.cn/platform-chat-api/user/friend-profile/check-friend",
+    "url": "friend/check",
+    "params": {
+      "friendCheck": {
+        "userId": "id1",
+        "targetIds": ["id2", "id3", "id4"]
+      }
+    },
+    "response": {
+      "success": {
+        "code": "200",
+        "msg": "Successfully returned"
+      },
+      "fail": {
+        "1002": {
+          "code": "1002",
+          "msg": "{{name}} parameter is required"
+        },
+        "1004": {
+          "code": "1004",
+          "msg": "Signature error, please verify if Appkey and Secret are correct"
+        },
+        "1005": {
+          "code": "1005",
+          "msg": "length exceeds limit"
+        },
+        "1008": {
+          "code": "1008",
+          "msg": "Request frequency exceeded"
+        },
+        "1501": {
+          "code": "1501",
+          "msg": "Invalid parameter type, please check the parameter type, it should be {{type}}, currently {{currentType}}"
+        }
+      }
+    }
+  }
+}

@@ -13,28 +13,28 @@ class System
 {
 
     /**
- * @var string System message path
- */
+     * @var string System message path
+     */
     private $jsonPath = 'Lib/Message/System/';
 
     /**
- * Request configuration file
- *
- * @var string
- *
- */
+     * Request configuration file
+     *
+     * @var string
+     *
+     */
     private $conf = '';
 
     /**
- * Configuration file for validation
- *
- * @var string
- */
+     * Configuration file for validation
+     *
+     * @var string
+     */
     private $verify = '';
 
     /**
- * System constructor.
- */
+     * System constructor.
+     */
     function __construct()
     {
         $this->conf = Utils::getJson($this->jsonPath . 'api.json');
@@ -42,21 +42,26 @@ class System
     }
 
     /**
- * @param array $Message System message delivery
- * @param
- * $Message = [
- * 'senderId'=> '__system__',//Sender ID
- * 'targetId'=> 'markoiwm',//Receiver ID
- * "objectName"=>'RC:TxtMsg',//Message type Text
- * 'content'=>['content'=>'Hello, Xiao Ming']//Message Body
- * ];
- * @return array
- */
+     * @param array $Message System message delivery
+     * @param
+     * $Message = [
+     * 'senderId'=> '__system__',//Sender ID
+     * 'targetId'=> 'markoiwm',//Receiver ID
+     * 'toUserId'=> ['markoiwm'],//Receiver ID(batch)
+     * "objectName"=>'RC:TxtMsg',//Message type Text
+     * 'content'=>['content'=>'Hello, Xiao Ming']//Message Body
+     * ];
+     * @return array
+     */
     public function send(array $Message = [])
     {
         $conf = $this->conf['send'];
         if (isset($Message['content'])) {
             $Message['content'] = json_encode($Message['content']);
+        }
+        $isBatch = isset($Message['toUserId']) && count($Message['toUserId']) > 1;
+        if ($isBatch) {
+            $Message['targetId'] = $Message['toUserId'][0];
         }
         $error = (new Utils())->check([
             'api' => $conf,
@@ -65,51 +70,56 @@ class System
             'verify' => $this->verify['message']
         ]);
         if ($error) return $error;
-        $Message = (new Utils())->rename($Message, [
-            'senderId' => 'fromUserId',
-            'targetId' => 'toUserId'
-        ]);
+
+        if ($isBatch) {
+            unset($User['targetId']);
+        } else {
+            $Message = (new Utils())->rename($Message, [
+                'senderId' => 'fromUserId',
+                'targetId' => 'toUserId'
+            ]);
+        }
         $result = (new Request())->Request($conf['url'], $Message);
         $result = (new Utils())->responseError($result, $conf['response']['fail']);
         return $result;
     }
 
     /**
- * @param array $Message Push-only Notification
- * @param
- * $Message = [
- * 'userIds'=> ["user1","user2"],//Receiver ID
- * 'notification'=> [
- * "title"=>"Title",
- * "pushContent"=>"this is a push",
- * "ios"=>
- * [
- * "thread-id"=>"223",
- * "apns-collapse-id"=>"111",
- * "extras"=> ["id"=>"1","name"=>"2"]
- * ],
- * "android"=> [
- * "hw"=>[
- * "channelId"=>"NotificationKanong",
- * "importance"=> "NORMAL",
- * "image"=>"https://example.com/image.png"
- * ],
- * "mi"=>[
- * "channelId"=>"rongcloud_kanong",
- * "large_icon_uri"=>"https=>//example.com/image.png"
- * ],
- * "oppo"=>[
- * "channelId"=>"rc_notification_id"
- * ],
- * "vivo"=>[
- * "classification"=>"0"
- * ],
- * "extras"=> ["id"=> "1","name"=> "2"]
- * ]
- * ]
- * ];
- * @return array
- */
+     * @param array $Message Push-only Notification
+     * @param
+     * $Message = [
+     * 'userIds'=> ["user1","user2"],//Receiver ID
+     * 'notification'=> [
+     * "title"=>"Title",
+     * "pushContent"=>"this is a push",
+     * "ios"=>
+     * [
+     * "thread-id"=>"223",
+     * "apns-collapse-id"=>"111",
+     * "extras"=> ["id"=>"1","name"=>"2"]
+     * ],
+     * "android"=> [
+     * "hw"=>[
+     * "channelId"=>"NotificationKanong",
+     * "importance"=> "NORMAL",
+     * "image"=>"https://example.com/image.png"
+     * ],
+     * "mi"=>[
+     * "channelId"=>"rongcloud_kanong",
+     * "large_icon_uri"=>"https=>//example.com/image.png"
+     * ],
+     * "oppo"=>[
+     * "channelId"=>"rc_notification_id"
+     * ],
+     * "vivo"=>[
+     * "classification"=>"0"
+     * ],
+     * "extras"=> ["id"=> "1","name"=> "2"]
+     * ]
+     * ]
+     * ];
+     * @return array
+     */
     public function pushUser(array $Message = [])
     {
         $conf = $this->conf['pushUser'];
@@ -126,15 +136,15 @@ class System
     }
 
     /**
- * @param array $Message System broadcast message
- * @param
- * $Message = [
- * 'senderId'=> '__system__',//Sender ID
- * "objectName"=>'RC:TxtMsg',//Message type
- * 'content'=>['content'=>'Hello, Xiao Ming']//Message content
- * ];
- * @return array
- */
+     * @param array $Message System broadcast message
+     * @param
+     * $Message = [
+     * 'senderId'=> '__system__',//Sender ID
+     * "objectName"=>'RC:TxtMsg',//Message type
+     * 'content'=>['content'=>'Hello, Xiao Ming']//Message content
+     * ];
+     * @return array
+     */
     public function broadcast(array $Message = [])
     {
         $conf = $this->conf['broadcast'];
@@ -161,17 +171,17 @@ class System
     }
 
     /**
- * Broadcast to online users
- *
- * @param array $Message
- * @param
- * $Message = [
- * 'senderId'=> '__system__',//Sender ID
- * "objectName"=>'RC:TxtMsg',//Message type
- * 'content'=>['content'=>'Hello, Xiaoming']//Message content
- * ];
- * @return array
- */
+     * Broadcast to online users
+     *
+     * @param array $Message
+     * @param
+     * $Message = [
+     * 'senderId'=> '__system__',//Sender ID
+     * "objectName"=>'RC:TxtMsg',//Message type
+     * 'content'=>['content'=>'Hello, Xiaoming']//Message content
+     * ];
+     * @return array
+     */
     public function onlineBroadcast(array $Message = [])
     {
         $conf = $this->conf['onlineBroadcast'];
@@ -198,25 +208,25 @@ class System
         return $result;
     }
     /**
- * @param array $Message System template message
- * @param
- * $Message = [
- * 'senderId'=> '__system__', // Sender ID
- * 'objectName'=>'RC:TxtMsg', // Message type: Text
- * 'template'=>['content'=>'{name}, language score {score} points'], // Template content
- * 'content'=>[
- * 'sea9901'=>[ // Recipient ID
- * 'data'=>['{name}'=>'Xiao Ming','{score}'=>'90'], // Template data
- * 'push'=>'{name} your score is out', // Push notification content
- * ],
- * 'sea9902'=>[ // Recipient ID
- * 'data'=>['{name}'=>'Xiao Hong','{score}'=>'95'], // Template data
- * 'push'=>'{name} your score is out', // Push notification content
- * ]
- * ]
- * ];
- * @return array
- */
+     * @param array $Message System template message
+     * @param
+     * $Message = [
+     * 'senderId'=> '__system__', // Sender ID
+     * 'objectName'=>'RC:TxtMsg', // Message type: Text
+     * 'template'=>['content'=>'{name}, language score {score} points'], // Template content
+     * 'content'=>[
+     * 'sea9901'=>[ // Recipient ID
+     * 'data'=>['{name}'=>'Xiao Ming','{score}'=>'90'], // Template data
+     * 'push'=>'{name} your score is out', // Push notification content
+     * ],
+     * 'sea9902'=>[ // Recipient ID
+     * 'data'=>['{name}'=>'Xiao Hong','{score}'=>'95'], // Template data
+     * 'push'=>'{name} your score is out', // Push notification content
+     * ]
+     * ]
+     * ];
+     * @return array
+     */
     public function sendTemplate(array $Message = [])
     {
         $conf = $this->conf['sendTemplate'];

@@ -214,6 +214,67 @@
       }
     }
   },
+  "friendGet": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    }
+  },
+  "friendCheck": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "userId": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "targetIds": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      },
+      "size": {
+        "max": 100,
+        "min": 1,
+        "invalid": "1005"
+      }
+    }
+  },
   "deactivate":{
     "_self": {
       "require": {

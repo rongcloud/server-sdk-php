@@ -20,7 +20,8 @@ function send()
     $RongSDK = new RongCloud(APPKEY, APPSECRET);
     $message = [
         'senderId' => '__system__',//  Sender ID
-        'targetId' => 'uPj70HUrRSUk-ixtt7iIGc',//  Receive release id
+        // 'targetId' => 'uPj70HUrRSUk-ixtt7iIGc',//  Receive release id
+        'toUserId' => ['uPj70HUrRSUk-ixtt7iIGc','uPj70HUrRSUk-ixtt7iIGc2'],//  Receive release ids
         "objectName" => 'RC:TxtMsg',//  Message type Text
         'content' => ['content' => 'php system message']//  Message Body
     ];

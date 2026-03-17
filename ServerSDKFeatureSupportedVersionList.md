@@ -27,6 +27,8 @@ Server SDK Feature Supported Version List
 |  | profile.clean | Clear hosted user info | 3.2.7 |
 |  | profile.batchQuery | Batch query user profiles | 3.2.7 |
 |  | profile.query | Paginated retrieval of all users | 3.2.7 |
+| [Friend Profile](./RongCloud/Lib/User/Friend/Friend.php) | friend.get | Get user friend list | 3.4.2 |
+|  | friend.check | Check friend relationship | 3.4.2 |
 | [Global Group Mute](./RongCloud/Lib/User/MuteGroups/MuteGroups.php) | muteGroups.add | Add global group mute | 3.0.2 |
 |  | muteGroups.remove | Remove global group mute | 3.0.2 |
 |  | muteGroups.getList | Get global group mute list | 3.0.2 |

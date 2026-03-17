@@ -20,6 +20,7 @@ use RongCloud\Lib\User\Chat\Ban;
 use RongCloud\Lib\User\Remark\Remark;
 use RongCloud\Lib\User\BlockPushPeriod\BlockPushPeriod;
 use RongCloud\Lib\User\Profile\Profile;
+use RongCloud\Lib\User\Friend\Friend;
 use RongCloud\Lib\Utils;
 use RongCloud\Lib\Request;
 
@@ -461,5 +462,15 @@ class User
     public function Profile()
     {
         return new Profile();
+    }
+
+    /**
+     * Friend profile (info hosting)
+     *
+     * @return Friend
+     */
+    public function Friend()
+    {
+        return new Friend();
     }
 }

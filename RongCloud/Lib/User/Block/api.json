@@ -1,6 +1,6 @@
 {
   "add": {
-    "docs": "https://doc.rongcloud.cn/imserver/server/v1/user/block#blockadd",
+    "docs": "https://docs.rongcloud.cn/platform-chat-api/user/block",
     "url": "user/block",
     "params": {
       "user": {
