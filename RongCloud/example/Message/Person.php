@@ -71,6 +71,29 @@ function sendStatusMessage()
     Utils::dump("Two-person status message sending",$Chartromm);
 }
 sendStatusMessage();
+
+/**
+ * Send single chat stream message
+ */
+function sendStream()
+{
+    $RongSDK = new RongCloud(APPKEY,APPSECRET);
+    $message = [
+        'senderId'=> 'Vu-oC0_LQ6kgPqltm_zYtI',//Sender ID
+        'targetId'=> 'uPj70HUrRSUk-ixtt7iIGc',//Recipient ID
+        "objectName"=>'RC:StreamMsg',//Message type
+        'content'=>[//Stream message body
+            'content'=>'stream-content1',//Stream content
+            'complete'=>false,//Whether the stream is complete
+            'messageUID'=>'',//Stream message UID (empty for first packet)
+            'seq'=>1,//Stream sequence number
+        ]
+    ];
+    $Chartromm = $RongSDK->getMessage()->Person()->sendStream($message);
+    Utils::dump("Send single chat stream message",$Chartromm);
+}
+sendStream();
+
 /**
  * Two-person message recall
  */

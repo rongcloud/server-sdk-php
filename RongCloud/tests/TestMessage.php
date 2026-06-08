@@ -137,6 +137,32 @@ function testMessageGroup($RongSDK)
     Utils::dump("Group message sending error", $Message->send($params));
     Utils::dump("Group send status message content error", $Message->sendStatusMessage($params));
 
+    $streamParams = [
+        'senderId' => 'ujadk90ha',
+        'targetId' => 'kkj9o01',
+        "objectName" => 'RC:StreamMsg',
+        'content' => [
+            'content' => 'stream-content1',
+            'complete' => false,
+            'seq' => 1,
+        ]
+    ];
+    Utils::dump("Group stream message sent successfully", $Message->sendStream($streamParams));
+
+    Utils::dump("Group stream message sending parameter error", $Message->sendStream());
+
+    $streamParams = [
+        'senderId' => 'ujadk90ha',
+        'targetId' => '',
+        "objectName" => 'RC:StreamMsg',
+        'content' => [
+            'content' => 'stream-content1',
+            'complete' => false,
+            'seq' => 1,
+        ]
+    ];
+    Utils::dump("Group stream message targetId error", $Message->sendStream($streamParams));
+
     $params = [
         'senderId' => 'ujadk90ha', // Sender ID
         'targetId' => 'markoiwm', // Group ID
@@ -235,6 +261,32 @@ function testMessagePerson($RongSDK)
     Utils::dump("Two-person status message sent successfully", $Message->sendStatusMessage($params));
 
     Utils::dump("Error in sending two-person status message parameters", $Message->sendStatusMessage());
+
+    $streamParams = [
+        'senderId' => 'ujadk90ha',
+        'targetId' => 'markoiwm',
+        "objectName" => 'RC:StreamMsg',
+        'content' => [
+            'content' => 'stream-content1',
+            'complete' => false,
+            'seq' => 1,
+        ]
+    ];
+    Utils::dump("Single chat stream message sent successfully", $Message->sendStream($streamParams));
+
+    Utils::dump("Single chat stream message sending parameter error", $Message->sendStream());
+
+    $streamParams = [
+        'senderId' => 'ujadk90ha',
+        'targetId' => '',
+        "objectName" => 'RC:StreamMsg',
+        'content' => [
+            'content' => 'stream-content1',
+            'complete' => false,
+            'seq' => 1,
+        ]
+    ];
+    Utils::dump("Single chat stream message targetId error", $Message->sendStream($streamParams));
 
     $params = [
         'senderId' => 'kamdnq', // Sender ID

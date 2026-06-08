@@ -46,6 +46,7 @@ Server SDK Feature Supported Version List
 |  | person.sendStatusMessage | Send status message | 3.0.6 |
 |  | person.recall | Recall message | 3.0.1 |
 |  | person.getHistoryMsg | Recall message | 3.4.0 |
+|  | person.sendStream | Send one-to-one stream message | 3.4.3 |
 | [Chatroom Messages](./RongCloud/Lib/Message/Chatroom/Chatroom.php) | chatroom.send | Send chatroom message | 3.0.1 |
 |  | chatroom.broadcast | Broadcast chatroom message | 3.0.1 |
 |  | chatroom.recall | Recall chatroom message | 3.0.2 |
@@ -55,6 +56,7 @@ Server SDK Feature Supported Version List
 |  | group.sendStatusMessage | Send group status message | 3.0.6 |
 |  | group.recall | Recall group message | 3.0.1 |
 |  | group.getHistoryMsg | Recall message | 3.4.0 |
+|  | group.sendStream | Send group stream message | 3.4.3 |
 | [System Messages](./RongCloud/Lib/Message/System/System.php) | system.send | Send system message | 3.0.1 |
 |  | system.sendTemplate | Send system template message | 3.0.1 |
 |  | system.broadcast | Broadcast message (max 2/hr, 3/day) | 3.0.1 |

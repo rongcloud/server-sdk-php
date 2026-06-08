@@ -150,6 +150,47 @@ class Group
     }
 
     /**
+     * @param array $Message Send group chat stream message
+     * @param
+     * $Message = [
+     * 'senderId'=> 'ujadk90ha', // Sender ID
+     * 'targetId'=> 'markoiwm', // Group ID
+     * "objectName"=>'RC:StreamMsg', // Message type, fixed as RC:StreamMsg
+     * 'content'=>[ // Stream message body
+     *   'content'=>'stream-content1', // Stream content
+     *   'complete'=>false, // Whether the stream is complete, first packet false, last packet true
+     *   'messageUID'=>'', // Stream message unique ID, empty for first packet, pass the messageUID returned by the first packet for subsequent packets
+     *   'seq'=>1, // Stream sequence number, starting from 1, incrementing for each packet
+     *   'user'=>[ // Sender user info (optional)
+     *     'id'=>'4242',
+     *     'name'=>'Robin',
+     *     'portrait'=>'http://example.com/p1.png'
+     *   ],
+     *   'extra'=>['k'=>'v'] // Extended info (optional)
+     * ]
+     * ];
+     * @return array
+     */
+    public function sendStream(array $Message = [])
+    {
+        $conf = $this->conf['sendStream'];
+        $error = (new Utils())->check([
+            'api' => $conf,
+            'model' => 'message',
+            'data' => $Message,
+            'verify' => $this->verify['message']
+        ]);
+        if ($error) return $error;
+        $Message = (new Utils())->rename($Message, [
+            'senderId' => 'fromUserId',
+            'targetId' => 'toGroupId'
+        ]);
+        $result = (new Request())->Request($conf['url'], $Message, 'json');
+        $result = (new Utils())->responseError($result, $conf['response']['fail']);
+        return $result;
+    }
+
+    /**
      * @param array $Message Group message recall
      * @param
      * $Message = [
