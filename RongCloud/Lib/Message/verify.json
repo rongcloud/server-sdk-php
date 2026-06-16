@@ -75,6 +75,11 @@
       "require": {
         "must": true,
         "invalid": "1002"
+      },
+      "length": {
+        "max": 32,
+        "min": 1,
+        "invalid": "1006"
       }
     },
     "content": {

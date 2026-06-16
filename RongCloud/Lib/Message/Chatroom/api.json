@@ -65,7 +65,7 @@
           "code": "1502",
           "msg": "{{name}} exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },
-        "1005": {
+        "1006": {
           "code": "1005",
           "msg": "{{name}} length exceeds the limit, {{name}} >= {{min}} and {{name}} <= {{max}}"
         },

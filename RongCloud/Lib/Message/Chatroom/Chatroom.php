@@ -84,7 +84,7 @@ class Chatroom
             'api' => $conf,
             'model' => 'message',
             'data' => $Message,
-            'verify' => $this->verify['message']
+            'verify' => $this->verify['broadcast']
         ]);
         if ($error) return $error;
         $Message = (new Utils())->rename($Message, [
