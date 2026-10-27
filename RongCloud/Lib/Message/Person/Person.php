@@ -200,6 +200,7 @@ class Person
      * 'targetId'=> 'markoiwm', // Receiver ID
      * "uId"=>'5GSB-RPM1-KP8H-9JHF', // Message unique identifier
      * 'sentTime'=>'1519444243981' // Sending time
+     * 'user'=>['id'=>'operatorId','name'=>'operatorName','portrait'=>'avatarUrl','extra'=>'extra'] // Recalling user information
      * ];
      * @return array
      */
@@ -213,6 +214,7 @@ class Person
             'verify' => $this->verify['message']
         ]);
         if ($error) return $error;
+        $Message = (new Utils())->recallUser($Message);
         $Message = (new Utils())->rename($Message, [
             'senderId' => 'fromUserId',
             'uId' => 'messageUID'
