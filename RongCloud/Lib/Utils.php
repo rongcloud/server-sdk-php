@@ -44,6 +44,32 @@ class Utils
     }
 
     /**
+ * Flatten the user information carried by a recall request
+ * @param array $Message
+ * @return array
+ */
+    public function recallUser($Message)
+    {
+        if (!isset($Message['user']) || !is_array($Message['user'])) {
+            return $Message;
+        }
+        $user = $Message['user'];
+        $map = [
+            'id' => 'userId',
+            'name' => 'userName',
+            'portrait' => 'userPortrait',
+            'extra' => 'userExtra'
+        ];
+        foreach ($map as $from => $to) {
+            if (isset($user[$from]) && $user[$from] !== '') {
+                $Message[$to] = $user[$from];
+            }
+        }
+        unset($Message['user']);
+        return $Message;
+    }
+
+    /**
  * Template replacement
  * @param $temp
  * @param $data

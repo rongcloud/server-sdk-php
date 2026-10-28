@@ -198,6 +198,7 @@ class Group
      * 'targetId'=> 'markoiwm',// Group ID
      * "uId"=>'5GSB-RPM1-KP8H-9JHF',// Unique message identifier
      * 'sentTime'=>'1519444243981'// Message sending time
+     * 'user'=>['id'=>'operatorId','name'=>'operatorName','portrait'=>'avatarUrl','extra'=>'extra']// Recalling user information
      * ];
      * @return array
      */
@@ -211,6 +212,7 @@ class Group
             'verify' => $this->verify['message']
         ]);
         if ($error) return $error;
+        $Message = (new Utils())->recallUser($Message);
         $Message = (new Utils())->rename($Message, [
             'senderId' => 'fromUserId',
             'uId' => 'messageUID'
